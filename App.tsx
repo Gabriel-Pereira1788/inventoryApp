@@ -1,0 +1,15 @@
+import {NativeBaseProvider} from 'native-base';
+import React from 'react';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {Router} from './src/routes/Router';
+import {colorModeManager, MAIN} from './src/styles/themes';
+
+export default function App() {
+  return (
+    <NativeBaseProvider colorModeManager={colorModeManager} theme={MAIN}>
+      <SafeAreaProvider>
+        <Router />
+      </SafeAreaProvider>
+    </NativeBaseProvider>
+  );
+}
