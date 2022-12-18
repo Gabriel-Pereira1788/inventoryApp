@@ -1,13 +1,17 @@
 import React, {useState} from 'react';
+import {useAuth} from '../../hooks/useAuth';
 import {SigninDTO} from '../../models/Auth';
 import {Input} from '../Input';
 import {Wrapper} from './Wrapper';
 
 export function Login() {
   const [dataSignin, setDataSignin] = useState({} as SigninDTO);
+  const {signIn, loading} = useAuth();
 
   const onSubmit = async () => {
-    console.log(dataSignin);
+    if (dataSignin) {
+      await signIn(dataSignin);
+    }
   };
 
   const handleChange = (name: keyof SigninDTO) => {
@@ -17,7 +21,7 @@ export function Login() {
   };
 
   return (
-    <Wrapper onSubmit={onSubmit} title="Entrar">
+    <Wrapper onSubmit={onSubmit} title="Entrar" loading={loading}>
       <Input
         title="Email"
         value={dataSignin.email}

@@ -1,19 +1,18 @@
 import React, {ReactNode} from 'react';
 import {VStack, Text} from 'native-base';
+//*components
 import {Button} from '../Button';
-import {useColorMode} from 'native-base';
 
 interface Props {
   onSubmit: () => Promise<void>;
   title: string;
   children: ReactNode;
+  loading?: boolean;
 }
 
-export function Wrapper({onSubmit, children, title}: Props) {
-  const {toggleColorMode} = useColorMode();
+export function Wrapper({onSubmit, children, title, loading}: Props) {
   const handleSubmit = () => {
     onSubmit();
-    toggleColorMode();
   };
   return (
     <VStack
@@ -38,9 +37,11 @@ export function Wrapper({onSubmit, children, title}: Props) {
         justifyContent="center"
         space={3}
         mt="5%"
-        p={4}>
+        p={2}>
         {children}
-        <Button onPress={handleSubmit}>Confirmar</Button>
+        <Button onPress={handleSubmit} loading={loading}>
+          Confirmar
+        </Button>
       </VStack>
     </VStack>
   );

@@ -1,16 +1,30 @@
 import {useNavigation} from '@react-navigation/native';
+import {useQueryClient} from '@tanstack/react-query';
 import {VStack, Image, Text, Box} from 'native-base';
-
+import auth from '@react-native-firebase/auth';
 import React, {useEffect} from 'react';
 import {Loading} from '../../../components/Loading';
+import {formatUser} from '../../../utils/formatUser';
 
 export function InitialScreen() {
   const navigation = useNavigation();
+  const queryClient = useQueryClient();
+
   useEffect(() => {
-    setTimeout(() => {
-      navigation.navigate('register');
-    }, 3000);
-  }, [navigation]);
+    auth().onAuthStateChanged(userCredentials => {
+      if (userCredentials) {
+        queryClient.setQueryData(['user'], formatUser(userCredentials));
+        setTimeout(() => {
+          navigation.navigate('dashboard');
+        }, 2000);
+      } else {
+        queryClient.removeQueries(['user']);
+        setTimeout(() => {
+          navigation.navigate('login');
+        }, 2000);
+      }
+    });
+  }, [navigation, queryClient]);
   return (
     <VStack
       bg="dark.400"

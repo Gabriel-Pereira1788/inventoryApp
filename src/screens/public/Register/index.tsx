@@ -10,7 +10,7 @@ export function Register() {
       justifyContent="center"
       _light={{backgroundColor: 'backgroundLight'}}
       _dark={{backgroundColor: 'backgroundDark'}}
-      p={5}
+      p={3}
       flex={1}
       testID="container"
       position="relative">

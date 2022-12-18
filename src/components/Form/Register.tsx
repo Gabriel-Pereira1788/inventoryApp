@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
+//*hooks
 import {useAuth} from '../../hooks/useAuth';
+//*models
 import {RegisterDTO} from '../../models/Auth';
-// import auth from '../../services/modules/auth/auth';
+//*components
 import {Input} from '../Input';
 import {Wrapper} from './Wrapper';
 
@@ -9,7 +11,9 @@ export function Register() {
   const [dataRegister, setDataRegister] = useState({
     email: 'teste',
   } as RegisterDTO);
-  const {createUser} = useAuth();
+
+  const {createUser, loading} = useAuth();
+
   const onSubmit = async () => {
     await createUser(dataRegister);
   };
@@ -20,7 +24,7 @@ export function Register() {
     };
   };
   return (
-    <Wrapper onSubmit={onSubmit} title="Faça Parte">
+    <Wrapper onSubmit={onSubmit} loading={loading} title="Faça Parte">
       <Input
         title="Nome"
         value={dataRegister.name}
