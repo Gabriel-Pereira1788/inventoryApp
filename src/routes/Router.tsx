@@ -5,9 +5,11 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Login} from '../screens/public/Login';
 import {Register} from '../screens/public/Register';
 import {InitialScreen} from '../screens/public/InitialScreen';
-import {Dashboard} from '../screens/private/Dashboard';
-//*hooks
-import {withRequireAuth} from '../hooks/withRequireAuth';
+//*icons
+import IconIonicon from 'react-native-vector-icons/Ionicons';
+import {Private} from './Private.route';
+
+IconIonicon.loadFont();
 
 const Stack = createNativeStackNavigator();
 export function Router() {
@@ -36,8 +38,8 @@ export function Router() {
           }}
         />
         <Stack.Screen
-          name="dashboard"
-          component={withRequireAuth(Dashboard)}
+          name="private"
+          component={Private}
           options={{
             headerShown: false,
           }}

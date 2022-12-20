@@ -15,7 +15,7 @@ export function InitialScreen() {
       if (userCredentials) {
         queryClient.setQueryData(['user'], formatUser(userCredentials));
         setTimeout(() => {
-          navigation.navigate('dashboard');
+          navigation.navigate('private', {screen: 'dashboard'});
         }, 2000);
       } else {
         queryClient.removeQueries(['user']);

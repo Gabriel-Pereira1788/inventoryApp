@@ -7,6 +7,7 @@ export declare global {
       register: undefined;
       initialScreen: undefined;
       dashboard: undefined;
+      private: {screen: 'dashboard' | 'products'};
     }
   }
 }

@@ -1,38 +1,51 @@
 import React from 'react';
-
-import {Box, HStack, Text, VStack} from 'native-base';
+import {HStack, ScrollView, VStack} from 'native-base';
+//*models
 import {User} from '../../../models/Auth';
-import {Button} from '../../../components/Button';
-import {useAuth} from '../../../hooks/useAuth';
-import {DataCard} from '../../../components/DataCard';
+//*components
+import {DataCard} from './components/DataCard';
+import {GraphSales} from './components/GraphSales';
+import {SharedLayout} from '../../../components/SharedLayout';
+import {useQuery} from '@tanstack/react-query';
+import {Statistics} from '../../../services/modules/Statistics/Statistics';
 
 interface Props {
   user?: User;
 }
 
+const id = '8yBTG7BGJvS8QgQJUoPrFqIMbzA2';
 export function Dashboard({user}: Props) {
-  const {signOut, loading} = useAuth();
+  const {data: statistics} = useQuery(
+    ['statistics'],
+    () => Statistics.getStatistics(id),
+    {refetchOnMount: false, keepPreviousData: true},
+  );
 
-  const handleSignOut = async () => {
-    await signOut();
-  };
-
-  console.log(loading);
-
+  console.log(user);
+  console.log(statistics);
   return (
-    <Box
-      flex={1}
-      _light={{backgroundColor: 'backgroundLight'}}
-      _dark={{backgroundColor: 'backgroundDark'}}
-      alignItems="center"
-      justifyContent="center"
-      p={3}>
-      <VStack w="100%">
-        <HStack w="100%" alignItems="center" justifyContent="center" space="5">
-          <DataCard />
-          <DataCard />
-        </HStack>
-      </VStack>
-    </Box>
+    <SharedLayout>
+      <ScrollView
+        p={3}
+        mt="15%"
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <VStack w="100%" space="4">
+          <HStack
+            w="100%"
+            alignItems="center"
+            justifyContent="center"
+            space="5">
+            <DataCard />
+            <DataCard />
+          </HStack>
+          <GraphSales />
+        </VStack>
+      </ScrollView>
+    </SharedLayout>
   );
 }
