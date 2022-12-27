@@ -7,7 +7,12 @@ import {Register} from '../screens/public/Register';
 import {InitialScreen} from '../screens/public/InitialScreen';
 //*icons
 import IconIonicon from 'react-native-vector-icons/Ionicons';
-import {Private} from './Private.route';
+import {Dashboard} from '../screens/private/Dashboard';
+import {withRequireAuth} from '../hooks/withRequireAuth';
+import {Card} from '../components/Card';
+import UserCard from '../components/UserCard';
+import MyAccount from '../screens/private/MyAccount';
+import {Products} from '../screens/private/Products';
 
 IconIonicon.loadFont();
 
@@ -37,11 +42,43 @@ export function Router() {
             headerShown: false,
           }}
         />
+
         <Stack.Screen
-          name="private"
-          component={Private}
+          name="dashboard"
+          component={withRequireAuth(Dashboard)}
           options={{
-            headerShown: false,
+            headerTransparent: true,
+            headerTitle: '',
+
+            headerLeft: ({tintColor}) => (
+              <Card p={3} my="2" mx="1">
+                <IconIonicon name="notifications" size={20} color={tintColor} />
+              </Card>
+            ),
+            headerRight: () => <UserCard />,
+          }}
+        />
+        <Stack.Screen
+          name="myAccount"
+          component={withRequireAuth(MyAccount)}
+          options={{
+            headerTransparent: true,
+            headerTitle: '',
+          }}
+        />
+        <Stack.Screen
+          name="products"
+          component={withRequireAuth(Products)}
+          options={{
+            headerTransparent: true,
+            headerTitle: '',
+
+            headerLeft: ({tintColor}) => (
+              <Card p={3} my="2" mx="1">
+                <IconIonicon name="notifications" size={20} color={tintColor} />
+              </Card>
+            ),
+            headerRight: () => <UserCard />,
           }}
         />
       </Stack.Navigator>

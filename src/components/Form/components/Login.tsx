@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {useAuth} from '../../hooks/useAuth';
-import {SigninDTO} from '../../models/Auth';
-import {Input} from '../Input';
-import {Wrapper} from './Wrapper';
+import {useAuth} from '../../../hooks/useAuth';
+import {SigninDTO} from '../../../models/Auth';
+import {Input} from '../../Input';
+import {Wrapper} from '../Wrapper';
 
-export function Login() {
+//*Logica
+function useLogin() {
   const [dataSignin, setDataSignin] = useState({} as SigninDTO);
   const {signIn, loading} = useAuth();
 
@@ -20,6 +21,13 @@ export function Login() {
     };
   };
 
+  return {handleChange, dataSignin, onSubmit, loading};
+}
+
+//*componente
+
+export function Login() {
+  const {dataSignin, handleChange, onSubmit, loading} = useLogin();
   return (
     <Wrapper onSubmit={onSubmit} title="Entrar" loading={loading}>
       <Input

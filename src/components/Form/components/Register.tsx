@@ -1,13 +1,14 @@
 import React, {useState} from 'react';
 //*hooks
-import {useAuth} from '../../hooks/useAuth';
+import {useAuth} from '../../../hooks/useAuth';
 //*models
-import {RegisterDTO} from '../../models/Auth';
+import {RegisterDTO} from '../../../models/Auth';
 //*components
-import {Input} from '../Input';
-import {Wrapper} from './Wrapper';
+import {Input} from '../../Input';
+import {Wrapper} from '../Wrapper';
 
-export function Register() {
+//*Logica
+function useRegister() {
   const [dataRegister, setDataRegister] = useState({
     email: 'teste',
   } as RegisterDTO);
@@ -23,6 +24,15 @@ export function Register() {
       setDataRegister(prev => ({...prev, [name]: value}));
     };
   };
+
+  return {onSubmit, handleChange, loading, dataRegister};
+}
+
+//*componente
+
+export function Register() {
+  const {dataRegister, handleChange, onSubmit, loading} = useRegister();
+
   return (
     <Wrapper onSubmit={onSubmit} loading={loading} title="Faça Parte">
       <Input

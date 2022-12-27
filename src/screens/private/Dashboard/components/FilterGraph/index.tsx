@@ -1,6 +1,6 @@
 import {IPressableProps, Pressable, Text} from 'native-base';
 import React, {ReactNode} from 'react';
-import {FilterDate} from '../GraphSales';
+import {FilterDate} from '../../hooks/useFilter';
 
 export interface Props extends IPressableProps {
   identifier: FilterDate;
