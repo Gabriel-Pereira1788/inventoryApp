@@ -1,5 +1,7 @@
+import {QueryClientProvider} from '@tanstack/react-query';
 import {NativeBaseProvider} from 'native-base';
 import React, {ReactNode} from 'react';
+import queryClient from '../services/config/queryClient';
 import {colorModeManager, MAIN} from '../styles/themes';
 export const inset = {
   frame: {x: 0, y: 0, width: 0, height: 0},
@@ -8,11 +10,13 @@ export const inset = {
 
 export const Wrapper = ({children}: {children: ReactNode}) => {
   return (
-    <NativeBaseProvider
-      initialWindowMetrics={inset}
-      colorModeManager={colorModeManager}
-      theme={MAIN}>
-      {children}
-    </NativeBaseProvider>
+    <QueryClientProvider client={queryClient}>
+      <NativeBaseProvider
+        initialWindowMetrics={inset}
+        colorModeManager={colorModeManager}
+        theme={MAIN}>
+        {children}
+      </NativeBaseProvider>
+    </QueryClientProvider>
   );
 };
