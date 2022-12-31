@@ -1,25 +1,27 @@
-import {Box, IPressableProps, Pressable, useColorMode} from 'native-base';
-import {Sun} from 'phosphor-react-native';
+import * as S from 'native-base';
+import {Sun, Moon} from 'phosphor-react-native';
 import React from 'react';
 
-interface Props extends IPressableProps {}
+interface Props extends S.IPressableProps {}
 export function ToggleTheme(props: Props) {
-  const {toggleColorMode, colorMode} = useColorMode();
+  const {toggleColorMode, colorMode} = S.useColorMode();
   return (
-    <Pressable onPress={toggleColorMode} {...props} testID="toggleColorButton">
-      <Box
-        p={3}
-        _light={{backgroundColor: '#fff'}}
-        _dark={{backgroundColor: 'dark.300'}}
-        rounded="md"
-        shadow={1}
-        testID="containerIcon">
-        <Sun
-          size={20}
-          weight="fill"
-          color={colorMode === 'light' ? '#000' : '#fff'}
-        />
-      </Box>
-    </Pressable>
+    <S.HStack alignItems="center" space={3} testID="containerIcon">
+      <Sun
+        size={20}
+        weight="fill"
+        color={colorMode === 'light' ? '#000' : '#fff'}
+      />
+      <S.Switch
+        size="md"
+        onToggle={toggleColorMode}
+        isChecked={colorMode === 'dark'}
+      />
+      <Moon
+        size={20}
+        weight="fill"
+        color={colorMode === 'light' ? '#000' : '#fff'}
+      />
+    </S.HStack>
   );
 }

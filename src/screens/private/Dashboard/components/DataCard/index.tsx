@@ -1,34 +1,55 @@
 import React from 'react';
-import {HStack, Text} from 'native-base';
-//*components
-import {Card} from '../../../../../components/Card';
+//*styles
+import * as S from 'native-base';
 //*icons
 import Icon from 'react-native-vector-icons/Ionicons';
+import FontIcons from 'react-native-vector-icons/FontAwesome5';
 Icon.loadFont();
 
-export function DataCard() {
+interface Props extends S.IStackProps {
+  textCard: string;
+}
+
+export function DataCard({textCard, ...rest}: Props) {
   return (
-    <Card p={3} h="40" space="5">
-      <HStack w="100%" alignItems="center" justifyContent="flex-start">
-        <Icon
-          name="pie-chart-sharp"
-          size={20}
-          color="#000"
-          testID="iconChart"
-        />
-      </HStack>
+    <S.VStack
+      py={4}
+      px={4}
+      minW="40"
+      space="2"
+      rounded="xl"
+      {...rest}
+      shadow="4">
+      <S.HStack w="100%" alignItems="center" justifyContent="flex-start">
+        {textCard === 'Produtos que entraram' ? (
+          <Icon
+            name="pie-chart-sharp"
+            size={27}
+            color="#fff"
+            testID="iconChart"
+          />
+        ) : (
+          <FontIcons
+            name="chart-pie"
+            size={25}
+            color="#fff"
+            testID="iconChart"
+          />
+        )}
+      </S.HStack>
 
-      <Text
-        fontWeight="bold"
-        fontSize="3xl"
-        color="primary.300"
-        textAlign="center">
+      <S.Text fontWeight="bold" fontSize="3xl" color="#fff" textAlign="left">
         3027
-      </Text>
+      </S.Text>
 
-      <Text fontWeight="bold" fontSize="sm" color="text.100">
-        Produtos que entraram
-      </Text>
-    </Card>
+      <S.Text
+        fontWeight="bold"
+        fontSize="xs"
+        color="#ffffffc1"
+        textAlign="left"
+        shadow="4">
+        {textCard}
+      </S.Text>
+    </S.VStack>
   );
 }

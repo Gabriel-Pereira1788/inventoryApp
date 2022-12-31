@@ -27,6 +27,8 @@ export const MAIN = extendTheme({
     primary: {
       200: '#FFF3AA',
       300: '#F0DC61',
+      400: '#FFE600',
+      500: '#FFE238',
     },
     dark: {
       200: '#716F6F',

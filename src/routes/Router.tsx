@@ -13,14 +13,23 @@ import {Card} from '../components/Card';
 import UserCard from '../components/UserCard';
 import MyAccount from '../screens/private/MyAccount';
 import {Products} from '../screens/private/Products';
+import {useColorMode} from 'native-base';
 
 IconIonicon.loadFont();
 
 const Stack = createNativeStackNavigator();
 export function Router() {
+  const {colorMode} = useColorMode();
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 23,
+            color: colorMode === 'light' ? '#000' : '#fff',
+          },
+        }}>
         <Stack.Screen
           name="initial"
           component={InitialScreen}
@@ -48,13 +57,9 @@ export function Router() {
           component={withRequireAuth(Dashboard)}
           options={{
             headerTransparent: true,
-            headerTitle: '',
+            headerTitle: 'Painel de controle',
 
-            headerLeft: ({tintColor}) => (
-              <Card p={3} my="2" mx="1">
-                <IconIonicon name="notifications" size={20} color={tintColor} />
-              </Card>
-            ),
+            headerLeft: () => <></>,
             headerRight: () => <UserCard />,
           }}
         />

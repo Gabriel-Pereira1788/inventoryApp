@@ -13,6 +13,7 @@ export function Card({children, ...rest}: Props) {
       _dark={{backgroundColor: 'dark.300'}}
       rounded="md"
       shadow={3}
+      overflow="hidden"
       {...rest}>
       {children}
     </VStack>
