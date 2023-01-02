@@ -9,6 +9,7 @@ export declare global {
       dashboard: undefined;
       products: undefined;
       myAccount: undefined;
+      notifications: undefined;
     }
   }
 }

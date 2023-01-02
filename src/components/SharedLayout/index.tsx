@@ -1,12 +1,13 @@
 import {Box, IBoxProps} from 'native-base';
 import React, {ReactNode} from 'react';
-import BottomTabs from '../BottomTabs';
+import BottomTabs, {Paths} from '../BottomTabs';
 
 interface Props extends IBoxProps {
   children: ReactNode;
+  currentPath?: Paths;
 }
 
-export function SharedLayout({children}: Props) {
+export function SharedLayout({children, currentPath}: Props) {
   return (
     <>
       <Box
@@ -18,7 +19,7 @@ export function SharedLayout({children}: Props) {
         p={3}>
         {children}
       </Box>
-      <BottomTabs />
+      <BottomTabs currentPath={currentPath} />
     </>
   );
 }

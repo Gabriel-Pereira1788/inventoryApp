@@ -7,15 +7,15 @@ import {SharedLayout} from '../../../components/SharedLayout';
 //*hooks
 import {useDashboard} from './hooks/useDashboard';
 import BestSellingCard from './components/BestSellingCard';
+import LineChart from './components/LineChart';
 
 const id = '8yBTG7BGJvS8QgQJUoPrFqIMbzA2';
 export function Dashboard() {
   const {statistics, Filter} = useDashboard(id);
 
   return (
-    <SharedLayout>
+    <SharedLayout currentPath="dashboard">
       <S.ScrollView
-        p={3}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           flexGrow: 1,
@@ -40,7 +40,7 @@ export function Dashboard() {
               textCard="Produtos que sairam"
             />
           </S.HStack>
-          <S.VStack w="100%" h="80" overflow="hidden" mt={5}>
+          <S.VStack w="100%" overflow="hidden" mt={5}>
             <S.HStack w="100%">
               <Filter identifier="day">1d</Filter>
               <Filter identifier="week">1w</Filter>
@@ -54,6 +54,7 @@ export function Dashboard() {
               Total: R$ 27.767,53
             </S.Text>
           </S.VStack>
+          <LineChart />
         </S.VStack>
         <BestSellingCard />
       </S.ScrollView>

@@ -6,16 +6,20 @@ import {ModalEdit} from './components/ModalEdit';
 import {SharedLayout} from '../../../components/SharedLayout';
 import DataView from './components/DataView';
 //*icons
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 //*hooks
 import {useModal} from '../../../hooks/useModal';
 import {ToggleTheme} from '../../../components/ToggleTheme';
+import {useAuth} from '../../../hooks/useAuth';
 MaterialIcons.loadFont();
+Ionicons.loadFont();
 
 type Props = {};
 
 export default function MyAccount({}: Props) {
   const {isOpen, handleToggleState} = useModal();
+  const {signOut} = useAuth();
 
   return (
     <>
@@ -24,6 +28,10 @@ export default function MyAccount({}: Props) {
           <ToggleTheme />
         </S.Box>
         <DataView onPress={handleToggleState} key={String(isOpen)} />
+
+        <S.Box mt={10} width="100%" alignItems="center" justifyContent="center">
+          <Ionicons name="exit" color="#000" size={30} onPress={signOut} />
+        </S.Box>
       </SharedLayout>
       <ModalEdit isOpen={isOpen} onClose={handleToggleState} />
     </>

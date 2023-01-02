@@ -12,6 +12,8 @@ export function Button({children, loading, ...rest}: Props) {
       p={3}
       rounded="lg"
       backgroundColor="primary.300"
+      opacity={0.7}
+      _pressed={{opacity: 0.9}}
       w="100%"
       _text={{textAlign: 'center', fontSize: 'lg', fontWeight: 'bold'}}
       isLoading={loading}

@@ -23,7 +23,7 @@ export function useAuth() {
             formatUser(userCredentials.user),
           );
 
-          navigation.navigate('private', {screen: 'dashboard'});
+          navigation.navigate('dashboard');
         }
       })
       .catch(err => console.log(err))
@@ -46,7 +46,7 @@ export function useAuth() {
           formatUser({...userCredentials.user, displayName: dataSubmit.name}),
         );
 
-        navigation.navigate('private', {screen: 'dashboard'});
+        navigation.navigate('dashboard');
       })
       .catch(err => console.log(err))
       .finally(() => setLoading(false));

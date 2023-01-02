@@ -8,7 +8,7 @@ export function Register() {
     <Box
       alignItems="center"
       justifyContent="center"
-      _light={{backgroundColor: 'backgroundLight'}}
+      _light={{backgroundColor: '#FCF5DE'}}
       _dark={{backgroundColor: 'backgroundDark'}}
       p={3}
       flex={1}

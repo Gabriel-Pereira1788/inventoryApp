@@ -5,18 +5,16 @@ import * as S from 'native-base';
 //*icons
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import {useColorMode} from 'native-base';
+import {useBottomTabs} from './hooks/useBottomTabs';
 MaterialIcon.loadFont();
 
-type Props = {};
+export type Paths = 'dashboard' | 'products' | 'notifications';
+type Props = {
+  currentPath?: Paths;
+};
 
-export default function BottomTabs({}: Props) {
-  const navigation = useNavigation();
-  const {colorMode} = useColorMode();
-  const redirectScreen = (path: 'dashboard' | 'products') => {
-    return () => {
-      navigation.navigate(path);
-    };
-  };
+export default function BottomTabs({currentPath}: Props) {
+  const {redirectScreen, setCurrentColor} = useBottomTabs(currentPath);
   return (
     <S.HStack
       width="100%"
@@ -24,20 +22,26 @@ export default function BottomTabs({}: Props) {
       py={2}
       alignItems="center"
       justifyContent="space-evenly"
-      space={5}
+      space={1}
       _light={{backgroundColor: 'backgroundLight'}}
       _dark={{backgroundColor: 'backgroundDark'}}>
       <MaterialIcon
         name="pie-chart"
         size={25}
-        color={colorMode === 'light' ? '#000' : '#fff'}
+        color={setCurrentColor('dashboard')}
         onPress={redirectScreen('dashboard')}
       />
       <MaterialIcon
         name="inventory"
         size={25}
-        color={colorMode === 'light' ? '#000' : '#fff'}
+        color={setCurrentColor('products')}
         onPress={redirectScreen('products')}
+      />
+      <MaterialIcon
+        name="notifications"
+        size={25}
+        color={setCurrentColor('notifications')}
+        onPress={redirectScreen('notifications')}
       />
     </S.HStack>
   );

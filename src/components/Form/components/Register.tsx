@@ -1,60 +1,43 @@
-import React, {useState} from 'react';
-//*hooks
-import {useAuth} from '../../../hooks/useAuth';
-//*models
-import {RegisterDTO} from '../../../models/Auth';
+import React from 'react';
+//* Hooks
+import {useRegister} from '../hooks/useRegister';
 //*components
 import {Input} from '../../Input';
 import {Wrapper} from '../Wrapper';
 
-//*Logica
-function useRegister() {
-  const [dataRegister, setDataRegister] = useState({
-    email: 'teste',
-  } as RegisterDTO);
-
-  const {createUser, loading} = useAuth();
-
-  const onSubmit = async () => {
-    await createUser(dataRegister);
-  };
-
-  const handleChange = (name: keyof RegisterDTO) => {
-    return (value: string) => {
-      setDataRegister(prev => ({...prev, [name]: value}));
-    };
-  };
-
-  return {onSubmit, handleChange, loading, dataRegister};
-}
-
-//*componente
-
 export function Register() {
-  const {dataRegister, handleChange, onSubmit, loading} = useRegister();
+  const {dataRegister, handleChange, onSubmit, loading, errors} = useRegister();
 
   return (
-    <Wrapper onSubmit={onSubmit} loading={loading} title="Faça Parte">
+    <Wrapper onSubmit={onSubmit} loading={loading} isRegister>
       <Input
         title="Nome"
         value={dataRegister.name}
+        error={!!errors.name}
+        errorMessage={errors.name}
         onChangeText={handleChange('name')}
         testID="inputName"
       />
       <Input
         title="Email"
+        error={!!errors.email}
+        errorMessage={errors.email}
         value={dataRegister.email}
         onChangeText={handleChange('email')}
         testID="inputEmail"
       />
       <Input
         title="Senha"
+        error={!!errors.password}
+        errorMessage={errors.password}
         value={dataRegister.password}
         onChangeText={handleChange('password')}
         testID="inputPassword"
       />
       <Input
         title="Confirmar senha"
+        error={!!errors.confirmPassword}
+        errorMessage={errors.confirmPassword}
         value={dataRegister.confirmPassword}
         onChangeText={handleChange('confirmPassword')}
         testID="inputConfirmPassword"

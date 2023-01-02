@@ -15,6 +15,7 @@ export default function BestSellingCard({}: Props) {
       _light={{backgroundColor: 'dark.300'}}
       w="80%"
       position="relative"
+      mt={10}
       mb="15%"
       rounded="3xl">
       <S.Pressable _pressed={{opacity: 0.8, backgroundColor: '#6a6969'}} p={4}>
