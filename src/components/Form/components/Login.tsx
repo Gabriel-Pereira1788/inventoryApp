@@ -18,6 +18,7 @@ export function Login() {
         onChangeText={handleChange('email')}
       />
       <Input
+        type="password"
         title="Senha"
         error={!!errors.password}
         errorMessage={errors.password}

@@ -8,7 +8,10 @@ export const inset = {
   insets: {top: 0, left: 0, right: 0, bottom: 0},
 };
 
-export const Wrapper = ({children}: {children: ReactNode}) => {
+type Props = {
+  children: ReactNode;
+};
+export const Wrapper = ({children}: Props) => {
   return (
     <QueryClientProvider client={queryClient}>
       <NativeBaseProvider

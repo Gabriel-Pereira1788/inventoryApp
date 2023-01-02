@@ -27,6 +27,7 @@ export function Register() {
         testID="inputEmail"
       />
       <Input
+        type="password"
         title="Senha"
         error={!!errors.password}
         errorMessage={errors.password}
@@ -35,6 +36,7 @@ export function Register() {
         testID="inputPassword"
       />
       <Input
+        type="password"
         title="Confirmar senha"
         error={!!errors.confirmPassword}
         errorMessage={errors.confirmPassword}

@@ -34,7 +34,7 @@ describe('Form', () => {
       const mockSubmit = jest.fn();
       const {getByText} = render(
         <Wrapper>
-          <Form.Wrapper onSubmit={mockSubmit} title="Test form wrapper">
+          <Form.Wrapper onSubmit={mockSubmit}>
             <Input title="teste" />
           </Form.Wrapper>
         </Wrapper>,
@@ -42,7 +42,7 @@ describe('Form', () => {
 
       expect(getByText('teste')).toBeTruthy();
       expect(getByText('Confirmar')).toBeTruthy();
-      expect(getByText('Test form wrapper')).toBeTruthy();
+      expect(getByText('INVENTORY')).toBeTruthy();
     });
   });
 
@@ -87,7 +87,7 @@ describe('Form', () => {
       const mockSubmit = jest.fn();
       const {getByText} = render(
         <Wrapper>
-          <Form.Wrapper title="Form" onSubmit={mockSubmit}>
+          <Form.Wrapper onSubmit={mockSubmit}>
             <Input title="Email" value="teste@gmail.com" testID="inputEmail" />
             <Input title="password" value="teste1234" testID="inputPassword" />
           </Form.Wrapper>

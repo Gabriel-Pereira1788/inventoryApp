@@ -17,7 +17,7 @@ export function useRegister() {
   const onSubmit = async () => {
     const validation = validationData(dataRegister);
     if (typeof validation === 'string') {
-      // await createUser(dataRegister);
+      await createUser(dataRegister);
     } else {
       setErrors(validation);
     }
