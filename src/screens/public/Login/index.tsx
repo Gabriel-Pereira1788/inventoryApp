@@ -7,7 +7,7 @@ export function Login() {
   return (
     <Box
       alignItems="center"
-      _light={{backgroundColor: 'backgroundLight'}}
+      _light={{backgroundColor: '#FCF5DE'}}
       _dark={{backgroundColor: 'backgroundDark'}}
       flex={1}
       testID="container"

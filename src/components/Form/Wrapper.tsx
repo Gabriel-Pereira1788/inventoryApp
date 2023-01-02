@@ -1,47 +1,62 @@
 import React, {ReactNode} from 'react';
-import {VStack, Text} from 'native-base';
+import * as S from 'native-base';
+//*components
 import {Button} from '../Button';
-import {useColorMode} from 'native-base';
+import {useNavigation} from '@react-navigation/native';
 
 interface Props {
   onSubmit: () => Promise<void>;
-  title: string;
   children: ReactNode;
+  isRegister?: boolean;
+  loading?: boolean;
 }
 
-export function Wrapper({onSubmit, children, title}: Props) {
-  const {toggleColorMode} = useColorMode();
+export function Wrapper({onSubmit, children, isRegister, loading}: Props) {
+  const navigation = useNavigation();
   const handleSubmit = () => {
     onSubmit();
-    toggleColorMode();
+  };
+
+  const redirectScreen = () => {
+    navigation.navigate(isRegister ? 'login' : 'register');
   };
   return (
-    <VStack
-      p={3}
-      _light={{backgroundColor: 'white'}}
-      _dark={{backgroundColor: 'dark.300'}}
-      w="100%"
-      rounded="xl"
-      shadow={'1'}>
-      <Text
+    <S.VStack w="100%">
+      <S.Text
         fontWeight="bold"
-        color="primary.300"
-        _light={{color: 'primary.300'}}
-        _dark={{color: '#fff'}}
-        fontSize="3xl"
+        color="#fff"
+        style={{
+          textShadowColor: 'rgba(7, 7, 7, 0.244)',
+          textShadowOffset: {width: 1, height: 1},
+          textShadowRadius: 10,
+        }}
+        fontSize="4xl"
         textAlign="center">
-        {title}
-      </Text>
-      <VStack
+        INVENTORY
+      </S.Text>
+      <S.VStack
         w="100%"
         alignItems="center"
         justifyContent="center"
         space={3}
-        mt="5%"
-        p={4}>
+        mt="5%">
         {children}
-        <Button onPress={handleSubmit}>Confirmar</Button>
-      </VStack>
-    </VStack>
+        <Button
+          onPress={handleSubmit}
+          loading={loading}
+          mt={3}
+          _dark={{opacity: 1}}>
+          Confirmar
+        </Button>
+
+        <S.Pressable w="100%" alignItems="flex-start" onPress={redirectScreen}>
+          <S.Text textAlign="left" bold fontSize="md" color="text.100">
+            {isRegister
+              ? 'Ja possui cadastro? faça o login.'
+              : 'Não possui cadastro? clique para registrar-se'}
+          </S.Text>
+        </S.Pressable>
+      </S.VStack>
+    </S.VStack>
   );
 }

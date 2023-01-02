@@ -1,46 +1,45 @@
-import React, {useState} from 'react';
-import {useAuth} from '../../hooks/useAuth';
-import {RegisterDTO} from '../../models/Auth';
-// import auth from '../../services/modules/auth/auth';
-import {Input} from '../Input';
-import {Wrapper} from './Wrapper';
+import React from 'react';
+//* Hooks
+import {useRegister} from '../hooks/useRegister';
+//*components
+import {Input} from '../../Input';
+import {Wrapper} from '../Wrapper';
 
 export function Register() {
-  const [dataRegister, setDataRegister] = useState({
-    email: 'teste',
-  } as RegisterDTO);
-  const {createUser} = useAuth();
-  const onSubmit = async () => {
-    await createUser(dataRegister);
-  };
+  const {dataRegister, handleChange, onSubmit, loading, errors} = useRegister();
 
-  const handleChange = (name: keyof RegisterDTO) => {
-    return (value: string) => {
-      setDataRegister(prev => ({...prev, [name]: value}));
-    };
-  };
   return (
-    <Wrapper onSubmit={onSubmit} title="Faça Parte">
+    <Wrapper onSubmit={onSubmit} loading={loading} isRegister>
       <Input
         title="Nome"
         value={dataRegister.name}
+        error={!!errors.name}
+        errorMessage={errors.name}
         onChangeText={handleChange('name')}
         testID="inputName"
       />
       <Input
         title="Email"
+        error={!!errors.email}
+        errorMessage={errors.email}
         value={dataRegister.email}
         onChangeText={handleChange('email')}
         testID="inputEmail"
       />
       <Input
+        type="password"
         title="Senha"
+        error={!!errors.password}
+        errorMessage={errors.password}
         value={dataRegister.password}
         onChangeText={handleChange('password')}
         testID="inputPassword"
       />
       <Input
+        type="password"
         title="Confirmar senha"
+        error={!!errors.confirmPassword}
+        errorMessage={errors.confirmPassword}
         value={dataRegister.confirmPassword}
         onChangeText={handleChange('confirmPassword')}
         testID="inputConfirmPassword"

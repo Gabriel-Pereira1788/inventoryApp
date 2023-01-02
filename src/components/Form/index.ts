@@ -1,5 +1,5 @@
-import {Login} from './Login';
-import {Register} from './Register';
+import {Login} from './components/Login';
+import {Register} from './components/Register';
 import {Wrapper} from './Wrapper';
 
 export default {
