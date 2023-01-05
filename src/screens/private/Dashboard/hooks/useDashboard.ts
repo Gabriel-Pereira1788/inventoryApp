@@ -3,9 +3,6 @@ import {useQuery} from '@tanstack/react-query';
 import {Statistics} from '../../../../services/modules/Statistics/Statistics';
 import {useUser} from '../../../../store/useUser';
 
-import {FilterGraph} from '../components/FilterGraph';
-import {withPreConf} from '../../../../hooks/withPreConf';
-
 export type FilterDate =
   | 'day'
   | 'week'
@@ -21,16 +18,15 @@ export function useDashboard(id: string) {
     setCurrentFilter(filter);
   }
 
-  const Filter = withPreConf(FilterGraph, {
-    changeFilter,
-    currentFilter,
-  });
-
-  const {data: statistics} = useQuery(
-    ['statistics'],
-    () => Statistics.getStatistics(id),
-    {refetchOnMount: false, keepPreviousData: true},
+  const {
+    data: statistics,
+    isLoading,
+    error,
+  } = useQuery(
+    ['statistics', currentFilter],
+    () => Statistics.getStatistics(id, currentFilter),
+    {refetchOnMount: false},
   );
 
-  return {statistics, changeFilter, Filter};
+  return {statistics, changeFilter, currentFilter, isLoading, error};
 }

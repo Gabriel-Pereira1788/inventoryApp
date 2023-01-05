@@ -4,6 +4,7 @@ import {useLogin} from '../hooks/useLogin';
 //*components
 import {Input} from '../../Input';
 import {Wrapper} from '../Wrapper';
+import {InputPassword} from '../../Input/components/InputPassword';
 
 export function Login() {
   const {dataSignin, loading, errors, handleChange, onSubmit} = useLogin();
@@ -17,8 +18,7 @@ export function Login() {
         testID="inputEmail"
         onChangeText={handleChange('email')}
       />
-      <Input
-        type="password"
+      <InputPassword
         title="Senha"
         error={!!errors.password}
         errorMessage={errors.password}

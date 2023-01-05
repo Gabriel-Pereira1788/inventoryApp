@@ -1,5 +1,14 @@
+import {Product} from './Product';
+
+export type FilterDate =
+  | 'day'
+  | 'week'
+  | 'month'
+  | '3 month'
+  | '6 month'
+  | 'year';
+
 export interface BestSelling {
-  _id: string;
   id: string;
   id_product: string;
   id_user: string;
@@ -9,23 +18,14 @@ export interface BestSelling {
   storage: number;
   createdAt: string;
   updatedAt: string;
-  __v: number;
 }
 
 export interface StatisticsDTO {
-  dataMonth: {
-    [name: string]: {
-      total_piece_sales: number;
-      sales_amount: number;
-      bestSelling: BestSelling;
-      storage_month: number;
-    };
+  parts_entered: number;
+  parts_leave: number;
+  best_selling: {
+    product: Product | null;
+    data_sale: BestSelling | null;
   };
-  dataTotal: {
-    total_sales: number;
-    total_pieces_sales: number;
-    total_storage: number;
-    total_price_saled: number;
-    total_price_purchased: number;
-  };
+  total_sales: number;
 }

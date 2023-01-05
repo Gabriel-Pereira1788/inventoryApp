@@ -4,6 +4,7 @@ import {useRegister} from '../hooks/useRegister';
 //*components
 import {Input} from '../../Input';
 import {Wrapper} from '../Wrapper';
+import {InputPassword} from '../../Input/components/InputPassword';
 
 export function Register() {
   const {dataRegister, handleChange, onSubmit, loading, errors} = useRegister();
@@ -26,8 +27,7 @@ export function Register() {
         onChangeText={handleChange('email')}
         testID="inputEmail"
       />
-      <Input
-        type="password"
+      <InputPassword
         title="Senha"
         error={!!errors.password}
         errorMessage={errors.password}
@@ -35,8 +35,7 @@ export function Register() {
         onChangeText={handleChange('password')}
         testID="inputPassword"
       />
-      <Input
-        type="password"
+      <InputPassword
         title="Confirmar senha"
         error={!!errors.confirmPassword}
         errorMessage={errors.confirmPassword}

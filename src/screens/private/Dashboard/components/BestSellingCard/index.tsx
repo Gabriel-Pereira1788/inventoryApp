@@ -6,10 +6,18 @@ import {Card} from '../../../../../components/Card';
 //*icons
 
 import FontIcons from 'react-native-vector-icons/FontAwesome5';
+import {BestSelling} from '../../../../../models/Statistics';
+import {Product} from '../../../../../models/Product';
 
-type Props = {};
+type Props = {
+  bestSelling?: {
+    product: Product | null;
+    data_sale: BestSelling | null;
+  };
+};
 
-export default function BestSellingCard({}: Props) {
+export default function BestSellingCard({bestSelling}: Props) {
+  console.log(bestSelling?.data_sale);
   return (
     <Card
       _light={{backgroundColor: 'dark.300'}}

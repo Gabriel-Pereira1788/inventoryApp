@@ -1,7 +1,8 @@
 import React from 'react';
 import * as S from 'native-base';
+import {RenderIF} from '../RenderIF';
 
-interface Props extends S.IInputProps {
+export interface Props extends S.IInputProps {
   title: string;
   error?: boolean;
   errorMessage?: string;
@@ -32,11 +33,11 @@ export function Input({title, error, errorMessage, ...rest}: Props) {
         testID="input"
         {...rest}
       />
-      {errorMessage && (
+      <RenderIF condition={!!errorMessage}>
         <S.Text fontWeight="bold" fontSize="xs" color="#f15353af">
           {errorMessage}
         </S.Text>
-      )}
+      </RenderIF>
     </S.VStack>
   );
 }
