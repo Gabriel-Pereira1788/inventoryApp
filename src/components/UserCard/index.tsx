@@ -1,7 +1,7 @@
 import React from 'react';
+//*store
 import {useUser} from '../../store/useUser';
-//*components
-import {Card} from '../Card';
+
 //*icon
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import {Image, Pressable} from 'native-base';

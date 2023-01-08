@@ -24,7 +24,7 @@ export function useDashboard(id: string) {
     error,
   } = useQuery(
     ['statistics', currentFilter],
-    () => Statistics.getStatistics(id, currentFilter),
+    () => Statistics.getStatistics(user?.uid, currentFilter),
     {refetchOnMount: false},
   );
 

@@ -9,12 +9,12 @@ import {useDashboard} from './hooks/useDashboard';
 import BestSellingCard from './components/BestSellingCard';
 import LineChart from './components/LineChart';
 import {FilterGraph} from './components/FilterGraph';
+import CurrencyFormat from '../../../components/CurrencyFormat';
 
 const id = '8yBTG7BGJvS8QgQJUoPrFqIMbzA2';
 export function Dashboard() {
   const {statistics, changeFilter, currentFilter, isLoading} = useDashboard(id);
 
-  console.log(statistics);
   return (
     <SharedLayout currentPath="dashboard">
       <S.ScrollView
@@ -85,14 +85,16 @@ export function Dashboard() {
                 1y
               </FilterGraph>
             </S.HStack>
-
             <S.Text bold mt={10} ml={'2%'} fontSize="md">
-              Total: {statistics?.total_sales || 0}
+              Total: <CurrencyFormat value={statistics?.total_sales || 0} />
             </S.Text>
           </S.VStack>
           <LineChart />
         </S.VStack>
-        <BestSellingCard bestSelling={statistics?.best_selling} />
+        <BestSellingCard
+          bestSelling={statistics?.best_selling}
+          loadingData={isLoading}
+        />
       </S.ScrollView>
     </SharedLayout>
   );

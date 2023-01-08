@@ -17,7 +17,7 @@ export function useBottomTabs(currentPath?: Paths) {
       return '#F0DC61';
     }
 
-    return colorMode === 'light' ? '#000' : '#fff';
+    return colorMode === 'light' ? '#7c7c7c' : '#fff';
   };
 
   return {colorMode, redirectScreen, setCurrentColor};

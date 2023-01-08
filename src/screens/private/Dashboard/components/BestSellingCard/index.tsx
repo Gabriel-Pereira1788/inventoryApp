@@ -3,21 +3,32 @@ import React from 'react';
 import * as S from 'native-base';
 //*components
 import {Card} from '../../../../../components/Card';
+import CurrencyFormat from '../../../../../components/CurrencyFormat';
+import {RenderIF} from '../../../../../components/RenderIF';
+import Skeleton from './Skeleton';
 //*icons
-
 import FontIcons from 'react-native-vector-icons/FontAwesome5';
 import {BestSelling} from '../../../../../models/Statistics';
 import {Product} from '../../../../../models/Product';
+//*utils
+import {formatDate} from '../../../../../utils/formatDate';
+//*hooks
+import {useBestSelling} from '../../hooks/useBestSelling';
 
-type Props = {
+export type BestSellingProps = {
+  loadingData?: boolean;
   bestSelling?: {
     product: Product | null;
     data_sale: BestSelling | null;
   };
 };
 
-export default function BestSellingCard({bestSelling}: Props) {
-  console.log(bestSelling?.data_sale);
+export default function BestSellingCard({
+  bestSelling,
+  loadingData,
+}: BestSellingProps) {
+  const {total} = useBestSelling({bestSelling});
+
   return (
     <Card
       _light={{backgroundColor: 'dark.300'}}
@@ -33,41 +44,61 @@ export default function BestSellingCard({bestSelling}: Props) {
         <S.Text textAlign="center" bold color="#fff">
           Melhor venda
         </S.Text>
-        <S.Text textAlign="center" bold color="primary.300" fontSize="2xl">
-          Nike Shoes
-        </S.Text>
-        <S.VStack w="100%" px={1} py={3} mt="3%" space={2}>
-          <S.Text bold color="#fff" fontSize="sm">
-            Vendidos:{' '}
-            <S.Text bold color="primary.300" fontSize="sm">
-              33
+        <Skeleton condition={!!loadingData}>
+          <RenderIF condition={!!bestSelling?.data_sale}>
+            <S.Text textAlign="center" bold color="primary.300" fontSize="2xl">
+              {bestSelling?.product?.name_product}
             </S.Text>
-          </S.Text>
-          <S.Text bold color="#fff" fontSize="sm">
-            Data:{' '}
-            <S.Text bold color="primary.300" fontSize="sm">
-              21/12/2022
-            </S.Text>
-          </S.Text>
-          <S.Text bold color="#fff" fontSize="sm">
-            Valor:{' '}
-            <S.Text bold color="primary.300" fontSize="sm">
-              253,33
-            </S.Text>
-          </S.Text>
-          <S.Text bold color="#fff" fontSize="sm">
-            Preço de venda:{' '}
-            <S.Text bold color="primary.300" fontSize="sm">
-              253.33
-            </S.Text>
-          </S.Text>
-          <S.Text bold color="#fff" fontSize="sm">
-            Preço de compra:{' '}
-            <S.Text bold color="primary.300" fontSize="sm">
-              153.33
-            </S.Text>
-          </S.Text>
-        </S.VStack>
+
+            <S.VStack w="100%" px={1} py={3} mt="3%" space={2}>
+              <S.Text bold color="#fff" fontSize="sm">
+                Vendidos:{' '}
+                <S.Text bold color="primary.300" fontSize="sm">
+                  {bestSelling?.data_sale?.pieces_saled}
+                </S.Text>
+              </S.Text>
+
+              <S.Text bold color="#fff" fontSize="sm">
+                Data:{' '}
+                <S.Text bold color="primary.300" fontSize="sm">
+                  {bestSelling?.data_sale &&
+                    formatDate(new Date(bestSelling.data_sale.createdAt))}
+                </S.Text>
+              </S.Text>
+
+              <S.Text bold color="#fff" fontSize="sm">
+                Valor:{' '}
+                <CurrencyFormat
+                  value={total}
+                  color="primary.300"
+                  fontSize="sm"
+                />
+              </S.Text>
+
+              <S.Text bold color="#fff" fontSize="sm">
+                Preço de venda:{' '}
+                <S.Text bold color="primary.300" fontSize="sm">
+                  <CurrencyFormat
+                    value={bestSelling?.product?.price_saled || 0}
+                    color="primary.300"
+                    fontSize="sm"
+                  />
+                </S.Text>
+              </S.Text>
+
+              <S.Text bold color="#fff" fontSize="sm">
+                Preço de compra:{' '}
+                <S.Text bold color="primary.300" fontSize="sm">
+                  <CurrencyFormat
+                    value={bestSelling?.product?.price_purchased || 0}
+                    color="primary.300"
+                    fontSize="sm"
+                  />
+                </S.Text>
+              </S.Text>
+            </S.VStack>
+          </RenderIF>
+        </Skeleton>
       </S.Pressable>
     </Card>
   );

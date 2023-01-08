@@ -5,6 +5,6 @@ export interface Product {
   price_purchased: number;
   price_saled: number;
   storage: number;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 }

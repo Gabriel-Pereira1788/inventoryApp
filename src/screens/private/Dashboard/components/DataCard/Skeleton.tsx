@@ -15,7 +15,8 @@ export function Skeleton({children, conditionRender, ...rest}: SkeletonProps) {
         alignItems="center"
         justifyContent="center"
         p={2}
-        position="relative">
+        position="relative"
+        testID="skeletonTest">
         <S.Skeleton
           size="5"
           rounded="full"

@@ -1,3 +1,4 @@
+import {months} from '../constants/months';
 import {Product} from './Product';
 
 export type FilterDate =
@@ -16,8 +17,8 @@ export interface BestSelling {
   price_purchased: number;
   price_saled: number;
   storage: number;
-  createdAt: string;
-  updatedAt: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface StatisticsDTO {
@@ -29,3 +30,11 @@ export interface StatisticsDTO {
   };
   total_sales: number;
 }
+
+export type StatisticsChart = {
+  [name in months]: {
+    total_piece_sales: number;
+    sales_amount: number;
+    storage_month: number;
+  };
+};

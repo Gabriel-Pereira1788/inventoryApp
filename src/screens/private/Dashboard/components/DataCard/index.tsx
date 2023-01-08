@@ -4,8 +4,9 @@ import * as S from 'native-base';
 //*icons
 import Icon from 'react-native-vector-icons/Ionicons';
 import FontIcons from 'react-native-vector-icons/FontAwesome5';
-import {Skeleton} from '../../../../../components/Skeleton';
-Icon.loadFont();
+import {Skeleton} from './Skeleton';
+
+// Icon.loadFont();
 
 interface Props extends S.IStackProps {
   textCard: string;
