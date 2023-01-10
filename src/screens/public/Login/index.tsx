@@ -2,8 +2,10 @@ import React from 'react';
 import {Box, ScrollView} from 'native-base';
 import Form from '../../../components/Form';
 import {ToggleTheme} from '../../../components/ToggleTheme';
+import {useBackgroundAct} from '../../../hooks/useBackgroundAct';
 
 export function Login() {
+  useBackgroundAct();
   return (
     <Box
       alignItems="center"
