@@ -6,7 +6,7 @@ interface CurrencyProps extends S.ITextProps {
   value: number;
 }
 
-export default function CurrencyFormat({value, ...rest}: CurrencyProps) {
+export function CurrencyFormat({value, ...rest}: CurrencyProps) {
   return (
     <NumericFormat
       value={value}

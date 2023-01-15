@@ -2,11 +2,9 @@ import React from 'react';
 //*styles
 import * as S from 'native-base';
 //*icons
-import Icon from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontIcons from 'react-native-vector-icons/FontAwesome5';
 import {Skeleton} from './Skeleton';
-
-// Icon.loadFont();
 
 interface Props extends S.IStackProps {
   textCard: string;
@@ -34,7 +32,7 @@ export function DataCard({textCard, loadingData, data, ...rest}: Props) {
         shadow="4">
         <S.HStack w="100%" alignItems="center" justifyContent="flex-start">
           {textCard === 'Produtos que entraram' ? (
-            <Icon
+            <Ionicons
               name="pie-chart-sharp"
               size={27}
               color="#fff"
@@ -50,7 +48,12 @@ export function DataCard({textCard, loadingData, data, ...rest}: Props) {
           )}
         </S.HStack>
 
-        <S.Text fontWeight="bold" fontSize="3xl" color="#fff" textAlign="left">
+        <S.Text
+          fontWeight="bold"
+          fontSize="3xl"
+          color="#fff"
+          textAlign="left"
+          testID="data-value">
           {data ? data : 0}
         </S.Text>
 
@@ -59,7 +62,8 @@ export function DataCard({textCard, loadingData, data, ...rest}: Props) {
           fontSize="xs"
           color="#ffffffc1"
           textAlign="left"
-          shadow="4">
+          shadow="4"
+          testID="text-card">
           {textCard}
         </S.Text>
       </S.VStack>

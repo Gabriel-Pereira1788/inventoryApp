@@ -3,7 +3,7 @@ import React from 'react';
 import * as S from 'native-base';
 //*components
 import {Card} from '../../../../../components/Card';
-import CurrencyFormat from '../../../../../components/CurrencyFormat';
+import {CurrencyFormat} from '../../../../../components/CurrencyFormat';
 import {RenderIF} from '../../../../../components/RenderIF';
 import Skeleton from './Skeleton';
 //*icons
@@ -23,10 +23,7 @@ export type BestSellingProps = {
   };
 };
 
-export default function BestSellingCard({
-  bestSelling,
-  loadingData,
-}: BestSellingProps) {
+export function BestSellingCard({bestSelling, loadingData}: BestSellingProps) {
   const {total} = useBestSelling({bestSelling});
 
   return (

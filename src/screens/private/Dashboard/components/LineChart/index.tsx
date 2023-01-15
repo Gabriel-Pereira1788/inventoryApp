@@ -14,9 +14,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {EMPTY_MESSAGES} from '../../../../../constants/emptyMessages';
 
 Ionicons.loadFont();
-type Props = {};
 
-export default function LineChart({}: Props) {
+export function LineChart() {
   const {statistics, conditionRender} = useChart();
 
   return (
@@ -25,7 +24,12 @@ export default function LineChart({}: Props) {
         condition={!!conditionRender}
         RenderComponent={() => (
           <EmptyMessage message={EMPTY_MESSAGES.statistics}>
-            <Ionicons name="ios-bar-chart" size={120} color="#F0DC61" />
+            <Ionicons
+              name="ios-bar-chart"
+              size={120}
+              color="#F0DC61"
+              testID="icon-chart"
+            />
           </EmptyMessage>
         )}>
         <LChart

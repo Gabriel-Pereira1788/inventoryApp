@@ -10,7 +10,8 @@ export type FilterDate =
   | '3 month'
   | '6 month'
   | 'year';
-export function useDashboard(id: string) {
+export function useDashboard() {
+  // const id = '8yBTG7BGJvS8QgQJUoPrFqIMbzA2';
   const user = useUser();
   const [currentFilter, setCurrentFilter] = useState<FilterDate>('day');
 

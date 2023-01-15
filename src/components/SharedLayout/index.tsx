@@ -16,7 +16,7 @@ export function SharedLayout({children, currentPath}: Props) {
         _dark={{backgroundColor: 'backgroundDark'}}
         alignItems="center"
         justifyContent="center"
-        p={3}>
+        py={3}>
         {children}
       </Box>
       <BottomTabs currentPath={currentPath} />

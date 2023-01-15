@@ -42,7 +42,7 @@
     "@testing-library/jest-native": "^5.3.2",
     "@testing-library/react-native": "^11.5.0",
     "@tsconfig/react-native": "^2.0.2",
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^29.2.5",
     "@types/react": "^18.0.21",
     "@types/react-native": "^0.70.6",
     "@types/react-native-push-notification": "^8.1.1",
@@ -54,13 +54,15 @@
     "eslint": "^7.32.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "0.72.3",
+    "react-native-testing-library": "^6.0.0",
     "react-test-renderer": "18.1.0",
+    "ts-jest": "^29.0.5",
     "typescript": "^4.8.3"
   },
   "jest": {
     "preset": "react-native",
     "transformIgnorePatterns": [
-      "node_modules/(?!(@react-native|react-native|react-native-vector-icons)/)"
+      "node_modules/(?!(@react-native|@react-native/polyfills|react-native|react-native-vector-icons|react-native-chart-kit)/)"
     ],
     "setupFiles": [
       "./jestSetup.js"
@@ -68,6 +70,9 @@
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
     ],
+    "moduleNameMapper": {
+      "axios": "axios/dist/node/axios.cjs"
+    },
     "moduleFileExtensions": [
       "ts",
       "tsx",

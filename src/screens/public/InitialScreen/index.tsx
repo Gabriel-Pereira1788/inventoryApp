@@ -5,8 +5,10 @@ import auth from '@react-native-firebase/auth';
 import React, {useEffect} from 'react';
 import {Loading} from '../../../components/Loading';
 import {formatUser} from '../../../utils/formatUser';
+import {useBackgroundAct} from '../../../hooks/useBackgroundAct';
 
 export function InitialScreen() {
+  useBackgroundAct();
   const navigation = useNavigation();
   const queryClient = useQueryClient();
 

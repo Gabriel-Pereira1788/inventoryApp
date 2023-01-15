@@ -24,7 +24,7 @@ export function FilterGraph({
     <Pressable
       p={1}
       rounded="3xl"
-      flex={1}
+      minW={'12'}
       {...rest}
       isPressed={currentFilter === identifier}
       _pressed={{backgroundColor: 'primary.500'}}

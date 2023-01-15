@@ -4,17 +4,16 @@ import * as S from 'native-base';
 //*components
 import {DataCard} from './components/DataCard';
 import {SharedLayout} from '../../../components/SharedLayout';
+import {BestSellingCard} from './components/BestSellingCard';
+import {LineChart} from './components/LineChart';
+import {FilterGraph} from './components/FilterGraph';
+import {CurrencyFormat} from '../../../components/CurrencyFormat';
 //*hooks
 import {useDashboard} from './hooks/useDashboard';
-import BestSellingCard from './components/BestSellingCard';
-import LineChart from './components/LineChart';
-import {FilterGraph} from './components/FilterGraph';
-import CurrencyFormat from '../../../components/CurrencyFormat';
 
-const id = '8yBTG7BGJvS8QgQJUoPrFqIMbzA2';
 export function Dashboard() {
-  const {statistics, changeFilter, currentFilter, isLoading} = useDashboard(id);
-
+  const {statistics, changeFilter, currentFilter, isLoading} = useDashboard();
+  console.log(statistics);
   return (
     <SharedLayout currentPath="dashboard">
       <S.ScrollView
@@ -27,10 +26,10 @@ export function Dashboard() {
         <S.VStack w="100%" space="4" mt={10}>
           <S.HStack
             w="100%"
-            p={2}
             alignItems="center"
             justifyContent="center"
-            space="3">
+            space="3"
+            mt={5}>
             <DataCard
               loadingData={isLoading}
               _light={{backgroundColor: 'primary.400'}}
@@ -47,7 +46,11 @@ export function Dashboard() {
             />
           </S.HStack>
           <S.VStack w="100%" overflow="hidden" mt={5}>
-            <S.HStack w="100%">
+            <S.HStack
+              w="100%"
+              alignItems="center"
+              space={2}
+              justifyContent="center">
               <FilterGraph
                 identifier="day"
                 changeFilter={changeFilter}
@@ -85,11 +88,14 @@ export function Dashboard() {
                 1y
               </FilterGraph>
             </S.HStack>
-            <S.Text bold mt={10} ml={'2%'} fontSize="md">
+            <S.Text bold mt={10} ml={'2%'} fontSize="md" testID="total-sale">
               Total: <CurrencyFormat value={statistics?.total_sales || 0} />
             </S.Text>
           </S.VStack>
-          <LineChart />
+
+          <S.Box px={3}>
+            <LineChart />
+          </S.Box>
         </S.VStack>
         <BestSellingCard
           bestSelling={statistics?.best_selling}

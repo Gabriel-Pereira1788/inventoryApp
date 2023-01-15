@@ -16,7 +16,7 @@ export function Skeleton({children, conditionRender, ...rest}: SkeletonProps) {
         justifyContent="center"
         p={2}
         position="relative"
-        testID="skeletonTest">
+        testID="skeleton">
         <S.Skeleton
           size="5"
           rounded="full"
