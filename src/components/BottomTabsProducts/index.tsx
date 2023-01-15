@@ -12,7 +12,7 @@ type Props = {
   currentPath?: Paths;
 };
 
-export default function BottomTabs({currentPath}: Props) {
+export default function BottomTabsProducts({currentPath}: Props) {
   const {redirectScreen, setCurrentColor} = useBottomTabs(currentPath);
   return (
     <S.HStack
@@ -20,7 +20,7 @@ export default function BottomTabs({currentPath}: Props) {
       px={3}
       py={2}
       alignItems="center"
-      justifyContent="space-evenly"
+      justifyContent="space-around"
       space={1}
       _light={{backgroundColor: 'backgroundLight'}}
       _dark={{backgroundColor: 'backgroundDark'}}
@@ -38,6 +38,13 @@ export default function BottomTabs({currentPath}: Props) {
         size={25}
         color={setCurrentColor('products')}
         onPress={redirectScreen('products')}
+      />
+      <MaterialIcon
+        testID="iconNotifications"
+        name="notifications"
+        size={25}
+        color={setCurrentColor('notifications')}
+        onPress={redirectScreen('notifications')}
       />
       <MaterialIcon
         testID="iconNotifications"

@@ -1,6 +1,7 @@
 import {Box, IBoxProps} from 'native-base';
 import React, {ReactNode} from 'react';
-import BottomTabs, {Paths} from '../BottomTabs';
+import {Paths} from '../../hooks/useBottomTabs';
+import BottomTabs from '../BottomTabs';
 
 interface Props extends IBoxProps {
   children: ReactNode;
