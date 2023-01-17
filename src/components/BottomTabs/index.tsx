@@ -2,9 +2,10 @@ import React from 'react';
 
 //*styles
 import * as S from 'native-base';
+//*hooks
+import {Paths, useBottomTabs} from '../../hooks/useBottomTabs';
 //*icons
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import {Paths, useBottomTabs} from '../../hooks/useBottomTabs';
 
 MaterialIcon.loadFont();
 

@@ -88,7 +88,7 @@ export function Dashboard() {
                 1y
               </FilterGraph>
             </S.HStack>
-            <S.Text bold mt={10} ml={'2%'} fontSize="md" testID="total-sale">
+            <S.Text bold mt={10} ml={'5%'} fontSize="md" testID="total-sale">
               Total: <CurrencyFormat value={statistics?.total_sales || 0} />
             </S.Text>
           </S.VStack>

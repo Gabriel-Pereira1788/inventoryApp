@@ -5,14 +5,13 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Login} from '../screens/public/Login';
 import {Register} from '../screens/public/Register';
 import {InitialScreen} from '../screens/public/InitialScreen';
-//*icons
-import IconIonicon from 'react-native-vector-icons/Ionicons';
-import {Dashboard} from '../screens/private/Dashboard';
-import {withRequireAuth} from '../hooks/withRequireAuth';
-import {Card} from '../components/Card';
-import UserCard from '../components/UserCard';
 import MyAccount from '../screens/private/MyAccount';
 import {Products} from '../screens/private/Products';
+import {Dashboard} from '../screens/private/Dashboard';
+//*icons
+import IconIonicon from 'react-native-vector-icons/Ionicons';
+import {withRequireAuth} from '../hooks/withRequireAuth';
+import UserCard from '../components/UserCard';
 import {useColorMode} from 'native-base';
 
 IconIonicon.loadFont();
@@ -76,13 +75,8 @@ export function Router() {
           component={withRequireAuth(Products)}
           options={{
             headerTransparent: true,
-            headerTitle: '',
-
-            headerLeft: ({tintColor}) => (
-              <Card p={3} my="2" mx="1">
-                <IconIonicon name="notifications" size={20} color={tintColor} />
-              </Card>
-            ),
+            headerTitle: 'Produtos',
+            headerLeft: () => <></>,
             headerRight: () => <UserCard />,
           }}
         />

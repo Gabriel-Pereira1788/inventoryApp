@@ -2,6 +2,8 @@ import {Box, IBoxProps} from 'native-base';
 import React, {ReactNode} from 'react';
 import {Paths} from '../../hooks/useBottomTabs';
 import BottomTabs from '../BottomTabs';
+import BottomTabsProducts from '../BottomTabsProducts';
+import {RenderIF} from '../RenderIF';
 
 interface Props extends IBoxProps {
   children: ReactNode;
@@ -20,7 +22,11 @@ export function SharedLayout({children, currentPath}: Props) {
         py={3}>
         {children}
       </Box>
-      <BottomTabs currentPath={currentPath} />
+      <RenderIF
+        condition={currentPath === 'products'}
+        RenderComponent={() => <BottomTabs currentPath={currentPath} />}>
+        <BottomTabsProducts currentPath={currentPath} />
+      </RenderIF>
     </>
   );
 }

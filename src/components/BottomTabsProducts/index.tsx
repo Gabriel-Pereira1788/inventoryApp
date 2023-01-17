@@ -4,7 +4,9 @@ import React from 'react';
 import * as S from 'native-base';
 //*icons
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Paths, useBottomTabs} from '../../hooks/useBottomTabs';
+import AddProduct from '../AddProduct';
 
 MaterialIcon.loadFont();
 
@@ -18,13 +20,15 @@ export default function BottomTabsProducts({currentPath}: Props) {
     <S.HStack
       width="100%"
       px={3}
-      py={2}
+      py={5}
+      shadow={5}
       alignItems="center"
-      justifyContent="space-around"
-      space={1}
-      _light={{backgroundColor: 'backgroundLight'}}
+      justifyContent="center"
+      space={16}
+      _light={{backgroundColor: '#FFF'}}
       _dark={{backgroundColor: 'backgroundDark'}}
-      testID="containerNavigation">
+      testID="containerNavigation"
+      position="relative">
       <MaterialIcon
         testID="iconDashboard"
         name="pie-chart"
@@ -39,6 +43,7 @@ export default function BottomTabsProducts({currentPath}: Props) {
         color={setCurrentColor('products')}
         onPress={redirectScreen('products')}
       />
+      <AddProduct />
       <MaterialIcon
         testID="iconNotifications"
         name="notifications"
@@ -46,12 +51,12 @@ export default function BottomTabsProducts({currentPath}: Props) {
         color={setCurrentColor('notifications')}
         onPress={redirectScreen('notifications')}
       />
-      <MaterialIcon
-        testID="iconNotifications"
-        name="notifications"
+
+      <AntDesign
+        testID="iconExclamation"
+        name="exclamation"
         size={25}
-        color={setCurrentColor('notifications')}
-        onPress={redirectScreen('notifications')}
+        color={setCurrentColor('about')}
       />
     </S.HStack>
   );
