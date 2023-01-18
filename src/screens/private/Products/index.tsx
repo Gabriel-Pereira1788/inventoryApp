@@ -26,7 +26,7 @@ export function Products() {
           borderTopWidth={1}
           borderTopColor="#dddddd70"
           space={5}
-          p={2}>
+          py={2}>
           <Product />
           <Product />
           <Product />

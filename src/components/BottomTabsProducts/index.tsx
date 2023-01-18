@@ -19,7 +19,7 @@ export default function BottomTabsProducts({currentPath}: Props) {
   return (
     <S.HStack
       width="100%"
-      px={3}
+      px={5}
       py={5}
       shadow={5}
       alignItems="center"

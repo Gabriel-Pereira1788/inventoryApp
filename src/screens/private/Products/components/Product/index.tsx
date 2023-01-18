@@ -11,7 +11,7 @@ export default function Product(props: ProductProps) {
   return (
     <S.HStack
       py={4}
-      px={4}
+      px={2}
       rounded="2xl"
       _light={{backgroundColor: '#fff'}}
       _dark={{backgroundColor: 'backgroundDark'}}
