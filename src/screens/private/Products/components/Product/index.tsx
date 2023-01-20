@@ -3,13 +3,19 @@ import * as S from 'native-base';
 //*icons
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {Product as ProductDTO} from '../../../../../models/Product';
 
 MaterialIcon.loadFont();
-interface ProductProps {}
+interface ProductProps extends ProductDTO {}
 
-export default function Product(props: ProductProps) {
+export default function Product({
+  name_product,
+  price_saled,
+  storage,
+}: ProductProps) {
   return (
     <S.HStack
+      my={3}
       py={4}
       px={2}
       rounded="2xl"
@@ -53,12 +59,12 @@ export default function Product(props: ProductProps) {
         justifyContent="center"
         space={2}>
         <S.Text bold fontSize="xl">
-          Nike Shoes
+          {name_product}
         </S.Text>
 
         <S.HStack space={2} alignItems="center">
           <S.Text bold fontSize="lg" color="#7f7f7f">
-            $123
+            ${price_saled}
           </S.Text>
 
           <MaterialIcon
@@ -69,7 +75,7 @@ export default function Product(props: ProductProps) {
             color="#ddd"
           />
           <S.Text bold fontSize="md">
-            35
+            {storage}
           </S.Text>
         </S.HStack>
       </S.VStack>

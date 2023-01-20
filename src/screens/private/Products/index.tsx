@@ -5,8 +5,11 @@ import * as S from 'native-base';
 import {SharedLayout} from '../../../components/SharedLayout';
 import DataProducts from './components/DataProducts';
 import Product from './components/Product';
+import {useProducts} from './hooks/useProducts';
 
 export function Products() {
+  const {products, isLoading} = useProducts();
+  console.log(products);
   return (
     <SharedLayout currentPath="products">
       <S.VStack mt={16} w="100%" flex={1} p={5}>
@@ -20,16 +23,16 @@ export function Products() {
           <DataProducts titleCard="Em estoque" />
         </S.HStack>
 
-        <S.VStack
-          mt={'25%'}
-          w="100%"
-          borderTopWidth={1}
-          borderTopColor="#dddddd70"
-          space={5}
-          py={2}>
-          <Product />
-          <Product />
-          <Product />
+        <S.VStack mt={5} borderTopWidth={1} borderTopColor="#dddddd70">
+          {products && products.length > 0 && (
+            <S.FlatList
+              data={products}
+              w="100%"
+              mt={5}
+              mb={70}
+              renderItem={({item}) => <Product {...item.product} />}
+            />
+          )}
         </S.VStack>
       </S.VStack>
     </SharedLayout>

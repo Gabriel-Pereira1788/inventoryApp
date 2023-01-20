@@ -13,7 +13,7 @@ import {useDashboard} from './hooks/useDashboard';
 
 export function Dashboard() {
   const {statistics, changeFilter, currentFilter, isLoading} = useDashboard();
-  console.log(statistics);
+  // console.log(statistics);
   return (
     <SharedLayout currentPath="dashboard">
       <S.ScrollView
