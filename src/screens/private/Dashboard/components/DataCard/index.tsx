@@ -3,11 +3,40 @@ import React from 'react';
 import * as S from 'native-base';
 //*icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import FontIcons from 'react-native-vector-icons/FontAwesome5';
 import {Skeleton} from './Skeleton';
 
+const Icons = {
+  'Produtos que entraram': () => (
+    <Ionicons
+      name="pie-chart-sharp"
+      size={27}
+      color="#fff"
+      testID="iconChart"
+    />
+  ),
+  'Produtos que sairam': () => (
+    <FontIcons name="chart-pie" size={25} color="#fff" testID="iconChart" />
+  ),
+  'Total em produtos': () => (
+    <MaterialIcon
+      testID="iconProducts"
+      name="inventory"
+      style={{marginRight: 10}}
+      size={25}
+      color="#fff"
+    />
+  ),
+  'Total em estoque': () => (
+    <FontIcons name="chart-pie" size={25} color="#fff" testID="iconChart" />
+  ),
+};
+
+type IconsCard = typeof Icons;
+
 interface Props extends S.IStackProps {
-  textCard: string;
+  textCard: keyof IconsCard;
   data?: number;
   loadingData?: boolean;
 }
@@ -31,21 +60,7 @@ export function DataCard({textCard, loadingData, data, ...rest}: Props) {
         {...rest}
         shadow="4">
         <S.HStack w="100%" alignItems="center" justifyContent="flex-start">
-          {textCard === 'Produtos que entraram' ? (
-            <Ionicons
-              name="pie-chart-sharp"
-              size={27}
-              color="#fff"
-              testID="iconChart"
-            />
-          ) : (
-            <FontIcons
-              name="chart-pie"
-              size={25}
-              color="#fff"
-              testID="iconChart"
-            />
-          )}
+          {Icons[textCard]()}
         </S.HStack>
 
         <S.Text

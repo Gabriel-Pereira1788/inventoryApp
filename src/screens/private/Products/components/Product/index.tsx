@@ -4,6 +4,7 @@ import * as S from 'native-base';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {Product as ProductDTO} from '../../../../../models/Product';
+import {RenderIF} from '../../../../../components/RenderIF';
 
 MaterialIcon.loadFont();
 interface ProductProps extends ProductDTO {}
@@ -13,21 +14,25 @@ export default function Product({
   price_saled,
   storage,
 }: ProductProps) {
+  const isSlowStorage = storage <= 5;
   return (
     <S.HStack
       my={3}
       py={4}
       px={2}
       rounded="2xl"
-      _light={{backgroundColor: '#fff'}}
-      _dark={{backgroundColor: 'backgroundDark'}}
-      shadow={3}
+      // _light={{backgroundColor: '#fff'}}
+      // _dark={{backgroundColor: 'backgroundDark'}}
+      // shadow={3}
       w="100%"
-      position="relative">
+      position="relative"
+      alignItems="center"
+      borderBottomWidth={1}
+      borderBottomColor="#dddddd">
       <S.HStack
         px={2}
         py={1}
-        backgroundColor="#DEFFB4"
+        backgroundColor={isSlowStorage ? '#c61049' : '#06a94d'}
         position="absolute"
         top={2}
         right={3}
@@ -35,10 +40,16 @@ export default function Product({
         alignItems="center"
         justifyContent="center"
         rounded="md">
-        <AntDesign name="checkcircle" size={15} color="#fff" />
-        <S.Text fontSize="sm" bold color="#fff">
-          Em estoque
-        </S.Text>
+        <AntDesign
+          name={isSlowStorage ? 'exclamation' : 'checkcircle'}
+          size={15}
+          color="#fff"
+        />
+        <RenderIF condition={isSlowStorage}>
+          <S.Text fontSize="sm" bold color="#fff">
+            Baixo estoque
+          </S.Text>
+        </RenderIF>
       </S.HStack>
 
       <S.Circle
@@ -47,7 +58,7 @@ export default function Product({
         alignItems="center"
         justifyContent="center">
         <S.Image
-          source={require('../../../../../Assets/images/camisa.png')}
+          source={require('../../../../../Assets/images/running-shoe.png')}
           width={30}
           height={30}
           alt="image"
@@ -58,7 +69,7 @@ export default function Product({
         alignItems="flex-start"
         justifyContent="center"
         space={2}>
-        <S.Text bold fontSize="xl">
+        <S.Text bold fontSize="lg" mt={5}>
           {name_product}
         </S.Text>
 

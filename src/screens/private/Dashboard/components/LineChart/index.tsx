@@ -43,6 +43,7 @@ export function LineChart() {
           }}
           fromZero
           width={Dimensions.get('window').width}
+          style={{padding: 5}}
           height={250}
           chartConfig={{
             strokeWidth: 3,

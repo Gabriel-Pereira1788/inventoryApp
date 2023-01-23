@@ -10,16 +10,19 @@ type Props = {};
 export default function AddProduct({}: Props) {
   const {isOpen, handleToggleState} = useModal();
   return (
-    <>
+    <S.HStack
+      position="absolute"
+      w="full"
+      bottom={2}
+      alignItems="center"
+      justifyContent="center">
       <S.Circle
         backgroundColor="backgroundLight"
         alignItems="center"
         justifyContent="center"
-        position="absolute"
-        overflow="hidden"
-        bottom={3}>
+        overflow="hidden">
         <S.Pressable
-          p={5}
+          p={4}
           _pressed={{opacity: 0.7}}
           onPress={handleToggleState}>
           <S.Circle shadow={3} size={'md'} backgroundColor="#474646">
@@ -28,6 +31,6 @@ export default function AddProduct({}: Props) {
         </S.Pressable>
       </S.Circle>
       <FormProduct isOpen={isOpen} onClose={handleToggleState} />
-    </>
+    </S.HStack>
   );
 }

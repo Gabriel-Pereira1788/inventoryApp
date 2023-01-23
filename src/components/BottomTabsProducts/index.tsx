@@ -17,47 +17,51 @@ type Props = {
 export default function BottomTabsProducts({currentPath}: Props) {
   const {redirectScreen, setCurrentColor} = useBottomTabs(currentPath);
   return (
-    <S.HStack
-      width="100%"
-      px={5}
-      py={5}
-      shadow={5}
-      alignItems="center"
-      justifyContent="center"
-      space={16}
-      _light={{backgroundColor: '#FFF'}}
-      _dark={{backgroundColor: 'backgroundDark'}}
-      testID="containerNavigation"
-      position="relative">
-      <MaterialIcon
-        testID="iconDashboard"
-        name="pie-chart"
-        size={25}
-        color={setCurrentColor('dashboard')}
-        onPress={redirectScreen('dashboard')}
-      />
-      <MaterialIcon
-        testID="iconProducts"
-        name="inventory"
-        size={25}
-        color={setCurrentColor('products')}
-        onPress={redirectScreen('products')}
-      />
-      <AddProduct />
-      <MaterialIcon
-        testID="iconNotifications"
-        name="notifications"
-        size={25}
-        color={setCurrentColor('notifications')}
-        onPress={redirectScreen('notifications')}
-      />
+    <>
+      <S.HStack
+        width="100%"
+        px={6}
+        py={4}
+        shadow={5}
+        alignItems="center"
+        justifyContent="space-between"
+        space={1}
+        _light={{backgroundColor: '#FFF'}}
+        _dark={{backgroundColor: 'backgroundDark'}}
+        testID="containerNavigation">
+        <MaterialIcon
+          testID="iconDashboard"
+          name="pie-chart"
+          size={25}
+          color={setCurrentColor('dashboard')}
+          onPress={redirectScreen('dashboard')}
+        />
+        <MaterialIcon
+          testID="iconProducts"
+          name="inventory"
+          style={{marginRight: 10}}
+          size={25}
+          color={setCurrentColor('products')}
+          onPress={redirectScreen('products')}
+        />
 
-      <AntDesign
-        testID="iconExclamation"
-        name="exclamation"
-        size={25}
-        color={setCurrentColor('about')}
-      />
-    </S.HStack>
+        <MaterialIcon
+          testID="iconNotifications"
+          name="notifications"
+          style={{marginLeft: 10}}
+          size={25}
+          color={setCurrentColor('notifications')}
+          onPress={redirectScreen('notifications')}
+        />
+
+        <AntDesign
+          testID="iconExclamation"
+          name="exclamation"
+          size={25}
+          color={setCurrentColor('about')}
+        />
+      </S.HStack>
+      <AddProduct />
+    </>
   );
 }
