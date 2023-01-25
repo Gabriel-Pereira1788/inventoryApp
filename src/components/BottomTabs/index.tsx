@@ -7,6 +7,8 @@ import {Paths, useBottomTabs} from '../../hooks/useBottomTabs';
 //*icons
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
+import AntDesign from 'react-native-vector-icons/AntDesign';
+
 MaterialIcon.loadFont();
 
 type Props = {
@@ -21,7 +23,7 @@ export default function BottomTabs({currentPath}: Props) {
       px={3}
       py={2}
       alignItems="center"
-      justifyContent="space-evenly"
+      justifyContent="space-around"
       space={1}
       _light={{backgroundColor: 'backgroundLight'}}
       _dark={{backgroundColor: 'backgroundDark'}}
@@ -46,6 +48,12 @@ export default function BottomTabs({currentPath}: Props) {
         size={25}
         color={setCurrentColor('notifications')}
         onPress={redirectScreen('notifications')}
+      />
+      <AntDesign
+        testID="iconExclamation"
+        name="exclamation"
+        size={25}
+        color={setCurrentColor('about')}
       />
     </S.HStack>
   );

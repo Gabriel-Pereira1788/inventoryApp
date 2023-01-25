@@ -1,4 +1,4 @@
-import {Product} from '../../../models/Product';
+import {Product, ProductDTO} from '../../../models/Product';
 import {api} from '../../api';
 
 async function getProductsByUser(
@@ -9,6 +9,13 @@ async function getProductsByUser(
   return data.dataProduct;
 }
 
+async function createProduct({dataProduct}: {dataProduct: ProductDTO}) {
+  const {data} = await api.post('/create-product/', dataProduct);
+
+  return data;
+}
+
 export const Products = {
   getProductsByUser,
+  createProduct,
 };

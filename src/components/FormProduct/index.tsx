@@ -3,18 +3,71 @@ import * as S from 'native-base';
 //* components
 import Modal from '../Modal';
 import {Input} from '../Input';
+import {Button} from '../Button';
+//*icons
+import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+//* hooks
+import {useFormProduct} from './hooks/useFormProduct';
+import {InputCurrency} from '../Input/components/InputCurrency';
+import {Select} from '../Select';
+import {categories} from '../../constants/categories';
 
 interface Props extends S.IModalProps {}
 
 export default function FormProduct(props: Props) {
+  const {productDTO, isLoading, handleChange, handleChangeCurrency, onSubmit} =
+    useFormProduct();
   return (
     <Modal {...props}>
-      <S.VStack flex={1} w="100%">
-        <Input title="Nome do produto" w="full" />
-        <Input title="Preço de venda" w="100%" />
-        <Input title="Preço de compra" />
-        <Input title="Categoria" />
-      </S.VStack>
+      <S.Box mt={15} position="absolute" top={10}>
+        <MaterialIcons size={100} name="basket-plus" color="#F0DC61" />
+      </S.Box>
+      <S.ScrollView
+        contentContainerStyle={{
+          flexGrow: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+        w="100%"
+        mt={40}
+        p={10}
+        py={15}
+        h="full">
+        <Input
+          title="Nome do produto"
+          w="full"
+          my={2}
+          value={productDTO.name_product}
+          onChangeText={handleChange('name_product')}
+        />
+        <InputCurrency
+          title="Preço de venda"
+          value={Number(productDTO.price_saled)}
+          onChangeValue={handleChangeCurrency('price_saled')}
+        />
+        <InputCurrency
+          title="Preço de compra"
+          value={Number(productDTO.price_purchased)}
+          onChangeValue={handleChangeCurrency('price_purchased')}
+        />
+
+        <Input
+          title="Estoque inicial"
+          my={2}
+          value={productDTO.storage}
+          onChangeText={handleChange('storage')}
+        />
+        <Select
+          title="Categoria"
+          placeholder="Selecione a categoria"
+          selectedValue={productDTO.category}
+          onValueChange={handleChange('category')}
+          items={categories}
+        />
+        <Button my={10} onPress={onSubmit} loading={isLoading}>
+          Confirmar
+        </Button>
+      </S.ScrollView>
     </Modal>
   );
 }

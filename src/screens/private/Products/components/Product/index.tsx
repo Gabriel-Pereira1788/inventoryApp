@@ -21,14 +21,15 @@ export default function Product({
       py={4}
       px={2}
       rounded="2xl"
-      // _light={{backgroundColor: '#fff'}}
-      // _dark={{backgroundColor: 'backgroundDark'}}
-      // shadow={3}
+      _light={{backgroundColor: '#fff'}}
+      _dark={{backgroundColor: 'backgroundDark'}}
+      shadow={3}
       w="100%"
       position="relative"
       alignItems="center"
-      borderBottomWidth={1}
-      borderBottomColor="#dddddd">
+      // borderBottomWidth={1}
+      // borderBottomColor="#dddddd"
+    >
       <S.HStack
         px={2}
         py={1}
@@ -54,7 +55,7 @@ export default function Product({
 
       <S.Circle
         p={4}
-        backgroundColor="#ddd"
+        backgroundColor="#dddddd3d"
         alignItems="center"
         justifyContent="center">
         <S.Image

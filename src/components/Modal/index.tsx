@@ -12,7 +12,8 @@ export default function Modal(props: Props) {
       _dark={{backgroundColor: 'backgroundDark'}}
       {...props}>
       {/* <S.Modal.CloseButton /> */}
-      <S.Modal.Body>{props.children}</S.Modal.Body>
+
+      {props.children}
     </S.Modal>
   );
 }
