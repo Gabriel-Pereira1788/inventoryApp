@@ -3,7 +3,7 @@ import * as S from 'native-base';
 import {RenderIF} from '../RenderIF';
 
 type SelectProps<T> = S.ISelectProps & {
-  title: string;
+  title?: string;
   error?: Boolean;
   errorMessage?: string;
   items: T[];
@@ -23,7 +23,6 @@ export function Select<
       </S.Text>
 
       <S.Select
-        {...rest}
         fontSize="lg"
         p={3}
         w="100%"
@@ -37,7 +36,8 @@ export function Select<
         }}
         borderRadius="xl"
         borderWidth={error ? 2 : 1}
-        borderColor={error ? '#f15353af' : '#0000001b'}>
+        borderColor={error ? '#f15353af' : '#0000001b'}
+        {...rest}>
         {items.length > 0 &&
           items.map((item, index) => (
             <S.Select.Item

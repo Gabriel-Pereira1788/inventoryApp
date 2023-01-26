@@ -9,11 +9,7 @@ import {RenderIF} from '../../../../../components/RenderIF';
 MaterialIcon.loadFont();
 interface ProductProps extends ProductDTO {}
 
-export default function Product({
-  name_product,
-  price_saled,
-  storage,
-}: ProductProps) {
+export function Product({name_product, price_saled, storage}: ProductProps) {
   const isSlowStorage = storage <= 5;
   return (
     <S.HStack
