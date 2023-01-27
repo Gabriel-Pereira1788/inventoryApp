@@ -1,8 +1,9 @@
 // prettier-ignore
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
-  "include": ["src","index.d.ts"],     /* Recommended React Native TSConfig base */
+    /* Recommended React Native TSConfig base */
   "compilerOptions": {
+    "jsx":"react",
     /* Visit https://aka.ms/tsconfig.json to read more about this file */
 
     /* Completeness */
