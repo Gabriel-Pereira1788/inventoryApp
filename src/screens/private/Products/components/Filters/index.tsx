@@ -1,29 +1,25 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import * as S from 'native-base';
+//*components
 import {Select} from '../../../../../components/Select';
 import {categories} from '../../../../../constants/categories';
 import {RangeSlider} from '../../../../../components/RangeSlider';
-import {useContextProducts} from '../..';
+
+import {Button} from '../../../../../components/Button';
+//*hooks
+import {useFilter} from '../../hooks/useFilter';
 
 interface FiltersProps extends S.IModalProps {}
 
 export function Filters({...rest}: FiltersProps) {
-  const {products} = useContextProducts();
-
-  const totalValue = useMemo(() => {
-    if (products && products.length > 0) {
-      return products.reduce((acc, {product}) => {
-        acc += product.price_saled;
-        return acc;
-      }, 0);
-    }
-    return 0;
-  }, [products]);
+  const {dataFilter, totalStorage, totalValue, handleDataFilter} = useFilter();
 
   return (
     <S.Modal {...rest}>
       <S.Modal.Content p={5} w="90%">
-        <S.Text>Teste</S.Text>
+        <S.Text fontSize="lg" fontWeight="semibold">
+          Filtros
+        </S.Text>
         <Select
           borderWidth={0}
           borderBottomWidth={1}
@@ -42,7 +38,20 @@ export function Filters({...rest}: FiltersProps) {
             {id: Math.random(), label: 'Todas', value: 'todas'},
           ]}
         />
-        <RangeSlider title="teste" maxValue={totalValue} />
+        <RangeSlider
+          title="Preço"
+          maxValue={totalValue}
+          prefix="R$"
+          value={dataFilter.price}
+          onChange={handleDataFilter('price')}
+        />
+        <RangeSlider
+          title="Estoque"
+          maxValue={totalStorage}
+          value={dataFilter.storage}
+          onChange={handleDataFilter('storage')}
+        />
+        <Button>Confirmar</Button>
       </S.Modal.Content>
     </S.Modal>
   );
