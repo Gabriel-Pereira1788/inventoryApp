@@ -1,6 +1,6 @@
 import {render} from '@testing-library/react-native';
 import React from 'react';
-import {BestSellingCard} from '.';
+import {BestSellingCard} from './View';
 import {Wrapper} from '../../../../../components/JestWrapper';
 import {Product} from '../../../../../models/Product';
 import {BestSelling} from '../../../../../models/Statistics';

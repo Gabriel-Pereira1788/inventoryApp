@@ -1,6 +1,6 @@
 import React from 'react';
 import {render, fireEvent} from '@testing-library/react-native';
-import {DataCard} from '.';
+import {DataCard} from './View';
 import {Wrapper} from '../../../../../components/JestWrapper';
 
 jest.mock('react-native-vector-icons/Ionicons', () => 'Ionicons');

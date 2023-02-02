@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
-import {InitialScreen} from '.';
+import {InitialScreen} from './View';
 import {Wrapper} from '../../../components/JestWrapper';
 import {mockedNavigate} from '../../../../jestSetup';
 import {act} from 'react-test-renderer';

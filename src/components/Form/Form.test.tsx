@@ -2,7 +2,7 @@ import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 import Form from '.';
 import {Wrapper} from '../JestWrapper';
-import {Input} from '../Input';
+import {Input} from '../Input/View';
 
 describe('Form', () => {
   describe('Render component', () => {

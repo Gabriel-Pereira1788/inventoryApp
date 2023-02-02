@@ -2,16 +2,16 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 //*screens
-import {Login} from '../screens/public/Login';
-import {Register} from '../screens/public/Register';
-import {InitialScreen} from '../screens/public/InitialScreen';
-import MyAccount from '../screens/private/MyAccount';
-import {Products} from '../screens/private/Products';
-import {Dashboard} from '../screens/private/Dashboard';
+import {Login} from '../screens/public/Login/View';
+import {Register} from '../screens/public/Register/View';
+import {InitialScreen} from '../screens/public/InitialScreen/View';
+import MyAccount from '../screens/private/MyAccount/View';
+import {Products} from '../screens/private/Products/View';
+import {Dashboard} from '../screens/private/Dashboard/View';
 //*icons
 import IconIonicon from 'react-native-vector-icons/Ionicons';
 import {withRequireAuth} from '../hooks/withRequireAuth';
-import UserCard from '../components/UserCard';
+import UserCard from '../components/UserCard/View';
 import {useColorMode} from 'native-base';
 
 IconIonicon.loadFont();

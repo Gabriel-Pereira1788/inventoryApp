@@ -1,7 +1,7 @@
 import {render} from '@testing-library/react-native';
 import {Text} from 'native-base';
 import React from 'react';
-import {Card} from '.';
+import {Card} from './View';
 import {Wrapper} from '../JestWrapper';
 
 describe('Card', () => {

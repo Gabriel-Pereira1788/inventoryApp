@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react';
 import * as S from 'native-base';
 //*components
-import {Button} from '../Button';
+import {Button} from '../Button/View';
 import {useNavigation} from '@react-navigation/native';
 
 interface Props {
