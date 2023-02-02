@@ -10,6 +10,7 @@ async function getProductsByUser(
 }
 
 async function createProduct({dataProduct}: {dataProduct: ProductDTO}) {
+  console.log(dataProduct);
   const {data} = await api.post('/create-product/', dataProduct);
 
   return data;

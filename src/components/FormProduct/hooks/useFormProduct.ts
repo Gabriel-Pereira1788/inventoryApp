@@ -50,7 +50,6 @@ export function useFormProduct() {
   }
 
   async function onSubmit() {
-    console.log(productDTO);
     await mutateAsync({dataProduct: productDTO});
   }
 

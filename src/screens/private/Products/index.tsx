@@ -13,10 +13,10 @@ import {useProducts} from './hooks/useProducts';
 const ProductsContext = createContext({} as ReturnType<typeof useProducts>);
 
 export function Products() {
-  const {products, isLoading} = useProducts();
+  const {products, isLoading, ...rest} = useProducts();
 
   return (
-    <ProductsContext.Provider value={{products, isLoading}}>
+    <ProductsContext.Provider value={{products, isLoading, ...rest}}>
       <SharedLayout currentPath="products">
         <S.VStack mt={10} w="100%" flex={1} p={5}>
           <Controllers />
@@ -32,6 +32,7 @@ export function Products() {
                 w="100%"
                 mt={5}
                 renderItem={({item}) => <Product {...item.product} />}
+                ListFooterComponent={() => <S.Box my="30" />}
               />
             )}
           </S.VStack>
