@@ -13,7 +13,7 @@ export function Product({name_product, price_saled, storage}: ProductProps) {
   const isSlowStorage = storage <= 5;
   return (
     <S.HStack
-      my={3}
+      my={2}
       py={4}
       px={2}
       rounded="2xl"
