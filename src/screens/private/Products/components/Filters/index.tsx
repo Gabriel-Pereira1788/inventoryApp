@@ -33,10 +33,7 @@ export function Filters({...rest}: FiltersProps) {
           placeholder="Categorias"
           fontWeight="bold"
           color="#000"
-          items={[
-            ...categories,
-            {id: Math.random(), label: 'Todas', value: 'todas'},
-          ]}
+          items={categories}
         />
         <RangeSlider
           title="Preço"

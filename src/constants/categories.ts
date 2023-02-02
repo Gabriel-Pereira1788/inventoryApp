@@ -1,4 +1,10 @@
-export const categories = [
+export type Category = {
+  id: string;
+  value: string;
+  label: string;
+};
+
+export const categories: Category[] = [
   {id: '1', value: 'Bebidas', label: 'Bebidas'},
 
   {id: '2', value: 'Comidas', label: 'Comidas'},
@@ -16,4 +22,5 @@ export const categories = [
   {id: '8', value: 'Esportes', label: 'Esportes'},
 
   {id: '9', value: 'Acessorios', label: 'Acessorios'},
+  {id: '10', label: 'Todas', value: 'todas'},
 ];
