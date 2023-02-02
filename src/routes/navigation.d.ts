@@ -2,7 +2,7 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 export declare global {
   namespace ReactNavigation {
-    interface RootParamList {
+    export interface RootParamList {
       login: undefined;
       register: undefined;
       initialScreen: undefined;

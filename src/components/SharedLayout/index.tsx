@@ -1,16 +1,12 @@
-import {Box, IBoxProps} from 'native-base';
-import React, {ReactNode} from 'react';
-import {Paths} from '../../hooks/useBottomTabs';
-import BottomTabs from '../BottomTabs';
-import BottomTabsProducts from '../BottomTabsProducts';
-import {RenderIF} from '../RenderIF';
+import {Box} from 'native-base';
+import React from 'react';
 
-interface Props extends IBoxProps {
-  children: ReactNode;
-  currentPath?: Paths;
-}
+import BottomTabs from '../BottomTabs/View';
+import BottomTabsProducts from '../BottomTabsProducts/View';
+import {RenderIF} from '../RenderIF/View';
+import {SharedLayoutProps} from './sharedlayout.model';
 
-export function SharedLayout({children, currentPath}: Props) {
+export function SharedLayout({children, currentPath}: SharedLayoutProps) {
   return (
     <>
       <Box

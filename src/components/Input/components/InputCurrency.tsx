@@ -1,6 +1,6 @@
 import React from 'react';
 import CurrencyInput, {CurrencyInputProps} from 'react-native-currency-input';
-import {Input} from '..';
+import {Input} from '../View';
 
 interface CurrencyProps extends CurrencyInputProps {
   error?: boolean;

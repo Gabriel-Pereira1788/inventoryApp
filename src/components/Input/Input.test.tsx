@@ -1,6 +1,6 @@
 import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
-import {Input} from '.';
+import {Input} from './View';
 import {Wrapper} from '../JestWrapper';
 
 describe('Input', () => {

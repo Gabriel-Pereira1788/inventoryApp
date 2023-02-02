@@ -1,6 +1,6 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
-import {Login} from '.';
+import {Login} from './View';
 import {Wrapper} from '../../../components/JestWrapper';
 
 describe('Login', () => {

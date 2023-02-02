@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
 //*components
-import DataView from '.';
+import DataView from './View';
 import {Wrapper} from '../../../../../components/JestWrapper';
 //*store
 import {useUser} from '../../../../../store/useUser';

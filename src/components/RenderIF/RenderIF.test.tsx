@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
 import {Text} from 'native-base';
-import {RenderIF} from '.';
+import {RenderIF} from './View';
 import {Wrapper} from '../JestWrapper';
 
 describe('RenderIF', () => {

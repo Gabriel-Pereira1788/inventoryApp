@@ -1,6 +1,6 @@
 import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
-import {FilterGraph} from '.';
+import {FilterGraph} from './View';
 import {Wrapper} from '../../../../../components/JestWrapper';
 
 describe('FilterGraph', () => {

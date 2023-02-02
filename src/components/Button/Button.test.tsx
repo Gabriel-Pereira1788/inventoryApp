@@ -1,6 +1,6 @@
 import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
-import {Button} from '.';
+import {Button} from './View';
 import {Wrapper} from '../JestWrapper';
 
 describe('Button', () => {

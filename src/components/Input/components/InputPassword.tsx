@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Input, Props} from '..';
+import {Input, Props} from '../View';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 Ionicons.loadFont();
 
