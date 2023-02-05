@@ -6,8 +6,10 @@ import {Card} from '../../../../../components/Card/View';
 import {formatDate} from '../../../../../utils/formatDate';
 //*icons
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import {DataViewProps} from './view.models';
+
 MaterialIcons.loadFont();
+
+export interface DataViewProps extends S.IPressableProps {}
 
 export default function DataView(props: DataViewProps) {
   const user = useUser();

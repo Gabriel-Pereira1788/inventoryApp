@@ -1,16 +1,14 @@
 import {useQuery} from '@tanstack/react-query';
-import {Statistics} from '../../../../../services/modules/Statistics/Statistics';
-import {useUser} from '../../../../../store/useUser';
+import {useDashboardContext} from '../../View';
 
-const id = '8yBTG7BGJvS8QgQJUoPrFqIMbzA2';
 export function useChart() {
-  const user = useUser();
+  const {statisticApi} = useDashboardContext();
 
   const {
     data: statistics,
     isLoading,
     error,
-  } = useQuery(['statisticsChart'], () => Statistics.getStatisticsChart(id));
+  } = useQuery(['statisticsChart'], statisticApi.getStatisticsChart);
 
   console.log(statistics);
 

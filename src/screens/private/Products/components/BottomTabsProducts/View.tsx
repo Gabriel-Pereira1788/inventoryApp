@@ -1,15 +1,17 @@
 import React from 'react';
-
 //*styles
 import * as S from 'native-base';
 //*icons
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {useBottomTabs} from '../../hooks/useBottomTabs';
+//*hooks
+import {Paths, useBottomTabs} from '../../../../../hooks/useBottomTabs';
 import {AddProduct} from '../AddProduct/View';
-import {BottomTabsProductsProps} from './view.models';
 
 MaterialIcon.loadFont();
+export interface BottomTabsProductsProps {
+  currentPath?: Paths;
+}
 
 export default function BottomTabsProducts({
   currentPath,

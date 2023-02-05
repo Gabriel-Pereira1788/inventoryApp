@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Image, ScrollView, VStack} from 'native-base';
+import * as S from 'native-base';
 //*components
 import {Input} from '../../../../../components/Input/View';
 import {Button} from '../../../../../components/Button/View';
@@ -9,10 +9,9 @@ import Modal from '../../../../../components/Modal/View';
 import {useEditUser} from './useViewModel';
 //*icons
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-//*models
-import {ModalEditProps} from './view.models';
 MaterialIcons.loadFont();
 
+export interface ModalEditProps extends S.IModalProps {}
 export function ModalEdit(props: ModalEditProps) {
   const {dataUser, handleChangeData, onSubmit} = useEditUser();
 
@@ -22,16 +21,16 @@ export function ModalEdit(props: ModalEditProps) {
   };
   return (
     <Modal {...props}>
-      <ScrollView
+      <S.ScrollView
         w="100%"
         showsVerticalScrollIndicator={false}
         h={{
           base: '700px',
           lg: 'auto',
         }}>
-        <VStack flex={1} p={2} space={3}>
-          <Box my={10} alignItems="center">
-            <Image
+        <S.VStack flex={1} p={2} space={3}>
+          <S.Box my={10} alignItems="center">
+            <S.Image
               width={100}
               height={100}
               rounded="full"
@@ -41,10 +40,10 @@ export function ModalEdit(props: ModalEditProps) {
               }}
               position="relative"
             />
-            <Box position="absolute" bottom={0} right={'30%'}>
+            <S.Box position="absolute" bottom={0} right={'30%'}>
               <MaterialIcons name="pencil" color="#F0DC61" size={30} />
-            </Box>
-          </Box>
+            </S.Box>
+          </S.Box>
 
           <Input
             title="Nome"
@@ -59,8 +58,8 @@ export function ModalEdit(props: ModalEditProps) {
             onChangeText={handleChangeData('email')}
           />
           <Button onPress={handleSubmit}> Confirmar </Button>
-        </VStack>
-      </ScrollView>
+        </S.VStack>
+      </S.ScrollView>
     </Modal>
   );
 }

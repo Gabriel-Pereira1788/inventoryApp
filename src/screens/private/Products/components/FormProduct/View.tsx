@@ -1,19 +1,19 @@
 import React from 'react';
 import * as S from 'native-base';
 //* components
-import Modal from '../Modal/View';
-import {Input} from '../Input/View';
-import {Button} from '../Button/View';
+import Modal from '../../../../../components/Modal/View';
+import {Input} from '../../../../../components/Input/View';
+import {Button} from '../../../../../components/Button/View';
+import {InputCurrency} from '../../../../../components/Input/components/InputCurrency';
+import {Select} from '../../../../../components/Select/View';
 //*icons
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 //* hooks
 import {useFormProduct} from './useViewModel';
-//*components
-import {InputCurrency} from '../Input/components/InputCurrency';
-import {Select} from '../Select/View';
 //*constants
-import {categories} from '../../constants/categories';
-import {FormProductProps} from './view.models';
+import {categories} from '../../../../../constants/categories';
+
+export interface FormProductProps extends S.IModalProps {}
 
 export default function FormProduct(props: FormProductProps) {
   const {productDTO, isLoading, handleChange, handleChangeCurrency, onSubmit} =

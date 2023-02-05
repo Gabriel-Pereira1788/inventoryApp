@@ -2,7 +2,6 @@ import {Box} from 'native-base';
 import React from 'react';
 
 import BottomTabs from '../BottomTabs/View';
-import BottomTabsProducts from '../BottomTabsProducts/View';
 import {RenderIF} from '../RenderIF/View';
 import {SharedLayoutProps} from './sharedlayout.model';
 
@@ -18,10 +17,8 @@ export function SharedLayout({children, currentPath}: SharedLayoutProps) {
         py={3}>
         {children}
       </Box>
-      <RenderIF
-        condition={currentPath === 'products'}
-        RenderComponent={() => <BottomTabs currentPath={currentPath} />}>
-        <BottomTabsProducts currentPath={currentPath} />
+      <RenderIF condition={currentPath !== 'products'}>
+        <BottomTabs currentPath={currentPath} />
       </RenderIF>
     </>
   );

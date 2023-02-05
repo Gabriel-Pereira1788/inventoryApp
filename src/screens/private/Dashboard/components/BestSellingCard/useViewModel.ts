@@ -1,7 +1,7 @@
 import {useMemo} from 'react';
 
 import {useNavigation} from '@react-navigation/native';
-import {BestSellingProps} from './view.models';
+import {BestSellingProps} from './View';
 
 export function useBestSelling({bestSelling}: BestSellingProps) {
   const navigation = useNavigation();

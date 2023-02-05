@@ -8,6 +8,10 @@ export function useIsMounted({navigation}: NavigationProps) {
     navigation.addListener('blur', () => {
       setIsMounted(false);
     });
+
+    navigation.addListener('focus', () => {
+      setIsMounted(true);
+    });
   }, [navigation, setIsMounted]);
 
   return {isMounted};

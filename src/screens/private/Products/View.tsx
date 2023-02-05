@@ -11,6 +11,7 @@ import {IsMounted} from '../../../components/IsMounted/View';
 //* hooks
 import {useProducts} from './useViewModel';
 import {NavigationProps} from '../../../routes/navigation';
+import BottomTabsProducts from './components/BottomTabsProducts/View';
 
 const ProductsContext = createContext({} as ReturnType<typeof useProducts>);
 
@@ -34,7 +35,10 @@ export function Products(propsNavigation: NavigationProps) {
                   data={products}
                   w="100%"
                   mt={5}
-                  contentContainerStyle={{justifyContent: 'flex-start'}}
+                  contentContainerStyle={{
+                    justifyContent: 'flex-start',
+                    paddingHorizontal: 5,
+                  }}
                   renderItem={({item}) => <Product {...item.product} />}
                   ListFooterComponent={() => <S.Box my={5} />}
                 />
@@ -42,6 +46,7 @@ export function Products(propsNavigation: NavigationProps) {
             </S.VStack>
           </S.VStack>
         </SharedLayout>
+        <BottomTabsProducts />
       </ProductsContext.Provider>
     </IsMounted>
   );
