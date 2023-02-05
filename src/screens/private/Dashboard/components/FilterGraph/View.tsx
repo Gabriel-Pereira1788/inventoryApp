@@ -1,6 +1,14 @@
 import {Pressable, Text} from 'native-base';
-import React from 'react';
-import {FilterGraphProps} from './view.models';
+import React, {ReactNode} from 'react';
+import {IPressableProps} from 'native-base';
+import {FilterDate} from '../../useViewModel';
+
+export interface FilterGraphProps extends IPressableProps {
+  identifier: FilterDate;
+  currentFilter: FilterDate;
+  children?: ReactNode;
+  changeFilter: (filter: FilterDate) => void;
+}
 
 export function FilterGraph({
   identifier,

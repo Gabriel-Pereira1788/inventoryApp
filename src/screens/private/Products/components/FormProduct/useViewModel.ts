@@ -1,14 +1,14 @@
 import {useMutation, useQueryClient} from '@tanstack/react-query';
 import {useState} from 'react';
-import {ProductDTO} from '../../models/Product';
-import {Products} from '../../services/modules/Products/Products';
-import {useUser} from '../../store/useUser';
-import {MASKS} from '../../utils/masks';
+import {ProductDTO} from '../../../../../models/Product';
+import {useUser} from '../../../../../store/useUser';
+import {MASKS} from '../../../../../utils/masks';
+import {useContextProducts} from '../../View';
 
 export function useFormProduct() {
   const user = useUser();
   const [productDTO, setProductDTO] = useState<ProductDTO>({
-    id_user: '8yBTG7BGJvS8QgQJUoPrFqIMbzA2',
+    id_user: user?.uid,
     name_product: '',
     price_purchased: '',
     price_saled: '',
@@ -16,9 +16,10 @@ export function useFormProduct() {
     category: '',
   });
 
+  const {productsApi} = useContextProducts();
   const queryClient = useQueryClient();
 
-  const {mutateAsync, isLoading} = useMutation(Products.createProduct, {
+  const {mutateAsync, isLoading} = useMutation(productsApi.create, {
     onError: err => {
       console.log(err);
     },
@@ -50,6 +51,7 @@ export function useFormProduct() {
   }
 
   async function onSubmit() {
+    // console.log(productDTO);
     await mutateAsync({dataProduct: productDTO});
   }
 

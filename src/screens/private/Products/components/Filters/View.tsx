@@ -7,7 +7,8 @@ import {RangeSlider} from '../../../../../components/RangeSlider/View';
 import {Button} from '../../../../../components/Button/View';
 //*hooks
 import {useFilter} from './useViewModel';
-import {FiltersProps} from './view.models';
+
+export interface FiltersProps extends S.IModalProps {}
 
 export function Filters({...rest}: FiltersProps) {
   const {dataFilter, totalStorage, totalValue, handleDataFilter} = useFilter();

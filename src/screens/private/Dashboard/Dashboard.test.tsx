@@ -2,7 +2,7 @@ import React from 'react';
 import {render, fireEvent, waitFor} from '@testing-library/react-native';
 import {Dashboard} from './View';
 import {Wrapper} from '../../../components/JestWrapper';
-import {useDashboard} from './hooks/useDashboard';
+import {useDashboard} from './useViewModel';
 
 // const changeFilter = jest.fn();
 

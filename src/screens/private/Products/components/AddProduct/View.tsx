@@ -2,9 +2,11 @@ import React from 'react';
 import * as S from 'native-base';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FormProduct from '../FormProduct/View';
-import {useModal} from '../../hooks/useModal';
-import {AddProductProps} from './view.models';
+import {useModal} from '../../../../../hooks/useModal';
+
 MaterialIcons.loadFont();
+
+export interface AddProductProps {}
 
 export function AddProduct({}: AddProductProps) {
   const {isOpen, handleToggleState} = useModal();

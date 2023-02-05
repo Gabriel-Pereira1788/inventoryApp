@@ -1,6 +1,10 @@
 import {useMemo, useState} from 'react';
 import {useContextProducts} from '../../View';
-import {DataFilter} from './view.models';
+
+export type DataFilter = {
+  storage: number;
+  price: number;
+};
 
 export function useFilter() {
   const {products} = useContextProducts();

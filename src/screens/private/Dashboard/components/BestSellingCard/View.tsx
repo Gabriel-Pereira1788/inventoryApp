@@ -13,7 +13,16 @@ import {formatDate} from '../../../../../utils/formatDate';
 //*hooks
 import {useBestSelling} from './useViewModel';
 //*model
-import {BestSellingProps} from './view.models';
+import {Product} from '../../../../../models/Product';
+import {BestSelling} from '../../../../../models/Statistics';
+
+export interface BestSellingProps {
+  loadingData?: boolean;
+  bestSelling?: {
+    product: Product | null;
+    data_sale: BestSelling | null;
+  };
+}
 
 export function BestSellingCard({bestSelling, loadingData}: BestSellingProps) {
   const {total} = useBestSelling({bestSelling});

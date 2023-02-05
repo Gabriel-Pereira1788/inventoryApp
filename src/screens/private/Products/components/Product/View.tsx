@@ -5,9 +5,12 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import {RenderIF} from '../../../../../components/RenderIF/View';
-import {ProductProps} from './view.models';
 
 MaterialIcon.loadFont();
+
+import {Product as ProductDTO} from '../../../../../models/Product';
+
+export interface ProductProps extends ProductDTO {}
 
 export function Product({name_product, price_saled, storage}: ProductProps) {
   const isSlowStorage = Number(storage) <= 5;

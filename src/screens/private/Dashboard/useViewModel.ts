@@ -1,12 +1,21 @@
-import {useState} from 'react';
+import {useRef, useState} from 'react';
 import {useQuery} from '@tanstack/react-query';
-import {Statistics} from '../../../services/modules/Statistics/Statistics';
 import {useUser} from '../../../store/useUser';
-import {FilterDate} from './view.models';
+import {Statistics} from './model';
+
+export type FilterDate =
+  | 'day'
+  | 'week'
+  | 'month'
+  | '3 month'
+  | '6 month'
+  | 'year';
 
 export function useDashboard() {
   // const id = '8yBTG7BGJvS8QgQJUoPrFqIMbzA2';
   const user = useUser();
+
+  const statisticApi = useRef<Statistics>(new Statistics(user?.uid)).current;
   const [currentFilter, setCurrentFilter] = useState<FilterDate>('day');
 
   function changeFilter(filter: FilterDate): void {
@@ -19,11 +28,18 @@ export function useDashboard() {
     error,
   } = useQuery(
     ['statistics', currentFilter],
-    () => Statistics.getStatistics(user?.uid, currentFilter),
+    () => statisticApi.get(currentFilter),
     {
       refetchOnMount: false,
     },
   );
 
-  return {statistics, changeFilter, currentFilter, isLoading, error};
+  return {
+    statistics,
+    changeFilter,
+    currentFilter,
+    isLoading,
+    error,
+    statisticApi,
+  };
 }
