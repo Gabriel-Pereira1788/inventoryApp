@@ -57,7 +57,7 @@ export function DataCard({
       space="2"
       shadow={4}
       {...rest}>
-      <Animated.View entering={BounceIn} exiting={BounceOut}>
+      <Animated.View entering={BounceIn}>
         <S.VStack
           py={4}
           px={4}

@@ -3,6 +3,9 @@ import React, {ReactNode} from 'react';
 import {IPressableProps} from 'native-base';
 import {FilterDate} from '../../useViewModel';
 
+import {MotiView} from 'moti';
+import {useFilterGraph} from './useViewModel';
+
 export interface FilterGraphProps extends IPressableProps {
   identifier: FilterDate;
   currentFilter: FilterDate;
@@ -17,28 +20,30 @@ export function FilterGraph({
   changeFilter,
   ...rest
 }: FilterGraphProps) {
-  function handleFilter() {
-    changeFilter(identifier);
-  }
+  const {handleFilter, filterAnimation} = useFilterGraph({
+    changeFilter,
+    currentFilter,
+    identifier,
+  });
 
   return (
-    <Pressable
-      p={1}
-      rounded="3xl"
-      minW={'12'}
-      {...rest}
-      isPressed={currentFilter === identifier}
-      _pressed={{backgroundColor: 'primary.500'}}
-      opacity={0.7}
-      onPress={handleFilter}>
-      <Text
-        fontWeight="bold"
-        color={currentFilter === identifier ? 'white' : 'text.100'}
-        textTransform="uppercase"
-        textAlign="center"
-        shadow={4}>
-        {children}{' '}
-      </Text>
-    </Pressable>
+    <MotiView state={filterAnimation} style={{borderRadius: 30}}>
+      <Pressable
+        p={1}
+        minW={'12'}
+        {...rest}
+        isPressed={currentFilter === identifier}
+        opacity={0.7}
+        onPress={handleFilter}>
+        <Text
+          fontWeight="bold"
+          color={currentFilter === identifier ? 'white' : 'text.100'}
+          textTransform="uppercase"
+          textAlign="center"
+          shadow={4}>
+          {children}{' '}
+        </Text>
+      </Pressable>
+    </MotiView>
   );
 }

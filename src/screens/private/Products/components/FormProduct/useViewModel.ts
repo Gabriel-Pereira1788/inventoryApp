@@ -4,6 +4,9 @@ import {ProductDTO} from '../../../../../models/Product';
 import {useUser} from '../../../../../store/useUser';
 import {MASKS} from '../../../../../utils/masks';
 import {useContextProducts} from '../../View';
+4;
+
+type Errors = {[name in keyof ProductDTO]: string};
 
 export function useFormProduct() {
   const user = useUser();
@@ -15,6 +18,7 @@ export function useFormProduct() {
     storage: '',
     category: '',
   });
+  const [errors, setErrors] = useState({} as Errors);
 
   const {productsApi} = useContextProducts();
   const queryClient = useQueryClient();
@@ -52,8 +56,41 @@ export function useFormProduct() {
 
   async function onSubmit() {
     // console.log(productDTO);
-    await mutateAsync({dataProduct: productDTO});
+
+    const Errors = validationData(productDTO);
+
+    if (Errors) {
+      setErrors(Errors);
+      return;
+    }
+    const normalizedData = normalizeData(productDTO);
+    await mutateAsync({dataProduct: normalizedData});
   }
 
-  return {productDTO, isLoading, handleChange, handleChangeCurrency, onSubmit};
+  return {
+    productDTO,
+    isLoading,
+    errors,
+    handleChange,
+    handleChangeCurrency,
+    onSubmit,
+  };
+}
+
+function validationData(data: ProductDTO) {
+  let Errors = {} as Errors;
+  Object.entries(data).forEach(value => {
+    if (value[1].trim() === '') {
+      Errors[value[0] as keyof ProductDTO] = 'Campo vazio';
+    }
+  });
+
+  return Errors;
+}
+
+function normalizeData(data: ProductDTO): ProductDTO {
+  return {
+    ...data,
+    category: data.category.toLowerCase(),
+  };
 }

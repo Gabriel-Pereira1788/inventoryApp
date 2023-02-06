@@ -8,11 +8,14 @@ import * as S from 'native-base';
 import {useModal} from '../../../../../hooks/useModal';
 //*components
 import {Filters} from '../Filters/View';
+import {useControllers} from './useViewModel';
 
 interface ControllersProps {}
 
 export function Controllers({}: ControllersProps) {
   const {isOpen, handleToggleState} = useModal();
+
+  const {searchText, handleSearch} = useControllers();
 
   return (
     <S.HStack
@@ -30,6 +33,8 @@ export function Controllers({}: ControllersProps) {
         shadow={1}
         backgroundColor="#fff"
         placeholder="Pesquisar..."
+        value={searchText}
+        onChangeText={handleSearch}
         rightElement={
           <MaterialIcons
             name="search"

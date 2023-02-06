@@ -1,9 +1,17 @@
 import React from 'react';
 import {RenderIF} from '../RenderIF/View';
-import {IsMountedProps} from './view.model';
+
+import {ReactNode} from 'react';
+import {NavigationProps} from '../../routes/navigation';
 import {useIsMounted} from './useViewModel';
 
-export function IsMounted({propsNavigation, children}: IsMountedProps) {
-  const {isMounted} = useIsMounted(propsNavigation);
+export interface IsMountedProps {
+  propsNavigation: NavigationProps;
+  children: ReactNode;
+  cleanUpFunction?: () => void;
+}
+
+export function IsMounted({children, ...rest}: IsMountedProps) {
+  const {isMounted} = useIsMounted(rest);
   return <RenderIF condition={isMounted}>{children}</RenderIF>;
 }

@@ -16,7 +16,7 @@ export function RangeSlider({title, prefix, ...rest}: RangeProps) {
 
         <S.Text fontSize="md" color="#9b9a9a" bold>
           {prefix}0 - {prefix}
-          {rest.maxValue}
+          {rest.maxValue?.toFixed(2)}
         </S.Text>
       </S.HStack>
       <S.Slider

@@ -1,4 +1,3 @@
-import {Category} from '../../../constants/categories';
 import {Product, ProductDTO} from '../../../models/Product';
 import {api} from '../../../services/api';
 
@@ -9,11 +8,9 @@ export class Products {
   }
 
   async get(
-    category: Category,
+    category: string,
   ): Promise<{relevantStatistics: {}; product: Product}[]> {
-    const {data} = await api.get(
-      `/products/${this.idUser}?category=${category.value}`,
-    );
+    const {data} = await api.get(`/products/${this.idUser}/${category}`);
 
     return data.dataProduct ? data.dataProduct : [];
   }
