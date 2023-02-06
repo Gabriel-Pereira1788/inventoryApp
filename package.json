@@ -20,6 +20,7 @@
     "@react-navigation/native-stack": "^6.9.5",
     "@tanstack/react-query": "^4.20.4",
     "axios": "^1.2.1",
+    "moti": "^0.22.0",
     "native-base": "^3.4.25",
     "phosphor-react-native": "^1.1.2",
     "react": "18.1.0",

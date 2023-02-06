@@ -16,8 +16,14 @@ import {categories} from '../../../../../constants/categories';
 export interface FormProductProps extends S.IModalProps {}
 
 export default function FormProduct(props: FormProductProps) {
-  const {productDTO, isLoading, handleChange, handleChangeCurrency, onSubmit} =
-    useFormProduct();
+  const {
+    productDTO,
+    errors,
+    isLoading,
+    handleChange,
+    handleChangeCurrency,
+    onSubmit,
+  } = useFormProduct();
   return (
     <Modal {...props}>
       <S.Box mt={15} position="absolute" top={10}>
@@ -38,16 +44,22 @@ export default function FormProduct(props: FormProductProps) {
           title="Nome do produto"
           w="full"
           my={2}
+          error={!!errors.name_product}
+          errorMessage={errors.name_product}
           value={productDTO.name_product}
           onChangeText={handleChange('name_product')}
         />
         <InputCurrency
           title="Preço de venda"
+          error={!!errors.price_saled}
+          errorMessage={errors.price_saled}
           value={Number(productDTO.price_saled)}
           onChangeValue={handleChangeCurrency('price_saled')}
         />
         <InputCurrency
           title="Preço de compra"
+          error={!!errors.price_purchased}
+          errorMessage={errors.price_purchased}
           value={Number(productDTO.price_purchased)}
           onChangeValue={handleChangeCurrency('price_purchased')}
         />
@@ -55,12 +67,16 @@ export default function FormProduct(props: FormProductProps) {
         <Input
           title="Estoque inicial"
           my={2}
+          error={!!errors.storage}
+          errorMessage={errors.storage}
           value={productDTO.storage}
           onChangeText={handleChange('storage')}
         />
         <Select
           title="Categoria"
           placeholder="Selecione a categoria"
+          error={!!errors.category}
+          errorMessage={errors.category}
           selectedValue={productDTO.category}
           onValueChange={handleChange('category')}
           items={categories}

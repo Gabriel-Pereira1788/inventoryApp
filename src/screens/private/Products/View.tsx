@@ -7,20 +7,24 @@ import {Product} from './components/Product/View';
 import {Controllers} from './components/Controllers/View';
 import {RenderIF} from '../../../components/RenderIF/View';
 import {SkeletonScreen} from './components/SkeletonScreen/View';
-import {IsMounted} from '../../../components/IsMounted/View';
 //* hooks
 import {useProducts} from './useViewModel';
 import {NavigationProps} from '../../../routes/navigation';
 import BottomTabsProducts from './components/BottomTabsProducts/View';
+import {IsMounted} from '../../../components/IsMounted/View';
 
-const ProductsContext = createContext({} as ReturnType<typeof useProducts>);
+type Context = Omit<ReturnType<typeof useProducts>, 'cleanUpStates'>;
+
+const ProductsContext = createContext({} as Context);
 
 export function Products(propsNavigation: NavigationProps) {
-  const {products, isLoading, ...rest} = useProducts();
+  const {displayProducts, isLoading, cleanUpStates, ...rest} = useProducts();
 
   return (
-    <IsMounted propsNavigation={propsNavigation}>
-      <ProductsContext.Provider value={{products, isLoading, ...rest}}>
+    <IsMounted
+      propsNavigation={propsNavigation}
+      cleanUpFunction={cleanUpStates}>
+      <ProductsContext.Provider value={{displayProducts, isLoading, ...rest}}>
         <SharedLayout currentPath="products">
           <S.VStack mt={10} w="100%" flex={1} p={5}>
             <Controllers />
@@ -30,9 +34,9 @@ export function Products(propsNavigation: NavigationProps) {
             </RenderIF>
 
             <S.VStack mt={2} borderTopWidth={1} borderTopColor="#dddddd70">
-              {!isLoading && products && products.length > 0 && (
+              {!isLoading && displayProducts && displayProducts.length > 0 && (
                 <S.FlatList
-                  data={products}
+                  data={displayProducts}
                   w="100%"
                   mt={5}
                   contentContainerStyle={{
@@ -46,7 +50,7 @@ export function Products(propsNavigation: NavigationProps) {
             </S.VStack>
           </S.VStack>
         </SharedLayout>
-        <BottomTabsProducts />
+        <BottomTabsProducts currentPath="products" />
       </ProductsContext.Provider>
     </IsMounted>
   );

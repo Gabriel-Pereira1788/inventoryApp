@@ -11,7 +11,14 @@ import {useFilter} from './useViewModel';
 export interface FiltersProps extends S.IModalProps {}
 
 export function Filters({...rest}: FiltersProps) {
-  const {dataFilter, totalStorage, totalValue, handleDataFilter} = useFilter();
+  const {
+    dataFilter,
+    totalStorage,
+    totalValue,
+    handleDataFilter,
+    handleCurrentCategory,
+    setFilters,
+  } = useFilter({onClose: rest.onClose});
 
   return (
     <S.Modal {...rest}>
@@ -32,6 +39,7 @@ export function Filters({...rest}: FiltersProps) {
           placeholder="Categorias"
           fontWeight="bold"
           color="#000"
+          onValueChange={handleCurrentCategory}
           items={categories}
         />
         <RangeSlider
@@ -47,7 +55,7 @@ export function Filters({...rest}: FiltersProps) {
           value={dataFilter.storage}
           onChange={handleDataFilter('storage')}
         />
-        <Button>Confirmar</Button>
+        <Button onPress={setFilters}>Confirmar</Button>
       </S.Modal.Content>
     </S.Modal>
   );

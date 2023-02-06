@@ -1,23 +1,39 @@
-import {useMemo, useState} from 'react';
+import {useEffect, useMemo, useState} from 'react';
 import {useContextProducts} from '../../View';
+import {FiltersProps} from './View';
 
 export type DataFilter = {
   storage: number;
   price: number;
 };
 
-export function useFilter() {
-  const {products} = useContextProducts();
+type UserFilterProps = Pick<FiltersProps, 'onClose'>;
 
-  const [dataFilter, setDataFilter] = useState<DataFilter>({
+export function useFilter({onClose}: UserFilterProps) {
+  const {products, category, handleCategory, handleRangeFilter} =
+    useContextProducts();
+
+  const [prevRangeFilter, setPrevRangeFilter] = useState<DataFilter>({
     storage: 0,
     price: 0,
   });
 
+  const [currentCategory, setCurrentCategory] = useState<string>(category);
+
   function handleDataFilter(name: keyof DataFilter) {
     return (value: number) => {
-      setDataFilter(prev => ({...prev, [name]: value}));
+      setPrevRangeFilter(prev => ({...prev, [name]: value}));
     };
+  }
+
+  function handleCurrentCategory(value: string) {
+    setCurrentCategory(value);
+  }
+
+  function setFilters() {
+    handleCategory(currentCategory.toLowerCase());
+    handleRangeFilter(prevRangeFilter);
+    onClose();
   }
 
   const totalValue = useMemo(() => {
@@ -40,5 +56,23 @@ export function useFilter() {
     return 0;
   }, [products]);
 
-  return {totalValue, totalStorage, dataFilter, handleDataFilter};
+  useEffect(() => {
+    if (prevRangeFilter.price > totalValue) {
+      setPrevRangeFilter(prev => ({...prev, price: 0}));
+    }
+
+    if (prevRangeFilter.storage > totalStorage) {
+      setPrevRangeFilter(prev => ({...prev, storage: 0}));
+    }
+  }, [totalStorage, totalValue, prevRangeFilter]);
+
+  return {
+    totalValue,
+    totalStorage,
+    dataFilter: prevRangeFilter,
+    currentCategory,
+    handleDataFilter,
+    handleCurrentCategory,
+    setFilters,
+  };
 }
