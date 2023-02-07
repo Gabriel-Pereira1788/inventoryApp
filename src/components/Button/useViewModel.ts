@@ -3,7 +3,7 @@ import {useAnimationState} from 'moti';
 export function useButton() {
   const buttonAnimation = useAnimationState({
     pressIn: {
-      transform: [{scale: 0.8}],
+      transform: [{scale: 0.9}],
     },
     pressOut: {
       transform: [{scale: 1}],

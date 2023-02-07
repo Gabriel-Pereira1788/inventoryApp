@@ -17,40 +17,39 @@ export function Product({name_product, price_saled, storage}: ProductProps) {
   return (
     <S.HStack
       my={2}
+      mx={3}
       py={4}
       px={2}
       rounded="2xl"
       _light={{backgroundColor: '#fff'}}
-      _dark={{backgroundColor: 'backgroundDark'}}
+      _dark={{backgroundColor: 'dark.300'}}
       shadow={3}
-      w="100%"
+      w="80"
+      minH={'80%'}
       position="relative"
-      alignItems="center"
-      // borderBottomWidth={1}
-      // borderBottomColor="#dddddd"
-    >
-      <S.HStack
-        px={2}
-        py={1}
-        backgroundColor={isSlowStorage ? '#c61049' : '#06a94d'}
-        position="absolute"
-        top={2}
-        right={3}
-        space={1}
-        alignItems="center"
-        justifyContent="center"
-        rounded="md">
-        <AntDesign
-          name={isSlowStorage ? 'exclamation' : 'checkcircle'}
-          size={15}
-          color="#fff"
-        />
-        <RenderIF condition={isSlowStorage}>
+      alignItems="center">
+      <RenderIF condition={isSlowStorage}>
+        <S.HStack
+          px={2}
+          py={1}
+          backgroundColor={isSlowStorage ? '#c61049' : '#06a94d'}
+          position="absolute"
+          top={2}
+          right={3}
+          space={1}
+          alignItems="center"
+          justifyContent="center"
+          rounded="md">
+          <AntDesign
+            name={isSlowStorage ? 'exclamation' : 'checkcircle'}
+            size={15}
+            color="#fff"
+          />
           <S.Text fontSize="sm" bold color="#fff">
             Baixo estoque
           </S.Text>
-        </RenderIF>
-      </S.HStack>
+        </S.HStack>
+      </RenderIF>
 
       <S.Circle
         p={4}

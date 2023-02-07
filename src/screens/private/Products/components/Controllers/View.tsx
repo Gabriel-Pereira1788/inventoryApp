@@ -9,11 +9,13 @@ import {useModal} from '../../../../../hooks/useModal';
 //*components
 import {Filters} from '../Filters/View';
 import {useControllers} from './useViewModel';
+import {useColorMode} from 'native-base';
 
 interface ControllersProps {}
 
 export function Controllers({}: ControllersProps) {
   const {isOpen, handleToggleState} = useModal();
+  const {colorMode} = useColorMode();
 
   const {searchText, handleSearch} = useControllers();
 
@@ -31,8 +33,11 @@ export function Controllers({}: ControllersProps) {
         borderWidth={1}
         borderColor="#dddddd2c"
         shadow={1}
-        backgroundColor="#fff"
+        _light={{backgroundColor: '#fff'}}
+        _dark={{backgroundColor: 'backgroundDark'}}
         placeholder="Pesquisar..."
+        textDecorationColor="#fff"
+        tintColor="#fff"
         value={searchText}
         onChangeText={handleSearch}
         rightElement={
@@ -45,7 +50,11 @@ export function Controllers({}: ControllersProps) {
         }
       />
       <S.Pressable onPress={handleToggleState}>
-        <MaterialComunnityIcons name="tune-vertical-variant" size={25} />
+        <MaterialComunnityIcons
+          name="tune-vertical-variant"
+          size={25}
+          color={colorMode === 'dark' ? '#F0DC61' : '#ddd'}
+        />
       </S.Pressable>
 
       <Filters isOpen={isOpen} onClose={handleToggleState} />
