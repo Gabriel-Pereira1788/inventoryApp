@@ -30,7 +30,8 @@ export function AddProduct({}: AddProductProps) {
       alignItems="center"
       justifyContent="center">
       <S.Circle
-        backgroundColor="backgroundLight"
+        _light={{backgroundColor: 'backgroundLight'}}
+        _dark={{backgroundColor: 'backgroundDark'}}
         alignItems="center"
         justifyContent="center"
         overflow="hidden">

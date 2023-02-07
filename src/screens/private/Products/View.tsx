@@ -36,13 +36,16 @@ export function Products(propsNavigation: NavigationProps) {
             <S.VStack mt={2} borderTopWidth={1} borderTopColor="#dddddd70">
               {!isLoading && displayProducts && displayProducts.length > 0 && (
                 <S.FlatList
+                  horizontal={true}
                   data={displayProducts}
-                  w="100%"
                   mt={5}
+                  showsVerticalScrollIndicator={false}
                   contentContainerStyle={{
                     justifyContent: 'flex-start',
-                    paddingHorizontal: 5,
+                    alignItems: 'center',
+                    padding: 10,
                   }}
+                  ItemSeparatorComponent={() => <S.Box w={10} />}
                   renderItem={({item}) => <Product {...item.product} />}
                   ListFooterComponent={() => <S.Box my={5} />}
                 />
