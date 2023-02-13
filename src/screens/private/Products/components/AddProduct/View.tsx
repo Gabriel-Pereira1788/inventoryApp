@@ -26,15 +26,10 @@ export function AddProduct({}: AddProductProps) {
     <S.HStack
       position="absolute"
       w="full"
-      bottom={2}
+      bottom={5}
       alignItems="center"
       justifyContent="center">
-      <S.Circle
-        _light={{backgroundColor: 'backgroundLight'}}
-        _dark={{backgroundColor: 'backgroundDark'}}
-        alignItems="center"
-        justifyContent="center"
-        overflow="hidden">
+      <S.Circle alignItems="center" justifyContent="center" overflow="hidden">
         <S.Pressable
           p={4}
           onPressIn={() => (pressed.value = true)}

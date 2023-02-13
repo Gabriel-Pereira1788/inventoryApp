@@ -1,6 +1,7 @@
 import {Product, ProductDTO} from '../../../models/Product';
 import {api} from '../../../services/api';
 
+//*Model
 export class Products {
   private idUser?: string;
   constructor(idUser?: string) {

@@ -1,4 +1,4 @@
-import {useEffect, useMemo, useState} from 'react';
+import {useMemo, useState} from 'react';
 import {useContextProducts} from '../../View';
 import {FiltersProps} from './View';
 
@@ -55,16 +55,6 @@ export function useFilter({onClose}: UserFilterProps) {
     }
     return 0;
   }, [products]);
-
-  useEffect(() => {
-    if (prevRangeFilter.price > totalValue) {
-      setPrevRangeFilter(prev => ({...prev, price: 0}));
-    }
-
-    if (prevRangeFilter.storage > totalStorage) {
-      setPrevRangeFilter(prev => ({...prev, storage: 0}));
-    }
-  }, [totalStorage, totalValue, prevRangeFilter]);
 
   return {
     totalValue,

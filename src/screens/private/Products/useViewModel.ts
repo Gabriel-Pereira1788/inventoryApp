@@ -8,6 +8,7 @@ export type DataFilter = {
   price: number;
 };
 
+//*View Model
 export function useProducts() {
   const user = useUser();
   const productsApi = useRef<Products>(new Products(user?.uid)).current;
@@ -26,6 +27,8 @@ export function useProducts() {
     () => productsApi.get(category),
     {refetchOnMount: false},
   );
+
+  console.log(products);
 
   const displayProducts = useMemo(() => {
     if (cleanUp) {
