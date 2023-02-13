@@ -12,6 +12,7 @@ import {IsMounted} from '../../../components/IsMounted/View';
 //*hooks
 import {useDashboard} from './useViewModel';
 import {NavigationProps} from '../../../routes/navigation';
+import ProgressChart from '../../../components/ProgressChart/View';
 
 type Context = Pick<ReturnType<typeof useDashboard>, 'statisticApi'>;
 
@@ -92,6 +93,9 @@ export function Dashboard(propsNavigation: NavigationProps) {
                 <LineChart />
               </S.Box>
             </S.VStack>
+            <S.Box my={10} w="100%">
+              <ProgressChart />
+            </S.Box>
             <BestSellingCard
               bestSelling={statistics?.best_selling}
               loadingData={isLoading}

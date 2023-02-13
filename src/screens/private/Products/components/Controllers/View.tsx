@@ -10,6 +10,7 @@ import {useModal} from '../../../../../hooks/useModal';
 import {Filters} from '../Filters/View';
 import {useControllers} from './useViewModel';
 import {useColorMode} from 'native-base';
+import {RenderIF} from '../../../../../components/RenderIF/View';
 
 interface ControllersProps {}
 
@@ -57,7 +58,9 @@ export function Controllers({}: ControllersProps) {
         />
       </S.Pressable>
 
-      <Filters isOpen={isOpen} onClose={handleToggleState} />
+      <RenderIF condition={isOpen}>
+        <Filters isOpen={isOpen} onClose={handleToggleState} />
+      </RenderIF>
     </S.HStack>
   );
 }

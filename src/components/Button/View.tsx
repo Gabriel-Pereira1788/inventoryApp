@@ -1,13 +1,22 @@
 import React from 'react';
 import * as S from 'native-base';
-import {ButtonProps} from './view.models';
 import {MotiView} from 'moti/build';
 import {useButton} from './useViewModel';
+
+import {IButtonProps} from 'native-base';
+import {ReactNode} from 'react';
+
+export interface ButtonProps extends IButtonProps {
+  children: ReactNode;
+  loading?: boolean;
+}
 
 export function Button({children, loading, ...rest}: ButtonProps) {
   const {buttonAnimation, handleAnimationPress} = useButton();
   return (
-    <MotiView state={buttonAnimation} style={{width: '100%'}}>
+    <MotiView
+      state={buttonAnimation}
+      style={{width: '100%', alignItems: 'center'}}>
       <S.Button
         p={3}
         rounded="lg"
