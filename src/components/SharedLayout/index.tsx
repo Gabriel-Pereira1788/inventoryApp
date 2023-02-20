@@ -1,13 +1,11 @@
-import {Box, IBoxProps} from 'native-base';
-import React, {ReactNode} from 'react';
-import BottomTabs, {Paths} from '../BottomTabs';
+import {Box} from 'native-base';
+import React from 'react';
 
-interface Props extends IBoxProps {
-  children: ReactNode;
-  currentPath?: Paths;
-}
+import BottomTabs from '../BottomTabs/View';
+import {RenderIF} from '../RenderIF/View';
+import {SharedLayoutProps} from './sharedlayout.model';
 
-export function SharedLayout({children, currentPath}: Props) {
+export function SharedLayout({children, currentPath}: SharedLayoutProps) {
   return (
     <>
       <Box
@@ -16,10 +14,13 @@ export function SharedLayout({children, currentPath}: Props) {
         _dark={{backgroundColor: 'backgroundDark'}}
         alignItems="center"
         justifyContent="center"
-        p={3}>
+        py={3}>
         {children}
       </Box>
-      <BottomTabs currentPath={currentPath} />
+      <RenderIF condition={currentPath !== 'products'}>
+        <BottomTabs currentPath={currentPath} />
+        {/* <BottomExample /> */}
+      </RenderIF>
     </>
   );
 }

@@ -6,7 +6,7 @@ import {useQueryClient} from '@tanstack/react-query/build/lib/QueryClientProvide
 import {User} from '../models/Auth';
 //*components
 import {Center} from 'native-base';
-import {Loading} from '../components/Loading';
+import {Loading} from '../components/Loading/View';
 
 export function withRequireAuth<T extends Object>(Component: ComponentType<T>) {
   return function WithRequireAuth(props: T) {

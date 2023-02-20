@@ -1,6 +1,6 @@
 import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
-import BottomTabs from '.';
+import BottomTabs from './View';
 import {Wrapper} from '../JestWrapper';
 import {mockedNavigate} from '../../../jestSetup';
 
