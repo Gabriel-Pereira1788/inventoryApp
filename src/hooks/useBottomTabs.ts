@@ -3,6 +3,7 @@ import {useColorMode} from 'native-base';
 import {ColorValue} from 'react-native';
 
 export type Paths = 'dashboard' | 'products' | 'notifications' | 'about';
+
 export function useBottomTabs(currentPath?: Paths) {
   const navigation = useNavigation();
   const {colorMode} = useColorMode();

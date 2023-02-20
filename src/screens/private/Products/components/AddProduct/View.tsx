@@ -26,22 +26,21 @@ export function AddProduct({}: AddProductProps) {
     <S.HStack
       position="absolute"
       w="full"
-      bottom={5}
+      bottom={2}
       alignItems="center"
       justifyContent="center">
-      <S.Circle alignItems="center" justifyContent="center" overflow="hidden">
-        <S.Pressable
-          p={4}
-          onPressIn={() => (pressed.value = true)}
-          onPressOut={() => (pressed.value = false)}
-          onPress={handleToggleState}>
-          <Animated.View style={[uas]}>
-            <S.Circle shadow={3} size={'sm'} backgroundColor="#474646">
-              <MaterialIcons size={25} name="basket-plus" color="#F0DC61" />
-            </S.Circle>
-          </Animated.View>
-        </S.Pressable>
-      </S.Circle>
+      <S.Pressable
+        p={4}
+        onPressIn={() => (pressed.value = true)}
+        onPressOut={() => (pressed.value = false)}
+        onPress={handleToggleState}>
+        <Animated.View style={[uas]}>
+          <S.Circle shadow={3} size={'sm'} backgroundColor="#474646">
+            <MaterialIcons size={25} name="basket-plus" color="#F0DC61" />
+          </S.Circle>
+        </Animated.View>
+      </S.Pressable>
+
       <FormProduct isOpen={isOpen} onClose={handleToggleState} />
     </S.HStack>
   );

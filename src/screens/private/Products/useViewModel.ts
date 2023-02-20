@@ -22,10 +22,8 @@ export function useProducts() {
     price: 0,
   });
 
-  const {data: products, isLoading} = useQuery(
-    ['products', category],
-    () => productsApi.get(category),
-    {refetchOnMount: false},
+  const {data: products, isLoading} = useQuery(['products', category], () =>
+    productsApi.get(category),
   );
 
   console.log(products);

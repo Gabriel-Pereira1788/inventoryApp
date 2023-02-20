@@ -93,9 +93,7 @@ export function Dashboard(propsNavigation: NavigationProps) {
                 <LineChart />
               </S.Box>
             </S.VStack>
-            <S.Box my={10} w="100%">
-              <ProgressChart />
-            </S.Box>
+
             <BestSellingCard
               bestSelling={statistics?.best_selling}
               loadingData={isLoading}

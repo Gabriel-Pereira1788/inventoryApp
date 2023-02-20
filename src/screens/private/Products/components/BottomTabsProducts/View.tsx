@@ -22,12 +22,13 @@ export default function BottomTabsProducts({
       <S.HStack
         width="100%"
         px={5}
+        py={3}
         shadow={5}
         alignItems="center"
         justifyContent="space-between"
         overflow="hidden"
         space={1}
-        _light={{backgroundColor: '#fff'}}
+        _light={{backgroundColor: 'backgroundLight'}}
         _dark={{backgroundColor: 'backgroundDark'}}
         testID="containerNavigation">
         <MaterialIcon
@@ -44,13 +45,6 @@ export default function BottomTabsProducts({
           size={25}
           color={setCurrentColor('products')}
           onPress={redirectScreen('products')}
-        />
-        <S.Circle
-          top={-25}
-          position="relative"
-          size="md"
-          px="10"
-          backgroundColor="backgroundLight"
         />
 
         <MaterialIcon

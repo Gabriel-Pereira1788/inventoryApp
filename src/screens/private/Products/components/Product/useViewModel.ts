@@ -1,21 +1,17 @@
-import {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-  withTiming,
-} from 'react-native-reanimated';
-import {ProductProps} from './View';
+import {useNavigation} from '@react-navigation/native';
+import {useAnimatedStyle, withTiming} from 'react-native-reanimated';
+import {useVisibleAnimation} from '../../../../../hooks/useVisibleAnimation';
+import {Product} from '../../../../../models/Product';
 
-type UseProductProps = Pick<ProductProps, 'storage'>;
+export function useProduct(props: Product) {
+  const isLowStorage = Number(props.storage) <= 5;
+  const navigation = useNavigation();
 
-export function useProduct({storage}: UseProductProps) {
-  const isLowStorage = Number(storage) <= 5;
-  const isPressed = useSharedValue(false);
-  const productAnimation = useAnimatedStyle(() => {
-    return {
-      height: withSpring(isPressed.value ? 350 : 100),
-    };
-  });
+  const {
+    isPressed,
+    handleToggleVisible,
+    visibleAnimation: productAnimation,
+  } = useVisibleAnimation({animateH: 350, initialH: 100});
 
   const circleAnimation = useAnimatedStyle(() => {
     return {
@@ -23,13 +19,14 @@ export function useProduct({storage}: UseProductProps) {
     };
   });
 
-  function handleToggleVisible() {
-    isPressed.value = !isPressed.value;
+  function handleManageProduct() {
+    navigation.navigate('manageProduct', {product: props});
   }
 
   return {
     isLowStorage,
     handleToggleVisible,
+    handleManageProduct,
     productAnimation,
     circleAnimation,
     isPressed,
