@@ -19,6 +19,7 @@ export function SharedLayout({children, currentPath}: SharedLayoutProps) {
       </Box>
       <RenderIF condition={currentPath !== 'products'}>
         <BottomTabs currentPath={currentPath} />
+        {/* <BottomExample /> */}
       </RenderIF>
     </>
   );

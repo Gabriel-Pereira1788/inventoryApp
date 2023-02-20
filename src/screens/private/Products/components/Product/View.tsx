@@ -15,11 +15,14 @@ import {Button} from '../../../../../components/Button/View';
 MaterialIcon.loadFont();
 export interface ProductProps extends ProductDTO {}
 
-export function Product({name_product, price_saled, storage}: ProductProps) {
-  const {isLowStorage, productAnimation, circleAnimation, handleToggleVisible} =
-    useProduct({
-      storage,
-    });
+export function Product(props: ProductDTO) {
+  const {
+    isLowStorage,
+    productAnimation,
+    circleAnimation,
+    handleToggleVisible,
+    handleManageProduct,
+  } = useProduct(props);
   return (
     <Animated.View
       entering={BounceIn.delay(100).duration(500)}
@@ -64,12 +67,12 @@ export function Product({name_product, price_saled, storage}: ProductProps) {
           justifyContent="flex-start"
           space={2}>
           <S.Text bold fontSize="lg" color="#fff">
-            {name_product}
+            {props.name_product}
           </S.Text>
 
           <S.HStack space={2} alignItems="center">
             <S.Text bold fontSize="lg" color="#7f7f7f">
-              ${price_saled}
+              ${props.price_saled}
             </S.Text>
 
             <MaterialIcon
@@ -80,7 +83,7 @@ export function Product({name_product, price_saled, storage}: ProductProps) {
               color="#F0DC61"
             />
             <S.Text bold fontSize="md" color="#fff">
-              {storage}
+              {props.storage}
             </S.Text>
           </S.HStack>
         </S.VStack>
@@ -121,7 +124,7 @@ export function Product({name_product, price_saled, storage}: ProductProps) {
         justifyContent="flex-start"
         space={3}>
         <ProgressChart />
-        <Button w="80%" opacity={1}>
+        <Button w="80%" opacity={1} onPress={handleManageProduct}>
           Gerenciar
         </Button>
       </S.VStack>

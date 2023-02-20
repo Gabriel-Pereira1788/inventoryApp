@@ -13,6 +13,7 @@ import IconIonicon from 'react-native-vector-icons/Ionicons';
 import {withRequireAuth} from '../hooks/withRequireAuth';
 import UserCard from '../components/UserCard/View';
 import {useColorMode} from 'native-base';
+import ManageProduct from '../screens/private/ManageProduct/View';
 
 IconIonicon.loadFont();
 
@@ -78,6 +79,14 @@ export function Router() {
             headerTitle: 'Produtos',
             headerLeft: () => <></>,
             headerRight: () => <UserCard />,
+          }}
+        />
+
+        <Stack.Screen
+          name="manageProduct"
+          component={withRequireAuth(ManageProduct)}
+          options={{
+            headerTransparent: true,
           }}
         />
       </Stack.Navigator>
