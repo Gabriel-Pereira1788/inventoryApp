@@ -1,13 +1,15 @@
 import React from 'react';
 import * as S from 'native-base';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import FormProduct from '../FormProduct/View';
+
 import {useModal} from '../../../../../hooks/useModal';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
 } from 'react-native-reanimated';
+import Modal from '../../../../../components/Modal/View';
+import FormProduct from '../../../../../components/FormProduct';
 
 MaterialIcons.loadFont();
 
@@ -41,7 +43,24 @@ export function AddProduct({}: AddProductProps) {
         </Animated.View>
       </S.Pressable>
 
-      <FormProduct isOpen={isOpen} onClose={handleToggleState} />
+      <Modal isOpen={isOpen} onClose={handleToggleState}>
+        <S.Box mt={15} position="absolute" top={10}>
+          <MaterialIcons size={100} name="basket-plus" color="#F0DC61" />
+        </S.Box>
+        <S.ScrollView
+          contentContainerStyle={{
+            flexGrow: 1,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+          w="100%"
+          mt={40}
+          p={10}
+          py={15}
+          h="full">
+          <FormProduct.Create />
+        </S.ScrollView>
+      </Modal>
     </S.HStack>
   );
 }

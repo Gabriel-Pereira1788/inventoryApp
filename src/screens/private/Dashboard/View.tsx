@@ -12,7 +12,6 @@ import {IsMounted} from '../../../components/IsMounted/View';
 //*hooks
 import {useDashboard} from './useViewModel';
 import {NavigationProps} from '../../../routes/navigation';
-import ProgressChart from '../../../components/ProgressChart/View';
 
 type Context = Pick<ReturnType<typeof useDashboard>, 'statisticApi'>;
 

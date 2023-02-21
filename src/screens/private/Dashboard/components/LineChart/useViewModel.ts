@@ -10,8 +10,6 @@ export function useChart() {
     error,
   } = useQuery(['statisticsChart'], statisticApi.getStatisticsChart);
 
-  console.log(statistics);
-
   const conditionRender = statistics && statistics?.labels.length > 0;
 
   return {statistics, isLoading, error, conditionRender};

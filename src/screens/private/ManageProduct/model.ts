@@ -3,7 +3,7 @@ import {api} from '../../../services/api';
 
 export class ManageProduct {
   idUser?: string;
-  constructor(idUser: string) {
+  constructor(idUser?: string) {
     if (!this.idUser) {
       this.idUser = idUser;
     }
@@ -34,9 +34,9 @@ export class ManageProduct {
       price_purchased,
       price_saled,
       date: new Date(),
-      pieces_purchased: piecesSaled,
+      pieces_saled: piecesSaled,
     };
-    await api.post('/purchased-product', dataSubmit);
+    await api.post('/saled-product', dataSubmit);
     dataProduct.storage = dataProduct.storage - piecesSaled;
     await api.patch(`/edit-product/${id_product}`, dataProduct);
   }

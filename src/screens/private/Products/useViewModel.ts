@@ -1,7 +1,7 @@
 import {useQuery} from '@tanstack/react-query';
 import {useMemo, useRef, useState} from 'react';
 import {useUser} from '../../../store/useUser';
-import {Products} from './model';
+import {ProductsModel} from './model';
 
 export type DataFilter = {
   storage: number;
@@ -11,7 +11,10 @@ export type DataFilter = {
 //*View Model
 export function useProducts() {
   const user = useUser();
-  const productsApi = useRef<Products>(new Products(user?.uid)).current;
+  console.log(user?.uid);
+  const productsApi = useRef<ProductsModel>(
+    new ProductsModel(user?.uid),
+  ).current;
 
   const [cleanUp, setCleanUp] = useState(false);
 

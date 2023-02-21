@@ -1,0 +1,3 @@
+describe('Alert', () => {
+  second;
+});

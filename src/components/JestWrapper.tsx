@@ -1,6 +1,8 @@
 import {QueryClientProvider} from '@tanstack/react-query';
 import {NativeBaseProvider} from 'native-base';
 import React, {ReactNode} from 'react';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import queryClient from '../services/config/queryClient';
 import {colorModeManager, MAIN} from '../styles/themes';
 export const inset = {
@@ -18,7 +20,11 @@ export const Wrapper = ({children}: Props) => {
         initialWindowMetrics={inset}
         colorModeManager={colorModeManager}
         theme={MAIN}>
-        {children}
+        <SafeAreaProvider>
+          <GestureHandlerRootView style={{flex: 1}}>
+            {children}
+          </GestureHandlerRootView>
+        </SafeAreaProvider>
       </NativeBaseProvider>
     </QueryClientProvider>
   );

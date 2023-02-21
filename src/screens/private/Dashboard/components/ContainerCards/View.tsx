@@ -9,6 +9,7 @@ type ContainerProps = {
 };
 
 export function ContainerCards({statistics, isLoading}: ContainerProps) {
+  console.log(statistics);
   return (
     <S.VStack
       space={4}
@@ -48,14 +49,14 @@ export function ContainerCards({statistics, isLoading}: ContainerProps) {
           loadingData={isLoading}
           backgroundColor="dark.300"
           opacity={0.7}
-          data={statistics?.parts_entered}
+          data={statistics?.total_product}
           textCard="Total em produtos"
         />
         <DataCard
           loadingData={isLoading}
           _light={{backgroundColor: 'primary.400'}}
           _dark={{backgroundColor: 'primary.500'}}
-          data={statistics?.parts_leave}
+          data={statistics?.total_storage}
           textCard="Total em estoque"
         />
       </S.HStack>

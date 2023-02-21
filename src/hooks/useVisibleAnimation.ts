@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {
   useAnimatedStyle,
   useSharedValue,
@@ -13,6 +14,7 @@ export function useVisibleAnimation({
   animateH,
   initialH,
 }: UseVisibleAnimatinoProps) {
+  const [focus, setFocus] = useState(false);
   const isPressed = useSharedValue(false);
   const visibleAnimation = useAnimatedStyle(() => {
     return {
@@ -22,7 +24,8 @@ export function useVisibleAnimation({
 
   function handleToggleVisible() {
     isPressed.value = !isPressed.value;
+    setFocus(!focus);
   }
 
-  return {isPressed, visibleAnimation, handleToggleVisible};
+  return {isPressed, focus, visibleAnimation, handleToggleVisible};
 }

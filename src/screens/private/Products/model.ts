@@ -1,33 +1,20 @@
-import {Product, ProductDTO} from '../../../models/Product';
+import {Product} from '../../../models/Product';
 import {api} from '../../../services/api';
+import {Products} from '../../../services/modules/Products/Products';
 
 //*Model
-export class Products {
-  private idUser?: string;
-  constructor(idUser?: string) {
-    this.idUser = idUser;
-  }
+export class ProductsModel extends Products {
+  super() {}
 
   async get(
     category: string,
   ): Promise<{relevantStatistics: {}; product: Product}[]> {
     const {data} = await api.get(`/products/${this.idUser}/${category}`);
-
+    console.log(this.idUser);
     return data.dataProduct ? data.dataProduct : [];
   }
 
-  async create({dataProduct}: {dataProduct: ProductDTO}) {
-    console.log(dataProduct);
-    const {data} = await api.post('/create-product/', dataProduct);
-
-    return data;
-  }
-
   async delete(id: string) {
-    console.log(id);
-  }
-
-  async update(id: string) {
     console.log(id);
   }
 }

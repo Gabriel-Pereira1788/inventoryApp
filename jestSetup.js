@@ -5,6 +5,8 @@ jest.mock('@react-native-async-storage/async-storage', () =>
   require('@react-native-async-storage/async-storage/jest/async-storage-mock'),
 );
 
+require('react-native-reanimated/lib/reanimated2/jestUtils').setUpTests();
+
 // jest.mock('react-native-vector-icons/Ionicons', () =>
 //   require('react-native-vector-icons'),
 // );
