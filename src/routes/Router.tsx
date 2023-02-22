@@ -87,6 +87,7 @@ export function Router() {
           component={withRequireAuth(ManageProduct)}
           options={{
             headerTransparent: true,
+            headerTitleAlign: 'center',
           }}
         />
       </Stack.Navigator>

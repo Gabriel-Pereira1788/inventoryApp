@@ -7,7 +7,7 @@ import {
 
 interface UseVisibleAnimatinoProps {
   initialH: number;
-  animateH: number;
+  animateH: number | string;
 }
 
 export function useVisibleAnimation({

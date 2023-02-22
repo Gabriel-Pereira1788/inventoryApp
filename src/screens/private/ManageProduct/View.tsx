@@ -3,20 +3,28 @@ import React from 'react';
 
 //*components
 import {SharedLayout} from '../../../components/SharedLayout';
-import ContainerManagement from './components/ContainerManagement/View';
-//*types
-import {NavigationProps} from '../../../routes/navigation';
 import Manage from './components/Manage/View';
 import {Alert} from '../../../components/Alert/View';
-import {useAlert} from '../../../hooks/useAlert';
+import {Edit} from './components/Edit/View';
+//*types
+import {NavigationProps} from '../../../routes/navigation';
+//*hooks
+import {useManageProduct} from './useViewModel';
+//*icons
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function ManageProduct({
   route,
 }: NavigationProps<'manageProduct'>) {
-  const {alertConfig, handleAlertConfig} = useAlert();
   const {product} = route.params;
+  const {alertConfig, dataProduct, handleAlertConfig} = useManageProduct({
+    product,
+  });
   return (
     <SharedLayout currentPath="products">
+      <S.Pressable position="absolute" top={15} right={5}>
+        <Ionicons name="trash" color="red" size={25} />
+      </S.Pressable>
       <S.ScrollView
         mt="15%"
         contentContainerStyle={{
@@ -27,8 +35,8 @@ export default function ManageProduct({
         w="100%"
         px={10}>
         <S.Stack w="100%" space={5}>
-          <ContainerManagement text="Editar" />
-          <Manage product={product} handleAlertConfig={handleAlertConfig} />
+          <Edit product={dataProduct} handleAlertConfig={handleAlertConfig} />
+          <Manage product={dataProduct} handleAlertConfig={handleAlertConfig} />
         </S.Stack>
       </S.ScrollView>
       <Alert

@@ -11,12 +11,12 @@ export type DataFilter = {
 //*View Model
 export function useProducts() {
   const user = useUser();
-  console.log(user?.uid);
+
   const productsApi = useRef<ProductsModel>(
     new ProductsModel(user?.uid),
   ).current;
 
-  const [cleanUp, setCleanUp] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const [searchText, setSearchText] = useState<string>('');
   const [category, setCategory] = useState<string>('todas');
@@ -32,7 +32,7 @@ export function useProducts() {
   console.log(products);
 
   const displayProducts = useMemo(() => {
-    if (cleanUp) {
+    if (isMounted) {
       return [];
     }
     return products?.filter(({product}) => {
@@ -46,7 +46,7 @@ export function useProducts() {
 
       return rangeCondition;
     });
-  }, [products, rangeFilter, cleanUp, searchText]);
+  }, [products, rangeFilter, isMounted, searchText]);
 
   function handleCategory(categoryValue: string) {
     setCategory(categoryValue);
@@ -56,8 +56,15 @@ export function useProducts() {
     setRangeFilter(dataFilter);
   }
 
-  function cleanUpStates() {
-    setCleanUp(true);
+  function handleMountedData(action: 'mount' | 'unmount') {
+    return () => {
+      if (action === 'mount') {
+        setIsMounted(true);
+      }
+      if (action === 'unmount') {
+        setIsMounted(false);
+      }
+    };
   }
 
   return {
@@ -70,6 +77,6 @@ export function useProducts() {
     setSearchText,
     handleCategory,
     handleRangeFilter,
-    cleanUpStates,
+    handleMountedData,
   };
 }

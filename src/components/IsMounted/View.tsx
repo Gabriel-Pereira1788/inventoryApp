@@ -8,7 +8,8 @@ import {useIsMounted} from './useViewModel';
 export interface IsMountedProps {
   propsNavigation: NavigationProps;
   children: ReactNode;
-  cleanUpFunction?: () => void;
+  mountedFunction?: () => void;
+  unMountedFunction?: () => void;
 }
 
 export function IsMounted({children, ...rest}: IsMountedProps) {

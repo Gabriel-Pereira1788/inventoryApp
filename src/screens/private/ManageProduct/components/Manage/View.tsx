@@ -7,16 +7,16 @@ import {Button} from '../../../../../components/Button/View';
 //*hooks
 import {useManage} from './useViewModel';
 //*Model
-import {Product} from '../../../../../models/Product';
+import {ProductDTO} from '../../../../../models/Product';
 import {AlertConfig} from '../../../../../hooks/useAlert';
 
 export interface ManageProps {
-  product: Product;
+  product?: ProductDTO;
   handleAlertConfig: (alert: AlertConfig) => void;
 }
 
 export default function Manage(props: ManageProps) {
-  const {manageForm, handleManageForm, handleSubmitForm} = useManage({
+  const {manageForm, loading, handleManageForm, handleSubmitForm} = useManage({
     ...props,
   });
 
@@ -26,16 +26,20 @@ export default function Manage(props: ManageProps) {
         <Input
           title="Peças que sairam"
           value={manageForm.salesPieces}
+          keyboardType="numeric"
           onChangeText={value => handleManageForm(value, 'salesPieces')}
           testID="inputPurchased"
         />
         <Input
           title="Peças que entraram"
+          keyboardType="numeric"
           value={manageForm.purchasedPieces}
           onChangeText={value => handleManageForm(value, 'purchasedPieces')}
           testID="inputSales"
         />
-        <Button onPress={handleSubmitForm}>Confirmar</Button>
+        <Button onPress={handleSubmitForm} loading={loading}>
+          Confirmar
+        </Button>
       </S.Stack>
     </ContainerManagement>
   );

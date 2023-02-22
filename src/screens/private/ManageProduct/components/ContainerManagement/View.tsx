@@ -7,15 +7,17 @@ import Animated from 'react-native-reanimated';
 interface ContainerManagementProps {
   text: string;
   children?: ReactNode;
+  animateH?: number | string;
 }
 
 export default function ContainerManagement({
   text,
   children,
+  animateH,
 }: ContainerManagementProps) {
   const {handleToggleVisible, visibleAnimation, focus} = useVisibleAnimation({
     initialH: 80,
-    animateH: 350,
+    animateH: animateH || 350,
   });
   return (
     <Animated.View

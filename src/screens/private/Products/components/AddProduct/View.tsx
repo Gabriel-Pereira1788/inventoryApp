@@ -2,28 +2,18 @@ import React from 'react';
 import * as S from 'native-base';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import {useModal} from '../../../../../hooks/useModal';
-import Animated, {
-  useAnimatedStyle,
-  useSharedValue,
-  withSpring,
-} from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
 import Modal from '../../../../../components/Modal/View';
-import FormProduct from '../../../../../components/FormProduct';
+import {useAddProduct} from './useViewModel';
+import {FormProduct} from '../../../../../components/FormProduct/View';
 
 MaterialIcons.loadFont();
 
 export interface AddProductProps {}
 
 export function AddProduct({}: AddProductProps) {
-  const {isOpen, handleToggleState} = useModal();
-
-  const pressed = useSharedValue(false);
-  const uas = useAnimatedStyle(() => {
-    return {
-      transform: [{scale: withSpring(pressed.value ? 1.2 : 1)}],
-    };
-  });
+  const {isOpen, pressed, uas, loadingSubmit, handleToggleState, onSubmit} =
+    useAddProduct();
   return (
     <S.HStack
       position="absolute"
@@ -58,7 +48,7 @@ export function AddProduct({}: AddProductProps) {
           p={10}
           py={15}
           h="full">
-          <FormProduct.Create />
+          <FormProduct loadingSubmit={loadingSubmit} onSubmit={onSubmit} />
         </S.ScrollView>
       </Modal>
     </S.HStack>

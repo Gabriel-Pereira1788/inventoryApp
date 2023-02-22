@@ -17,8 +17,7 @@ export function SkeletonScreen({}: Props) {
             py={4}
             px={2}
             rounded="2xl"
-            _light={{backgroundColor: '#fff'}}
-            _dark={{backgroundColor: 'backgroundDark'}}
+            backgroundColor="#545353"
             shadow={3}
             w="100%"
             position="relative"

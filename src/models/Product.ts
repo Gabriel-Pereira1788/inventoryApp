@@ -16,6 +16,6 @@ export interface ProductDTO {
   name_product: string;
   price_purchased: string;
   price_saled: string;
-  storage: string;
+  storage: string | number;
   category: string;
 }

@@ -16,11 +16,17 @@ import {ProductDTO} from '../../models/Product';
 export interface FormProductProps extends S.IStackProps {
   onSubmit: (data: ProductDTO) => Promise<void>;
   loadingSubmit: boolean;
+  initialValue?: ProductDTO;
 }
 
-export function Form({onSubmit, loadingSubmit, ...rest}: FormProductProps) {
+export function FormProduct({
+  onSubmit,
+  loadingSubmit,
+  initialValue,
+  ...rest
+}: FormProductProps) {
   const {productDTO, errors, handleChange, handleChangeCurrency, handleSubmit} =
-    useFormProduct({onSubmit});
+    useFormProduct({onSubmit, initialValue});
   return (
     <S.VStack
       flex={1}
@@ -58,7 +64,7 @@ export function Form({onSubmit, loadingSubmit, ...rest}: FormProductProps) {
         my={2}
         error={!!errors.storage}
         errorMessage={errors.storage}
-        value={productDTO.storage}
+        value={String(productDTO.storage)}
         onChangeText={handleChange('storage')}
       />
       <Select

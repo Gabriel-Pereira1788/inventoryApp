@@ -5,7 +5,9 @@ type UseIsMountedProps = Omit<IsMountedProps, 'children'>;
 
 export function useIsMounted({
   propsNavigation,
-  cleanUpFunction,
+
+  mountedFunction,
+  unMountedFunction,
 }: UseIsMountedProps) {
   const {navigation} = propsNavigation;
   const [isMounted, setIsMounted] = useState(true);
@@ -13,15 +15,18 @@ export function useIsMounted({
   useEffect(() => {
     navigation.addListener('blur', () => {
       setIsMounted(false);
-      if (cleanUpFunction) {
-        cleanUpFunction();
+      if (mountedFunction) {
+        mountedFunction();
       }
     });
 
     navigation.addListener('focus', () => {
       setIsMounted(true);
+      if (unMountedFunction) {
+        unMountedFunction();
+      }
     });
-  }, [navigation, setIsMounted, cleanUpFunction]);
+  }, [navigation, setIsMounted, mountedFunction, unMountedFunction]);
 
   return {isMounted};
 }

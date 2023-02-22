@@ -2,6 +2,7 @@ import {useQueryClient} from '@tanstack/react-query';
 import {AxiosError} from 'axios';
 import {useState} from 'react';
 import {useUser} from '../../../../../store/useUser';
+import {MASKS} from '../../../../../utils/masks';
 import {ManageProduct} from '../../model';
 import {ManageProps} from './View';
 
@@ -11,6 +12,7 @@ export function useManage({product, handleAlertConfig}: UseManageProps) {
   const user = useUser();
   const queryClient = useQueryClient();
   const manageProductApi = new ManageProduct(user?.uid);
+  const [loading, setLoading] = useState(false);
 
   const [manageForm, setManageForm] = useState({
     salesPieces: '0',
@@ -18,13 +20,12 @@ export function useManage({product, handleAlertConfig}: UseManageProps) {
   });
 
   function handleManageForm(value: string, key: keyof typeof manageForm) {
-    console.log(manageForm);
-    setManageForm(prev => ({...prev, [key]: value}));
+    const formatedValue = MASKS.someNumbers(value);
+    setManageForm(prev => ({...prev, [key]: formatedValue}));
   }
 
   async function handleSubmitForm() {
-    console.log(product.storage);
-    if (Number(manageForm.salesPieces) > product.storage) {
+    if (Number(manageForm.salesPieces) > Number(product!.storage)) {
       console.log('entering');
       handleAlertConfig({
         isOpen: true,
@@ -34,23 +35,29 @@ export function useManage({product, handleAlertConfig}: UseManageProps) {
       });
       return;
     }
-
+    setLoading(true);
     try {
       if (Number(manageForm.salesPieces) > 0) {
         await manageProductApi.saleProduct(
-          product,
+          product!,
           Number(manageForm.salesPieces),
         );
       }
 
       if (Number(manageForm.purchasedPieces) > 0) {
         await manageProductApi.purchaseProduct(
-          product,
+          product!,
           Number(manageForm.purchasedPieces),
         );
       }
 
       queryClient.invalidateQueries(['products']);
+      queryClient.refetchQueries(['product', product?.id_product]);
+      handleAlertConfig({
+        isOpen: true,
+        status: 'success',
+        title: 'Estoque atualizado com sucesso!.',
+      });
     } catch (error) {
       const Error = error as AxiosError;
       handleAlertConfig({
@@ -59,8 +66,10 @@ export function useManage({product, handleAlertConfig}: UseManageProps) {
         title: Error.message,
         text: 'Error',
       });
+    } finally {
+      setLoading(false);
     }
   }
 
-  return {manageForm, handleManageForm, handleSubmitForm};
+  return {manageForm, loading, handleManageForm, handleSubmitForm};
 }

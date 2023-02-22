@@ -1,23 +1,26 @@
+/* eslint-disable no-extra-boolean-cast */
 import {useState} from 'react';
 import {ProductDTO} from '../../models/Product';
 import {useUser} from '../../store/useUser';
 import {MASKS} from '../../utils/masks';
-import {FormProductProps} from './Form';
+import {FormProductProps} from './View';
 
 type Errors = {[name in keyof ProductDTO]: string};
 
-type UseFormProductProps = Pick<FormProductProps, 'onSubmit'>;
+type UseFormProductProps = Pick<FormProductProps, 'onSubmit' | 'initialValue'>;
 
-export function useFormProduct({onSubmit}: UseFormProductProps) {
+export function useFormProduct({onSubmit, initialValue}: UseFormProductProps) {
   const user = useUser();
-  const [productDTO, setProductDTO] = useState<ProductDTO>({
-    id_user: user?.uid,
-    name_product: '',
-    price_purchased: '',
-    price_saled: '',
-    storage: '',
-    category: '',
-  });
+  const [productDTO, setProductDTO] = useState<ProductDTO>(
+    initialValue || {
+      id_user: user?.uid,
+      name_product: '',
+      price_purchased: '',
+      price_saled: '',
+      storage: '',
+      category: '',
+    },
+  );
   const [errors, setErrors] = useState({} as Errors);
 
   function handleChange(name: keyof ProductDTO) {
@@ -42,15 +45,14 @@ export function useFormProduct({onSubmit}: UseFormProductProps) {
   }
 
   async function handleSubmit() {
-    // console.log(productDTO);
-
     const Errors = validationData(productDTO);
 
-    if (Errors) {
+    if (Object.values(Errors).length > 0) {
       setErrors(Errors);
       return;
     }
     const normalizedData = normalizeData(productDTO);
+
     await onSubmit(normalizedData);
   }
 
@@ -65,11 +67,12 @@ export function useFormProduct({onSubmit}: UseFormProductProps) {
 
 function validationData(data: ProductDTO) {
   let Errors = {} as Errors;
-  Object.entries(data).forEach(value => {
-    if (value[1].trim() === '') {
+
+  for (let value of Object.entries(data)) {
+    if (String(value[1]).trim() === '') {
       Errors[value[0] as keyof ProductDTO] = 'Campo vazio';
     }
-  });
+  }
 
   return Errors;
 }
