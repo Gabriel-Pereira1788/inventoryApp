@@ -22,7 +22,7 @@ export default function Manage(props: ManageProps) {
 
   return (
     <ContainerManagement text="Gerenciar">
-      <S.Stack space={3} w="100%">
+      <S.Stack space={3} w="100%" py={5}>
         <Input
           title="Peças que sairam"
           value={manageForm.salesPieces}

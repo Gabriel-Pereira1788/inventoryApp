@@ -7,6 +7,8 @@ interface ProgressChartProps {}
 const data = {
   data: [0.6, 0.8],
   colors: ['#f89898', '#fff4af'],
+
+  //*#626161a0
 };
 
 export default function ProgressChart({}: ProgressChartProps) {

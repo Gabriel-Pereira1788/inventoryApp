@@ -13,7 +13,7 @@ export interface AddProductProps {}
 
 export function AddProduct({}: AddProductProps) {
   const {isOpen, pressed, uas, loadingSubmit, handleToggleState, onSubmit} =
-    useAddProduct();
+    useAddProduct({});
   return (
     <S.HStack
       position="absolute"

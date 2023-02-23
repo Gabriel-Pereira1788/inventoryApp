@@ -30,7 +30,7 @@ export default function ContainerManagement({
           justifyContent: 'flex-start',
           backgroundColor: 'transparent',
           borderColor: '#6c6c6c2a',
-          borderWidth: 1,
+          borderWidth: 2,
           borderRadius: 10,
           paddingVertical: 12,
         },
@@ -49,7 +49,7 @@ export default function ContainerManagement({
             <MaterialIcon
               name="keyboard-arrow-down"
               color="#242323a7"
-              size={25}
+              size={30}
             />
           </S.Stack>
 

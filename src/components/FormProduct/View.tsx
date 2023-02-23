@@ -65,6 +65,7 @@ export function FormProduct({
         error={!!errors.storage}
         errorMessage={errors.storage}
         value={String(productDTO.storage)}
+        keyboardType="number-pad"
         onChangeText={handleChange('storage')}
       />
       <Select

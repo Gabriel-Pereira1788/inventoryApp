@@ -8,7 +8,9 @@ import {useModal} from '../../../../../hooks/useModal';
 import {ProductDTO} from '../../../../../models/Product';
 import {useContextProducts} from '../../View';
 
-export function useAddProduct() {
+interface AddProductProps {}
+
+export function useAddProduct({}: AddProductProps) {
   const {isOpen, handleToggleState} = useModal();
   const {productsApi} = useContextProducts();
 
@@ -30,6 +32,7 @@ export function useAddProduct() {
       onSuccess: res => {
         console.log(res);
         queryClient.refetchQueries(['products']);
+        handleToggleState();
       },
     },
   );

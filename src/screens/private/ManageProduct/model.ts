@@ -59,4 +59,8 @@ export class ManageProduct {
   }) {
     await api.patch(`/edit-product/${idProduct}`, dataProduct);
   }
+
+  public static async deleteProduct(idProduct?: string) {
+    await api.delete(`/delete-product/${idProduct}`);
+  }
 }

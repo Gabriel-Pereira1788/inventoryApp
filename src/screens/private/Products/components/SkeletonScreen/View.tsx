@@ -10,6 +10,9 @@ export function SkeletonScreen({}: Props) {
       <S.FlatList
         data={dataRef.current}
         w="100%"
+        contentContainerStyle={{padding: 10}}
+        showsVerticalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false}
         mt={5}
         renderItem={() => (
           <S.HStack
@@ -20,19 +23,18 @@ export function SkeletonScreen({}: Props) {
             backgroundColor="#545353"
             shadow={3}
             w="100%"
+            height={'100px'}
             position="relative"
             alignItems="center">
-            <S.Skeleton rounded="full" size="16" />
-
             <S.VStack
               ml={2}
               alignItems="flex-start"
               justifyContent="center"
               space={2}>
-              <S.Skeleton p={2} w="140px" />
-              <S.HStack space={2}>
-                <S.Skeleton p={2} w="30%" />
-                <S.Skeleton p={2} w="50px" />
+              <S.Skeleton h={4} w="140px" rounded="full" />
+              <S.HStack w={'100%'} space={2}>
+                <S.Skeleton flex={0.5} w="30%" h={3} rounded="full" />
+                <S.Skeleton flex={0.5} h={3} rounded="full" />
               </S.HStack>
             </S.VStack>
           </S.HStack>
