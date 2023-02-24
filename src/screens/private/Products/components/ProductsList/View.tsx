@@ -17,11 +17,11 @@ export function ProductsList({}: ProductsListProps) {
           snapToAlignment={'center'}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
-          maxH={350}
+          minH={350}
           contentContainerStyle={{
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
-
+            flexGrow: 1,
             padding: 15,
           }}
           renderItem={({item}) => <Product {...item.product} />}

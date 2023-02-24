@@ -34,6 +34,7 @@ export function Product(props: ProductDTO) {
           borderRadius: 10,
           marginVertical: 10,
           overflow: 'hidden',
+          elevation: 3,
         },
       ]}>
       <S.HStack position="relative" alignItems="center" my={2}>
@@ -71,7 +72,7 @@ export function Product(props: ProductDTO) {
           </S.Text>
 
           <S.HStack space={2} alignItems="center">
-            <S.Text bold fontSize="lg" color="#7f7f7f">
+            <S.Text bold fontSize="lg" color="#bdbaba">
               ${props.price_saled}
             </S.Text>
 
@@ -82,8 +83,23 @@ export function Product(props: ProductDTO) {
               size={25}
               color="#F0DC61"
             />
-            <S.Text bold fontSize="md" color="#fff">
+            <S.Text bold fontSize="md" color="#bcbaba">
               {props.storage}
+            </S.Text>
+
+            <MaterialIcon
+              style={{marginLeft: 5}}
+              name="category"
+              size={25}
+              color="#F0DC61"
+            />
+
+            <S.Text
+              bold
+              fontSize="md"
+              color="#bfbcbc"
+              textTransform="capitalize">
+              {props.category}
             </S.Text>
           </S.HStack>
         </S.VStack>
