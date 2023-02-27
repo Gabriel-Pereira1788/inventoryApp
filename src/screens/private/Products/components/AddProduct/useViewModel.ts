@@ -32,6 +32,7 @@ export function useAddProduct({}: AddProductProps) {
       onSuccess: res => {
         console.log(res);
         queryClient.refetchQueries(['products']);
+        queryClient.invalidateQueries(['statistics']);
         handleToggleState();
       },
     },

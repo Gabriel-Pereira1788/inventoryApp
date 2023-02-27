@@ -24,7 +24,12 @@ export function ProductsList({}: ProductsListProps) {
             flexGrow: 1,
             padding: 15,
           }}
-          renderItem={({item}) => <Product {...item.product} />}
+          renderItem={({item}) => (
+            <Product
+              {...item.product}
+              total_pieces_sales={item.total_pieces_sales}
+            />
+          )}
         />
       )}
     </>

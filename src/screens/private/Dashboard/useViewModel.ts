@@ -12,7 +12,6 @@ export type FilterDate =
   | 'year';
 
 export function useDashboard() {
-  // const id = '8yBTG7BGJvS8QgQJUoPrFqIMbzA2';
   const user = useUser();
 
   const statisticApi = useRef<Statistics>(new Statistics(user?.uid)).current;

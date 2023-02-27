@@ -1,5 +1,6 @@
 import {useQuery} from '@tanstack/react-query';
 import {useMemo, useRef, useState} from 'react';
+import {useStatistics} from '../../../store/useStatistics';
 import {useUser} from '../../../store/useUser';
 import {ProductsModel} from './model';
 
@@ -29,6 +30,7 @@ export function useProducts() {
     productsApi.get(category),
   );
 
+  const {data: statisticsTotal} = useStatistics();
   console.log(products);
 
   const displayProducts = useMemo(() => {
@@ -74,6 +76,7 @@ export function useProducts() {
     productsApi,
     category,
     searchText,
+    statisticsTotal,
     setSearchText,
     handleCategory,
     handleRangeFilter,

@@ -10,7 +10,9 @@ export class ProductsModel {
 
   async get(
     category: string,
-  ): Promise<{relevantStatistics: {}; product: Product}[]> {
+  ): Promise<
+    {relevantStatistics: {}; product: Product; total_pieces_sales: number}[]
+  > {
     const {data} = await api.get(`/products/${this.idUser}/${category}`);
     console.log(this.idUser);
     return data.dataProduct ? data.dataProduct : [];

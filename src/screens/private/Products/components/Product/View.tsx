@@ -13,11 +13,15 @@ import {useProduct} from './useViewModel';
 import {Button} from '../../../../../components/Button/View';
 
 MaterialIcon.loadFont();
-export interface ProductProps extends ProductDTO {}
+export interface ProductProps extends ProductDTO {
+  total_pieces_sales: number;
+}
 
-export function Product(props: ProductDTO) {
+export function Product(props: ProductProps) {
   const {
     isLowStorage,
+    storagePercentage,
+    piecesSaledPercentage,
     productAnimation,
     circleAnimation,
     handleToggleVisible,
@@ -139,7 +143,10 @@ export function Product(props: ProductDTO) {
         alignItems="center"
         justifyContent="flex-start"
         space={3}>
-        <ProgressChart />
+        <ProgressChart
+          salesPercentage={piecesSaledPercentage}
+          storagePercentage={storagePercentage}
+        />
         <Button w="80%" opacity={1} onPress={handleManageProduct}>
           Gerenciar
         </Button>

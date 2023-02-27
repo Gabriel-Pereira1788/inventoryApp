@@ -52,7 +52,8 @@ export function useManage({product, handleAlertConfig}: UseManageProps) {
       }
 
       queryClient.invalidateQueries(['products']);
-      queryClient.refetchQueries(['product', product?.id_product]);
+      queryClient.invalidateQueries(['statistics']);
+      queryClient.refetchQueries(['product']);
       handleAlertConfig({
         isOpen: true,
         status: 'success',
