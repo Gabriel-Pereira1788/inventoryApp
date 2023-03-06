@@ -18,6 +18,7 @@ export function useModalDelete({product}: UseModalDeleteProps) {
         console.log(data);
         queryClient.removeQueries(['product', product?.id_product]);
         queryClient.invalidateQueries(['products']);
+        queryClient.invalidateQueries(['statistics']);
         navigation.goBack();
       },
     },

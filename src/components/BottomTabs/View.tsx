@@ -17,11 +17,13 @@ export default function BottomTabs({currentPath}: BottomTabsProps) {
     <S.HStack
       width="100%"
       px={3}
-      py={2}
+      py={5}
+      borderTopRadius={35}
       alignItems="center"
       justifyContent="space-around"
       space={1}
-      _light={{backgroundColor: 'backgroundLight'}}
+      shadow={5}
+      _light={{backgroundColor: 'backgroundDark'}}
       _dark={{backgroundColor: 'backgroundDark'}}
       testID="containerNavigation">
       <MaterialIcon

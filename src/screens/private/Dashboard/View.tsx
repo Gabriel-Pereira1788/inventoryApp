@@ -24,7 +24,7 @@ export function Dashboard(propsNavigation: NavigationProps) {
   return (
     <DashboardContext.Provider value={{...rest}}>
       <IsMounted propsNavigation={propsNavigation}>
-        <SharedLayout currentPath="dashboard">
+        <SharedLayout currentPath="dashboard" py={0}>
           <S.ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{

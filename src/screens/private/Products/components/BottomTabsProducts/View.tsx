@@ -22,14 +22,15 @@ export default function BottomTabsProducts({
       <S.HStack
         width="100%"
         px={5}
-        py={3}
+        py={5}
+        borderTopRadius={35}
+        _light={{backgroundColor: 'backgroundDark'}}
+        _dark={{backgroundColor: 'backgroundDark'}}
         shadow={5}
         alignItems="center"
         justifyContent="space-between"
         overflow="hidden"
-        space={1}
-        _light={{backgroundColor: 'backgroundLight'}}
-        _dark={{backgroundColor: 'backgroundDark'}}
+        space={2}
         testID="containerNavigation">
         <MaterialIcon
           testID="iconDashboard"
@@ -41,7 +42,7 @@ export default function BottomTabsProducts({
         <MaterialIcon
           testID="iconProducts"
           name="inventory"
-          style={{marginRight: 10}}
+          style={{marginRight: 15}}
           size={25}
           color={setCurrentColor('products')}
           onPress={redirectScreen('products')}
@@ -50,7 +51,7 @@ export default function BottomTabsProducts({
         <MaterialIcon
           testID="iconNotifications"
           name="notifications"
-          style={{marginLeft: 10}}
+          style={{marginLeft: 15}}
           size={25}
           color={setCurrentColor('notifications')}
           onPress={redirectScreen('notifications')}
