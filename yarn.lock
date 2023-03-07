@@ -1887,32 +1887,37 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.3.0.tgz#9e558170c106bbafaa1ef502bd8e6d4651012bf9"
   integrity sha512-+zDZ20NUnSWghj7Ku5aFphMzuM9JulqCW+aPXT6IfIXFbb8tzYTTOSeRFOtuekJ99ibW2fUCSsjuKNlwDIbHFg==
 
-"@react-native-firebase/app@^16.4.6":
-  version "16.4.6"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-16.4.6.tgz#929a86894b401352259e21d4cb4dab1d37de2bc7"
-  integrity sha512-rL/vhylwzj9ziKAqEOI6G3eIGiJRcI9dcM93+gG7pEv1mNBHKmhnuq9VPS8nR01qyI/PYWoKN6XecE0w7A7n4w==
+"@react-native-firebase/app@^17.3.2":
+  version "17.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-17.3.2.tgz#c39dd34f5389ff65845c5d67313bbf2371275a8f"
+  integrity sha512-JPA9PuD3il2/FERnsW5bC/PbXdcBcVMtk4V0vL8YgLh+jQg+E3qQTQmeWn9eOWTYJb6BYOiiNHTdTglvqoo5Cg==
   dependencies:
     "@expo/config-plugins" "^5.0.4"
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@^16.4.6":
-  version "16.4.6"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-16.4.6.tgz#4a7824a0fb43e25d8d5561321af19e6f4b44f284"
-  integrity sha512-le9SkPa7xNawHa58xyNE6ZzBLseVOz7LA1qYZDYrwqiVYZ6vGrHCiV9wRDmEz2MgQD2znigZnsUNd4p5RHvMWw==
+"@react-native-firebase/auth@^17.3.2":
+  version "17.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-17.3.2.tgz#a2e9f3de72842aedfe016c7acceb99262e349747"
+  integrity sha512-YvVvKTwpMMWnDThKh4btgAh6XYo7ie1hwwrTOGNd8Vpsr+nGmiPPB0COdiVaQu8KWX1CzPbOuxJdPwWaz9lW/w==
   dependencies:
     "@expo/config-plugins" "^5.0.4"
     plist "^3.0.5"
 
-"@react-native-firebase/in-app-messaging@^16.5.0":
-  version "16.5.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/in-app-messaging/-/in-app-messaging-16.5.0.tgz#ed0be04d85da9e6db2c2f6d2b25096fa357914ee"
-  integrity sha512-evUJHnIhghoJVJSjIaXaI27VCsf2chjUiwXr0QaSTfqKrZtv50/yDd9GIBLLXjxaC4BPaykC315PpjA2ArwcAQ==
+"@react-native-firebase/in-app-messaging@^17.3.2":
+  version "17.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/in-app-messaging/-/in-app-messaging-17.3.2.tgz#43f1ee09e58bf8880e5951b0770720fbd9ecae54"
+  integrity sha512-qVE101mqH0VFkdAUrV7UR5NHXUgAO8v0sEn4KyEJTGPMc8Ki+sLqKdeflCdY7zHTju/SpvEYXZyz3wSgPRi7dg==
 
-"@react-native-firebase/messaging@^16.5.0":
-  version "16.5.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/messaging/-/messaging-16.5.0.tgz#42519acec4fba8b0faa68b7bc9a4e047681118cc"
-  integrity sha512-p2dQ59BhGqQUNuJEjbnMxwSoPh/0c5DjBY6BbVoP6G87XDEU6XqHAU2HI4hZXJvUxXnpf1RhbN4XxTXMH+BvAg==
+"@react-native-firebase/messaging@^17.3.2":
+  version "17.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/messaging/-/messaging-17.3.2.tgz#1d37fdf8cc3027542fdbab871f5df3ea2fb687c8"
+  integrity sha512-7IO12OjNdjtvtxHXY/8qJ9a0RLTg4cUddnE1sNxj3RciDz+Sx7SRJX0fsyX19i1m7dcPh73p9NzrrtnvNnILfw==
+
+"@react-native-firebase/storage@^17.3.2":
+  version "17.3.2"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-17.3.2.tgz#f5d75c9ce2fc05da437fecb0900de4314c5cf9a1"
+  integrity sha512-Pojwd5SuM8lvJBDfVV9ylyTOb8bwildhdAetLgyIdvyVwE9QqzpZoOebb283ceJ0h6OdznHiR66JJStcyclUwg==
 
 "@react-native/assets@1.0.0":
   version "1.0.0"
@@ -7470,6 +7475,11 @@ react-native-gradle-plugin@^0.70.3:
   resolved "https://registry.yarnpkg.com/react-native-gradle-plugin/-/react-native-gradle-plugin-0.70.3.tgz#cbcf0619cbfbddaa9128701aa2d7b4145f9c4fc8"
   integrity sha512-oOanj84fJEXUg9FoEAQomA8ISG+DVIrTZ3qF7m69VQUJyOGYyDZmPqKcjvRku4KXlEH6hWO9i4ACLzNBh8gC0A==
 
+react-native-image-picker@^5.1.0:
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-image-picker/-/react-native-image-picker-5.1.0.tgz#78b84533a52a8e9704bacf6d18e7c979d9766271"
+  integrity sha512-p506trG3PDSrdm+Yd0QolsnR3FtSe37gkP7OVsMa9UYwn1teaLGzhmx3QMZ4ZBwdV1AKBUFA5HF1ECAVSDTdQQ==
+
 react-native-linear-gradient@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.6.2.tgz#56598a76832724b2afa7889747635b5c80948f38"
@@ -7481,11 +7491,6 @@ react-native-onesignal@^4.5.0:
   integrity sha512-9rocNYJXrAFUk1yG50vu0D7aYEeX8imEA3qDeBT+iwyFpy6E1xXNy3z9OPazzeuGi9/YaseEAiswpKBlaoJV3A==
   dependencies:
     invariant "^2.2.2"
-
-react-native-push-notification@^8.1.1:
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/react-native-push-notification/-/react-native-push-notification-8.1.1.tgz#a41d20c70ea5a7709417e96261b225461f8dc73a"
-  integrity sha512-XpBtG/w+a6WXTxu6l1dNYyTiHnbgnvjoc3KxPTxYkaIABRmvuJZkFxqruyGvfCw7ELAlZEAJO+dthdTabCe1XA==
 
 react-native-reanimated@^2.13.0:
   version "2.13.0"

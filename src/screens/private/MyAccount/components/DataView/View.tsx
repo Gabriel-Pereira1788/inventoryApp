@@ -45,11 +45,7 @@ export default function DataView(props: DataViewProps) {
             w="100%"
             alignItems="center"
             justifyContent="flex-start">
-            <S.Text
-              fontWeight="bold"
-              fontSize="md"
-              _light={{color: '#000'}}
-              _dark={{color: '#fff'}}>
+            <S.Text fontWeight="bold" fontSize="md" color="#ffffffa1">
               Nome:
             </S.Text>
             <S.Text fontWeight="bold" color="primary.300" fontSize="md">
@@ -61,11 +57,7 @@ export default function DataView(props: DataViewProps) {
             w="90%"
             alignItems="center"
             justifyContent="flex-start">
-            <S.Text
-              fontWeight="bold"
-              fontSize="md"
-              _light={{color: '#000'}}
-              _dark={{color: '#fff'}}>
+            <S.Text fontWeight="bold" fontSize="md" color="#ffffffa1">
               Email:
             </S.Text>
             <S.Text fontWeight="bold" color="primary.300" fontSize="md">
@@ -77,11 +69,7 @@ export default function DataView(props: DataViewProps) {
             w="90%"
             alignItems="center"
             justifyContent="flex-start">
-            <S.Text
-              fontWeight="bold"
-              fontSize="md"
-              _light={{color: '#000'}}
-              _dark={{color: '#fff'}}>
+            <S.Text fontWeight="bold" fontSize="md" color="#ffffffa1">
               Criado em:
             </S.Text>
             <S.Text fontWeight="bold" color="primary.300" fontSize="md">
