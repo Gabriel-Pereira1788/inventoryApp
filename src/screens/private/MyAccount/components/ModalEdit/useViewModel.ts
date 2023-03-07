@@ -6,6 +6,7 @@ import {User} from '../../../../../models/Auth';
 import {useUser} from '../../../../../store/useUser';
 import firebaseStorage from '@react-native-firebase/storage';
 import {Platform} from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function useEditUser() {
   const user = useUser();
@@ -23,11 +24,11 @@ export function useEditUser() {
     if (dataUser.name && dataUser.email) {
       auth()
         .currentUser?.updateEmail(dataUser.email)
-        .then(() => {
-          queryClient.setQueriesData(['user'], {
-            ...user,
-            email: dataUser.email,
-          });
+        .then(async () => {
+          const newData = {...user, email: dataUser.email};
+          queryClient.setQueriesData(['user'], newData);
+
+          await AsyncStorage.setItem('@user', JSON.stringify(newData));
         })
         .catch(console.log);
       auth()
@@ -35,15 +36,19 @@ export function useEditUser() {
           displayName: dataUser.name,
           photoURL: dataUser.photoUrl,
         })
-        .then(() => {
-          queryClient.setQueriesData(['user'], {
+        .then(async () => {
+          const newData = {
             ...user,
             name: dataUser.name,
-          });
+            photoURL: dataUser.photoUrl,
+          };
+          queryClient.setQueriesData(['user'], newData);
+          await AsyncStorage.setItem('@user', JSON.stringify(newData));
         })
         .catch(console.log);
 
       queryClient.invalidateQueries(['user']);
+      queryClient.refetchQueries(['user']);
     }
   }
 

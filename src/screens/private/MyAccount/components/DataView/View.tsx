@@ -13,6 +13,7 @@ export interface DataViewProps extends S.IPressableProps {}
 
 export default function DataView(props: DataViewProps) {
   const user = useUser();
+  console.log('user-photo', user?.photoURL);
   return (
     <Card
       px={4}
@@ -32,7 +33,10 @@ export default function DataView(props: DataViewProps) {
           rounded="full"
           alt="imageuser"
           source={{
-            uri: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
+            uri:
+              user && user.photoURL
+                ? user.photoURL
+                : 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
           }}
         />
         <S.Box position="absolute" top={-10} right={-10}>
@@ -49,7 +53,7 @@ export default function DataView(props: DataViewProps) {
               Nome:
             </S.Text>
             <S.Text fontWeight="bold" color="primary.300" fontSize="md">
-              {user?.name}
+              {user && user?.name}
             </S.Text>
           </S.HStack>
           <S.HStack
@@ -61,7 +65,7 @@ export default function DataView(props: DataViewProps) {
               Email:
             </S.Text>
             <S.Text fontWeight="bold" color="primary.300" fontSize="md">
-              {user?.email}
+              {user && user?.email}
             </S.Text>
           </S.HStack>
           <S.HStack
@@ -73,7 +77,7 @@ export default function DataView(props: DataViewProps) {
               Criado em:
             </S.Text>
             <S.Text fontWeight="bold" color="primary.300" fontSize="md">
-              {user?.createdAt && formatDate(user?.createdAt)}
+              {user && user.createdAt && formatDate(new Date(user?.createdAt))}
             </S.Text>
           </S.HStack>
         </S.VStack>

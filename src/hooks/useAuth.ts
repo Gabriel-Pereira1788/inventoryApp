@@ -4,6 +4,7 @@ import {useQueryClient} from '@tanstack/react-query/build/lib/QueryClientProvide
 import {useNavigation} from '@react-navigation/native';
 import {formatUser} from '../utils/formatUser';
 import {useState} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function useAuth() {
   const queryClient = useQueryClient();
@@ -15,14 +16,13 @@ export function useAuth() {
 
     auth()
       .signInWithEmailAndPassword(dataSubmit.email, dataSubmit.password)
-      .then(userCredentials => {
-        console.log(userCredentials);
+      .then(async userCredentials => {
         if (userCredentials.user) {
+          const dataUser = formatUser(userCredentials.user);
           queryClient.invalidateQueries(['user']);
-          queryClient.setQueryData<User>(
-            ['user'],
-            formatUser(userCredentials.user),
-          );
+          queryClient.setQueryData<User>(['user'], dataUser);
+
+          await AsyncStorage.setItem('@user', JSON.stringify(dataUser));
 
           navigation.navigate('dashboard');
         }

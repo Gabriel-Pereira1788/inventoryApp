@@ -55,13 +55,13 @@ export function ModalEdit(props: ModalEditProps) {
           <Input
             title="Nome"
             w={'100%'}
-            value={dataUser.name}
+            value={dataUser && dataUser.name}
             onChangeText={handleChangeData('name')}
           />
           <Input
             title="email"
             w="100%"
-            value={dataUser.email}
+            value={dataUser && dataUser.email}
             onChangeText={handleChangeData('email')}
           />
           <Button onPress={handleSubmit}> Confirmar </Button>

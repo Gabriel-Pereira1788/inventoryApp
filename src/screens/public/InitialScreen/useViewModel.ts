@@ -4,6 +4,7 @@ import {useEffect} from 'react';
 import {useBackgroundAct} from '../../../hooks/useBackgroundAct';
 import {formatUser} from '../../../utils/formatUser';
 import auth from '@react-native-firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function useInitial() {
   useBackgroundAct();
@@ -11,14 +12,17 @@ export function useInitial() {
   const queryClient = useQueryClient();
 
   useEffect(() => {
-    auth().onAuthStateChanged(userCredentials => {
+    auth().onAuthStateChanged(async userCredentials => {
       if (userCredentials) {
-        queryClient.setQueryData(['user'], formatUser(userCredentials));
+        const dataUser = formatUser(userCredentials);
+        queryClient.setQueryData(['user'], dataUser);
+        await AsyncStorage.setItem('@user', JSON.stringify(dataUser));
         setTimeout(() => {
           navigation.navigate('dashboard');
         }, 2000);
       } else {
         queryClient.removeQueries(['user']);
+        await AsyncStorage.removeItem('@user');
         setTimeout(() => {
           navigation.navigate('login');
         }, 2000);
