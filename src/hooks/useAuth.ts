@@ -16,6 +16,7 @@ export function useAuth() {
     auth()
       .signInWithEmailAndPassword(dataSubmit.email, dataSubmit.password)
       .then(userCredentials => {
+        console.log(userCredentials);
         if (userCredentials.user) {
           queryClient.invalidateQueries(['user']);
           queryClient.setQueryData<User>(

@@ -31,7 +31,10 @@ export function useEditUser() {
         })
         .catch(console.log);
       auth()
-        .currentUser?.updateProfile({displayName: dataUser.name})
+        .currentUser?.updateProfile({
+          displayName: dataUser.name,
+          photoURL: dataUser.photoUrl,
+        })
         .then(() => {
           queryClient.setQueriesData(['user'], {
             ...user,
@@ -64,6 +67,7 @@ export function useEditUser() {
         },
         async () => {
           const url = await uploadTask.snapshot!.ref.getDownloadURL();
+          setDataUser(prev => ({...prev, photoUrl: url}));
           console.log(url);
         },
       );
