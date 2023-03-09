@@ -6,13 +6,11 @@ import * as S from 'native-base';
 import {useBottomTabs} from '../../hooks/useBottomTabs';
 //*icons
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import Gpt from '../../Assets/images/gtpYellow.svg';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 MaterialIcon.loadFont();
 
 import {Paths} from '../../hooks/useBottomTabs';
-import {IconSVG} from '../IconSVG/View';
 
 export interface BottomTabsProps {
   currentPath?: Paths;
@@ -54,7 +52,14 @@ export default function BottomTabs({currentPath}: BottomTabsProps) {
         color={setCurrentColor('notifications')}
         onPress={redirectScreen('notifications')}
       />
-      <IconSVG Icon={Gpt} size="sm" />
+
+      <MaterialCommunityIcon
+        testID="iconNotifications"
+        name="robot"
+        size={25}
+        color={setCurrentColor('notifications')}
+        onPress={redirectScreen('notifications')}
+      />
     </S.HStack>
   );
 }
