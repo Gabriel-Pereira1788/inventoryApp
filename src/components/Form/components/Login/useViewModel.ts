@@ -1,7 +1,11 @@
 import {useState} from 'react';
 import {useAuth} from '../../../../hooks/useAuth';
+
 import {SigninDTO} from '../../../../models/Auth';
-import {Errors} from './view.models';
+
+export type Errors = {
+  [name in keyof SigninDTO]: string;
+};
 
 export function useLogin() {
   const [dataSignin, setDataSignin] = useState<SigninDTO>({

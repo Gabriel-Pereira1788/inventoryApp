@@ -6,6 +6,7 @@ import {Card} from '../../../../../components/Card/View';
 import {formatDate} from '../../../../../utils/formatDate';
 //*icons
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {RenderIF} from '../../../../../components/RenderIF/View';
 
 MaterialIcons.loadFont();
 
@@ -27,18 +28,17 @@ export default function DataView(props: DataViewProps) {
         alignItems="center"
         _pressed={{opacity: 0.7}}
         {...props}>
-        <S.Image
-          width={100}
-          height={100}
-          rounded="full"
-          alt="imageuser"
-          source={{
-            uri:
-              user && user.photoURL
-                ? user.photoURL
-                : 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-          }}
-        />
+        <RenderIF condition={!!user && !!user.photoURL}>
+          <S.Image
+            width={100}
+            height={100}
+            rounded="full"
+            alt="imageuser"
+            source={{
+              uri: user!.photoURL || '',
+            }}
+          />
+        </RenderIF>
         <S.Box position="absolute" top={-10} right={-10}>
           <MaterialIcons name="pencil" color="#F0DC61" size={30} />
         </S.Box>

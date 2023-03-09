@@ -6,10 +6,17 @@ import * as S from 'native-base';
 import {useBottomTabs} from '../../hooks/useBottomTabs';
 //*icons
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import Gpt from '../../Assets/images/gtpYellow.svg';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import {BottomTabsProps} from './view.models';
 
 MaterialIcon.loadFont();
+
+import {Paths} from '../../hooks/useBottomTabs';
+import {IconSVG} from '../IconSVG/View';
+
+export interface BottomTabsProps {
+  currentPath?: Paths;
+}
 
 export default function BottomTabs({currentPath}: BottomTabsProps) {
   const {redirectScreen, setCurrentColor} = useBottomTabs(currentPath);
@@ -47,12 +54,7 @@ export default function BottomTabs({currentPath}: BottomTabsProps) {
         color={setCurrentColor('notifications')}
         onPress={redirectScreen('notifications')}
       />
-      <AntDesign
-        testID="iconExclamation"
-        name="exclamation"
-        size={25}
-        color={setCurrentColor('about')}
-      />
+      <IconSVG Icon={Gpt} size="sm" />
     </S.HStack>
   );
 }

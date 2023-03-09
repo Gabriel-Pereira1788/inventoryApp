@@ -1,7 +1,12 @@
 import React from 'react';
 import * as S from 'native-base';
 import {NumericFormat} from 'react-number-format';
-import {CurrencyProps} from './view.models';
+
+import {ITextProps} from 'native-base';
+
+export interface CurrencyProps extends ITextProps {
+  value: number;
+}
 
 export function CurrencyFormat({value, ...rest}: CurrencyProps) {
   return (
