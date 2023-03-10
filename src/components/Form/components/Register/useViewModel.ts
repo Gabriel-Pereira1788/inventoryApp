@@ -23,20 +23,18 @@ export function useRegister() {
     }
   };
 
-  const handleChange = (name: keyof RegisterDTO) => {
-    return (value: string) => {
-      const notMatchingPasswords =
-        name === 'confirmPassword' && value !== dataRegister.password;
-      if (notMatchingPasswords) {
-        setDataRegister(prev => ({...prev, [name]: value}));
-
-        setErrors(prev => ({...prev, confirmPassword: 'Senhas não coicidem!'}));
-        return;
-      } else {
-        setErrors(prev => ({...prev, confirmPassword: ''}));
-      }
+  const handleChange = (name: keyof RegisterDTO, value: string) => {
+    const notMatchingPasswords =
+      name === 'confirmPassword' && value !== dataRegister.password;
+    if (notMatchingPasswords) {
       setDataRegister(prev => ({...prev, [name]: value}));
-    };
+
+      setErrors(prev => ({...prev, confirmPassword: 'Senhas não coicidem!'}));
+      return;
+    } else {
+      setErrors(prev => ({...prev, confirmPassword: ''}));
+    }
+    setDataRegister(prev => ({...prev, [name]: value}));
   };
 
   return {onSubmit, handleChange, loading, dataRegister, errors};

@@ -16,7 +16,7 @@ export function Login() {
         errorMessage={errors.email}
         value={dataSignin.email}
         testID="inputEmail"
-        onChangeText={handleChange('email')}
+        onChangeText={value => handleChange('email', value)}
       />
       <InputPassword
         title="Senha"
@@ -24,7 +24,7 @@ export function Login() {
         errorMessage={errors.password}
         value={dataSignin.password}
         testID="inputPassword"
-        onChangeText={handleChange('password')}
+        onChangeText={value => handleChange('password', value)}
       />
     </Wrapper>
   );
