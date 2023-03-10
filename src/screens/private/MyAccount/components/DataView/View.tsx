@@ -35,7 +35,7 @@ export default function DataView(props: DataViewProps) {
             rounded="full"
             alt="imageuser"
             source={{
-              uri: user!.photoURL || '',
+              uri: user && user.photoURL ? user!.photoURL : '',
             }}
           />
         </RenderIF>

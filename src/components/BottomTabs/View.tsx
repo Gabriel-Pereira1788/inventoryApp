@@ -54,11 +54,11 @@ export default function BottomTabs({currentPath}: BottomTabsProps) {
       />
 
       <MaterialCommunityIcon
-        testID="iconNotifications"
+        testID="iconRobot"
         name="robot"
         size={25}
         color={setCurrentColor('notifications')}
-        onPress={redirectScreen('notifications')}
+        onPress={redirectScreen('chatBot')}
       />
     </S.HStack>
   );

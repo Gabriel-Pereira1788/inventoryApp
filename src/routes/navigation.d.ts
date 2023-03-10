@@ -1,7 +1,7 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {Product} from '../models/Product';
 
-interface RootParamListI {
+export type RootParamListI = {
   login: undefined;
   register: undefined;
   initialScreen: undefined;
@@ -9,8 +9,9 @@ interface RootParamListI {
   products: undefined;
   myAccount: undefined;
   notifications: undefined;
+  chatBot: undefined;
   manageProduct: {product: Product};
-}
+};
 
 export declare global {
   namespace ReactNavigation {

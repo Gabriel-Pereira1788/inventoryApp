@@ -19,8 +19,7 @@ export function SharedLayout({
     <>
       <Box
         flex={1}
-        _light={{backgroundColor: 'backgroundLight'}}
-        _dark={{backgroundColor: 'backgroundDark'}}
+        backgroundColor="backgroundLight"
         alignItems="center"
         justifyContent="center"
         py={3}
