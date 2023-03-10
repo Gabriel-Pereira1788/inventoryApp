@@ -25,17 +25,15 @@ export function useLogin() {
     }
   };
 
-  const handleChange = (name: keyof SigninDTO) => {
-    return (value: string) => {
-      switch (name) {
-        case 'email':
-          setDataSignin(prev => ({...prev, [name]: value}));
-          return;
-        default:
-          setDataSignin(prev => ({...prev, [name]: value}));
-          return;
-      }
-    };
+  const handleChange = (name: keyof SigninDTO, value: string) => {
+    switch (name) {
+      case 'email':
+        setDataSignin(prev => ({...prev, [name]: value}));
+        return;
+      default:
+        setDataSignin(prev => ({...prev, [name]: value}));
+        return;
+    }
   };
 
   return {handleChange, dataSignin, onSubmit, loading, errors};

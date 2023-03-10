@@ -5,7 +5,7 @@ import {useUser} from '../../store/useUser';
 import {MASKS} from '../../utils/masks';
 import {FormProductProps} from './View';
 
-type Errors = {[name in keyof ProductDTO]: string};
+export type Errors = {[name in keyof ProductDTO]: string};
 
 type UseFormProductProps = Pick<FormProductProps, 'onSubmit' | 'initialValue'>;
 

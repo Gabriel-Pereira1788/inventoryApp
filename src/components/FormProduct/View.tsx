@@ -36,6 +36,7 @@ export function FormProduct({
       h="full"
       {...rest}>
       <Input
+        testID="name"
         title="Nome do produto"
         w="full"
         my={2}
@@ -45,6 +46,7 @@ export function FormProduct({
         onChangeText={handleChange('name_product')}
       />
       <InputCurrency
+        testID="price_saled"
         title="Preço de venda"
         error={!!errors.price_saled}
         errorMessage={errors.price_saled}
@@ -52,6 +54,7 @@ export function FormProduct({
         onChangeValue={handleChangeCurrency('price_saled')}
       />
       <InputCurrency
+        testID="price_purchased"
         title="Preço de compra"
         error={!!errors.price_purchased}
         errorMessage={errors.price_purchased}
@@ -60,6 +63,7 @@ export function FormProduct({
       />
 
       <Input
+        testID="storage"
         title="Estoque inicial"
         my={2}
         error={!!errors.storage}
@@ -69,6 +73,7 @@ export function FormProduct({
         onChangeText={handleChange('storage')}
       />
       <Select
+        testID="category"
         title="Categoria"
         placeholder="Selecione a categoria"
         error={!!errors.category}
