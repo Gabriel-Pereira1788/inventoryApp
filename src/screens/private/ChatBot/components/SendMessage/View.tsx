@@ -2,30 +2,46 @@ import React from 'react';
 import * as S from 'native-base';
 import {TouchableOpacity} from 'react-native';
 import {PaperPlaneRight} from 'phosphor-react-native';
-interface SendMessageProps {}
+import Animated from 'react-native-reanimated';
+import {useSendMessage} from './useViewModel';
 
-export default function SendMessage({}: SendMessageProps) {
+export interface SendMessageProps {
+  onSend: (messageText: string) => void;
+}
+
+export default function SendMessage({onSend}: SendMessageProps) {
+  const {pressed, animatedStyle, message, handleChange, handleSend} =
+    useSendMessage({onSend});
   return (
     <S.HStack
-      position="absolute"
+      position="relative"
       bottom={0}
-      width="100%"
-      borderTopRadius={35}
-      p={6}
-      shadow="4"
-      backgroundColor="#28242b"
+      width="95%"
+      borderRadius={15}
+      m={2}
+      p={3}
+      shadow="5"
+      backgroundColor="#1f1d23"
       justifyContent="space-between">
       <S.Input
         borderWidth={0}
         placeholder="Digite aqui..."
+        placeholderTextColor="#ddd"
+        value={message}
+        onChangeText={handleChange}
         fontSize="md"
         w="3/4"
-        color="#fff"
+        color="#000"
         backgroundColor="transparent"
       />
       <S.Box alignItems="center" justifyContent="center">
-        <TouchableOpacity>
-          <PaperPlaneRight size={32} color="#f4f7f3" weight="thin" />
+        <TouchableOpacity
+          onPress={handleSend}
+          onPressIn={() => (pressed.value = true)}
+          onPressOut={() => (pressed.value = false)}>
+          <Animated.View style={animatedStyle}>
+            <PaperPlaneRight size={32} color="#ddd" weight="thin" />
+          </Animated.View>
         </TouchableOpacity>
       </S.Box>
     </S.HStack>

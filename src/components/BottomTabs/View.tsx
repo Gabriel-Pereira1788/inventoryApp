@@ -6,11 +6,13 @@ import * as S from 'native-base';
 import {useBottomTabs} from '../../hooks/useBottomTabs';
 //*icons
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {IconSVG} from '../IconSVG/View';
+import IconBot from '../../assets/images/botI.svg';
 
 MaterialIcon.loadFont();
 
 import {Paths} from '../../hooks/useBottomTabs';
+import {TouchableOpacity} from 'react-native';
 
 export interface BottomTabsProps {
   currentPath?: Paths;
@@ -52,14 +54,9 @@ export default function BottomTabs({currentPath}: BottomTabsProps) {
         color={setCurrentColor('notifications')}
         onPress={redirectScreen('notifications')}
       />
-
-      <MaterialCommunityIcon
-        testID="iconRobot"
-        name="robot"
-        size={25}
-        color={setCurrentColor('notifications')}
-        onPress={redirectScreen('chatBot')}
-      />
+      <TouchableOpacity onPress={redirectScreen('chatBot')}>
+        <IconSVG size="md" Icon={IconBot} />
+      </TouchableOpacity>
     </S.HStack>
   );
 }

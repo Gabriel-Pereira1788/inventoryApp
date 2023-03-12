@@ -1,26 +1,43 @@
 import React from 'react';
 import * as S from 'native-base';
-import Header from './components/Header/View';
 import SendMessage from './components/SendMessage/View';
 import Message from './components/Message/View';
-import {useUser} from '../../../store/useUser';
+import {useChatBot} from './useViewModel';
+import {FlatList} from 'native-base';
+import {RenderIF} from '../../../components/RenderIF/View';
 interface ChatBotProps {}
 
 export default function ChatBot({}: ChatBotProps) {
-  const user = useUser();
+  const {messages, onSend} = useChatBot();
   return (
     <S.Box
       flex={1}
       position="relative"
-      backgroundColor="backgroundLight"
+      backgroundColor="#ddd"
       alignItems="center"
-      justifyContent="center">
-      <Header />
-      <S.Box p={4} flex={1} justifyContent="flex-start">
-        <Message sender="user" senderImg={user?.photoURL || ''} />
-        <Message sender="assistant" />
-      </S.Box>
-      <SendMessage />
+      justifyContent="space-between">
+      {/* <Header /> */}
+      <S.HStack width="100%" my={2} alignItems="center" justifyContent="center">
+        <S.Text color="#8d8b8b" bold fontSize="xl">
+          Synth.IA
+        </S.Text>
+      </S.HStack>
+
+      <RenderIF condition={messages && messages.length > 0}>
+        <FlatList
+          flex={1}
+          width="100%"
+          contentContainerStyle={{
+            padding: 10,
+          }}
+          data={messages}
+          renderItem={({item}) => (
+            <Message sender={item.sender!} text={item.text!} />
+          )}
+        />
+      </RenderIF>
+
+      <SendMessage onSend={onSend} />
     </S.Box>
   );
 }
