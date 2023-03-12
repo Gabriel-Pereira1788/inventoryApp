@@ -1,6 +1,16 @@
 import React from 'react';
 import * as S from 'native-base';
+<<<<<<< HEAD
 import {EmptyProps} from './view.models';
+=======
+
+import {ReactNode} from 'react';
+
+export interface EmptyProps {
+  message: string;
+  children?: ReactNode;
+}
+>>>>>>> development
 
 export default function EmptyMessage({message, children}: EmptyProps) {
   return (

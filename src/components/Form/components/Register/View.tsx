@@ -17,7 +17,7 @@ export function Register() {
         value={dataRegister.name}
         error={!!errors.name}
         errorMessage={errors.name}
-        onChangeText={handleChange('name')}
+        onChangeText={value => handleChange('name', value)}
         testID="inputName"
       />
       <Input
@@ -25,7 +25,7 @@ export function Register() {
         error={!!errors.email}
         errorMessage={errors.email}
         value={dataRegister.email}
-        onChangeText={handleChange('email')}
+        onChangeText={value => handleChange('email', value)}
         testID="inputEmail"
       />
       <InputPassword
@@ -33,7 +33,7 @@ export function Register() {
         error={!!errors.password}
         errorMessage={errors.password}
         value={dataRegister.password}
-        onChangeText={handleChange('password')}
+        onChangeText={value => handleChange('password', value)}
         testID="inputPassword"
       />
       <InputPassword
@@ -41,7 +41,7 @@ export function Register() {
         error={!!errors.confirmPassword}
         errorMessage={errors.confirmPassword}
         value={dataRegister.confirmPassword}
-        onChangeText={handleChange('confirmPassword')}
+        onChangeText={value => handleChange('confirmPassword', value)}
         testID="inputConfirmPassword"
       />
     </Wrapper>

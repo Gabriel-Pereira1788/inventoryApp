@@ -10,7 +10,11 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 //*hooks
 import {useModal} from '../../../hooks/useModal';
+<<<<<<< HEAD
 import {ToggleTheme} from '../../../components/ToggleTheme/View';
+=======
+
+>>>>>>> development
 import {useAuth} from '../../../hooks/useAuth';
 MaterialIcons.loadFont();
 Ionicons.loadFont();
@@ -24,9 +28,6 @@ export default function MyAccount({}: Props) {
   return (
     <>
       <SharedLayout>
-        <S.Box w="100%" alignItems="center" justifyContent="center" my="5%">
-          <ToggleTheme />
-        </S.Box>
         <DataView onPress={handleToggleState} key={String(isOpen)} />
 
         <S.Box mt={10} width="100%" alignItems="center" justifyContent="center">

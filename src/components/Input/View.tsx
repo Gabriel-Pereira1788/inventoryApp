@@ -1,8 +1,20 @@
 import React from 'react';
 import * as S from 'native-base';
 import {RenderIF} from '../RenderIF/View';
+<<<<<<< HEAD
 import {InputProps} from './view.models';
 
+=======
+
+import {IInputProps} from 'native-base';
+
+export interface InputProps extends IInputProps {
+  title: string;
+  error?: boolean;
+  errorMessage?: string;
+}
+
+>>>>>>> development
 export function Input({title, error, errorMessage, ...rest}: InputProps) {
   return (
     <S.VStack>

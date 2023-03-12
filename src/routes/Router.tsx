@@ -10,14 +10,22 @@ import {Products} from '../screens/private/Products/View';
 import {Dashboard} from '../screens/private/Dashboard/View';
 //*icons
 import IconIonicon from 'react-native-vector-icons/Ionicons';
+<<<<<<< HEAD
 import {withRequireAuth} from '../hooks/withRequireAuth';
 import UserCard from '../components/UserCard/View';
 import {useColorMode} from 'native-base';
 import ManageProduct from '../screens/private/ManageProduct/View';
+=======
+import UserCard from '../components/UserCard/View';
+import {useColorMode} from 'native-base';
+import ManageProduct from '../screens/private/ManageProduct/View';
+import {RootParamListI} from './navigation';
+import ChatBot from '../screens/private/ChatBot/View';
+>>>>>>> development
 
 IconIonicon.loadFont();
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootParamListI>();
 export function Router() {
   const {colorMode} = useColorMode();
   return (
@@ -31,7 +39,7 @@ export function Router() {
           },
         }}>
         <Stack.Screen
-          name="initial"
+          name="initialScreen"
           component={InitialScreen}
           options={{
             headerShown: false,
@@ -54,7 +62,7 @@ export function Router() {
 
         <Stack.Screen
           name="dashboard"
-          component={withRequireAuth(Dashboard)}
+          component={Dashboard}
           options={{
             headerTransparent: true,
             headerTitle: 'Painel de controle',
@@ -65,7 +73,7 @@ export function Router() {
         />
         <Stack.Screen
           name="myAccount"
-          component={withRequireAuth(MyAccount)}
+          component={MyAccount}
           options={{
             headerTransparent: true,
             headerTitle: '',
@@ -73,7 +81,7 @@ export function Router() {
         />
         <Stack.Screen
           name="products"
-          component={withRequireAuth(Products)}
+          component={Products}
           options={{
             headerTransparent: true,
             headerTitle: 'Produtos',
@@ -84,9 +92,27 @@ export function Router() {
 
         <Stack.Screen
           name="manageProduct"
+<<<<<<< HEAD
           component={withRequireAuth(ManageProduct)}
           options={{
             headerTransparent: true,
+=======
+          component={ManageProduct}
+          options={{
+            headerTransparent: true,
+            headerTitle: '',
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name="chatBot"
+          component={ChatBot}
+          options={{
+            headerTransparent: true,
+            headerTitle: '',
+            headerTitleAlign: 'center',
+            headerLeft: () => <></>,
+>>>>>>> development
           }}
         />
       </Stack.Navigator>

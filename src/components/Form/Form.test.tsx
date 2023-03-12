@@ -13,7 +13,7 @@ describe('Form', () => {
         </Wrapper>,
       );
 
-      expect(getByText('Entrar')).toBeTruthy();
+      expect(getByText('Confirmar')).toBeTruthy();
       expect(getByText('Email')).toBeTruthy();
       expect(getByText('Senha')).toBeTruthy();
     });
@@ -24,7 +24,7 @@ describe('Form', () => {
         </Wrapper>,
       );
 
-      expect(getByText('Faça Parte')).toBeTruthy();
+      expect(getByText('Ja possui cadastro? faça o login.')).toBeTruthy();
       expect(getByText('Nome')).toBeTruthy();
       expect(getByText('Email')).toBeTruthy();
       expect(getByText('Senha')).toBeTruthy();

@@ -13,11 +13,19 @@ import BottomTabsProducts from './components/BottomTabsProducts/View';
 import {IsMounted} from '../../../components/IsMounted/View';
 import {ProductsList} from './components/ProductsList/View';
 
+<<<<<<< HEAD
 type Context = Omit<ReturnType<typeof useProducts>, 'cleanUpStates'>;
+=======
+type Context = Omit<
+  ReturnType<typeof useProducts>,
+  'cleanUpStates' | 'handleMountedData'
+>;
+>>>>>>> development
 
 const ProductsContext = createContext({} as Context);
 
 export function Products(propsNavigation: NavigationProps) {
+<<<<<<< HEAD
   const {isLoading, cleanUpStates, ...rest} = useProducts();
 
   return (
@@ -25,6 +33,16 @@ export function Products(propsNavigation: NavigationProps) {
       propsNavigation={propsNavigation}
       cleanUpFunction={cleanUpStates}>
       <ProductsContext.Provider value={{isLoading, ...rest}}>
+=======
+  const {isLoading, handleMountedData, ...rest} = useProducts();
+
+  return (
+    <ProductsContext.Provider value={{isLoading, ...rest}}>
+      <IsMounted
+        propsNavigation={propsNavigation}
+        mountedFunction={handleMountedData('mount')}
+        unMountedFunction={handleMountedData('unmount')}>
+>>>>>>> development
         <SharedLayout currentPath="products">
           <S.VStack mt={10} w="100%" flex={1} p={5}>
             <Controllers />
@@ -39,8 +57,13 @@ export function Products(propsNavigation: NavigationProps) {
           </S.VStack>
         </SharedLayout>
         <BottomTabsProducts currentPath="products" />
+<<<<<<< HEAD
       </ProductsContext.Provider>
     </IsMounted>
+=======
+      </IsMounted>
+    </ProductsContext.Provider>
+>>>>>>> development
   );
 }
 

@@ -1,9 +1,13 @@
 import React, {useState} from 'react';
+<<<<<<< HEAD
 import {Input, Props} from '../View';
+=======
+import {Input, InputProps} from '../View';
+>>>>>>> development
 import Ionicons from 'react-native-vector-icons/Ionicons';
 Ionicons.loadFont();
 
-export function InputPassword(props: Props) {
+export function InputPassword(props: InputProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisible = () => {

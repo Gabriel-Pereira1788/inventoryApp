@@ -29,6 +29,8 @@ export interface StatisticsDTO {
     data_sale: BestSelling | null;
   };
   total_sales: number;
+  total_product: number;
+  total_storage: number;
 }
 
 export type StatisticsChart = {

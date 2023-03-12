@@ -2,6 +2,7 @@ import React from 'react';
 import {ProgressChart as PChart} from 'react-native-chart-kit';
 import * as S from 'native-base';
 
+<<<<<<< HEAD
 interface ProgressChartProps {}
 
 const data = {
@@ -10,6 +11,21 @@ const data = {
 };
 
 export default function ProgressChart({}: ProgressChartProps) {
+=======
+interface ProgressChartProps {
+  salesPercentage: number;
+  storagePercentage: number;
+}
+
+export default function ProgressChart({
+  salesPercentage,
+  storagePercentage,
+}: ProgressChartProps) {
+  const data = {
+    data: [salesPercentage / 100, storagePercentage / 100],
+    colors: ['#f89898', '#fff4af'],
+  };
+>>>>>>> development
   return (
     <S.VStack w="100%" alignItems="center">
       <PChart

@@ -17,6 +17,7 @@ export function ProductsList({}: ProductsListProps) {
           snapToAlignment={'center'}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}
+<<<<<<< HEAD
           maxH={350}
           contentContainerStyle={{
             justifyContent: 'flex-start',
@@ -25,6 +26,21 @@ export function ProductsList({}: ProductsListProps) {
             padding: 15,
           }}
           renderItem={({item}) => <Product {...item.product} />}
+=======
+          minH={350}
+          contentContainerStyle={{
+            justifyContent: 'flex-start',
+            alignItems: 'flex-start',
+            flexGrow: 1,
+            padding: 15,
+          }}
+          renderItem={({item}) => (
+            <Product
+              {...item.product}
+              total_pieces_sales={item.total_pieces_sales}
+            />
+          )}
+>>>>>>> development
         />
       )}
     </>

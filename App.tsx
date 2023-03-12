@@ -1,6 +1,5 @@
 import {QueryClientProvider} from '@tanstack/react-query';
 import queryClient from './src/services/config/queryClient';
-import {NotificationController} from './src/services/controllers/NotificationController';
 import {NativeBaseProvider} from 'native-base';
 import React from 'react';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
@@ -10,16 +9,16 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 export default function App() {
   return (
-    <NotificationController>
-      <QueryClientProvider client={queryClient}>
-        <NativeBaseProvider colorModeManager={colorModeManager} theme={MAIN}>
-          <SafeAreaProvider>
-            <GestureHandlerRootView style={{flex: 1}}>
-              <Router />
-            </GestureHandlerRootView>
-          </SafeAreaProvider>
-        </NativeBaseProvider>
-      </QueryClientProvider>
-    </NotificationController>
+
+    <QueryClientProvider client={queryClient}>
+      <NativeBaseProvider colorModeManager={colorModeManager} theme={MAIN}>
+        <SafeAreaProvider>
+          <GestureHandlerRootView style={{flex: 1}}>
+            <Router />
+          </GestureHandlerRootView>
+        </SafeAreaProvider>
+      </NativeBaseProvider>
+    </QueryClientProvider>
+
   );
 }

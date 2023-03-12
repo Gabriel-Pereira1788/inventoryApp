@@ -1,7 +1,16 @@
 import {useState} from 'react';
 import {useAuth} from '../../../../hooks/useAuth';
+<<<<<<< HEAD
 import {SigninDTO} from '../../../../models/Auth';
 import {Errors} from './view.models';
+=======
+
+import {SigninDTO} from '../../../../models/Auth';
+
+export type Errors = {
+  [name in keyof SigninDTO]: string;
+};
+>>>>>>> development
 
 export function useLogin() {
   const [dataSignin, setDataSignin] = useState<SigninDTO>({
@@ -21,17 +30,15 @@ export function useLogin() {
     }
   };
 
-  const handleChange = (name: keyof SigninDTO) => {
-    return (value: string) => {
-      switch (name) {
-        case 'email':
-          setDataSignin(prev => ({...prev, [name]: value}));
-          return;
-        default:
-          setDataSignin(prev => ({...prev, [name]: value}));
-          return;
-      }
-    };
+  const handleChange = (name: keyof SigninDTO, value: string) => {
+    switch (name) {
+      case 'email':
+        setDataSignin(prev => ({...prev, [name]: value}));
+        return;
+      default:
+        setDataSignin(prev => ({...prev, [name]: value}));
+        return;
+    }
   };
 
   return {handleChange, dataSignin, onSubmit, loading, errors};

@@ -31,6 +31,7 @@ export function Select<
         borderRadius="xl"
         borderWidth={error ? 2 : 1}
         borderColor={error ? '#f15353af' : '#0000001b'}
+        selectedValue={items[0].label}
         {...rest}>
         {items.length > 0 &&
           items.map((item, index) => (

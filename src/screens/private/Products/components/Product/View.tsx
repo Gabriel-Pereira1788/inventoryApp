@@ -13,11 +13,23 @@ import {useProduct} from './useViewModel';
 import {Button} from '../../../../../components/Button/View';
 
 MaterialIcon.loadFont();
+<<<<<<< HEAD
 export interface ProductProps extends ProductDTO {}
 
 export function Product(props: ProductDTO) {
   const {
     isLowStorage,
+=======
+export interface ProductProps extends ProductDTO {
+  total_pieces_sales: number;
+}
+
+export function Product(props: ProductProps) {
+  const {
+    isLowStorage,
+    storagePercentage,
+    piecesSaledPercentage,
+>>>>>>> development
     productAnimation,
     circleAnimation,
     handleToggleVisible,
@@ -34,6 +46,10 @@ export function Product(props: ProductDTO) {
           borderRadius: 10,
           marginVertical: 10,
           overflow: 'hidden',
+<<<<<<< HEAD
+=======
+          elevation: 3,
+>>>>>>> development
         },
       ]}>
       <S.HStack position="relative" alignItems="center" my={2}>
@@ -71,7 +87,11 @@ export function Product(props: ProductDTO) {
           </S.Text>
 
           <S.HStack space={2} alignItems="center">
+<<<<<<< HEAD
             <S.Text bold fontSize="lg" color="#7f7f7f">
+=======
+            <S.Text bold fontSize="lg" color="#bdbaba">
+>>>>>>> development
               ${props.price_saled}
             </S.Text>
 
@@ -82,9 +102,30 @@ export function Product(props: ProductDTO) {
               size={25}
               color="#F0DC61"
             />
+<<<<<<< HEAD
             <S.Text bold fontSize="md" color="#fff">
               {props.storage}
             </S.Text>
+=======
+            <S.Text bold fontSize="md" color="#bcbaba">
+              {props.storage}
+            </S.Text>
+
+            <MaterialIcon
+              style={{marginLeft: 5}}
+              name="category"
+              size={25}
+              color="#F0DC61"
+            />
+
+            <S.Text
+              bold
+              fontSize="md"
+              color="#bfbcbc"
+              textTransform="capitalize">
+              {props.category}
+            </S.Text>
+>>>>>>> development
           </S.HStack>
         </S.VStack>
 
@@ -123,7 +164,14 @@ export function Product(props: ProductDTO) {
         alignItems="center"
         justifyContent="flex-start"
         space={3}>
+<<<<<<< HEAD
         <ProgressChart />
+=======
+        <ProgressChart
+          salesPercentage={piecesSaledPercentage}
+          storagePercentage={storagePercentage}
+        />
+>>>>>>> development
         <Button w="80%" opacity={1} onPress={handleManageProduct}>
           Gerenciar
         </Button>

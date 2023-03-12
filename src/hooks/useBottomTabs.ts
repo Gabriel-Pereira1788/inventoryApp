@@ -2,7 +2,16 @@ import {useNavigation} from '@react-navigation/native';
 import {useColorMode} from 'native-base';
 import {ColorValue} from 'react-native';
 
+<<<<<<< HEAD
 export type Paths = 'dashboard' | 'products' | 'notifications' | 'about';
+=======
+export type Paths =
+  | 'dashboard'
+  | 'products'
+  | 'notifications'
+  | 'about'
+  | 'chatBot';
+>>>>>>> development
 
 export function useBottomTabs(currentPath?: Paths) {
   const navigation = useNavigation();

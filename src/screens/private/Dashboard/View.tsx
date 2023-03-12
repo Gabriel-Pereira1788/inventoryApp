@@ -12,7 +12,10 @@ import {IsMounted} from '../../../components/IsMounted/View';
 //*hooks
 import {useDashboard} from './useViewModel';
 import {NavigationProps} from '../../../routes/navigation';
+<<<<<<< HEAD
 import ProgressChart from '../../../components/ProgressChart/View';
+=======
+>>>>>>> development
 
 type Context = Pick<ReturnType<typeof useDashboard>, 'statisticApi'>;
 
@@ -25,7 +28,11 @@ export function Dashboard(propsNavigation: NavigationProps) {
   return (
     <DashboardContext.Provider value={{...rest}}>
       <IsMounted propsNavigation={propsNavigation}>
+<<<<<<< HEAD
         <SharedLayout currentPath="dashboard">
+=======
+        <SharedLayout currentPath="dashboard" py={0}>
+>>>>>>> development
           <S.ScrollView
             showsVerticalScrollIndicator={false}
             contentContainerStyle={{

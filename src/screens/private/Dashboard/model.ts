@@ -16,7 +16,11 @@ export class Statistics {
       const {data} = await api.get(
         `get-statistics/${this.idUser}?filter=${filter}`,
       );
+<<<<<<< HEAD
       return data.statisticsByFilter || null;
+=======
+      return data || null;
+>>>>>>> development
     }
   }
 

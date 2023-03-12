@@ -14,6 +14,6 @@ export interface User {
   uid: string;
   name: string;
   email: string;
-  photoUrl: string | null;
+  photoURL: string | null;
   createdAt?: Date;
 }
