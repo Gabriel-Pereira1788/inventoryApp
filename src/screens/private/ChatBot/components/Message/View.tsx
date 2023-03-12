@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from 'native-base';
 import Animated, {SlideInDown} from 'react-native-reanimated';
 
+//* teste
 interface MessageProps {
   sender: 'user' | 'assistant';
   text: string;
