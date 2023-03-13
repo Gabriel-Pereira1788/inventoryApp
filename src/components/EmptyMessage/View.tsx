@@ -13,7 +13,8 @@ export default function EmptyMessage({message, children}: EmptyProps) {
     <S.VStack w="100%" alignItems="center" justifyContent="center" space={3}>
       <S.Text
         p={3}
-        bold
+        fontWeight="400"
+        fontStyle="italic"
         _light={{color: 'text.100'}}
         _dark={{color: '#fff'}}
         fontSize="md"

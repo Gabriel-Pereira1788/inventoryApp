@@ -14,6 +14,33 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-inventoryApp-inventoryAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-inventoryApp-inventoryAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		6EBD00D49D5C47E1BB298954 /* Rubik-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3DE88056E8054439BEF71066 /* Rubik-Black.ttf */; };
+		161F29BEA252439ABD437C3B /* Rubik-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2950BEE638FF49EFAB5AFF82 /* Rubik-BlackItalic.ttf */; };
+		631A04C2915E424FB484C08E /* Rubik-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 784BA8170D8B444E9C168761 /* Rubik-Bold.ttf */; };
+		EF9AD048165C40BABE94C186 /* Rubik-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 287426634F9B4AD0A0787959 /* Rubik-BoldItalic.ttf */; };
+		6817C35FA4544568B465E050 /* Rubik-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6804A68F0C3240D293605724 /* Rubik-ExtraBold.ttf */; };
+		B729091087054D5A8C013758 /* Rubik-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B8E147FD5EE34F5DA5C2C913 /* Rubik-ExtraBoldItalic.ttf */; };
+		EA82E2B863F746BAB420A9D5 /* Rubik-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3BDA61C2DFAC4E73BCB561FD /* Rubik-Italic.ttf */; };
+		6A3EF4F13F11404D947AB51A /* Rubik-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F59EDE1F4424B409039E50E /* Rubik-Light.ttf */; };
+		742B1C54E38B44038570DAAF /* Rubik-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60FFE0CB74E3404988B5E570 /* Rubik-LightItalic.ttf */; };
+		21C4CC0DB5B9433DAE8726C4 /* Rubik-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA6BD33EC7C74623A430B053 /* Rubik-Medium.ttf */; };
+		58401CA7F5D04210A60229C2 /* Rubik-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61945422BC1E425E9B678670 /* Rubik-MediumItalic.ttf */; };
+		6DE90E17B50D4A89B92F8268 /* Rubik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DEA544B9A2346C0937935F9 /* Rubik-Regular.ttf */; };
+		C6BFE5E65EF24307952B220F /* Rubik-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D5DD2C5F173D44FEA62317F8 /* Rubik-SemiBold.ttf */; };
+		622A330D41BE4C47BF031A65 /* Rubik-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 68A9A6DEDEE64518821A6027 /* Rubik-SemiBoldItalic.ttf */; };
+		20871150EFCE45D5BC8AB9EA /* blackBlood.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7232C3E2D53A4476B94B3804 /* blackBlood.svg */; };
+		038629E7B74247B2B7258E32 /* botI.svg in Resources */ = {isa = PBXBuildFile; fileRef = A25766A6773E48BEB6E9A70A /* botI.svg */; };
+		39ECF60C4DA844CD8092F5F3 /* botIw.svg in Resources */ = {isa = PBXBuildFile; fileRef = 0042D05A231E43CB8689BC91 /* botIw.svg */; };
+		3809D5F6E0B0418DB8B95970 /* camisa.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F8050EAA23B48968572974F /* camisa.png */; };
+		3CDF57D5528A4AC880F82590 /* chatgpt.svg in Resources */ = {isa = PBXBuildFile; fileRef = 244C335427FF42B8A71E6668 /* chatgpt.svg */; };
+		36EC3832A7954546B0AC52B3 /* couve-flor.png in Resources */ = {isa = PBXBuildFile; fileRef = 3100202CA3E14E78AE169E5D /* couve-flor.png */; };
+		12030E2776FB4620B581ED35 /* gpt.svg in Resources */ = {isa = PBXBuildFile; fileRef = 1A5F83622B5042559875DA24 /* gpt.svg */; };
+		F4960DA849CD40B79B3AF32C /* gtpYellow.svg in Resources */ = {isa = PBXBuildFile; fileRef = 7C8D2F773B8F4D7496525F9C /* gtpYellow.svg */; };
+		877851A183534CD0A1EE9AA5 /* ic_gpt.png in Resources */ = {isa = PBXBuildFile; fileRef = CA639E3AB02843698CABC48A /* ic_gpt.png */; };
+		4EDDEE52E1CD49C8BA7ABB2E /* inventory.png in Resources */ = {isa = PBXBuildFile; fileRef = 3E8399B66E8C43A7BEBDE850 /* inventory.png */; };
+		4260A4AF6F724EDE9B85CEC0 /* notebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 5372DD953DF8493ABB399D52 /* notebook.png */; };
+		9D4F8914E33641128E9B4414 /* openai-icon.svg in Resources */ = {isa = PBXBuildFile; fileRef = A2C37E115C1D4B24805BF7B7 /* openai-icon.svg */; };
+		F2E1197C4A3247E2B663C0BC /* running-shoe.png in Resources */ = {isa = PBXBuildFile; fileRef = 08CF6BF3EE0E418E9A089B99 /* running-shoe.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +71,33 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = inventoryApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-inventoryApp-inventoryAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-inventoryApp-inventoryAppTests.release.xcconfig"; path = "Target Support Files/Pods-inventoryApp-inventoryAppTests/Pods-inventoryApp-inventoryAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		3DE88056E8054439BEF71066 /* Rubik-Black.ttf */ = {isa = PBXFileReference; name = "Rubik-Black.ttf"; path = "../src/assets/fonts/Rubik-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2950BEE638FF49EFAB5AFF82 /* Rubik-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Rubik-BlackItalic.ttf"; path = "../src/assets/fonts/Rubik-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		784BA8170D8B444E9C168761 /* Rubik-Bold.ttf */ = {isa = PBXFileReference; name = "Rubik-Bold.ttf"; path = "../src/assets/fonts/Rubik-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		287426634F9B4AD0A0787959 /* Rubik-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Rubik-BoldItalic.ttf"; path = "../src/assets/fonts/Rubik-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6804A68F0C3240D293605724 /* Rubik-ExtraBold.ttf */ = {isa = PBXFileReference; name = "Rubik-ExtraBold.ttf"; path = "../src/assets/fonts/Rubik-ExtraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B8E147FD5EE34F5DA5C2C913 /* Rubik-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; name = "Rubik-ExtraBoldItalic.ttf"; path = "../src/assets/fonts/Rubik-ExtraBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3BDA61C2DFAC4E73BCB561FD /* Rubik-Italic.ttf */ = {isa = PBXFileReference; name = "Rubik-Italic.ttf"; path = "../src/assets/fonts/Rubik-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2F59EDE1F4424B409039E50E /* Rubik-Light.ttf */ = {isa = PBXFileReference; name = "Rubik-Light.ttf"; path = "../src/assets/fonts/Rubik-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		60FFE0CB74E3404988B5E570 /* Rubik-LightItalic.ttf */ = {isa = PBXFileReference; name = "Rubik-LightItalic.ttf"; path = "../src/assets/fonts/Rubik-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DA6BD33EC7C74623A430B053 /* Rubik-Medium.ttf */ = {isa = PBXFileReference; name = "Rubik-Medium.ttf"; path = "../src/assets/fonts/Rubik-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		61945422BC1E425E9B678670 /* Rubik-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Rubik-MediumItalic.ttf"; path = "../src/assets/fonts/Rubik-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9DEA544B9A2346C0937935F9 /* Rubik-Regular.ttf */ = {isa = PBXFileReference; name = "Rubik-Regular.ttf"; path = "../src/assets/fonts/Rubik-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		D5DD2C5F173D44FEA62317F8 /* Rubik-SemiBold.ttf */ = {isa = PBXFileReference; name = "Rubik-SemiBold.ttf"; path = "../src/assets/fonts/Rubik-SemiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		68A9A6DEDEE64518821A6027 /* Rubik-SemiBoldItalic.ttf */ = {isa = PBXFileReference; name = "Rubik-SemiBoldItalic.ttf"; path = "../src/assets/fonts/Rubik-SemiBoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7232C3E2D53A4476B94B3804 /* blackBlood.svg */ = {isa = PBXFileReference; name = "blackBlood.svg"; path = "../src/assets/images/blackBlood.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A25766A6773E48BEB6E9A70A /* botI.svg */ = {isa = PBXFileReference; name = "botI.svg"; path = "../src/assets/images/botI.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0042D05A231E43CB8689BC91 /* botIw.svg */ = {isa = PBXFileReference; name = "botIw.svg"; path = "../src/assets/images/botIw.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5F8050EAA23B48968572974F /* camisa.png */ = {isa = PBXFileReference; name = "camisa.png"; path = "../src/assets/images/camisa.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		244C335427FF42B8A71E6668 /* chatgpt.svg */ = {isa = PBXFileReference; name = "chatgpt.svg"; path = "../src/assets/images/chatgpt.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3100202CA3E14E78AE169E5D /* couve-flor.png */ = {isa = PBXFileReference; name = "couve-flor.png"; path = "../src/assets/images/couve-flor.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		1A5F83622B5042559875DA24 /* gpt.svg */ = {isa = PBXFileReference; name = "gpt.svg"; path = "../src/assets/images/gpt.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7C8D2F773B8F4D7496525F9C /* gtpYellow.svg */ = {isa = PBXFileReference; name = "gtpYellow.svg"; path = "../src/assets/images/gtpYellow.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		CA639E3AB02843698CABC48A /* ic_gpt.png */ = {isa = PBXFileReference; name = "ic_gpt.png"; path = "../src/assets/images/ic_gpt.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3E8399B66E8C43A7BEBDE850 /* inventory.png */ = {isa = PBXFileReference; name = "inventory.png"; path = "../src/assets/images/inventory.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5372DD953DF8493ABB399D52 /* notebook.png */ = {isa = PBXFileReference; name = "notebook.png"; path = "../src/assets/images/notebook.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A2C37E115C1D4B24805BF7B7 /* openai-icon.svg */ = {isa = PBXFileReference; name = "openai-icon.svg"; path = "../src/assets/images/openai-icon.svg"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		08CF6BF3EE0E418E9A089B99 /* running-shoe.png */ = {isa = PBXFileReference; name = "running-shoe.png"; path = "../src/assets/images/running-shoe.png"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +176,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				15D50311C1474EBAB6053B0B /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -147,6 +202,41 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
+		};
+		15D50311C1474EBAB6053B0B /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				3DE88056E8054439BEF71066 /* Rubik-Black.ttf */,
+				2950BEE638FF49EFAB5AFF82 /* Rubik-BlackItalic.ttf */,
+				784BA8170D8B444E9C168761 /* Rubik-Bold.ttf */,
+				287426634F9B4AD0A0787959 /* Rubik-BoldItalic.ttf */,
+				6804A68F0C3240D293605724 /* Rubik-ExtraBold.ttf */,
+				B8E147FD5EE34F5DA5C2C913 /* Rubik-ExtraBoldItalic.ttf */,
+				3BDA61C2DFAC4E73BCB561FD /* Rubik-Italic.ttf */,
+				2F59EDE1F4424B409039E50E /* Rubik-Light.ttf */,
+				60FFE0CB74E3404988B5E570 /* Rubik-LightItalic.ttf */,
+				DA6BD33EC7C74623A430B053 /* Rubik-Medium.ttf */,
+				61945422BC1E425E9B678670 /* Rubik-MediumItalic.ttf */,
+				9DEA544B9A2346C0937935F9 /* Rubik-Regular.ttf */,
+				D5DD2C5F173D44FEA62317F8 /* Rubik-SemiBold.ttf */,
+				68A9A6DEDEE64518821A6027 /* Rubik-SemiBoldItalic.ttf */,
+				7232C3E2D53A4476B94B3804 /* blackBlood.svg */,
+				A25766A6773E48BEB6E9A70A /* botI.svg */,
+				0042D05A231E43CB8689BC91 /* botIw.svg */,
+				5F8050EAA23B48968572974F /* camisa.png */,
+				244C335427FF42B8A71E6668 /* chatgpt.svg */,
+				3100202CA3E14E78AE169E5D /* couve-flor.png */,
+				1A5F83622B5042559875DA24 /* gpt.svg */,
+				7C8D2F773B8F4D7496525F9C /* gtpYellow.svg */,
+				CA639E3AB02843698CABC48A /* ic_gpt.png */,
+				3E8399B66E8C43A7BEBDE850 /* inventory.png */,
+				5372DD953DF8493ABB399D52 /* notebook.png */,
+				A2C37E115C1D4B24805BF7B7 /* openai-icon.svg */,
+				08CF6BF3EE0E418E9A089B99 /* running-shoe.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
 		};
 /* End PBXGroup section */
 
@@ -244,6 +334,33 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				6EBD00D49D5C47E1BB298954 /* Rubik-Black.ttf in Resources */,
+				161F29BEA252439ABD437C3B /* Rubik-BlackItalic.ttf in Resources */,
+				631A04C2915E424FB484C08E /* Rubik-Bold.ttf in Resources */,
+				EF9AD048165C40BABE94C186 /* Rubik-BoldItalic.ttf in Resources */,
+				6817C35FA4544568B465E050 /* Rubik-ExtraBold.ttf in Resources */,
+				B729091087054D5A8C013758 /* Rubik-ExtraBoldItalic.ttf in Resources */,
+				EA82E2B863F746BAB420A9D5 /* Rubik-Italic.ttf in Resources */,
+				6A3EF4F13F11404D947AB51A /* Rubik-Light.ttf in Resources */,
+				742B1C54E38B44038570DAAF /* Rubik-LightItalic.ttf in Resources */,
+				21C4CC0DB5B9433DAE8726C4 /* Rubik-Medium.ttf in Resources */,
+				58401CA7F5D04210A60229C2 /* Rubik-MediumItalic.ttf in Resources */,
+				6DE90E17B50D4A89B92F8268 /* Rubik-Regular.ttf in Resources */,
+				C6BFE5E65EF24307952B220F /* Rubik-SemiBold.ttf in Resources */,
+				622A330D41BE4C47BF031A65 /* Rubik-SemiBoldItalic.ttf in Resources */,
+				20871150EFCE45D5BC8AB9EA /* blackBlood.svg in Resources */,
+				038629E7B74247B2B7258E32 /* botI.svg in Resources */,
+				39ECF60C4DA844CD8092F5F3 /* botIw.svg in Resources */,
+				3809D5F6E0B0418DB8B95970 /* camisa.png in Resources */,
+				3CDF57D5528A4AC880F82590 /* chatgpt.svg in Resources */,
+				36EC3832A7954546B0AC52B3 /* couve-flor.png in Resources */,
+				12030E2776FB4620B581ED35 /* gpt.svg in Resources */,
+				F4960DA849CD40B79B3AF32C /* gtpYellow.svg in Resources */,
+				877851A183534CD0A1EE9AA5 /* ic_gpt.png in Resources */,
+				4EDDEE52E1CD49C8BA7ABB2E /* inventory.png in Resources */,
+				4260A4AF6F724EDE9B85CEC0 /* notebook.png in Resources */,
+				9D4F8914E33641128E9B4414 /* openai-icon.svg in Resources */,
+				F2E1197C4A3247E2B663C0BC /* running-shoe.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

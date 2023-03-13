@@ -79,7 +79,7 @@ export function Dashboard(propsNavigation: NavigationProps) {
                   </FilterGraph>
                 </S.HStack>
                 <S.Text
-                  bold
+                  fontWeight="400"
                   mt={10}
                   ml={'5%'}
                   fontSize="md"

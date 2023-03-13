@@ -42,4 +42,43 @@ export const MAIN = extendTheme({
     backgroundLight: '#F9F6F6',
     backgroundDark: '#343333',
   },
+  fontConfig: {
+    Rubik: {
+      100: {
+        normal: 'Rubik-Light',
+        italic: 'Rubik-LightItalic',
+      },
+      200: {
+        normal: 'Rubik-Light',
+        italic: 'Rubik-LightItalic',
+      },
+      300: {
+        normal: 'Rubik-Light',
+        italic: 'Rubik-LightItalic',
+      },
+      400: {
+        normal: 'Rubik-Regular',
+        italic: 'Rubik-Italic',
+      },
+      500: {
+        normal: 'Rubik-Medium',
+      },
+      600: {
+        normal: 'Rubik-Medium',
+        italic: 'Rubik-MediumItalic',
+      },
+      700: {
+        normal: 'Rubik-Bold',
+      },
+      800: {
+        normal: 'Rubik-Bold',
+        italic: 'Rubik-BoldItalic',
+      },
+    },
+  },
+  fonts: {
+    heading: 'Rubik',
+    body: 'Rubik',
+    mono: 'Rubik',
+  },
 });

@@ -36,7 +36,8 @@ export function FilterGraph({
         opacity={0.7}
         onPress={handleFilter}>
         <Text
-          fontWeight="bold"
+          fontWeight="400"
+          fontFamily="body"
           color={currentFilter === identifier ? 'white' : 'text.100'}
           textTransform="uppercase"
           textAlign="center"

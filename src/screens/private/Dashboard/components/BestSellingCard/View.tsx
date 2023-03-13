@@ -39,32 +39,36 @@ export function BestSellingCard({bestSelling, loadingData}: BestSellingProps) {
         <S.Box position="absolute" left={5} top={0}>
           <FontIcons name="medal" size={20} color="#F0DC61" />
         </S.Box>
-        <S.Text textAlign="center" bold color="#fff">
+        <S.Text textAlign="center" fontWeight="400" color="#fff">
           Melhor venda
         </S.Text>
         <Skeleton condition={!!loadingData}>
           <RenderIF condition={!!bestSelling?.data_sale}>
-            <S.Text textAlign="center" bold color="primary.300" fontSize="2xl">
+            <S.Text
+              textAlign="center"
+              fontWeight="400"
+              color="primary.300"
+              fontSize="2xl">
               {bestSelling?.product?.name_product}
             </S.Text>
 
             <S.VStack w="100%" px={1} py={3} mt="3%" space={2}>
-              <S.Text bold color="#fff" fontSize="sm">
+              <S.Text fontWeight="400" color="#fff" fontSize="sm">
                 Vendidos:{' '}
-                <S.Text bold color="primary.300" fontSize="sm">
+                <S.Text fontWeight="400" color="primary.300" fontSize="sm">
                   {bestSelling?.data_sale?.pieces_saled}
                 </S.Text>
               </S.Text>
 
-              <S.Text bold color="#fff" fontSize="sm">
+              <S.Text fontWeight="400" color="#fff" fontSize="sm">
                 Data:{' '}
-                <S.Text bold color="primary.300" fontSize="sm">
+                <S.Text fontWeight="400" color="primary.300" fontSize="sm">
                   {bestSelling?.data_sale &&
                     formatDate(new Date(bestSelling.data_sale.createdAt))}
                 </S.Text>
               </S.Text>
 
-              <S.Text bold color="#fff" fontSize="sm">
+              <S.Text fontWeight="400" color="#fff" fontSize="sm">
                 Valor:{' '}
                 <CurrencyFormat
                   value={total}

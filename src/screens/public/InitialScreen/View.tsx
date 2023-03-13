@@ -28,7 +28,7 @@ export function InitialScreen() {
           INVENTORY
         </S.Text>
         <S.Image
-          source={require('../../../Assets/images/inventory.png')}
+          source={require('../../../assets/images/inventory.png')}
           alt="inventory image"
           height={200}
           testID="image"

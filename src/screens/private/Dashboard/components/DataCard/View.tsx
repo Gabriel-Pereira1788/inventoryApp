@@ -8,7 +8,7 @@ import FontIcons from 'react-native-vector-icons/FontAwesome5';
 //*components
 import {Skeleton} from './Skeleton';
 //*animatino
-import Animated, {BounceIn, BounceOut} from 'react-native-reanimated';
+import Animated, {BounceIn} from 'react-native-reanimated';
 
 const Icons = {
   'Produtos que entraram': () => (
@@ -71,7 +71,7 @@ export function DataCard({
           </S.HStack>
 
           <S.Text
-            fontWeight="bold"
+            fontWeight="400"
             fontSize="3xl"
             color="#fff"
             textAlign="left"
@@ -80,7 +80,7 @@ export function DataCard({
           </S.Text>
 
           <S.Text
-            fontWeight="bold"
+            fontWeight="500"
             fontSize="xs"
             color="#ffffffc1"
             textAlign="left"
