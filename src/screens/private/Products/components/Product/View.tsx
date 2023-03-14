@@ -59,7 +59,7 @@ export function Product(props: ProductProps) {
               size={15}
               color="#fff"
             />
-            <S.Text fontSize="sm" bold color="#fff">
+            <S.Text fontSize="sm" fontWeight={400} color="#fff">
               Baixo estoque
             </S.Text>
           </S.HStack>
@@ -71,12 +71,12 @@ export function Product(props: ProductProps) {
           alignItems="flex-start"
           justifyContent="flex-start"
           space={2}>
-          <S.Text bold fontSize="lg" color="#fff">
+          <S.Text fontWeight={400} fontSize="lg" color="#fff">
             {props.name_product}
           </S.Text>
 
           <S.HStack space={2} alignItems="center">
-            <S.Text bold fontSize="lg" color="#bdbaba">
+            <S.Text fontWeight={400} fontSize="lg" color="#bdbaba">
               ${props.price_saled}
             </S.Text>
 
@@ -87,7 +87,7 @@ export function Product(props: ProductProps) {
               size={25}
               color="#F0DC61"
             />
-            <S.Text bold fontSize="md" color="#bcbaba">
+            <S.Text fontWeight={400} fontSize="md" color="#bcbaba">
               {props.storage}
             </S.Text>
 
@@ -99,7 +99,7 @@ export function Product(props: ProductProps) {
             />
 
             <S.Text
-              bold
+              fontWeight={400}
               fontSize="md"
               color="#bfbcbc"
               textTransform="capitalize">

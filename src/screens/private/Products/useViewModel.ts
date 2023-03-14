@@ -31,7 +31,7 @@ export function useProducts() {
   );
 
   const {data: statisticsTotal} = useStatistics();
-  console.log(products);
+  console.log('data-products', products);
 
   const displayProducts = useMemo(() => {
     if (isMounted) {

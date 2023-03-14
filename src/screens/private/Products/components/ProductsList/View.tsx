@@ -27,7 +27,7 @@ export function ProductsList({}: ProductsListProps) {
           renderItem={({item}) => (
             <Product
               {...item.product}
-              total_pieces_sales={item.total_pieces_sales}
+              total_pieces_sales={item.total_pieces_sales || 0}
             />
           )}
         />

@@ -16,6 +16,7 @@ import {useColorMode} from 'native-base';
 import ManageProduct from '../screens/private/ManageProduct/View';
 import {RootParamListI} from './navigation';
 import ChatBot from '../screens/private/ChatBot/View';
+import Notifications from '../screens/private/Notifications/View';
 
 IconIonicon.loadFont();
 
@@ -97,6 +98,16 @@ export function Router() {
         <Stack.Screen
           name="chatBot"
           component={ChatBot}
+          options={{
+            headerTransparent: true,
+            headerTitle: '',
+            headerTitleAlign: 'center',
+            headerLeft: () => <></>,
+          }}
+        />
+        <Stack.Screen
+          name="notifications"
+          component={Notifications}
           options={{
             headerTransparent: true,
             headerTitle: '',
