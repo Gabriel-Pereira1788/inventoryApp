@@ -28,7 +28,7 @@ export function Router() {
       <Stack.Navigator
         screenOptions={{
           headerTitleStyle: {
-            fontWeight: 'bold',
+            fontWeight: '700',
             fontSize: 23,
             color: colorMode === 'light' ? '#000' : '#fff',
           },
@@ -110,9 +110,10 @@ export function Router() {
           component={Notifications}
           options={{
             headerTransparent: true,
-            headerTitle: '',
+            headerTitle: 'Notificações',
             headerTitleAlign: 'center',
             headerLeft: () => <></>,
+            headerRight: () => <UserCard />,
           }}
         />
       </Stack.Navigator>

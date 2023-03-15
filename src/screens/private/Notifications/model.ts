@@ -1,12 +1,12 @@
-import {User} from '../../../models/Auth';
 import {api} from '../../../services/api';
-import queryClient from '../../../services/config/queryClient';
+import {Notifications} from '../../../models/Notifications';
 
 export class NotificationsModel {
-  private user?: User = queryClient.getQueryData(['user']);
-  async get() {
-    const {data} = await api.get(`get-notifications/${this.user?.uid}`);
+  async get(idUser?: string) {
+    const {data} = await api.get<{notifications: Notifications[]}>(
+      `get-notifications/${idUser}`,
+    );
 
-    return data;
+    return data.notifications;
   }
 }

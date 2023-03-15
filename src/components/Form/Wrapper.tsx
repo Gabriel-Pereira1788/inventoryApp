@@ -50,7 +50,11 @@ export function Wrapper({onSubmit, children, isRegister, loading}: Props) {
         </Button>
 
         <S.Pressable w="100%" alignItems="flex-start" onPress={redirectScreen}>
-          <S.Text textAlign="left" bold fontSize="md" color="text.100">
+          <S.Text
+            textAlign="left"
+            fontWeight={400}
+            fontSize="md"
+            color="text.100">
             {isRegister
               ? 'Ja possui cadastro? faça o login.'
               : 'Não possui cadastro? clique para registrar-se'}
