@@ -1,6 +1,7 @@
 import {useNavigation} from '@react-navigation/native';
 import {useColorMode} from 'native-base';
 import {ColorValue} from 'react-native';
+import {useNotifications} from '../screens/private/Notifications/useViewModel';
 
 export type Paths =
   | 'dashboard'
@@ -12,6 +13,13 @@ export type Paths =
 export function useBottomTabs(currentPath?: Paths) {
   const navigation = useNavigation();
   const {colorMode} = useColorMode();
+  const {data} = useNotifications();
+
+  const unreadNotifications =
+    data && data.length > 0
+      ? data.some(notification => notification.read === false)
+      : false;
+
   const redirectScreen = (path: Paths) => {
     return () => {
       navigation.navigate(path);
@@ -26,5 +34,5 @@ export function useBottomTabs(currentPath?: Paths) {
     return colorMode === 'light' ? '#7c7c7c' : '#fff';
   };
 
-  return {colorMode, redirectScreen, setCurrentColor};
+  return {colorMode, unreadNotifications, redirectScreen, setCurrentColor};
 }

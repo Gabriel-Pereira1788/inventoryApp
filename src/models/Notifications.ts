@@ -1,4 +1,4 @@
-export interface Notifications {
+export interface NotificationsDTO {
   id_notification: string;
   id_user: string;
   item_alert: string;
