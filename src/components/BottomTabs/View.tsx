@@ -13,13 +13,15 @@ MaterialIcon.loadFont();
 
 import {Paths} from '../../hooks/useBottomTabs';
 import {TouchableOpacity} from 'react-native';
+import {RenderIF} from '../RenderIF/View';
 
 export interface BottomTabsProps {
   currentPath?: Paths;
 }
 
 export default function BottomTabs({currentPath}: BottomTabsProps) {
-  const {redirectScreen, setCurrentColor} = useBottomTabs(currentPath);
+  const {unreadNotifications, redirectScreen, setCurrentColor} =
+    useBottomTabs(currentPath);
   return (
     <S.HStack
       width="100%"
@@ -46,13 +48,25 @@ export default function BottomTabs({currentPath}: BottomTabsProps) {
         color={setCurrentColor('products')}
         onPress={redirectScreen('products')}
       />
-      <MaterialIcon
-        testID="iconNotifications"
-        name="notifications"
-        size={25}
-        color={setCurrentColor('notifications')}
-        onPress={redirectScreen('notifications')}
-      />
+      <S.Box position="relative">
+        <RenderIF condition={unreadNotifications}>
+          <S.Circle
+            size={2}
+            shadow={3}
+            backgroundColor="red.500"
+            position="absolute"
+            right={0}
+            top={0}
+          />
+        </RenderIF>
+        <MaterialIcon
+          testID="iconNotifications"
+          name="notifications"
+          size={25}
+          color={setCurrentColor('notifications')}
+          onPress={redirectScreen('notifications')}
+        />
+      </S.Box>
       <TouchableOpacity onPress={redirectScreen('chatBot')}>
         <IconSVG size="md" Icon={IconBot} />
       </TouchableOpacity>

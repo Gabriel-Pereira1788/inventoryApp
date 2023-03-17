@@ -1,12 +1,12 @@
 import {api} from '../../../services/api';
-import {Notifications} from '../../../models/Notifications';
+import {Notifications} from '../../../services/modules/Notifications/Notifications';
 
-export class NotificationsModel {
-  async get(idUser?: string) {
-    const {data} = await api.get<{notifications: Notifications[]}>(
-      `get-notifications/${idUser}`,
-    );
+export class NotificationsModel extends Notifications {
+  super() {}
 
-    return data.notifications;
+  async read(idNotification: string) {
+    const {data} = await api.get(`read-notification/${idNotification}`);
+
+    return data;
   }
 }

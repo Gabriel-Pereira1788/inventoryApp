@@ -1,13 +1,7 @@
-import {useQuery} from '@tanstack/react-query';
-import {useUser} from '../../../store/useUser';
-import {NotificationsModel} from './model';
-const notificationsModel = new NotificationsModel();
+import {useNotificationsStore} from '../../../store/useNotifications';
 
 export function useNotifications() {
-  const user = useUser();
-  const {data, isLoading} = useQuery(['notifications'], () =>
-    notificationsModel.get(user?.uid),
-  );
+  const {data, isLoading} = useNotificationsStore();
 
   return {
     data,
