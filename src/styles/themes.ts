@@ -36,7 +36,7 @@ export const MAIN = extendTheme({
       400: '#626262',
     },
     text: {
-      100: '#A4A4A4',
+      100: '#102f3b',
     },
     white: '#FFFFFF',
     backgroundLight: '#F9F6F6',

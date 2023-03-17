@@ -22,7 +22,8 @@ export function ProductsList({}: ProductsListProps) {
             justifyContent: 'flex-start',
             alignItems: 'flex-start',
             flexGrow: 1,
-            padding: 15,
+            flex: 1,
+            padding: 10,
           }}
           renderItem={({item}) => (
             <Product

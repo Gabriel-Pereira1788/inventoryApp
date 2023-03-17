@@ -7,6 +7,10 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 //*hooks
 import {Paths, useBottomTabs} from '../../../../../hooks/useBottomTabs';
 import {AddProduct} from '../AddProduct/View';
+import {TouchableOpacity} from 'react-native';
+import {IconSVG} from '../../../../../components/IconSVG/View';
+
+import IconBot from '../../../../../assets/images/botI.svg';
 
 MaterialIcon.loadFont();
 export interface BottomTabsProductsProps {
@@ -24,8 +28,7 @@ export default function BottomTabsProducts({
         px={5}
         py={5}
         borderTopRadius={35}
-        _light={{backgroundColor: 'backgroundDark'}}
-        _dark={{backgroundColor: 'backgroundDark'}}
+        backgroundColor="backgroundLight"
         shadow={5}
         alignItems="center"
         justifyContent="space-between"
@@ -57,14 +60,10 @@ export default function BottomTabsProducts({
           onPress={redirectScreen('notifications')}
         />
 
-        <AntDesign
-          testID="iconExclamation"
-          name="exclamation"
-          size={25}
-          color={setCurrentColor('about')}
-        />
+        <TouchableOpacity onPress={redirectScreen('chatBot')}>
+          <IconSVG size="md" Icon={IconBot} />
+        </TouchableOpacity>
       </S.HStack>
-      <AddProduct />
     </>
   );
 }

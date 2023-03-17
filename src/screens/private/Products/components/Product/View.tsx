@@ -33,15 +33,16 @@ export function Product(props: ProductProps) {
       style={[
         productAnimation,
         {
+          width: '100%',
           padding: 10,
-          backgroundColor: '#545353',
+          backgroundColor: '#ffffff',
           borderRadius: 10,
           marginVertical: 10,
-          overflow: 'hidden',
-          elevation: 3,
+          height: 'auto',
+          elevation: 1,
         },
       ]}>
-      <S.HStack position="relative" alignItems="center" my={2}>
+      <S.HStack width="100%" position="relative" alignItems="center" my={2}>
         <RenderIF condition={isLowStorage}>
           <S.HStack
             px={2}
@@ -64,18 +65,27 @@ export function Product(props: ProductProps) {
             </S.Text>
           </S.HStack>
         </RenderIF>
-
+        <S.Box>
+          <S.Image
+            alt="image product"
+            source={{
+              uri: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+            }}
+            width={100}
+            height={100}
+            rounded="md"
+          />
+        </S.Box>
         <S.VStack
-          w="100%"
           ml={2}
           alignItems="flex-start"
           justifyContent="flex-start"
           space={2}>
-          <S.Text fontWeight={400} fontSize="lg" color="#fff">
+          <S.Text fontWeight={400} fontSize="lg" color="#0e0e0e">
             {props.name_product}
           </S.Text>
 
-          <S.HStack space={2} alignItems="center">
+          {/*  <S.HStack space={2} alignItems="center">
             <S.Text fontWeight={400} fontSize="lg" color="#bdbaba">
               ${props.price_saled}
             </S.Text>
@@ -105,10 +115,10 @@ export function Product(props: ProductProps) {
               textTransform="capitalize">
               {props.category}
             </S.Text>
-          </S.HStack>
+          </S.HStack> */}
         </S.VStack>
 
-        <S.Pressable
+        {/*   <S.Pressable
           onPress={handleToggleVisible}
           _pressed={{opacity: 0.8}}
           alignItems="center"
@@ -133,10 +143,10 @@ export function Product(props: ProductProps) {
               size={25}
             />
           </Animated.View>
-        </S.Pressable>
+        </S.Pressable> */}
       </S.HStack>
 
-      <S.VStack
+      {/*       <S.VStack
         w="100%"
         h="100%"
         mt={15}
@@ -150,7 +160,7 @@ export function Product(props: ProductProps) {
         <Button w="80%" opacity={1} onPress={handleManageProduct}>
           Gerenciar
         </Button>
-      </S.VStack>
+      </S.VStack> */}
     </Animated.View>
   );
 }

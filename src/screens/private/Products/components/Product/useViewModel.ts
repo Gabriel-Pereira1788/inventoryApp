@@ -36,7 +36,7 @@ export function useProduct(props: UseProductProps) {
     isPressed,
     handleToggleVisible,
     visibleAnimation: productAnimation,
-  } = useVisibleAnimation({animateH: 350, initialH: 100});
+  } = useVisibleAnimation({animateH: 350, initialH: 'auto'});
 
   const circleAnimation = useAnimatedStyle(() => {
     return {

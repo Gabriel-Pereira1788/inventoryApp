@@ -15,12 +15,12 @@ const Icons = {
     <Ionicons
       name="pie-chart-sharp"
       size={27}
-      color="#fff"
+      color="#102f3b"
       testID="iconChart"
     />
   ),
   'Produtos que sairam': () => (
-    <FontIcons name="chart-pie" size={25} color="#fff" testID="iconChart" />
+    <FontIcons name="chart-pie" size={25} color="#102f3b" testID="iconChart" />
   ),
   'Total em produtos': () => (
     <MaterialIcon
@@ -28,11 +28,11 @@ const Icons = {
       name="inventory"
       style={{marginRight: 10}}
       size={25}
-      color="#fff"
+      color="#102f3b"
     />
   ),
   'Total em estoque': () => (
-    <FontIcons name="chart-pie" size={25} color="#fff" testID="iconChart" />
+    <FontIcons name="chart-pie" size={25} color="#102f3b" testID="iconChart" />
   ),
 };
 
@@ -73,7 +73,7 @@ export function DataCard({
           <S.Text
             fontWeight="400"
             fontSize="3xl"
-            color="#fff"
+            color="text.100"
             textAlign="left"
             testID="data-value">
             {data ? data : 0}
@@ -82,7 +82,7 @@ export function DataCard({
           <S.Text
             fontWeight="500"
             fontSize="xs"
-            color="#ffffffc1"
+            color="text.100"
             textAlign="left"
             shadow="4"
             testID="text-card">

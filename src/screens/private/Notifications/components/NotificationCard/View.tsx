@@ -36,17 +36,17 @@ export default function NotificationCard({
         <S.Text
           fontWeight={600}
           fontSize="lg"
-          color={read ? '#dddddd4d' : 'primary.300'}>
+          color={read ? '#8282828d' : 'primary.300'}>
           {item_alert}
         </S.Text>
         <S.Text
           fontWeight={600}
           fontSize="sm"
-          color={read ? '#dddddd4d' : '#b5b2b2'}>
+          color={read ? '#8282828d' : '#b5b2b2'}>
           Por favor reponha o estoque do produto, recomendamos que ...
         </S.Text>
         <S.HStack w="100%" alignItems="center" justifyContent="flex-end">
-          <S.Text fontWeight={600} fontSize="sm" color="#b5b2b2">
+          <S.Text fontWeight={600} fontSize="sm" color="#8282828d">
             {formatDate(new Date(createdAt))}
           </S.Text>
         </S.HStack>

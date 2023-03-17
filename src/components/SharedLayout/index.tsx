@@ -19,7 +19,7 @@ export function SharedLayout({
     <>
       <Box
         flex={1}
-        backgroundColor="backgroundLight"
+        backgroundColor="#EFF2F5"
         alignItems="center"
         justifyContent="center"
         py={3}

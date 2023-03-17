@@ -17,7 +17,7 @@ export function useFilterGraph({
       backgroundColor: 'transparent',
     },
     active: {
-      backgroundColor: '#FFE238',
+      backgroundColor: '#2989b0',
     },
   });
 

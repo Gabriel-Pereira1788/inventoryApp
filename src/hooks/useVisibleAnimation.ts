@@ -6,7 +6,7 @@ import {
 } from 'react-native-reanimated';
 
 interface UseVisibleAnimatinoProps {
-  initialH: number;
+  initialH: number | string;
   animateH: number | string;
 }
 

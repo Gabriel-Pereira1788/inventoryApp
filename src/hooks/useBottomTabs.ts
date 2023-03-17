@@ -20,7 +20,7 @@ export function useBottomTabs(currentPath?: Paths) {
 
   const setCurrentColor = (path: Paths): ColorValue => {
     if (currentPath === path) {
-      return '#F0DC61';
+      return '#2989b0';
     }
 
     return colorMode === 'light' ? '#7c7c7c' : '#fff';

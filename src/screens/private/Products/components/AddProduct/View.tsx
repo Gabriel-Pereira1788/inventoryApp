@@ -18,7 +18,7 @@ export function AddProduct({}: AddProductProps) {
     <S.HStack
       position="absolute"
       w="full"
-      bottom={2}
+      bottom={5}
       alignItems="center"
       justifyContent="center">
       <S.Pressable
@@ -27,8 +27,8 @@ export function AddProduct({}: AddProductProps) {
         onPressOut={() => (pressed.value = false)}
         onPress={handleToggleState}>
         <Animated.View style={[uas]}>
-          <S.Circle shadow={3} size={'sm'} backgroundColor="#474646">
-            <MaterialIcons size={25} name="basket-plus" color="#F0DC61" />
+          <S.Circle shadow={3} size={'md'} backgroundColor="#474646">
+            <MaterialIcons size={32} name="basket-plus" color="#F0DC61" />
           </S.Circle>
         </Animated.View>
       </S.Pressable>

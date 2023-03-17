@@ -60,6 +60,12 @@ export function Router() {
           component={Dashboard}
           options={{
             headerTransparent: true,
+
+            headerTitleStyle: {
+              color: '#fff',
+              fontWeight: '700',
+              fontSize: 25,
+            },
             headerTitle: 'Painel de controle',
 
             headerLeft: () => <></>,

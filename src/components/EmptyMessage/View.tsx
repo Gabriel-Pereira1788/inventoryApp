@@ -14,9 +14,7 @@ export default function EmptyMessage({message, children}: EmptyProps) {
       <S.Text
         p={3}
         fontWeight="400"
-        fontStyle="italic"
-        _light={{color: 'text.100'}}
-        _dark={{color: '#fff'}}
+        color="#102f3b"
         fontSize="md"
         textAlign="left">
         {message}

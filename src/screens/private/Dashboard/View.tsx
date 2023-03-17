@@ -12,6 +12,7 @@ import {IsMounted} from '../../../components/IsMounted/View';
 //*hooks
 import {useDashboard} from './useViewModel';
 import {NavigationProps} from '../../../routes/navigation';
+import WelcomeCard from './components/WelcomeCard/View';
 
 type Context = Pick<ReturnType<typeof useDashboard>, 'statisticApi'>;
 
@@ -32,9 +33,9 @@ export function Dashboard(propsNavigation: NavigationProps) {
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <S.VStack w="100%" space="4" mt={10}>
+            <S.VStack w="100%" space="4" justifyContent="flex-start">
+              <WelcomeCard />
               <ContainerCards statistics={statistics} isLoading={isLoading} />
-
               <S.VStack w="100%" overflow="hidden" mt={5}>
                 <S.HStack
                   w="100%"

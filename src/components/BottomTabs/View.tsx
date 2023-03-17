@@ -30,8 +30,7 @@ export default function BottomTabs({currentPath}: BottomTabsProps) {
       justifyContent="space-around"
       space={1}
       shadow={5}
-      _light={{backgroundColor: 'backgroundDark'}}
-      _dark={{backgroundColor: 'backgroundDark'}}
+      backgroundColor="backgroundLight"
       testID="containerNavigation">
       <MaterialIcon
         testID="iconDashboard"

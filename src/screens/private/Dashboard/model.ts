@@ -33,8 +33,9 @@ export class Statistics {
       data: {
         dataMonth: StatisticsChart;
       };
-    } = await api.get(`get-statistics/${this.idUser}`);
+    } = await api.get(`get-statistics/${this.idUser}/year`);
 
+    console.log('data-statistics', data);
     const labels = data.dataMonth
       ? Object.keys(data.dataMonth).map(month => month.substring(0, 3))
       : [];
