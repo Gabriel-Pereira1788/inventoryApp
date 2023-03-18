@@ -55,7 +55,7 @@ export function DataCard({
       minH="40"
       rounded="xl"
       space="2"
-      shadow={4}
+      shadow={1}
       {...rest}>
       <Animated.View entering={BounceIn}>
         <S.VStack
@@ -65,7 +65,7 @@ export function DataCard({
           space="2"
           rounded="xl"
           {...rest}
-          shadow="4">
+          shadow="1">
           <S.HStack w="100%" alignItems="center" justifyContent="flex-start">
             {Icons[textCard]()}
           </S.HStack>

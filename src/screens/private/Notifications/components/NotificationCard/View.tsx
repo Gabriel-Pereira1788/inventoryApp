@@ -28,43 +28,6 @@ export default function NotificationCard({
   const date = formatDate(new Date(createdAt));
 
   return (
-<<<<<<< HEAD
-    <S.HStack
-      position="relative"
-      w="100%"
-      p={5}
-      borderBottomWidth={1}
-      borderRadius={5}
-      backgroundColor={read ? '#dddddd4d' : 'transparent'}
-      borderBottomColor={'#dddddd4d'}>
-      <Animated.View>
-        <S.Circle
-          size={3}
-          shadow={3}
-          backgroundColor="red.400"
-          position="absolute"
-          right={5}
-          top={5}
-        />
-      </Animated.View>
-      <S.VStack>
-        <S.Text
-          fontWeight={600}
-          fontSize="lg"
-          color={read ? '#8282828d' : 'primary.300'}>
-          {item_alert}
-        </S.Text>
-        <S.Text
-          fontWeight={600}
-          fontSize="sm"
-          color={read ? '#8282828d' : '#b5b2b2'}>
-          Por favor reponha o estoque do produto, recomendamos que ...
-        </S.Text>
-        <S.HStack w="100%" alignItems="center" justifyContent="flex-end">
-          <S.Text fontWeight={600} fontSize="sm" color="#8282828d">
-            {formatDate(new Date(createdAt))}
-          </S.Text>
-=======
     <>
       <TouchableOpacity onPress={handleToggleState}>
         <S.HStack
@@ -104,7 +67,6 @@ export default function NotificationCard({
               </S.Text>
             </S.HStack>
           </S.VStack>
->>>>>>> 99634bd874e1778da908e249810542970b256f8d
         </S.HStack>
       </TouchableOpacity>
       <ModalNotification

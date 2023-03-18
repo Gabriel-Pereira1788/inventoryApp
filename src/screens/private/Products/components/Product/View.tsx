@@ -18,31 +18,20 @@ export interface ProductProps extends ProductDTO {
 }
 
 export function Product(props: ProductProps) {
-  const {
-    isLowStorage,
-    storagePercentage,
-    piecesSaledPercentage,
-    productAnimation,
-    circleAnimation,
-    handleToggleVisible,
-    handleManageProduct,
-  } = useProduct(props);
+  const {isLowStorage, productAnimation} = useProduct(props);
   return (
     <Animated.View
       entering={BounceIn.delay(100).duration(500)}
       style={[
-        productAnimation,
         {
-          width: '100%',
           padding: 10,
           backgroundColor: '#ffffff',
           borderRadius: 10,
           marginVertical: 10,
-          height: 'auto',
           elevation: 1,
         },
       ]}>
-      <S.HStack width="100%" position="relative" alignItems="center" my={2}>
+      <S.HStack position="relative" alignItems="center" my={2}>
         <RenderIF condition={isLowStorage}>
           <S.HStack
             px={2}
@@ -81,16 +70,17 @@ export function Product(props: ProductProps) {
           alignItems="flex-start"
           justifyContent="flex-start"
           space={2}>
-          <S.Text fontWeight={400} fontSize="lg" color="#0e0e0e">
+          <S.Text fontWeight={500} fontSize="lg" color="text.100">
             {props.name_product}
           </S.Text>
 
-          {/*  <S.HStack space={2} alignItems="center">
-            <S.Text fontWeight={400} fontSize="lg" color="#bdbaba">
+          <S.HStack space={2} alignItems="center">
+            <S.Text fontWeight={400} fontSize="lg" color="#928e8e">
               ${props.price_saled}
             </S.Text>
+          </S.HStack>
 
-            <MaterialIcon
+          {/*    <MaterialIcon
               style={{marginLeft: 10}}
               testID="iconProducts"
               name="inventory"

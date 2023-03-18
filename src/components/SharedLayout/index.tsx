@@ -3,6 +3,7 @@ import React, {ReactNode} from 'react';
 import {Paths} from '../../hooks/useBottomTabs';
 
 import BottomTabs from '../BottomTabs/View';
+import BottomTabSkia from '../BottomTabSkia/View';
 import {RenderIF} from '../RenderIF/View';
 
 export interface SharedLayoutProps extends IBoxProps {
@@ -19,7 +20,7 @@ export function SharedLayout({
     <>
       <Box
         flex={1}
-        backgroundColor="#EFF2F5"
+        backgroundColor="#F7F9FB"
         alignItems="center"
         justifyContent="center"
         py={3}

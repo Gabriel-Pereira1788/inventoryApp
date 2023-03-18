@@ -37,9 +37,7 @@ export function Products(propsNavigation: NavigationProps) {
               <SkeletonScreen />
             </RenderIF>
 
-            <S.VStack mt={2} borderTopWidth={1} borderTopColor="#dddddd70">
-              <ProductsList />
-            </S.VStack>
+            <ProductsList />
           </S.VStack>
         </SharedLayout>
         <BottomTabsProducts currentPath="products" />

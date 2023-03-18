@@ -66,7 +66,7 @@ export function Router() {
               fontWeight: '700',
               fontSize: 25,
             },
-            headerTitle: 'Painel de controle',
+            headerTitle: '',
 
             headerLeft: () => <></>,
             headerRight: () => <UserCard />,

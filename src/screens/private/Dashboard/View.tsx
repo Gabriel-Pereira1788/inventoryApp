@@ -31,7 +31,7 @@ export function Dashboard(propsNavigation: NavigationProps) {
             contentContainerStyle={{
               flexGrow: 1,
               alignItems: 'center',
-              justifyContent: 'center',
+              justifyContent: 'flex-start',
             }}>
             <S.VStack w="100%" space="4" justifyContent="flex-start">
               <WelcomeCard />
@@ -79,25 +79,17 @@ export function Dashboard(propsNavigation: NavigationProps) {
                     1y
                   </FilterGraph>
                 </S.HStack>
-                <S.Text
-                  fontWeight="400"
-                  mt={10}
-                  ml={'5%'}
-                  fontSize="md"
-                  testID="total-sale">
-                  Total: <CurrencyFormat value={statistics?.total_sales || 0} />
-                </S.Text>
               </S.VStack>
-
+              {/*
               <S.Box>
                 <LineChart />
-              </S.Box>
+              </S.Box> */}
             </S.VStack>
 
-            <BestSellingCard
+            {/*     <BestSellingCard
               bestSelling={statistics?.best_selling}
               loadingData={isLoading}
-            />
+            /> */}
           </S.ScrollView>
         </SharedLayout>
       </IsMounted>

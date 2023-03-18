@@ -8,7 +8,7 @@ interface ProductsListProps {}
 export function ProductsList({}: ProductsListProps) {
   const {isLoading, displayProducts} = useContextProducts();
   return (
-    <>
+    <S.VStack mt={2} borderTopWidth={1} borderTopColor="#dddddd70" flex={1}>
       {!isLoading && displayProducts && displayProducts.length > 0 && (
         <S.FlatList
           pagingEnabled={true}
@@ -20,9 +20,7 @@ export function ProductsList({}: ProductsListProps) {
           minH={350}
           contentContainerStyle={{
             justifyContent: 'flex-start',
-            alignItems: 'flex-start',
             flexGrow: 1,
-            flex: 1,
             padding: 10,
           }}
           renderItem={({item}) => (
@@ -33,6 +31,6 @@ export function ProductsList({}: ProductsListProps) {
           )}
         />
       )}
-    </>
+    </S.VStack>
   );
 }

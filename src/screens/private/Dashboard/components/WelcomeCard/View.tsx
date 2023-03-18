@@ -2,23 +2,16 @@ import React from 'react';
 import * as S from 'native-base';
 import {sizes} from '../../../../../constants/sizesDevice';
 import {useUser} from '../../../../../store/useUser';
+import LinearGradient from 'react-native-linear-gradient';
+import {StyleSheet} from 'react-native';
 interface WelcomeCardProps {}
 
 export default function WelcomeCard({}: WelcomeCardProps) {
   const user = useUser();
   return (
-    <S.VStack
-      position="relative"
-      top={0}
-      shadow={5}
-      width={sizes.width}
-      height="80"
-      backgroundColor="#1fb3ee"
-      borderBottomRadius={45}
-      justifyContent="flex-end"
-      py={5}
-      px={8}
-      alignItems="flex-start">
+    <LinearGradient
+      colors={['#008cff', '#56acf2', '#83c2f6']}
+      style={styles.containerGradient}>
       <S.Text width="70%" fontWeight={500} color="#e8f8fa" fontSize={'3xl'} />
       <S.Box mb={10} position="relative">
         <S.Box
@@ -27,7 +20,7 @@ export default function WelcomeCard({}: WelcomeCardProps) {
           bottom={1}
           width="40%"
           rounded={2}
-          backgroundColor="#2989b0"
+          backgroundColor="#7ed1f24f"
         />
         <S.Text
           fontWeight={500}
@@ -44,7 +37,7 @@ export default function WelcomeCard({}: WelcomeCardProps) {
         <S.Box
           px={5}
           h={10}
-          backgroundColor="#2989b0"
+          backgroundColor="#7ed1f2b9"
           borderRadius={10}
           alignItems="center"
           justifyContent="center">
@@ -56,6 +49,27 @@ export default function WelcomeCard({}: WelcomeCardProps) {
       <S.Text color="#f4f1f1db" marginLeft={5}>
         Total de vendas
       </S.Text>
-    </S.VStack>
+    </LinearGradient>
   );
 }
+
+const styles = StyleSheet.create({
+  containerGradient: {
+    position: 'relative',
+    top: 0,
+    elevation: 4,
+    shadowOffset: {
+      width: 4,
+      height: 4,
+    },
+    width: sizes.width,
+    height: 350,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
+
+    justifyContent: 'flex-end',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    alignItems: 'flex-start',
+  },
+});
