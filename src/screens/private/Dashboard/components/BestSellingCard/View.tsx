@@ -14,13 +14,13 @@ import {formatDate} from '../../../../../utils/formatDate';
 import {useBestSelling} from './useViewModel';
 //*model
 import {Product} from '../../../../../models/Product';
-import {BestSelling} from '../../../../../models/Statistics';
+import {Selling} from '../../../../../models/Statistics';
 
 export interface BestSellingProps {
   loadingData?: boolean;
   bestSelling?: {
     product: Product | null;
-    data_sale: BestSelling | null;
+    data_sale: Selling | null;
   };
 }
 

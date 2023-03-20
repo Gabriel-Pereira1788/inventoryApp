@@ -9,7 +9,7 @@ import {InputPassword} from '../../../Input/components/InputPassword';
 export function Login() {
   const {dataSignin, loading, errors, handleChange, onSubmit} = useLogin();
   return (
-    <Wrapper onSubmit={onSubmit} loading={loading}>
+    <Wrapper onSubmit={onSubmit} loading={loading} submitText="Entrar">
       <Input
         title="Email"
         error={!!errors.email}

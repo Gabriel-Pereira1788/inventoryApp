@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
 import {LineChart} from './View';
-import {EMPTY_MESSAGES} from '../../../../../constants/emptyMessages';
+import {EMPTY_MESSAGES} from '../../../../../constants/defaultTexts';
 import {Wrapper} from '../../../../../components/JestWrapper';
 import {useChart} from '../../hooks/useChart';
 

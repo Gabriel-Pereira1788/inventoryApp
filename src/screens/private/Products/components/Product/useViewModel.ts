@@ -2,14 +2,11 @@ import {useNavigation} from '@react-navigation/native';
 import {useAnimatedStyle, withTiming} from 'react-native-reanimated';
 import {useVisibleAnimation} from '../../../../../hooks/useVisibleAnimation';
 import {Product} from '../../../../../models/Product';
+import {calculatePercentage} from '../../../../../utils/calculatePercentage';
 import {useContextProducts} from '../../View';
 
 interface UseProductProps extends Product {
   total_pieces_sales: number;
-}
-
-function calculatePercentage(relativeNumber: number, totalNumber: number) {
-  return (relativeNumber / totalNumber) * 100;
 }
 
 export function useProduct(props: UseProductProps) {

@@ -9,10 +9,10 @@ import {FilterGraph} from './components/FilterGraph/View';
 import {CurrencyFormat} from '../../../components/CurrencyFormat/View';
 import {ContainerCards} from './components/ContainerCards/View';
 import {IsMounted} from '../../../components/IsMounted/View';
+import Header from './components/Header/View';
 //*hooks
 import {useDashboard} from './useViewModel';
 import {NavigationProps} from '../../../routes/navigation';
-import WelcomeCard from './components/WelcomeCard/View';
 
 type Context = Pick<ReturnType<typeof useDashboard>, 'statisticApi'>;
 
@@ -34,7 +34,10 @@ export function Dashboard(propsNavigation: NavigationProps) {
               justifyContent: 'flex-start',
             }}>
             <S.VStack w="100%" space="4" justifyContent="flex-start">
-              <WelcomeCard />
+              <Header
+                salesAmount={statistics?.total_sales}
+                currentFilter={currentFilter}
+              />
               <ContainerCards statistics={statistics} isLoading={isLoading} />
               <S.VStack w="100%" overflow="hidden" mt={5}>
                 <S.HStack
@@ -80,10 +83,10 @@ export function Dashboard(propsNavigation: NavigationProps) {
                   </FilterGraph>
                 </S.HStack>
               </S.VStack>
-              {/*
+
               <S.Box>
-                <LineChart />
-              </S.Box> */}
+                <LineChart currentFilter={currentFilter} />
+              </S.Box>
             </S.VStack>
 
             {/*     <BestSellingCard

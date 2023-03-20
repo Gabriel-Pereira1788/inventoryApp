@@ -15,7 +15,7 @@ export function useAuth() {
     setLoading(true);
 
     auth()
-      .signInWithEmailAndPassword(dataSubmit.email, dataSubmit.password)
+      .signInWithEmailAndPassword(dataSubmit.email.trim(), dataSubmit.password)
       .then(async userCredentials => {
         if (userCredentials.user) {
           const dataUser = formatUser(userCredentials.user);
@@ -23,7 +23,7 @@ export function useAuth() {
           queryClient.setQueryData<User>(['user'], dataUser);
 
           await AsyncStorage.setItem('@user', JSON.stringify(dataUser));
-
+          queryClient.refetchQueries(['user']);
           navigation.navigate('dashboard');
         }
       })
@@ -60,7 +60,8 @@ export function useAuth() {
       .finally(() => setLoading(false));
 
     queryClient.removeQueries(['user']);
-    navigation.navigate('login');
+    await AsyncStorage.removeItem('@user');
+    navigation.navigate('initialScreen');
   }
 
   return {signIn, createUser, signOut, loading};

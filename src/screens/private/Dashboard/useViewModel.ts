@@ -1,6 +1,7 @@
-import {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {useQuery} from '@tanstack/react-query';
 import {useUser} from '../../../store/useUser';
+import {useNavigation} from '@react-navigation/native';
 import {Statistics} from './model';
 
 export type FilterDate =
@@ -13,6 +14,7 @@ export type FilterDate =
 
 export function useDashboard() {
   const user = useUser();
+  const navigation = useNavigation();
 
   const statisticApi = useRef<Statistics>(new Statistics(user?.uid)).current;
   const [currentFilter, setCurrentFilter] = useState<FilterDate>('day');
@@ -32,6 +34,12 @@ export function useDashboard() {
       refetchOnMount: false,
     },
   );
+
+  useEffect(() => {
+    navigation.addListener('beforeRemove', e => {
+      e.preventDefault();
+    });
+  }, [navigation]);
 
   return {
     statistics,

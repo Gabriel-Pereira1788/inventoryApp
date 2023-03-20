@@ -11,13 +11,18 @@ export function Register() {
   const {dataRegister, handleChange, onSubmit, loading, errors} = useRegister();
 
   return (
-    <Wrapper onSubmit={onSubmit} loading={loading} isRegister>
+    <Wrapper
+      onSubmit={onSubmit}
+      loading={loading}
+      isRegister
+      submitText="Registrar-se">
       <Input
         title="Nome"
         value={dataRegister.name}
         error={!!errors.name}
         errorMessage={errors.name}
         onChangeText={value => handleChange('name', value)}
+        color="#fff"
         testID="inputName"
       />
       <Input
@@ -26,6 +31,7 @@ export function Register() {
         errorMessage={errors.email}
         value={dataRegister.email}
         onChangeText={value => handleChange('email', value)}
+        color="#fff"
         testID="inputEmail"
       />
       <InputPassword
@@ -34,6 +40,7 @@ export function Register() {
         errorMessage={errors.password}
         value={dataRegister.password}
         onChangeText={value => handleChange('password', value)}
+        color="#fff"
         testID="inputPassword"
       />
       <InputPassword
@@ -42,6 +49,7 @@ export function Register() {
         errorMessage={errors.confirmPassword}
         value={dataRegister.confirmPassword}
         onChangeText={value => handleChange('confirmPassword', value)}
+        color="#fff"
         testID="inputConfirmPassword"
       />
     </Wrapper>

@@ -1,14 +1,29 @@
 import {useQuery} from '@tanstack/react-query';
-import {useDashboardContext} from '../../View';
 
-export function useChart() {
+import {useUser} from '../../../../../store/useUser';
+
+import {useDashboardContext} from '../../View';
+import {LineChartProps} from './View';
+
+type UseChartProps = Pick<LineChartProps, 'sales' | 'currentFilter'>;
+
+export function useChart({}: UseChartProps) {
   const {statisticApi} = useDashboardContext();
 
+  const user = useUser();
   const {
     data: statistics,
     isLoading,
     error,
-  } = useQuery(['statisticsChart'], statisticApi.getStatisticsChart);
+  } = useQuery(
+    ['statisticsChart'],
+    () => statisticApi.getStatisticsChart(user?.uid),
+    {
+      refetchOnMount: false,
+    },
+  );
+
+  console.log('data-chart', statistics);
 
   const conditionRender = statistics && statistics?.labels.length > 0;
 

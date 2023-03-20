@@ -11,12 +11,19 @@ import {RenderIF} from '../../../../../components/RenderIF/View';
 //*icons
 import Ionicons from 'react-native-vector-icons/Ionicons';
 //*constants
-import {EMPTY_MESSAGES} from '../../../../../constants/emptyMessages';
+import {EMPTY_MESSAGES} from '../../../../../constants/defaultTexts';
+import {Selling} from '../../../../../models/Statistics';
+import {FilterDate} from '../../useViewModel';
 
 Ionicons.loadFont();
 
-export function LineChart() {
-  const {statistics, conditionRender} = useChart();
+export interface LineChartProps {
+  sales?: Selling[];
+  currentFilter: FilterDate;
+}
+
+export function LineChart(props: LineChartProps) {
+  const {statistics, conditionRender} = useChart(props);
 
   return (
     <S.Box alignItems="center" justifyContent="center" width="full" mt="10%">
@@ -27,7 +34,7 @@ export function LineChart() {
             <Ionicons
               name="ios-bar-chart"
               size={120}
-              color="#F0DC61"
+              color="#81eefc"
               testID="icon-chart"
             />
           </EmptyMessage>
@@ -52,7 +59,7 @@ export function LineChart() {
             backgroundGradientToOpacity: 0,
             backgroundColor: '#F9F6F6',
             labelColor: () => '#8a8a8a',
-            color: () => '#F0DC61',
+            color: () => '#81eefc',
           }}
           bezier
           withInnerLines={false}

@@ -3,12 +3,12 @@ import React from 'react';
 import {BestSellingCard} from './View';
 import {Wrapper} from '../../../../../components/JestWrapper';
 import {Product} from '../../../../../models/Product';
-import {BestSelling} from '../../../../../models/Statistics';
+import {Selling} from '../../../../../models/Statistics';
 import {formatDate} from '../../../../../utils/formatDate';
 
 const mockBestSelling: {
   product: Product | null;
-  data_sale: BestSelling | null;
+  data_sale: Selling | null;
 } = {
   product: {
     createdAt: new Date(),

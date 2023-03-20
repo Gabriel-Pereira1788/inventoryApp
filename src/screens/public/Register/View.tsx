@@ -1,27 +1,24 @@
 import React from 'react';
 import {Box, ScrollView} from 'native-base';
 import Form from '../../../components/Form';
-import {ToggleTheme} from '../../../components/ToggleTheme/View';
+import Background from './components/Background';
 
 export function Register() {
   return (
     <Box
       alignItems="center"
       justifyContent="center"
-      _light={{backgroundColor: '#FCF5DE'}}
-      _dark={{backgroundColor: 'backgroundDark'}}
-      p={3}
+      backgroundColor="#F7F9FB"
       flex={1}
       testID="container"
       position="relative">
-      <Box position="absolute" top={5} right={5} zIndex={1}>
-        <ToggleTheme testID="toggleMode" />
-      </Box>
       <ScrollView
         w="100%"
-        p={5}
         contentContainerStyle={{flexGrow: 1, justifyContent: 'center'}}>
-        <Form.Register />
+        <Background />
+        <Box mt={'25%'}>
+          <Form.Register />
+        </Box>
       </ScrollView>
     </Box>
   );

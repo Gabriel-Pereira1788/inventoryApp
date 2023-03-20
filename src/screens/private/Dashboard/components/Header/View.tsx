@@ -4,10 +4,18 @@ import {sizes} from '../../../../../constants/sizesDevice';
 import {useUser} from '../../../../../store/useUser';
 import LinearGradient from 'react-native-linear-gradient';
 import {StyleSheet} from 'react-native';
-interface WelcomeCardProps {}
+import {FilterDate} from '../../useViewModel';
+import {useHeader} from './useViewModel';
+import {RenderIF} from '../../../../../components/RenderIF/View';
+export interface HeaderProps {
+  salesAmount?: number;
+  currentFilter: FilterDate;
+}
 
-export default function WelcomeCard({}: WelcomeCardProps) {
+export default function Header({salesAmount, currentFilter}: HeaderProps) {
   const user = useUser();
+  const {percentage} = useHeader({salesAmount, currentFilter});
+  console.log('percentage', percentage);
   return (
     <LinearGradient
       colors={['#008cff', '#56acf2', '#83c2f6']}
@@ -32,19 +40,21 @@ export default function WelcomeCard({}: WelcomeCardProps) {
       </S.Box>
       <S.HStack w="100%" justifyContent="space-between" alignItems="center">
         <S.Text bold fontSize="4xl" color="#e8f8fa" shadow={4}>
-          $128.000
+          ${salesAmount || 0}
         </S.Text>
-        <S.Box
-          px={5}
-          h={10}
-          backgroundColor="#7ed1f2b9"
-          borderRadius={10}
-          alignItems="center"
-          justifyContent="center">
-          <S.Text fontWeight={500} color="#fff">
-            + 2.5%
-          </S.Text>
-        </S.Box>
+        <RenderIF condition={percentage !== ''}>
+          <S.Box
+            px={5}
+            h={10}
+            backgroundColor="#7ed1f2b9"
+            borderRadius={10}
+            alignItems="center"
+            justifyContent="center">
+            <S.Text fontWeight={500} color="#fff">
+              {Number(percentage) < 0 ? percentage : `+${percentage}`}%
+            </S.Text>
+          </S.Box>
+        </RenderIF>
       </S.HStack>
       <S.Text color="#f4f1f1db" marginLeft={5}>
         Total de vendas
@@ -63,7 +73,7 @@ const styles = StyleSheet.create({
       height: 4,
     },
     width: sizes.width,
-    height: 350,
+    height: 250,
     borderBottomLeftRadius: 50,
     borderBottomRightRadius: 50,
 

@@ -1,3 +1,4 @@
+import {MONTHS_DATA} from '../../../constants/months';
 import {
   FilterDate,
   StatisticsChart,
@@ -20,7 +21,7 @@ export class Statistics {
     }
   }
 
-  async getStatisticsChart(): Promise<
+  async getStatisticsChart(idUser?: string): Promise<
     | {
         labels: string[];
         values: number[];
@@ -33,15 +34,20 @@ export class Statistics {
       data: {
         dataMonth: StatisticsChart;
       };
-    } = await api.get(`get-statistics/${this.idUser}/year`);
+    } = await api.get(`get-statistics/${idUser}`);
+    // Object.values(data.dataMonth).map(statistic => statistic.sales_amount)
 
-    console.log('data-statistics', data);
-    const labels = data.dataMonth
-      ? Object.keys(data.dataMonth).map(month => month.substring(0, 3))
-      : [];
-    const values = data.dataMonth
-      ? Object.values(data.dataMonth).map(statistic => statistic.sales_amount)
-      : [];
+    const labels = MONTHS_DATA.map(month => month.slice(0, 3));
+    const values = MONTHS_DATA.map((month, index) => {
+      let amount = index * 0;
+      Object.entries(data.dataMonth).map(([key, value]) => {
+        if (month.toLowerCase() === key.toLowerCase()) {
+          amount = value.sales_amount;
+        }
+      });
+
+      return amount;
+    });
     return {
       labels,
       values,

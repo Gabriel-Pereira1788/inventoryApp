@@ -20,6 +20,11 @@ export function useLogin() {
 
     if (typeof validation === 'string') {
       await signIn(dataSignin);
+
+      setDataSignin({
+        email: '',
+        password: '',
+      });
     } else {
       setErrors(validation);
     }

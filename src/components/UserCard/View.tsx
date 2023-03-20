@@ -20,7 +20,7 @@ export default function UserCard() {
       style={{marginVertical: 10}}
       onPress={() => navigation.navigate('myAccount')}>
       <RenderIF
-        condition={!!user?.photoURL}
+        condition={!!user && !!user?.photoURL}
         RenderComponent={() => (
           <UserCircle size={40} color="#969393" weight="light" />
         )}>
@@ -30,7 +30,7 @@ export default function UserCard() {
           rounded="full"
           alt="imageuser"
           source={{
-            uri: user!.photoURL!,
+            uri: user && user!.photoURL!,
           }}
         />
       </RenderIF>

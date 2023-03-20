@@ -17,12 +17,14 @@ import ManageProduct from '../screens/private/ManageProduct/View';
 import {RootParamListI} from './navigation';
 import ChatBot from '../screens/private/ChatBot/View';
 import Notifications from '../screens/private/Notifications/View';
+import {useUser} from '../store/useUser';
 
 IconIonicon.loadFont();
 
 const Stack = createNativeStackNavigator<RootParamListI>();
 export function Router() {
   const {colorMode} = useColorMode();
+  const user = useUser();
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -44,84 +46,93 @@ export function Router() {
           name="login"
           component={Login}
           options={{
-            headerShown: false,
+            headerShown: true,
+            headerTransparent: true,
+            headerTitle: '',
+            headerTintColor: '#fff',
           }}
         />
         <Stack.Screen
           name="register"
           component={Register}
           options={{
-            headerShown: false,
-          }}
-        />
-
-        <Stack.Screen
-          name="dashboard"
-          component={Dashboard}
-          options={{
-            headerTransparent: true,
-
-            headerTitleStyle: {
-              color: '#fff',
-              fontWeight: '700',
-              fontSize: 25,
-            },
-            headerTitle: '',
-
-            headerLeft: () => <></>,
-            headerRight: () => <UserCard />,
-          }}
-        />
-        <Stack.Screen
-          name="myAccount"
-          component={MyAccount}
-          options={{
+            headerShown: true,
             headerTransparent: true,
             headerTitle: '',
+            headerTintColor: '#fff',
           }}
         />
-        <Stack.Screen
-          name="products"
-          component={Products}
-          options={{
-            headerTransparent: true,
-            headerTitle: 'Produtos',
-            headerLeft: () => <></>,
-            headerRight: () => <UserCard />,
-          }}
-        />
+        {user && (
+          <>
+            <Stack.Screen
+              name="dashboard"
+              component={Dashboard}
+              options={{
+                headerTransparent: true,
 
-        <Stack.Screen
-          name="manageProduct"
-          component={ManageProduct}
-          options={{
-            headerTransparent: true,
-            headerTitle: '',
-            headerTitleAlign: 'center',
-          }}
-        />
+                headerTitleStyle: {
+                  color: '#fff',
+                  fontWeight: '700',
+                  fontSize: 25,
+                },
+                headerTitle: '',
 
-        <Stack.Screen
-          name="chatBot"
-          component={ChatBot}
-          options={{
-            headerTransparent: true,
-            headerTitle: '',
-            headerTitleAlign: 'center',
-            headerLeft: () => <></>,
-          }}
-        />
-        <Stack.Screen
-          name="notifications"
-          component={Notifications}
-          options={{
-            headerTransparent: true,
-            headerTitle: 'Notificações',
-            headerTitleAlign: 'center',
-            headerLeft: () => <></>,
-            headerRight: () => <UserCard />,
-          }}
-        />
+                headerLeft: () => <></>,
+                headerRight: () => <UserCard />,
+              }}
+            />
+            <Stack.Screen
+              name="myAccount"
+              component={MyAccount}
+              options={{
+                headerTransparent: true,
+                headerTitle: '',
+              }}
+            />
+            <Stack.Screen
+              name="products"
+              component={Products}
+              options={{
+                headerTransparent: true,
+                headerTitle: 'Produtos',
+                headerLeft: () => <></>,
+                headerRight: () => <UserCard />,
+              }}
+            />
+
+            <Stack.Screen
+              name="manageProduct"
+              component={ManageProduct}
+              options={{
+                headerTransparent: true,
+                headerTitle: '',
+                headerTitleAlign: 'center',
+              }}
+            />
+
+            <Stack.Screen
+              name="chatBot"
+              component={ChatBot}
+              options={{
+                headerTransparent: true,
+                headerTitle: '',
+                headerTitleAlign: 'center',
+                headerLeft: () => <></>,
+              }}
+            />
+            <Stack.Screen
+              name="notifications"
+              component={Notifications}
+              options={{
+                headerTransparent: true,
+                headerTitle: 'Notificações',
+                headerTitleAlign: 'center',
+                headerLeft: () => <></>,
+                headerRight: () => <UserCard />,
+              }}
+            />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -9,7 +9,7 @@ export type FilterDate =
   | '6 month'
   | 'year';
 
-export interface BestSelling {
+export interface Selling {
   id: string;
   id_product: string;
   id_user: string;
@@ -26,11 +26,12 @@ export interface StatisticsDTO {
   parts_leave: number;
   best_selling: {
     product: Product | null;
-    data_sale: BestSelling | null;
+    data_sale: Selling | null;
   };
   total_sales: number;
   total_product: number;
   total_storage: number;
+  sales: Selling[];
 }
 
 export type StatisticsChart = {

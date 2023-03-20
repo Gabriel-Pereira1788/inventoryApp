@@ -43,6 +43,38 @@ export const MAIN = extendTheme({
     backgroundDark: '#343333',
   },
   fontConfig: {
+    Jost: {
+      100: {
+        normal: 'Jost-Light',
+        italic: 'Jost-LightItalic',
+      },
+      200: {
+        normal: 'Jost-Light',
+        italic: 'Jost-LightItalic',
+      },
+      300: {
+        normal: 'Jost-Light',
+        italic: 'Jost-LightItalic',
+      },
+      400: {
+        normal: 'Jost-Regular',
+        italic: 'Jost-Italic',
+      },
+      500: {
+        normal: 'Jost-Medium',
+      },
+      600: {
+        normal: 'Jost-Medium',
+        italic: 'Jost-MediumItalic',
+      },
+      700: {
+        normal: 'Jost-Bold',
+      },
+      800: {
+        normal: 'Jost-Bold',
+        italic: 'Jost-BoldItalic',
+      },
+    },
     Rubik: {
       100: {
         normal: 'Rubik-Light',
@@ -77,8 +109,8 @@ export const MAIN = extendTheme({
     },
   },
   fonts: {
-    heading: 'Rubik',
-    body: 'Rubik',
-    mono: 'Rubik',
+    heading: 'Jost',
+    body: 'Jost',
+    mono: 'Jost',
   },
 });
