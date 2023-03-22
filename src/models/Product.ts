@@ -11,6 +11,7 @@ export interface Product {
 }
 
 export interface ProductDTO {
+  path_image?: string;
   id_product?: string;
   id_user?: string;
   name_product: string;

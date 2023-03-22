@@ -3,8 +3,6 @@ import React, {ReactNode} from 'react';
 import {Paths} from '../../hooks/useBottomTabs';
 
 import BottomTabs from '../BottomTabs/View';
-import BottomTabSkia from '../BottomTabSkia/View';
-import {RenderIF} from '../RenderIF/View';
 
 export interface SharedLayoutProps extends IBoxProps {
   children: ReactNode;
@@ -27,10 +25,9 @@ export function SharedLayout({
         {...rest}>
         {children}
       </Box>
-      <RenderIF condition={currentPath !== 'products'}>
-        <BottomTabs currentPath={currentPath} />
-        {/* <BottomExample /> */}
-      </RenderIF>
+
+      <BottomTabs currentPath={currentPath} />
+      {/* <BottomExample /> */}
     </>
   );
 }

@@ -6,12 +6,11 @@ import {SharedLayout} from '../../../components/SharedLayout';
 import {Controllers} from './components/Controllers/View';
 import {RenderIF} from '../../../components/RenderIF/View';
 import {SkeletonScreen} from './components/SkeletonScreen/View';
+import {IsMounted} from '../../../components/IsMounted/View';
+import {ProductsList} from './components/ProductsList/View';
 //* hooks
 import {useProducts} from './useViewModel';
 import {NavigationProps} from '../../../routes/navigation';
-import BottomTabsProducts from './components/BottomTabsProducts/View';
-import {IsMounted} from '../../../components/IsMounted/View';
-import {ProductsList} from './components/ProductsList/View';
 
 type Context = Omit<
   ReturnType<typeof useProducts>,
@@ -40,7 +39,6 @@ export function Products(propsNavigation: NavigationProps) {
             <ProductsList />
           </S.VStack>
         </SharedLayout>
-        <BottomTabsProducts currentPath="products" />
       </IsMounted>
     </ProductsContext.Provider>
   );

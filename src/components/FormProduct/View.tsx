@@ -12,6 +12,9 @@ import {useFormProduct} from './useViewModel';
 //*constants
 import {categories} from '../../constants/categories';
 import {ProductDTO} from '../../models/Product';
+import {Image, Plus} from 'phosphor-react-native';
+import {sizes} from '../../constants/sizesDevice';
+import {TouchableOpacity} from 'react-native';
 
 export interface FormProductProps extends S.IStackProps {
   onSubmit: (data: ProductDTO) => Promise<void>;
@@ -35,6 +38,22 @@ export function FormProduct({
       w="100%"
       h="full"
       {...rest}>
+      <TouchableOpacity>
+        <S.Circle
+          p={5}
+          position="relative"
+          backgroundColor="#fff"
+          width={(sizes.width / 100) * 30}
+          height={(sizes.width / 100) * 30}
+          borderWidth={2}
+          borderColor="#868585">
+          <Image
+            size={(sizes.width / 100) * 15}
+            color="#123D42"
+            weight="light"
+          />
+        </S.Circle>
+      </TouchableOpacity>
       <Input
         testID="name"
         title="Nome do produto"

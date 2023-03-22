@@ -13,6 +13,7 @@ export function useFormProduct({onSubmit, initialValue}: UseFormProductProps) {
   const user = useUser();
   const [productDTO, setProductDTO] = useState<ProductDTO>(
     initialValue || {
+      path_image: '',
       id_user: user?.uid,
       name_product: '',
       price_purchased: '',

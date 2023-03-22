@@ -3,6 +3,8 @@ import * as S from 'native-base';
 import {Product} from '../Product/View';
 import {useContextProducts} from '../../View';
 
+import {AddProduct} from '../AddProduct/View';
+
 interface ProductsListProps {}
 
 export function ProductsList({}: ProductsListProps) {
@@ -12,8 +14,10 @@ export function ProductsList({}: ProductsListProps) {
       {!isLoading && displayProducts && displayProducts.length > 0 && (
         <S.FlatList
           pagingEnabled={true}
+          ListHeaderComponent={() => <AddProduct />}
           data={displayProducts}
-          my={5}
+          mt={2}
+          mb={5}
           snapToAlignment={'center'}
           showsVerticalScrollIndicator={false}
           showsHorizontalScrollIndicator={false}

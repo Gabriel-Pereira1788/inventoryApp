@@ -6,6 +6,7 @@ import Animated from 'react-native-reanimated';
 import Modal from '../../../../../components/Modal/View';
 import {useAddProduct} from './useViewModel';
 import {FormProduct} from '../../../../../components/FormProduct/View';
+import {TouchableOpacity} from 'react-native';
 
 MaterialIcons.loadFont();
 
@@ -15,28 +16,19 @@ export function AddProduct({}: AddProductProps) {
   const {isOpen, pressed, uas, loadingSubmit, handleToggleState, onSubmit} =
     useAddProduct({});
   return (
-    <S.HStack
-      position="absolute"
-      w="full"
-      bottom={5}
-      alignItems="center"
-      justifyContent="center">
-      <S.Pressable
-        p={4}
-        onPressIn={() => (pressed.value = true)}
-        onPressOut={() => (pressed.value = false)}
-        onPress={handleToggleState}>
-        <Animated.View style={[uas]}>
-          <S.Circle shadow={3} size={'md'} backgroundColor="#474646">
-            <MaterialIcons size={32} name="basket-plus" color="#F0DC61" />
-          </S.Circle>
-        </Animated.View>
-      </S.Pressable>
+    <>
+      <S.HStack w="100%" alignItems="center" justifyContent="flex-end">
+        <TouchableOpacity
+          onPressIn={() => (pressed.value = true)}
+          onPress={handleToggleState}
+          onPressOut={() => (pressed.value = false)}>
+          <Animated.View style={uas}>
+            <MaterialIcons size={37} name="plus" color="#2989b0" />
+          </Animated.View>
+        </TouchableOpacity>
+      </S.HStack>
 
       <Modal isOpen={isOpen} onClose={handleToggleState}>
-        <S.Box mt={15} position="absolute" top={10}>
-          <MaterialIcons size={100} name="basket-plus" color="#F0DC61" />
-        </S.Box>
         <S.ScrollView
           contentContainerStyle={{
             flexGrow: 1,
@@ -44,13 +36,12 @@ export function AddProduct({}: AddProductProps) {
             justifyContent: 'center',
           }}
           w="100%"
-          mt={40}
           p={10}
           py={15}
           h="full">
           <FormProduct loadingSubmit={loadingSubmit} onSubmit={onSubmit} />
         </S.ScrollView>
       </Modal>
-    </S.HStack>
+    </>
   );
 }
