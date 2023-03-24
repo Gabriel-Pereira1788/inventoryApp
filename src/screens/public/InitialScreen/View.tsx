@@ -23,7 +23,7 @@ export function InitialScreen({navigation}: NavigationProps<'initialScreen'>) {
   }, []);
   return (
     <S.VStack
-      bg="#F7F9FB"
+      bg="background"
       flex={1}
       alignItems="center"
       justifyContent="center"
@@ -33,8 +33,8 @@ export function InitialScreen({navigation}: NavigationProps<'initialScreen'>) {
           shadow={4}
           source={require('../../../assets/images/icon_inventory.png')}
           alt="inventory image"
-          width={(sizes.width / 100) * 30}
-          height={(sizes.width / 100) * 30}
+          width={(sizes.width / 100) * 50}
+          height={(sizes.width / 100) * 50}
           rounded="lg"
           testID="image"
         />
@@ -43,6 +43,7 @@ export function InitialScreen({navigation}: NavigationProps<'initialScreen'>) {
           fontWeight={400}
           fontSize="lg"
           w="100%"
+          color="#fff"
           textAlign="justify">
           {INITIAL_TEXT}
         </S.Text>
@@ -62,7 +63,7 @@ export function InitialScreen({navigation}: NavigationProps<'initialScreen'>) {
               size={30}
               shadow={3}
               p={7}
-              backgroundColor="#54595D"
+              backgroundColor="#051113"
               alignItems="center"
               justifyContent="center">
               <ArrowRight size={25} color="#f4f7f3" weight="thin" />

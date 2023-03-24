@@ -26,7 +26,7 @@ export const MAIN = extendTheme({
   colors: {
     primary: {
       200: '#FFF3AA',
-      300: '#F0DC61',
+      300: '#123D42',
       400: '#FFE600',
       500: '#FFE238',
     },
@@ -39,6 +39,7 @@ export const MAIN = extendTheme({
       100: '#102f3b',
     },
     white: '#FFFFFF',
+    background: '#123D42',
     backgroundLight: '#F9F6F6',
     backgroundDark: '#343333',
   },

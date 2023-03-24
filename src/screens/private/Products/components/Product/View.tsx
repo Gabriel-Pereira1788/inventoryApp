@@ -5,12 +5,10 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 //*components
 import {RenderIF} from '../../../../../components/RenderIF/View';
-import ProgressChart from '../../../../../components/ProgressChart/View';
-
 import {Product as ProductDTO} from '../../../../../models/Product';
 import Animated, {BounceIn} from 'react-native-reanimated';
 import {useProduct} from './useViewModel';
-import {Button} from '../../../../../components/Button/View';
+import {sizes} from '../../../../../constants/sizesDevice';
 
 MaterialIcon.loadFont();
 export interface ProductProps extends ProductDTO {
@@ -55,15 +53,25 @@ export function Product(props: ProductProps) {
           </S.HStack>
         </RenderIF>
         <S.Box>
-          <S.Image
-            alt="image product"
-            source={{
-              uri: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
-            }}
-            width={100}
-            height={100}
-            rounded="md"
-          />
+          <RenderIF
+            condition={!!props.path_image}
+            RenderComponent={() => (
+              <MaterialIcon
+                name="inventory"
+                size={(sizes.width / 100) * 25}
+                color="#ddd"
+              />
+            )}>
+            <S.Image
+              alt="image product"
+              source={{
+                uri: props.path_image!,
+              }}
+              width={(sizes.width / 100) * 25}
+              height={(sizes.width / 100) * 25}
+              rounded="md"
+            />
+          </RenderIF>
         </S.Box>
         <S.VStack
           ml={2}
@@ -79,78 +87,8 @@ export function Product(props: ProductProps) {
               ${props.price_saled}
             </S.Text>
           </S.HStack>
-
-          {/*    <MaterialIcon
-              style={{marginLeft: 10}}
-              testID="iconProducts"
-              name="inventory"
-              size={25}
-              color="#F0DC61"
-            />
-            <S.Text fontWeight={400} fontSize="md" color="#bcbaba">
-              {props.storage}
-            </S.Text>
-
-            <MaterialIcon
-              style={{marginLeft: 5}}
-              name="category"
-              size={25}
-              color="#F0DC61"
-            />
-
-            <S.Text
-              fontWeight={400}
-              fontSize="md"
-              color="#bfbcbc"
-              textTransform="capitalize">
-              {props.category}
-            </S.Text>
-          </S.HStack> */}
         </S.VStack>
-
-        {/*   <S.Pressable
-          onPress={handleToggleVisible}
-          _pressed={{opacity: 0.8}}
-          alignItems="center"
-          justifyContent="center">
-          <Animated.View
-            style={[
-              circleAnimation,
-              {
-                padding: 5,
-                position: 'absolute',
-                right: 10,
-                borderWidth: 1,
-                borderRadius: 100,
-                borderColor: '#c2c1c1b7',
-                alignItems: 'center',
-                justifyContent: 'center',
-              },
-            ]}>
-            <MaterialIcon
-              name="keyboard-arrow-down"
-              color="#dddddda7"
-              size={25}
-            />
-          </Animated.View>
-        </S.Pressable> */}
       </S.HStack>
-
-      {/*       <S.VStack
-        w="100%"
-        h="100%"
-        mt={15}
-        alignItems="center"
-        justifyContent="flex-start"
-        space={3}>
-        <ProgressChart
-          salesPercentage={piecesSaledPercentage}
-          storagePercentage={storagePercentage}
-        />
-        <Button w="80%" opacity={1} onPress={handleManageProduct}>
-          Gerenciar
-        </Button>
-      </S.VStack> */}
     </Animated.View>
   );
 }

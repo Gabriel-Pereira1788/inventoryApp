@@ -46,7 +46,6 @@ export function Wrapper({
           <TouchableOpacity disabled={loading} onPress={handleSubmit}>
             <S.Circle
               size={30}
-              shadow={1}
               p={7}
               backgroundColor="#54595D"
               alignItems="center"

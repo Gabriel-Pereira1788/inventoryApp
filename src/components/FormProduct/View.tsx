@@ -12,9 +12,10 @@ import {useFormProduct} from './useViewModel';
 //*constants
 import {categories} from '../../constants/categories';
 import {ProductDTO} from '../../models/Product';
-import {Image, Plus} from 'phosphor-react-native';
+import {Image as ImageIcon} from 'phosphor-react-native';
 import {sizes} from '../../constants/sizesDevice';
 import {TouchableOpacity} from 'react-native';
+import {RenderIF} from '../RenderIF/View';
 
 export interface FormProductProps extends S.IStackProps {
   onSubmit: (data: ProductDTO) => Promise<void>;
@@ -28,8 +29,14 @@ export function FormProduct({
   initialValue,
   ...rest
 }: FormProductProps) {
-  const {productDTO, errors, handleChange, handleChangeCurrency, handleSubmit} =
-    useFormProduct({onSubmit, initialValue});
+  const {
+    productDTO,
+    errors,
+    handleChange,
+    handleChangeCurrency,
+    handleSubmit,
+    handleSetImage,
+  } = useFormProduct({onSubmit, initialValue});
   return (
     <S.VStack
       flex={1}
@@ -38,21 +45,33 @@ export function FormProduct({
       w="100%"
       h="full"
       {...rest}>
-      <TouchableOpacity>
-        <S.Circle
-          p={5}
-          position="relative"
-          backgroundColor="#fff"
-          width={(sizes.width / 100) * 30}
-          height={(sizes.width / 100) * 30}
-          borderWidth={2}
-          borderColor="#868585">
-          <Image
-            size={(sizes.width / 100) * 15}
-            color="#123D42"
-            weight="light"
-          />
-        </S.Circle>
+      <TouchableOpacity onPress={handleSetImage}>
+        <RenderIF
+          condition={!productDTO.path_image}
+          RenderComponent={() => (
+            <S.Image
+              source={{uri: productDTO.path_image}}
+              width={(sizes.width / 100) * 30}
+              height={(sizes.width / 100) * 30}
+              rounded="full"
+              alt="image-product"
+            />
+          )}>
+          <S.Circle
+            p={5}
+            position="relative"
+            backgroundColor="#fff"
+            width={(sizes.width / 100) * 30}
+            height={(sizes.width / 100) * 30}
+            borderWidth={2}
+            borderColor="#868585">
+            <ImageIcon
+              size={(sizes.width / 100) * 15}
+              color="#123D42"
+              weight="light"
+            />
+          </S.Circle>
+        </RenderIF>
       </TouchableOpacity>
       <Input
         testID="name"

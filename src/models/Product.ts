@@ -8,6 +8,7 @@ export interface Product {
   category: string;
   createdAt?: Date;
   updatedAt?: Date;
+  path_image?: string;
 }
 
 export interface ProductDTO {

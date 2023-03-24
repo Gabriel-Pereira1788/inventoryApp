@@ -1,5 +1,7 @@
 /* eslint-disable no-extra-boolean-cast */
 import {useState} from 'react';
+import {usePicker} from '../../hooks/usePicker';
+import {useStorage} from '../../hooks/useStorage';
 import {ProductDTO} from '../../models/Product';
 import {useUser} from '../../store/useUser';
 import {MASKS} from '../../utils/masks';
@@ -24,6 +26,9 @@ export function useFormProduct({onSubmit, initialValue}: UseFormProductProps) {
   );
   const [errors, setErrors] = useState({} as Errors);
 
+  const {getImageLibrary} = usePicker();
+  const {setImage} = useStorage();
+
   function handleChange(name: keyof ProductDTO) {
     return (value: string) => {
       switch (name) {
@@ -45,6 +50,13 @@ export function useFormProduct({onSubmit, initialValue}: UseFormProductProps) {
     };
   }
 
+  async function handleSetImage() {
+    const file = await getImageLibrary();
+    if (file) {
+      setProductDTO(prev => ({...prev, path_image: file}));
+    }
+  }
+
   async function handleSubmit() {
     const Errors = validationData(productDTO);
 
@@ -62,7 +74,9 @@ export function useFormProduct({onSubmit, initialValue}: UseFormProductProps) {
     errors,
     handleChange,
     handleChangeCurrency,
+    getImageLibrary,
     handleSubmit,
+    handleSetImage,
   };
 }
 

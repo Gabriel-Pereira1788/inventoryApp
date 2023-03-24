@@ -10,12 +10,14 @@ import Modal from '../../../../../components/Modal/View';
 import {useEditUser} from './useViewModel';
 //*icons
 import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import {RenderIF} from '../../../../../components/RenderIF/View';
+import {UserCircle} from 'phosphor-react-native';
 
 MaterialIcons.loadFont();
 
 export interface ModalEditProps extends S.IModalProps {}
 export function ModalEdit(props: ModalEditProps) {
-  const {dataUser, handleChangeData, onSubmit, setImage} = useEditUser();
+  const {dataUser, handleChangeData, onSubmit, handleSetImage} = useEditUser();
 
   const handleSubmit = async () => {
     await onSubmit();
@@ -36,16 +38,20 @@ export function ModalEdit(props: ModalEditProps) {
             alignItems="center"
             justifyContent="center"
             position="relative">
-            <TouchableOpacity onPress={setImage}>
-              <S.Image
-                width={100}
-                height={100}
-                rounded="full"
-                alt="imageuser"
-                source={{
-                  uri: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
-                }}
-              />
+            <TouchableOpacity onPress={handleSetImage}>
+              <RenderIF
+                condition={!!dataUser.photoURL}
+                RenderComponent={() => <UserCircle size={25} color="#ddd" />}>
+                <S.Image
+                  width={100}
+                  height={100}
+                  rounded="full"
+                  alt="imageuser"
+                  source={{
+                    uri: dataUser.photoURL!,
+                  }}
+                />
+              </RenderIF>
               <S.Box position="absolute" bottom={0}>
                 <MaterialIcons name="pencil" color="#F0DC61" size={30} />
               </S.Box>

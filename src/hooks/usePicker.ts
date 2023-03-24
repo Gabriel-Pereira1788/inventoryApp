@@ -5,7 +5,6 @@ export function usePicker() {
     const result = await launchImageLibrary({
       mediaType: 'mixed',
       quality: 0.9,
-      includeBase64: true,
     });
     console.log(result);
 

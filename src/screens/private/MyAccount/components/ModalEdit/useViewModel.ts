@@ -4,15 +4,15 @@ import {useState} from 'react';
 import {usePicker} from '../../../../../hooks/usePicker';
 import {User} from '../../../../../models/Auth';
 import {useUser} from '../../../../../store/useUser';
-import firebaseStorage from '@react-native-firebase/storage';
-import {Platform} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {useStorage} from '../../../../../hooks/useStorage';
 
 export function useEditUser() {
   const user = useUser();
   const queryClient = useQueryClient();
   const [dataUser, setDataUser] = useState(user as User);
   const {getImageLibrary} = usePicker();
+  const {setImage} = useStorage();
 
   function handleChangeData(name: keyof User) {
     return (value: string) => {
@@ -31,53 +31,42 @@ export function useEditUser() {
           await AsyncStorage.setItem('@user', JSON.stringify(newData));
         })
         .catch(console.log);
-      auth()
-        .currentUser?.updateProfile({
-          displayName: dataUser.name,
-          photoURL: dataUser.photoUrl,
-        })
-        .then(async () => {
-          const newData = {
-            ...user,
-            name: dataUser.name,
-            photoURL: dataUser.photoUrl,
-          };
-          queryClient.setQueriesData(['user'], newData);
-          await AsyncStorage.setItem('@user', JSON.stringify(newData));
-        })
-        .catch(console.log);
+
+      setImage(dataUser.photoURL, url => {
+        auth()
+          .currentUser?.updateProfile({
+            displayName: dataUser.name,
+            photoURL: url,
+          })
+          .then(async () => {
+            const newData = {
+              ...user,
+              name: dataUser.name,
+              photoURL: url,
+            };
+            queryClient.setQueriesData(['user'], newData);
+            await AsyncStorage.setItem('@user', JSON.stringify(newData));
+          })
+          .catch(console.log);
+      });
 
       queryClient.invalidateQueries(['user']);
       queryClient.refetchQueries(['user']);
     }
   }
 
-  async function setImage() {
+  async function handleSetImage() {
     const file = await getImageLibrary();
     if (file) {
-      const filename = file.substring(file.lastIndexOf('/') + 1);
-      const uploadUri =
-        Platform.OS === 'ios' ? file.replace('file://', '') : file;
-
-      const refStorage = firebaseStorage().ref('images/');
-      const response = await fetch(uploadUri);
-      const blob = await response.blob();
-      const uploadTask = refStorage.child(filename).put(blob);
-
-      uploadTask.on(
-        'state_changed',
-        () => {},
-        error => {
-          console.log(error);
-        },
-        async () => {
-          const url = await uploadTask.snapshot!.ref.getDownloadURL();
-          setDataUser(prev => ({...prev, photoUrl: url}));
-          console.log(url);
-        },
-      );
+      setDataUser(prev => ({...prev, photoURL: file}));
     }
   }
 
-  return {dataUser, handleChangeData, onSubmit, getImageLibrary, setImage};
+  return {
+    dataUser,
+    handleChangeData,
+    onSubmit,
+    getImageLibrary,
+    handleSetImage,
+  };
 }
