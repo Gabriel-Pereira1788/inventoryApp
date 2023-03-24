@@ -33,7 +33,7 @@ export function Dashboard(propsNavigation: NavigationProps) {
               alignItems: 'center',
               justifyContent: 'flex-start',
             }}>
-            <S.VStack w="100%" space="4" justifyContent="flex-start">
+            <S.VStack w="100%" space="4" justifyContent="center">
               <Header
                 salesAmount={statistics?.total_sales}
                 currentFilter={currentFilter}

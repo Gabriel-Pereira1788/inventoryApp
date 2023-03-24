@@ -9,6 +9,7 @@ import {Product as ProductDTO} from '../../../../../models/Product';
 import Animated, {BounceIn} from 'react-native-reanimated';
 import {useProduct} from './useViewModel';
 import {sizes} from '../../../../../constants/sizesDevice';
+import {TouchableOpacity} from 'react-native';
 
 MaterialIcon.loadFont();
 export interface ProductProps extends ProductDTO {
@@ -16,7 +17,7 @@ export interface ProductProps extends ProductDTO {
 }
 
 export function Product(props: ProductProps) {
-  const {isLowStorage, productAnimation} = useProduct(props);
+  const {isLowStorage, redirectSingleProduct} = useProduct(props);
   return (
     <Animated.View
       entering={BounceIn.delay(100).duration(500)}
@@ -29,66 +30,80 @@ export function Product(props: ProductProps) {
           elevation: 1,
         },
       ]}>
-      <S.HStack position="relative" alignItems="center" my={2}>
-        <RenderIF condition={isLowStorage}>
-          <S.HStack
-            px={2}
-            py={1}
-            backgroundColor={isLowStorage ? '#c61049' : '#06a94d'}
-            position="absolute"
-            top={2}
-            right={3}
-            space={1}
+      <TouchableOpacity onPress={redirectSingleProduct}>
+        <S.HStack position="relative" alignItems="center" my={2}>
+          <RenderIF condition={isLowStorage}>
+            <S.HStack
+              px={2}
+              py={1}
+              backgroundColor={isLowStorage ? '#c61049' : '#06a94d'}
+              position="absolute"
+              top={2}
+              right={3}
+              space={1}
+              alignItems="center"
+              justifyContent="center"
+              rounded="md">
+              <AntDesign
+                name={isLowStorage ? 'exclamation' : 'checkcircle'}
+                size={15}
+                color="#fff"
+              />
+              <S.Text fontSize="sm" fontWeight={400} color="#fff">
+                Baixo estoque
+              </S.Text>
+            </S.HStack>
+          </RenderIF>
+          <S.Box>
+            <RenderIF
+              condition={!!props.path_image}
+              RenderComponent={() => (
+                <MaterialIcon
+                  name="inventory"
+                  size={(sizes.width / 100) * 25}
+                  color="#ddd"
+                />
+              )}>
+              <S.Image
+                alt="image product"
+                source={{
+                  uri: props.path_image!,
+                }}
+                width={(sizes.width / 100) * 25}
+                height={(sizes.width / 100) * 25}
+                rounded="md"
+              />
+            </RenderIF>
+          </S.Box>
+          <S.VStack
+            flex={1}
+            ml={2}
             alignItems="center"
             justifyContent="center"
-            rounded="md">
-            <AntDesign
-              name={isLowStorage ? 'exclamation' : 'checkcircle'}
-              size={15}
-              color="#fff"
-            />
-            <S.Text fontSize="sm" fontWeight={400} color="#fff">
-              Baixo estoque
+            space={2}>
+            <S.Text fontWeight={500} fontSize="2xl" color="text.100">
+              {props.name_product}
             </S.Text>
-          </S.HStack>
-        </RenderIF>
-        <S.Box>
-          <RenderIF
-            condition={!!props.path_image}
-            RenderComponent={() => (
-              <MaterialIcon
-                name="inventory"
-                size={(sizes.width / 100) * 25}
-                color="#ddd"
-              />
-            )}>
-            <S.Image
-              alt="image product"
-              source={{
-                uri: props.path_image!,
-              }}
-              width={(sizes.width / 100) * 25}
-              height={(sizes.width / 100) * 25}
-              rounded="md"
-            />
-          </RenderIF>
-        </S.Box>
-        <S.VStack
-          ml={2}
-          alignItems="flex-start"
-          justifyContent="flex-start"
-          space={2}>
-          <S.Text fontWeight={500} fontSize="lg" color="text.100">
-            {props.name_product}
-          </S.Text>
 
-          <S.HStack space={2} alignItems="center">
-            <S.Text fontWeight={400} fontSize="lg" color="#928e8e">
-              ${props.price_saled}
-            </S.Text>
-          </S.HStack>
-        </S.VStack>
-      </S.HStack>
+            <S.HStack space={4} alignItems="center">
+              <S.Text fontWeight={400} fontSize="md" color="#928e8e">
+                ${props.price_saled.toFixed(2)}
+              </S.Text>
+              <S.HStack space={1}>
+                <MaterialIcon
+                  testID="iconProducts"
+                  name="inventory"
+                  size={25}
+                  color="#ddd"
+                />
+                <S.Text fontWeight={400} fontSize="md" color="#928e8e">
+                  {props.storage}
+                </S.Text>
+              </S.HStack>
+            </S.HStack>
+          </S.VStack>
+        </S.HStack>
+      </TouchableOpacity>
     </Animated.View>
   );
 }

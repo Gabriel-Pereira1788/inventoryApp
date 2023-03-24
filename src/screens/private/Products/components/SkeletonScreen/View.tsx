@@ -11,7 +11,10 @@ export function SkeletonScreen({}: Props) {
       <S.FlatList
         data={dataRef.current}
         w="100%"
-        contentContainerStyle={{padding: 15}}
+        contentContainerStyle={{
+          padding: 15,
+          paddingVertical: 25,
+        }}
         showsVerticalScrollIndicator={false}
         showsHorizontalScrollIndicator={false}
         mt={5}
@@ -31,12 +34,12 @@ export function SkeletonScreen({}: Props) {
               ml={2}
               w="100%"
               alignItems="center"
-              justifyContent="center"
+              justifyContent="flex-start"
               space={3}>
               <S.Skeleton
                 h={(sizes.width / 100) * 20}
                 w={(sizes.width / 100) * 20}
-                rounded="full"
+                rounded="lg"
                 mr={5}
               />
               <S.VStack w="50%" space={3}>

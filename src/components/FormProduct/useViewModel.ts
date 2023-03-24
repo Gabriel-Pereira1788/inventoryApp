@@ -27,7 +27,6 @@ export function useFormProduct({onSubmit, initialValue}: UseFormProductProps) {
   const [errors, setErrors] = useState({} as Errors);
 
   const {getImageLibrary} = usePicker();
-  const {setImage} = useStorage();
 
   function handleChange(name: keyof ProductDTO) {
     return (value: string) => {

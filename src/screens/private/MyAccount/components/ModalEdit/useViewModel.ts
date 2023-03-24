@@ -12,7 +12,7 @@ export function useEditUser() {
   const queryClient = useQueryClient();
   const [dataUser, setDataUser] = useState(user as User);
   const {getImageLibrary} = usePicker();
-  const {setImage} = useStorage();
+  const {saveImage} = useStorage();
 
   function handleChangeData(name: keyof User) {
     return (value: string) => {
@@ -32,7 +32,7 @@ export function useEditUser() {
         })
         .catch(console.log);
 
-      setImage(dataUser.photoURL, url => {
+      saveImage(dataUser.photoURL, url => {
         auth()
           .currentUser?.updateProfile({
             displayName: dataUser.name,

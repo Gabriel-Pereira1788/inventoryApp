@@ -40,7 +40,7 @@ export default function DataView(props: DataViewProps) {
           />
         </RenderIF>
         <S.Box position="absolute" top={-10} right={-10}>
-          <MaterialIcons name="pencil" color="#F0DC61" size={30} />
+          <MaterialIcons name="pencil" color="#104b5b" size={30} />
         </S.Box>
 
         <S.VStack w="65%" p={2} mt="5%" space={2}>
@@ -49,7 +49,7 @@ export default function DataView(props: DataViewProps) {
             w="100%"
             alignItems="center"
             justifyContent="flex-start">
-            <S.Text fontWeight="bold" fontSize="md" color="#ffffffa1">
+            <S.Text fontWeight="bold" fontSize="md" color="#343333a0">
               Nome:
             </S.Text>
             <S.Text fontWeight="bold" color="primary.300" fontSize="md">
@@ -61,7 +61,7 @@ export default function DataView(props: DataViewProps) {
             w="90%"
             alignItems="center"
             justifyContent="flex-start">
-            <S.Text fontWeight="bold" fontSize="md" color="#ffffffa1">
+            <S.Text fontWeight="bold" fontSize="md" color="#343333a0">
               Email:
             </S.Text>
             <S.Text fontWeight="bold" color="primary.300" fontSize="md">
@@ -73,7 +73,7 @@ export default function DataView(props: DataViewProps) {
             w="90%"
             alignItems="center"
             justifyContent="flex-start">
-            <S.Text fontWeight="bold" fontSize="md" color="#ffffffa1">
+            <S.Text fontWeight="bold" fontSize="md" color="#343333a0">
               Criado em:
             </S.Text>
             <S.Text fontWeight="bold" color="primary.300" fontSize="md">

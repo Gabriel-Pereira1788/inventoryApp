@@ -5,6 +5,7 @@ import {
   withSpring,
 } from 'react-native-reanimated';
 import {useModal} from '../../../../../hooks/useModal';
+import {useStorage} from '../../../../../hooks/useStorage';
 import {ProductDTO} from '../../../../../models/Product';
 import {useContextProducts} from '../../View';
 
@@ -13,6 +14,7 @@ interface AddProductProps {}
 export function useAddProduct({}: AddProductProps) {
   const {isOpen, handleToggleState} = useModal();
   const {productsApi} = useContextProducts();
+  const {saveImage} = useStorage();
 
   const pressed = useSharedValue(false);
   const uas = useAnimatedStyle(() => {
@@ -39,7 +41,14 @@ export function useAddProduct({}: AddProductProps) {
   );
 
   async function onSubmit(data: ProductDTO) {
-    await mutateAsync({dataProduct: data});
+    await saveImage(data.path_image, async url => {
+      await mutateAsync({
+        dataProduct: {
+          ...data,
+          path_image: url,
+        },
+      });
+    });
   }
 
   return {isOpen, handleToggleState, onSubmit, pressed, uas, loadingSubmit};

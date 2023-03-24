@@ -11,7 +11,7 @@ export interface CardProps extends IVStackProps {
 export function Card({children, ...rest}: CardProps) {
   return (
     <VStack
-      backgroundColor="#3b3a3a"
+      backgroundColor="#fffdfd"
       rounded="md"
       shadow={3}
       overflow="hidden"

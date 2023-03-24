@@ -1,6 +1,4 @@
 import {useNavigation} from '@react-navigation/native';
-import {useAnimatedStyle, withTiming} from 'react-native-reanimated';
-import {useVisibleAnimation} from '../../../../../hooks/useVisibleAnimation';
 import {Product} from '../../../../../models/Product';
 import {calculatePercentage} from '../../../../../utils/calculatePercentage';
 import {useContextProducts} from '../../View';
@@ -29,30 +27,21 @@ export function useProduct(props: UseProductProps) {
 
   console.log(props.total_pieces_sales);
 
-  const {
-    isPressed,
-    handleToggleVisible,
-    visibleAnimation: productAnimation,
-  } = useVisibleAnimation({animateH: 350, initialH: 'auto'});
-
-  const circleAnimation = useAnimatedStyle(() => {
-    return {
-      transform: [{rotateZ: withTiming(isPressed.value ? '180deg' : '0deg')}],
-    };
-  });
-
   function handleManageProduct() {
     navigation.navigate('manageProduct', {product: props});
+  }
+
+  function redirectSingleProduct() {
+    navigation.navigate('manageProduct', {
+      product: props,
+    });
   }
 
   return {
     isLowStorage,
     storagePercentage,
     piecesSaledPercentage,
-    handleToggleVisible,
     handleManageProduct,
-    productAnimation,
-    circleAnimation,
-    isPressed,
+    redirectSingleProduct,
   };
 }

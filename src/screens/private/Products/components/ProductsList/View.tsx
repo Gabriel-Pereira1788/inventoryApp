@@ -8,7 +8,7 @@ import {AddProduct} from '../AddProduct/View';
 interface ProductsListProps {}
 
 export function ProductsList({}: ProductsListProps) {
-  const {isLoading, displayProducts} = useContextProducts();
+  const {displayProducts} = useContextProducts();
   return (
     <S.VStack mt={2} borderTopWidth={1} borderTopColor="#dddddd70" flex={1}>
       <S.FlatList

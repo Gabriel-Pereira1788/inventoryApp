@@ -2,9 +2,9 @@ import firebaseStorage from '@react-native-firebase/storage';
 import {Platform} from 'react-native';
 
 export function useStorage() {
-  async function setImage(
+  async function saveImage(
     file?: string | null,
-    callbackFn?: (url: string) => void,
+    callbackFn?: (url: string) => Promise<void> | void,
   ) {
     let url: string = '';
     if (file) {
@@ -25,7 +25,7 @@ export function useStorage() {
         },
         async () => {
           url = await uploadTask.snapshot!.ref.getDownloadURL();
-          callbackFn!(url);
+          await callbackFn!(url);
           console.log(url);
         },
       );
@@ -34,5 +34,5 @@ export function useStorage() {
     return url;
   }
 
-  return {setImage};
+  return {saveImage};
 }
