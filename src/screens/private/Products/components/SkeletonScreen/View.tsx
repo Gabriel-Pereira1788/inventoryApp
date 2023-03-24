@@ -1,5 +1,6 @@
 import React, {useRef} from 'react';
 import * as S from 'native-base';
+import {sizes} from '../../../../../constants/sizesDevice';
 
 type Props = {};
 
@@ -20,7 +21,7 @@ export function SkeletonScreen({}: Props) {
             py={4}
             px={2}
             rounded="2xl"
-            backgroundColor="#545353"
+            backgroundColor="#fff"
             shadow={4}
             w="100%"
             height={'120px'}
@@ -30,7 +31,14 @@ export function SkeletonScreen({}: Props) {
               ml={2}
               w="100%"
               alignItems="center"
-              justifyContent="space-between">
+              justifyContent="center"
+              space={3}>
+              <S.Skeleton
+                h={(sizes.width / 100) * 20}
+                w={(sizes.width / 100) * 20}
+                rounded="full"
+                mr={5}
+              />
               <S.VStack w="50%" space={3}>
                 <S.Skeleton h={5} w="full" rounded="full" />
                 <S.HStack w={'full'} space={2}>
@@ -39,7 +47,6 @@ export function SkeletonScreen({}: Props) {
                   <S.Skeleton flex={0.5} h={4} rounded="full" />
                 </S.HStack>
               </S.VStack>
-              <S.Skeleton h={10} w={10} rounded="full" mr={5} />
             </S.HStack>
           </S.HStack>
         )}
