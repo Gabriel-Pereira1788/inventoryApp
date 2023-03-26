@@ -1,14 +1,15 @@
 import {useQueryClient} from '@tanstack/react-query';
 import {AxiosError} from 'axios';
 import {useState} from 'react';
+import {alertRef} from '../../../../../components/Alert/useViewModel';
 import {useUser} from '../../../../../store/useUser';
 import {MASKS} from '../../../../../utils/masks';
 import {ManageProduct} from '../../model';
 import {ManageProps} from './View';
 
-type UseManageProps = Pick<ManageProps, 'product' | 'handleAlertConfig'>;
+type UseManageProps = Pick<ManageProps, 'product'>;
 
-export function useManage({product, handleAlertConfig}: UseManageProps) {
+export function useManage({product}: UseManageProps) {
   const user = useUser();
   const queryClient = useQueryClient();
   const manageProductApi = new ManageProduct(user?.uid);
@@ -27,7 +28,7 @@ export function useManage({product, handleAlertConfig}: UseManageProps) {
   async function handleSubmitForm() {
     if (Number(manageForm.salesPieces) > Number(product!.storage)) {
       console.log('entering');
-      handleAlertConfig({
+      alertRef.current?.configAlert({
         isOpen: true,
         status: 'warning',
         title: 'Estoque baixo',
@@ -54,14 +55,14 @@ export function useManage({product, handleAlertConfig}: UseManageProps) {
       queryClient.invalidateQueries(['products']);
       queryClient.invalidateQueries(['statistics']);
       queryClient.refetchQueries(['product']);
-      handleAlertConfig({
+      alertRef.current?.configAlert({
         isOpen: true,
         status: 'success',
         title: 'Estoque atualizado com sucesso!.',
       });
     } catch (error) {
       const Error = error as AxiosError;
-      handleAlertConfig({
+      alertRef.current?.configAlert({
         isOpen: true,
         status: 'error',
         title: Error.message,

@@ -1,5 +1,4 @@
 import {useQuery} from '@tanstack/react-query';
-import {useAlert} from '../../../hooks/useAlert';
 import {Product} from '../../../models/Product';
 import {useUser} from '../../../store/useUser';
 import {ManageProduct} from './model';
@@ -14,12 +13,11 @@ export function useManageProduct({product}: UseManageProductProps) {
 
   console.log(product.id_product);
 
-  const {alertConfig, handleAlertConfig} = useAlert();
   const {data: dataProduct, isLoading} = useQuery(
     ['product', product.id_product],
     () => manageApi.getById(product.id_product),
     {refetchOnMount: false},
   );
 
-  return {alertConfig, dataProduct, isLoading, manageApi, handleAlertConfig};
+  return {dataProduct, isLoading, manageApi};
 }

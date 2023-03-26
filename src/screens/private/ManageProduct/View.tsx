@@ -21,7 +21,7 @@ export default function ManageProduct({
 }: NavigationProps<'manageProduct'>) {
   const {product} = route.params;
   const {isOpen, handleToggleState} = useModal();
-  const {alertConfig, dataProduct, handleAlertConfig} = useManageProduct({
+  const {dataProduct} = useManageProduct({
     product,
   });
   return (
@@ -112,8 +112,8 @@ export default function ManageProduct({
             </S.HStack>
           </S.VStack>
 
-          <Edit product={dataProduct} handleAlertConfig={handleAlertConfig} />
-          <Manage product={dataProduct} handleAlertConfig={handleAlertConfig} />
+          <Edit product={dataProduct} />
+          <Manage product={dataProduct} />
         </S.VStack>
 
         <ModalDelete
@@ -123,10 +123,7 @@ export default function ManageProduct({
         />
       </S.ScrollView>
 
-      <Alert
-        {...alertConfig}
-        onClose={() => handleAlertConfig({isOpen: false})}
-      />
+      <Alert />
     </SharedLayout>
   );
 }

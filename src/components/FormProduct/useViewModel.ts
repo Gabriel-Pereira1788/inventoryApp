@@ -1,7 +1,6 @@
 /* eslint-disable no-extra-boolean-cast */
 import {useState} from 'react';
 import {usePicker} from '../../hooks/usePicker';
-import {useStorage} from '../../hooks/useStorage';
 import {ProductDTO} from '../../models/Product';
 import {useUser} from '../../store/useUser';
 import {MASKS} from '../../utils/masks';
@@ -86,6 +85,11 @@ function validationData(data: ProductDTO) {
     if (String(value[1]).trim() === '') {
       Errors[value[0] as keyof ProductDTO] = 'Campo vazio';
     }
+  }
+
+  if (data.price_purchased >= data.price_saled) {
+    Errors.price_purchased =
+      'O preço de compra não deve ser maior que o preço de venda.';
   }
 
   return Errors;

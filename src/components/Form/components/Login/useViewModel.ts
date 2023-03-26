@@ -33,7 +33,7 @@ export function useLogin() {
   const handleChange = (name: keyof SigninDTO, value: string) => {
     switch (name) {
       case 'email':
-        setDataSignin(prev => ({...prev, [name]: value}));
+        setDataSignin(prev => ({...prev, [name]: value.trim()}));
         return;
       default:
         setDataSignin(prev => ({...prev, [name]: value}));

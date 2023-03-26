@@ -11,9 +11,9 @@ export function ProductsList({}: ProductsListProps) {
   const {displayProducts} = useContextProducts();
   return (
     <S.VStack mt={2} borderTopWidth={1} borderTopColor="#dddddd70" flex={1}>
+      <AddProduct />
       <S.FlatList
         pagingEnabled={true}
-        ListHeaderComponent={() => <AddProduct />}
         data={displayProducts}
         mt={2}
         mb={5}
@@ -25,6 +25,7 @@ export function ProductsList({}: ProductsListProps) {
           justifyContent: 'flex-start',
           flexGrow: 1,
           padding: 10,
+          paddingBottom: 50,
         }}
         renderItem={({item}) => (
           <Product

@@ -1,20 +1,17 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import * as S from 'native-base';
 import {RenderIF} from '../RenderIF/View';
+import {useAlert} from './useViewModel';
 
 interface AlertProps extends S.IAlertProps {
   text?: string;
   title?: string;
-  isOpen: boolean;
-  onClose: () => void;
+  isOpen?: boolean;
+  onClose?: () => void;
 }
 
-export function Alert({text, title, onClose, isOpen, ...rest}: AlertProps) {
-  useEffect(() => {
-    setTimeout(() => {
-      onClose();
-    }, 100000);
-  }, [onClose]);
+export function Alert({...rest}: AlertProps) {
+  const {alertConfig, onClose} = useAlert();
 
   return (
     <S.HStack
@@ -24,7 +21,7 @@ export function Alert({text, title, onClose, isOpen, ...rest}: AlertProps) {
       alignItems="center"
       justifyContent="center"
       px={10}>
-      <RenderIF condition={isOpen}>
+      <RenderIF condition={alertConfig.isOpen}>
         <S.Alert {...rest} w={'100%'}>
           <S.VStack space={2} flexShrink={1} w="100%">
             <S.HStack
@@ -35,7 +32,7 @@ export function Alert({text, title, onClose, isOpen, ...rest}: AlertProps) {
               <S.HStack flexShrink={1} space={2} alignItems="center">
                 <S.Alert.Icon />
                 <S.Text fontSize="md" fontWeight="medium" color="coolGray.800">
-                  {title}
+                  {alertConfig.title}
                 </S.Text>
               </S.HStack>
               <S.IconButton
@@ -55,7 +52,7 @@ export function Alert({text, title, onClose, isOpen, ...rest}: AlertProps) {
               _text={{
                 color: 'coolGray.600',
               }}>
-              {text}
+              {alertConfig.text}
             </S.Box>
           </S.VStack>
         </S.Alert>

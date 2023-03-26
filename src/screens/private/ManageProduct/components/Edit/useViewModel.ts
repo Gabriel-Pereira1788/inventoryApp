@@ -1,12 +1,13 @@
 import {useMutation, useQueryClient} from '@tanstack/react-query';
 import {useState} from 'react';
 import {LayoutChangeEvent} from 'react-native';
+import {alertRef} from '../../../../../components/Alert/useViewModel';
 import {ProductDTO} from '../../../../../models/Product';
 import {useUser} from '../../../../../store/useUser';
 import {ManageProduct} from '../../model';
 import {EditProps} from './View';
 
-export function useEdit({product, handleAlertConfig}: EditProps) {
+export function useEdit({product}: EditProps) {
   const queryClient = useQueryClient();
   const user = useUser();
   const manageApi = new ManageProduct(user?.uid);
@@ -16,7 +17,7 @@ export function useEdit({product, handleAlertConfig}: EditProps) {
   const {mutateAsync, isLoading} = useMutation(manageApi.updateProduct, {
     onError: err => {
       console.log(err);
-      handleAlertConfig({
+      alertRef.current?.configAlert({
         isOpen: true,
         status: 'error',
         title: 'Por favor tente novamente mais tarde.',
@@ -26,7 +27,7 @@ export function useEdit({product, handleAlertConfig}: EditProps) {
       console.log(res);
       queryClient.invalidateQueries(['products']);
       queryClient.refetchQueries(['product', product?.id_product]);
-      handleAlertConfig({
+      alertRef.current?.configAlert({
         isOpen: true,
         status: 'success',
         title: 'Produto editado com sucesso',

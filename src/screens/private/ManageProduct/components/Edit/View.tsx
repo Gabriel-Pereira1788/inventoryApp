@@ -5,12 +5,10 @@ import {FormProduct} from '../../../../../components/FormProduct/View';
 import ContainerManagement from '../ContainerManagement/View';
 import {ProductDTO} from '../../../../../models/Product';
 //*hooks
-import {AlertConfig} from '../../../../../hooks/useAlert';
 import {useEdit} from './useViewModel';
 
 export interface EditProps {
   product?: ProductDTO;
-  handleAlertConfig: (alert: AlertConfig) => void;
 }
 
 export function Edit(props: EditProps) {

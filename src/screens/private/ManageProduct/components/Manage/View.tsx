@@ -8,11 +8,9 @@ import {Button} from '../../../../../components/Button/View';
 import {useManage} from './useViewModel';
 //*Model
 import {ProductDTO} from '../../../../../models/Product';
-import {AlertConfig} from '../../../../../hooks/useAlert';
 
 export interface ManageProps {
   product?: ProductDTO;
-  handleAlertConfig: (alert: AlertConfig) => void;
 }
 
 export default function Manage(props: ManageProps) {

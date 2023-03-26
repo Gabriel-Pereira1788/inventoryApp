@@ -30,30 +30,30 @@ export function Product(props: ProductProps) {
           elevation: 1,
         },
       ]}>
+      <RenderIF condition={isLowStorage}>
+        <S.HStack
+          px={2}
+          py={1}
+          backgroundColor={isLowStorage ? '#c61049' : '#06a94d'}
+          position="absolute"
+          top={0}
+          right={0}
+          space={1}
+          alignItems="center"
+          justifyContent="center"
+          rounded="md">
+          <AntDesign
+            name={isLowStorage ? 'exclamation' : 'checkcircle'}
+            size={15}
+            color="#fff"
+          />
+          <S.Text fontSize="sm" fontWeight={400} color="#fff">
+            Baixo estoque
+          </S.Text>
+        </S.HStack>
+      </RenderIF>
       <TouchableOpacity onPress={redirectSingleProduct}>
         <S.HStack position="relative" alignItems="center" my={2}>
-          <RenderIF condition={isLowStorage}>
-            <S.HStack
-              px={2}
-              py={1}
-              backgroundColor={isLowStorage ? '#c61049' : '#06a94d'}
-              position="absolute"
-              top={2}
-              right={3}
-              space={1}
-              alignItems="center"
-              justifyContent="center"
-              rounded="md">
-              <AntDesign
-                name={isLowStorage ? 'exclamation' : 'checkcircle'}
-                size={15}
-                color="#fff"
-              />
-              <S.Text fontSize="sm" fontWeight={400} color="#fff">
-                Baixo estoque
-              </S.Text>
-            </S.HStack>
-          </RenderIF>
           <S.Box>
             <RenderIF
               condition={!!props.path_image}
@@ -69,8 +69,8 @@ export function Product(props: ProductProps) {
                 source={{
                   uri: props.path_image!,
                 }}
-                width={(sizes.width / 100) * 25}
-                height={(sizes.width / 100) * 25}
+                width={`${(sizes.width / 100) * 25}px`}
+                height={`${(sizes.width / 100) * 25}px`}
                 rounded="md"
               />
             </RenderIF>

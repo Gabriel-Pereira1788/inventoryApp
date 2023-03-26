@@ -30,9 +30,9 @@ export function InputCurrency({
       style={{
         borderRadius: 10,
         padding: 10,
-        borderWidth: error ? 2 : 1,
-        borderColor: error ? '#f15353af' : '#0000001b',
-        backgroundColor: '#fff',
+        borderBottomWidth: error ? 2 : 1,
+        borderBottomColor: error ? '#f15353af' : '#0000001b',
+        backgroundColor: '#ffffff0',
       }}
     />
   );
