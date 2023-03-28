@@ -40,7 +40,7 @@ export function ModalEdit(props: ModalEditProps) {
             position="relative">
             <TouchableOpacity onPress={handleSetImage}>
               <RenderIF
-                condition={!!dataUser.photoURL}
+                condition={!!dataUser && !!dataUser.photoURL}
                 RenderComponent={() => <UserCircle size={25} color="#ddd" />}>
                 <S.Image
                   width={100}
@@ -48,7 +48,9 @@ export function ModalEdit(props: ModalEditProps) {
                   rounded="full"
                   alt="imageuser"
                   source={{
-                    uri: dataUser.photoURL!,
+                    uri:
+                      (dataUser && dataUser.photoURL && dataUser.photoURL!) ||
+                      '',
                   }}
                 />
               </RenderIF>

@@ -26,7 +26,7 @@ export function Input({title, error, errorMessage, ...rest}: InputProps) {
         backgroundColor="transparent"
         borderWidth={0}
         borderBottomWidth={error ? 2 : 1}
-        borderBottomColor="#ddd"
+        borderBottomColor={error ? 'red.400' : '#ddd'}
         testID="input"
         {...rest}
       />

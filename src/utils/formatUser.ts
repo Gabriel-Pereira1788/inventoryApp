@@ -7,6 +7,9 @@ export function formatUser(user: FirebaseAuthTypes.User): User {
     name: user.displayName!,
     email: user.email!,
     photoURL: user.photoURL,
-    createdAt: new Date(user.metadata.creationTime!),
+    createdAt:
+      user.metadata && user.metadata.creationTime
+        ? new Date(user.metadata.creationTime!)
+        : new Date(),
   };
 }

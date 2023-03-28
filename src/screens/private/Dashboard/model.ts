@@ -12,13 +12,15 @@ export class Statistics {
     this.idUser = idUser;
   }
 
-  async get(filter?: FilterDate): Promise<StatisticsDTO | undefined> {
+  async get(filter?: FilterDate): Promise<StatisticsDTO | undefined | null> {
     if (this.idUser) {
       const {data} = await api.get(
         `get-statistics/${this.idUser}?filter=${filter}`,
       );
       return data || null;
     }
+
+    return null;
   }
 
   async getStatisticsChart(idUser?: string): Promise<

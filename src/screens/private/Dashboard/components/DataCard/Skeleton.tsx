@@ -18,11 +18,11 @@ export function Skeleton({children, conditionRender, ...rest}: SkeletonProps) {
         position="relative"
         testID="skeleton">
         <S.Skeleton
-          size="5"
+          size="8"
           rounded="full"
           position="absolute"
-          top={5}
-          left={5}
+          top={3}
+          left={2}
         />
         <S.Skeleton.Text startColor={'#c3c3c285'} />
       </S.VStack>

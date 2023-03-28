@@ -34,23 +34,34 @@ export function useAuth() {
   }
 
   async function createUser(dataSubmit: RegisterDTO) {
+    console.log(dataSubmit);
     setLoading(true);
-    auth()
-      .createUserWithEmailAndPassword(dataSubmit.email, dataSubmit.password)
-      .then(userCredentials => {
-        userCredentials.user.updateProfile({
+
+    try {
+      const dataUser = await auth().createUserWithEmailAndPassword(
+        dataSubmit.email,
+        dataSubmit.password,
+      );
+
+      if (dataUser.user) {
+        const data = formatUser({
+          ...dataUser.user,
           displayName: dataSubmit.name,
         });
+        queryClient.setQueryData<User>(['user'], data);
 
-        queryClient.setQueryData<User>(
-          ['user'],
-          formatUser({...userCredentials.user, displayName: dataSubmit.name}),
-        );
+        await AsyncStorage.setItem('@user', JSON.stringify(data));
+        queryClient.invalidateQueries(['user']);
+        queryClient.refetchQueries(['user']);
+      }
 
-        navigation.navigate('dashboard');
-      })
-      .catch(err => console.log(err))
-      .finally(() => setLoading(false));
+      navigation.navigate('dashboard');
+      console.log(dataUser.user.metadata);
+    } catch (error) {
+      console.log('firebase-error', error);
+    } finally {
+      setLoading(false);
+    }
   }
 
   async function signOut() {
