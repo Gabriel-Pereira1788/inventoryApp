@@ -1,7 +1,15 @@
 import React from 'react';
 import * as S from 'native-base';
 import {RenderIF} from '../RenderIF/View';
-import {SelectProps} from './view.models';
+
+import {ISelectProps} from 'native-base';
+
+export type SelectProps<T> = ISelectProps & {
+  title?: string;
+  error?: Boolean;
+  errorMessage?: string;
+  items: T[];
+};
 
 export function Select<
   T extends {id?: string | number; value: string; label: string},
@@ -17,6 +25,7 @@ export function Select<
       </S.Text>
 
       <S.Select
+        testID="select"
         fontSize="lg"
         p={3}
         w="100%"

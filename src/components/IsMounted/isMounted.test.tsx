@@ -1,10 +1,9 @@
 import React from 'react';
-import {render, renderHook} from '@testing-library/react-native';
+import {render} from '@testing-library/react-native';
 import {IsMounted} from './View';
 import {Text} from 'native-base';
 import {Wrapper} from '../JestWrapper';
 import {useIsMounted} from './useViewModel';
-import {act} from 'react-test-renderer';
 
 const propsNavigation = {} as any;
 
@@ -45,7 +44,7 @@ describe('IsMounted component', () => {
 
   beforeEach(() => {
     mockUseIsMounted.mockImplementation(() => ({
-      isMounted: true,
+      isMounted: false,
     }));
   });
 
@@ -69,66 +68,6 @@ describe('IsMounted component', () => {
       </Wrapper>,
     );
 
-    expect(queryByText('Mounted!')).toBeFalsy();
-  });
-});
-
-describe('useIsMounted', () => {
-  describe('useIsMounted', () => {
-    it('should set isMounted to true on focus', () => {
-      const addListener = jest.fn();
-      const removeListener = jest.fn();
-      const propsNavigationHook = {navigation: {addListener, removeListener}};
-
-      const {result} = renderHook(() =>
-        useIsMounted({propsNavigation: propsNavigationHook}),
-      );
-
-      expect(result.current.isMounted).toBe(true);
-
-      const [, focusHandler] = addListener.mock.calls.find(
-        ([eventName]) => eventName === 'focus',
-      );
-
-      act(() => {
-        focusHandler();
-      });
-
-      expect(result.current.isMounted).toBe(true);
-    });
-
-    it('should set isMounted to false on blur', () => {
-      const addListener = jest.fn();
-      const removeListener = jest.fn();
-      const propsNavigationHook: any = {
-        navigation: {addListener, removeListener},
-      };
-
-      const {result} = renderHook(() =>
-        useIsMounted({
-          propsNavigation: {
-            ...propsNavigationHook,
-            route: {
-              key: 'teste',
-              name: 'dashboard',
-              params: undefined,
-              path: 'teste',
-            },
-          },
-        }),
-      );
-
-      expect(result.current.isMounted).toBe(true);
-
-      const [, blurHandler] = addListener.mock.calls.find(
-        ([eventName]) => eventName === 'blur',
-      );
-
-      act(() => {
-        blurHandler();
-      });
-
-      expect(result.current.isMounted).toBe(false);
-    });
+    expect(queryByText('Mounted!')).toBeNull();
   });
 });

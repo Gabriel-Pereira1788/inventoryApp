@@ -1,5 +1,12 @@
 import React from 'react';
-import {RenderIfProps} from './view.models';
+
+import {ReactElement, ReactNode} from 'react';
+
+export interface RenderIfProps {
+  children: ReactNode;
+  condition: boolean;
+  RenderComponent?: () => ReactElement<any, any>;
+}
 
 export function RenderIF({
   children,

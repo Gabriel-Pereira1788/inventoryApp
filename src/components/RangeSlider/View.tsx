@@ -1,6 +1,12 @@
 import React from 'react';
 import * as S from 'native-base';
-import {RangeProps} from './view.models';
+
+import {ISliderProps} from 'native-base';
+
+export interface RangeProps extends ISliderProps {
+  title: string;
+  prefix?: string;
+}
 
 export function RangeSlider({title, prefix, ...rest}: RangeProps) {
   return (
@@ -20,6 +26,7 @@ export function RangeSlider({title, prefix, ...rest}: RangeProps) {
         </S.Text>
       </S.HStack>
       <S.Slider
+        testID="slider"
         w="100%"
         maxW="300"
         defaultValue={70}

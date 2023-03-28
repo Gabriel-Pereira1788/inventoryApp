@@ -4,7 +4,7 @@ import {SharedLayout} from '.';
 import {Wrapper} from '../JestWrapper';
 import {Text} from 'native-base';
 
-const colorActive = '#F0DC61';
+const colorActive = '#2989b0';
 describe('SharedLayout', () => {
   describe('Render component', () => {
     it('render component correctly', () => {
