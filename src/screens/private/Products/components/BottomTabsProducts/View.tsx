@@ -3,10 +3,9 @@ import React from 'react';
 import * as S from 'native-base';
 //*icons
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import AntDesign from 'react-native-vector-icons/AntDesign';
 //*hooks
 import {Paths, useBottomTabs} from '../../../../../hooks/useBottomTabs';
-import {AddProduct} from '../AddProduct/View';
+
 import {TouchableOpacity} from 'react-native';
 import {IconSVG} from '../../../../../components/IconSVG/View';
 

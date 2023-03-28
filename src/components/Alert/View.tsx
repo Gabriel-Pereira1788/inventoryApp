@@ -36,6 +36,7 @@ export function Alert({...rest}: AlertProps) {
                 </S.Text>
               </S.HStack>
               <S.IconButton
+                testID="close-button"
                 variant="unstyled"
                 _focus={{
                   borderWidth: 0,

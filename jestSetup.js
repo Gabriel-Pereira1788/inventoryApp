@@ -34,4 +34,11 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
+jest.mock('react-native-image-picker', () => {
+  return {
+    launchCamera: jest.fn(),
+    launchImageLibrary: jest.fn(),
+  };
+});
+
 jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');

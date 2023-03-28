@@ -11,6 +11,8 @@ const mockUseForm = useFormProduct as jest.Mock<
 const mockChange = jest.fn();
 const mockChangeCurrency = jest.fn();
 const mockSubmit = jest.fn();
+const mockSetImage = jest.fn();
+const mockGetImage = jest.fn();
 
 beforeAll(() => {
   mockUseForm.mockImplementation(() => {
@@ -19,6 +21,8 @@ beforeAll(() => {
       handleChange: mockChange,
       handleChangeCurrency: mockChangeCurrency,
       handleSubmit: mockSubmit,
+      handleSetImage: mockSetImage,
+      getImageLibrary: mockGetImage,
       productDTO: {
         category: '',
         name_product: '',
@@ -27,6 +31,7 @@ beforeAll(() => {
         storage: '',
         id_product: '',
         id_user: '',
+        path_image: '',
       },
     };
   });

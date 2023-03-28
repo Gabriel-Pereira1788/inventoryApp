@@ -1,45 +1,47 @@
 import React from 'react';
-import {render, waitFor} from '@testing-library/react-native';
-import {Wrapper} from '../JestWrapper';
+import {render, fireEvent} from '@testing-library/react-native';
 import {Alert} from './View';
+import {Wrapper} from '../JestWrapper';
+import {useAlert} from './useViewModel';
 
-describe('Alert', () => {
-  describe('Render component correctly', () => {
-    it('should render correctly', () => {
-      const closeFn = jest.fn();
-      const {getByText} = render(
-        <Wrapper>
-          <Alert
-            text="teste"
-            title="title test"
-            isOpen={true}
-            onClose={closeFn}
-          />
-        </Wrapper>,
-      );
+const onCloseMock = jest.fn();
 
-      expect(getByText('teste')).toBeTruthy();
-      expect(getByText('title test')).toBeTruthy();
-    });
-    jest.useFakeTimers();
+const useAlertMock = useAlert as jest.Mock<any>;
 
-    it('close component with timeout', async () => {
-      const closeFn = jest.fn();
+jest.mock('./useViewModel');
 
-      render(
-        <Wrapper>
-          <Alert
-            text="teste"
-            title="title test"
-            isOpen={true}
-            onClose={closeFn}
-          />
-        </Wrapper>,
-      );
+beforeEach(() => {
+  useAlertMock.mockImplementation(() => ({
+    alertConfig: {
+      isOpen: true,
+      text: 'Test message',
+      title: 'Test title',
+    },
+    onClose: onCloseMock,
+  }));
+});
 
-      jest.advanceTimersByTime(100000);
+describe('Alert component', () => {
+  it('should render an alert with the correct title and message', () => {
+    const {getByText} = render(
+      <Wrapper>
+        <Alert />
+      </Wrapper>,
+    );
+    const title = getByText('Test title');
+    const message = getByText('Test message');
+    expect(title).toBeDefined();
+    expect(message).toBeDefined();
+  });
 
-      await waitFor(() => expect(closeFn).toHaveBeenCalled());
-    });
+  it('should call onClose when the close button is pressed', () => {
+    const {getByTestId} = render(
+      <Wrapper>
+        <Alert />
+      </Wrapper>,
+    );
+    const closeButton = getByTestId('close-button');
+    fireEvent.press(closeButton);
+    expect(onCloseMock).toHaveBeenCalled();
   });
 });
