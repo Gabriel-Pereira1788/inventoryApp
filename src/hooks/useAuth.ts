@@ -27,14 +27,13 @@ export function useAuth() {
           navigation.navigate('dashboard');
         }
       })
-      .catch(err => 
+      .catch(console.log)
       .finally(() => {
         setLoading(false);
       });
   }
 
   async function createUser(dataSubmit: RegisterDTO) {
-    
     setLoading(true);
 
     try {
@@ -56,9 +55,7 @@ export function useAuth() {
       }
 
       navigation.navigate('dashboard');
-      
     } catch (error) {
-      
     } finally {
       setLoading(false);
     }

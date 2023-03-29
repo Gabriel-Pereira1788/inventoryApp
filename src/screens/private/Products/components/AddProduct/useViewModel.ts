@@ -39,6 +39,7 @@ export function useAddProduct({}: AddProductProps) {
 
   async function onSubmit(data: ProductDTO) {
     await saveImage(data.path_image, async url => {
+      console.log('url-firebase', url);
       await mutateAsync({
         dataProduct: {
           ...data,

@@ -50,6 +50,7 @@ export function useFormProduct({onSubmit, initialValue}: UseFormProductProps) {
 
   async function handleSetImage() {
     const file = await getImageLibrary();
+    console.log('file', file);
     if (file) {
       setProductDTO(prev => ({...prev, path_image: file}));
     }
@@ -63,7 +64,7 @@ export function useFormProduct({onSubmit, initialValue}: UseFormProductProps) {
       return;
     }
     const normalizedData = normalizeData(productDTO);
-
+    console.log(normalizedData);
     await onSubmit(normalizedData);
   }
 
