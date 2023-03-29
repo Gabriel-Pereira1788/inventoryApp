@@ -9,7 +9,6 @@ export function useBackgroundAct() {
   const veryIntensiveTask = async (taskDataArguments: any) => {
     // Example of an infinite loop task
     // const {delay} = taskDataArguments;
-    console.log(taskDataArguments);
 
     // let i = 0;
     for (let i = 0; BackgroundService.isRunning(); i++) {

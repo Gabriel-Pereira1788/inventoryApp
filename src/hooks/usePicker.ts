@@ -6,7 +6,6 @@ export function usePicker() {
       mediaType: 'mixed',
       quality: 0.9,
     });
-    console.log(result);
 
     return result.assets ? result.assets[0].uri : null;
   }

@@ -9,7 +9,6 @@ type Props = {};
 export default function Notifications({}: Props) {
   const {data} = useNotifications();
 
-  console.log(data);
   return (
     <SharedLayout currentPath="notifications">
       <S.ScrollView flex={1} mt="20%" w="full" paddingX={5}>

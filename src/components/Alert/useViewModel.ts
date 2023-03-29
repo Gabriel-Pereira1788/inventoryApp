@@ -20,8 +20,6 @@ export function useAlert() {
     title: '',
   });
 
-  console.log('alert-config', alertConfig);
-
   function configAlert(config: AlertConfig) {
     setAlertConfig(prev => ({
       prev,

@@ -52,7 +52,6 @@ export function useChatBot() {
   }, [state.messages, createMessage]);
 
   const onConnect = useCallback(async () => {
-    console.log('gpt-key', GPT_KEY);
     const response = await assistantBot.connect();
     if (response) {
       const newMessage = new MessageModel({

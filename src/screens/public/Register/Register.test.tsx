@@ -23,7 +23,7 @@ describe('Login', () => {
         </Wrapper>,
       );
       const container = getByTestId('container');
-      console.log(container.props);
+
       expect(container.props.style.backgroundColor).toEqual('#F9F6F6');
     });
   });

@@ -18,7 +18,6 @@ export function useHeader({currentFilter, salesAmount}: UseHeaderProps) {
     }
 
     if (Number(amountStorage) !== salesAmount) {
-      console.log('entrei aqui');
       const difference = Number(salesAmount) - Number(amountStorage);
       const percentageDifference = calculatePercentage(difference, salesAmount);
       setPercentage(percentageDifference.toFixed(2));

@@ -6,6 +6,12 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {Router} from './src/routes/Router';
 import {colorModeManager, MAIN} from './src/styles/themes';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import OneSignal from 'react-native-onesignal';
+import {ONE_SIGNAL_ID} from '@env';
+
+OneSignal.setAppId(ONE_SIGNAL_ID);
+
+OneSignal.setNotificationOpenedHandler(notificationData => {});
 
 export default function App() {
   return (

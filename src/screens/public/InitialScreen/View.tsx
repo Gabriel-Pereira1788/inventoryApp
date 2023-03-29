@@ -2,7 +2,6 @@ import * as S from 'native-base';
 
 import React, {useEffect} from 'react';
 import OneSignal from 'react-native-onesignal';
-import {Loading} from '../../../components/Loading/View';
 import {useInitial} from './useViewModel';
 import {ONE_SIGNAL_ID} from '@env';
 import {ArrowRight} from 'phosphor-react-native';
@@ -17,9 +16,7 @@ export function InitialScreen({navigation}: NavigationProps<'initialScreen'>) {
   useEffect(() => {
     OneSignal.setAppId(ONE_SIGNAL_ID);
 
-    OneSignal.setNotificationOpenedHandler(notification => {
-      console.log('OneSignal: notification opened:', notification);
-    });
+    OneSignal.setNotificationOpenedHandler(notification => {});
   }, []);
   return (
     <S.VStack

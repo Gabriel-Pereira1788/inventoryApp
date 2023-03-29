@@ -80,7 +80,6 @@ describe('Dashboard', () => {
             </Wrapper>,
           ),
         );
-      console.log(getByText('1w').props.style);
 
       expect(getByText('1m').props.style.color).toEqual('#FFFFFF');
     });

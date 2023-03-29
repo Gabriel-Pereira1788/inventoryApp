@@ -50,8 +50,6 @@ describe('Manage', () => {
     fireEvent.changeText(inputPurchase, '25.00');
     fireEvent.changeText(inputSales, '35.00');
 
-    console.log(inputPurchase.props);
-
     expect(handleManageMock).toHaveBeenCalled();
   });
 });

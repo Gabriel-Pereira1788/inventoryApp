@@ -15,7 +15,6 @@ describe('Card', () => {
         </Wrapper>,
       );
 
-      console.log(getByTestId('card').props);
       expect(getByText('Teste')).toBeTruthy();
     });
   });

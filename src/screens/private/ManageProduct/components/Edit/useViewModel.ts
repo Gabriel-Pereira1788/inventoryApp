@@ -16,7 +16,6 @@ export function useEdit({product}: EditProps) {
 
   const {mutateAsync, isLoading} = useMutation(manageApi.updateProduct, {
     onError: err => {
-      console.log(err);
       alertRef.current?.configAlert({
         isOpen: true,
         status: 'error',
@@ -24,7 +23,6 @@ export function useEdit({product}: EditProps) {
       });
     },
     onSuccess: res => {
-      console.log(res);
       queryClient.invalidateQueries(['products']);
       queryClient.refetchQueries(['product', product?.id_product]);
       alertRef.current?.configAlert({

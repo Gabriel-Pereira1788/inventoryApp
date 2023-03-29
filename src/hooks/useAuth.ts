@@ -27,14 +27,14 @@ export function useAuth() {
           navigation.navigate('dashboard');
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => 
       .finally(() => {
         setLoading(false);
       });
   }
 
   async function createUser(dataSubmit: RegisterDTO) {
-    console.log(dataSubmit);
+    
     setLoading(true);
 
     try {
@@ -56,9 +56,9 @@ export function useAuth() {
       }
 
       navigation.navigate('dashboard');
-      console.log(dataUser.user.metadata);
+      
     } catch (error) {
-      console.log('firebase-error', error);
+      
     } finally {
       setLoading(false);
     }

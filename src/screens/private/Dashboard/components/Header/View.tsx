@@ -15,7 +15,7 @@ export interface HeaderProps {
 export default function Header({salesAmount, currentFilter}: HeaderProps) {
   const user = useUser();
   const {percentage} = useHeader({salesAmount, currentFilter});
-  console.log('percentage', percentage);
+
   return (
     <S.Box
       width={sizes.width}

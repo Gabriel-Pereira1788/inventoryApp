@@ -14,7 +14,7 @@ export interface DataViewProps extends S.IPressableProps {}
 
 export default function DataView(props: DataViewProps) {
   const user = useUser();
-  console.log('user-photo', user?.photoURL);
+
   return (
     <Card
       px={4}

@@ -10,7 +10,5 @@ export class ProductsModel extends Products {
     await api.post('/create-product', dataProduct);
   }
 
-  async delete(id: string) {
-    console.log(id);
-  }
+  async delete(id: string) {}
 }

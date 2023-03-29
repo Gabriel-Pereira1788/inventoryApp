@@ -9,7 +9,6 @@ type ContainerProps = {
 };
 
 export function ContainerCards({statistics, isLoading}: ContainerProps) {
-  console.log(statistics);
   return (
     <S.ScrollView
       horizontal

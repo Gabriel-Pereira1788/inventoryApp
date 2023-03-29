@@ -28,11 +28,8 @@ export function useAddProduct({}: AddProductProps) {
   const {mutateAsync, isLoading: loadingSubmit} = useMutation(
     productsApi.create,
     {
-      onError: err => {
-        console.log(err);
-      },
-      onSuccess: res => {
-        console.log(res);
+      onError: () => {},
+      onSuccess: () => {
         queryClient.refetchQueries(['products']);
         queryClient.invalidateQueries(['statistics']);
         handleToggleState();

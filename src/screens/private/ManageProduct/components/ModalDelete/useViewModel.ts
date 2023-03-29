@@ -11,11 +11,8 @@ export function useModalDelete({product}: UseModalDeleteProps) {
   const {mutateAsync, isLoading} = useMutation(
     () => ManageProduct.deleteProduct(product?.id_product),
     {
-      onError(err) {
-        console.log(err);
-      },
+      onError(err) {},
       onSuccess(data) {
-        console.log(data);
         queryClient.removeQueries(['product', product?.id_product]);
         queryClient.invalidateQueries(['products']);
         queryClient.invalidateQueries(['statistics']);

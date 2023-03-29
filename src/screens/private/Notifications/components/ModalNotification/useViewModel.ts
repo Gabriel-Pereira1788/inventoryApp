@@ -17,10 +17,7 @@ export function useModalNotification({id_notification, read, isOpen}: Props) {
       await notificationsModel.read(id_notification);
       queryClient.invalidateQueries(['notifications']);
       queryClient.refetchQueries(['notifications']);
-      console.log('read notification');
-    } catch (error) {
-      console.log('error-read', error);
-    }
+    } catch (error) {}
   }, [id_notification, queryClient]);
 
   useEffect(() => {

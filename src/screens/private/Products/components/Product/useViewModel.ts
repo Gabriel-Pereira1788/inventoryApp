@@ -25,8 +25,6 @@ export function useProduct(props: UseProductProps) {
 
   const navigation = useNavigation();
 
-  console.log(props.total_pieces_sales);
-
   function handleManageProduct() {
     navigation.navigate('manageProduct', {product: props});
   }

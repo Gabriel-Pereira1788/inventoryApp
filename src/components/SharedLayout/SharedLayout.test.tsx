@@ -27,8 +27,6 @@ describe('SharedLayout', () => {
         </Wrapper>,
       );
 
-      console.log();
-
       expect(getByTestId('iconDashboard').props.style[0].color).toEqual(
         colorActive,
       );
@@ -42,8 +40,6 @@ describe('SharedLayout', () => {
         </Wrapper>,
       );
 
-      console.log();
-
       expect(getByTestId('iconProducts').props.style[0].color).toEqual(
         colorActive,
       );
@@ -56,8 +52,6 @@ describe('SharedLayout', () => {
           </SharedLayout>
         </Wrapper>,
       );
-
-      console.log();
 
       expect(getByTestId('iconNotifications').props.style[0].color).toEqual(
         colorActive,

@@ -1,20 +1,12 @@
-import {useNavigation} from '@react-navigation/native';
-import {useQueryClient} from '@tanstack/react-query';
 import {useEffect} from 'react';
-import {useBackgroundAct} from '../../../hooks/useBackgroundAct';
-import {formatUser} from '../../../utils/formatUser';
-import auth from '@react-native-firebase/auth';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import {useUser} from '../../../store/useUser';
 import {NavigationProps} from '../../../routes/navigation';
 
 type UseInitialProps = Pick<NavigationProps<'initialScreen'>, 'navigation'>;
 
 export function useInitial({navigation}: UseInitialProps) {
-  useBackgroundAct();
-
   const user = useUser();
-  console.log(user);
 
   function redirectScreen() {
     navigation.navigate('login');
@@ -46,6 +38,4 @@ export function useInitial({navigation}: UseInitialProps) {
   //     }
   //   });
   // }, [navigation, queryClient]);
-
-  return {user};
 }

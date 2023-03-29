@@ -27,7 +27,6 @@ export function useManage({product}: UseManageProps) {
 
   async function handleSubmitForm() {
     if (Number(manageForm.salesPieces) > Number(product!.storage)) {
-      console.log('entering');
       alertRef.current?.configAlert({
         isOpen: true,
         status: 'warning',

@@ -23,8 +23,6 @@ export function useChart({}: UseChartProps) {
     },
   );
 
-  console.log('data-chart', statistics);
-
   const conditionRender = statistics && statistics?.labels.length > 0;
 
   return {statistics, isLoading, error, conditionRender};

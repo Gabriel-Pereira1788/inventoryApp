@@ -11,8 +11,6 @@ export function useManageProduct({product}: UseManageProductProps) {
   const user = useUser();
   const manageApi = new ManageProduct(user?.uid);
 
-  console.log(product.id_product);
-
   const {data: dataProduct, isLoading} = useQuery(
     ['product', product.id_product],
     () => manageApi.getById(product.id_product),

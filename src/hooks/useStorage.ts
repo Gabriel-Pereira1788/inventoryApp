@@ -20,13 +20,10 @@ export function useStorage() {
       uploadTask.on(
         'state_changed',
         () => {},
-        error => {
-          console.log(error);
-        },
+        () => {},
         async () => {
           url = await uploadTask.snapshot!.ref.getDownloadURL();
           await callbackFn!(url);
-          console.log(url);
         },
       );
     }
