@@ -13,6 +13,7 @@ export default function Message({sender, text}: MessageProps) {
     <Animated.View entering={SlideInDown.delay(150).duration(220)}>
       <S.HStack
         w="100%"
+        testID="wrapperContainer"
         py={2}
         alignItems={sender === 'user' ? 'flex-end' : 'flex-start'}
         space={2}

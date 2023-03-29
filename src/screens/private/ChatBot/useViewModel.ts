@@ -2,16 +2,42 @@ import {GPT_KEY} from '@env';
 import {useCallback, useEffect, useReducer} from 'react';
 
 import {ChatBot, MessageModel} from './model';
-import {reducer} from './reducer/reducer';
-import {initialState} from './reducer/state';
 
-const assistantBot = new ChatBot();
+export type State = {
+  messages: MessageModel[];
+  loadingMessage: boolean;
+  error: any;
+};
+
+export const initialState: State = {
+  messages: [],
+  loadingMessage: false,
+  error: null,
+};
+
+export const assistantBot = new ChatBot();
 export function useChatBot() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, updatedStates] = useReducer(
+    (current: State, updated: Partial<State>) => ({
+      ...current,
+      ...updated,
+    }),
+    initialState,
+  );
+
+  const createMessage = useCallback(
+    (message: MessageModel) => {
+      updatedStates({
+        messages: [...state.messages, message],
+      });
+    },
+    [state.messages],
+  );
 
   function onSend(messageText: string) {
     const newMessage = new MessageModel({sender: 'user', text: messageText});
-    dispatch({type: 'create_message', payload: newMessage});
+
+    createMessage(newMessage);
   }
 
   const listenResponse = useCallback(async () => {
@@ -21,10 +47,9 @@ export function useChatBot() {
         sender: 'assistant',
         text: response,
       });
-
-      dispatch({type: 'create_message', payload: newMessage});
+      createMessage(newMessage);
     }
-  }, [state.messages]);
+  }, [state.messages, createMessage]);
 
   const onConnect = useCallback(async () => {
     console.log('gpt-key', GPT_KEY);
@@ -35,9 +60,9 @@ export function useChatBot() {
         text: response,
       });
 
-      dispatch({type: 'create_message', payload: newMessage});
+      createMessage(newMessage);
     }
-  }, []);
+  }, [createMessage]);
 
   useEffect(() => {
     const lengthList = state.messages.length;

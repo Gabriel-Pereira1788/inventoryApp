@@ -17,9 +17,9 @@ export default function Header({}: Props) {
       alignItems="center"
       justifyContent="center">
       <S.HStack space={3} alignItems="center">
-        <IconSVG size="lg" Icon={IconBot} />
+        <IconSVG testID="iconBot" size="lg" Icon={IconBot} />
         <S.Text color="#b1b0b0" bold fontSize="md">
-          assistente virutal
+          assistente virtual
         </S.Text>
       </S.HStack>
     </S.HStack>

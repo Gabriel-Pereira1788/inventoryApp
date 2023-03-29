@@ -24,6 +24,7 @@ export default function SendMessage({onSend}: SendMessageProps) {
       backgroundColor="#1f1d23"
       justifyContent="space-between">
       <S.Input
+        testID="inputMessage"
         borderWidth={0}
         placeholder="Digite aqui..."
         placeholderTextColor="#ddd"
@@ -36,6 +37,7 @@ export default function SendMessage({onSend}: SendMessageProps) {
       />
       <S.Box alignItems="center" justifyContent="center">
         <TouchableOpacity
+          testID="buttonSend"
           onPress={handleSend}
           onPressIn={() => (pressed.value = true)}
           onPressOut={() => (pressed.value = false)}>

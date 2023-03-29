@@ -19,7 +19,7 @@ type ApiMessage = {
 };
 export class ChatBot {
   private user?: User = queryClient.getQueryData(['user']);
-  private systemPrompt: ApiMessage = {
+  systemPrompt: ApiMessage = {
     role: 'system',
     content: PROMPT_INITIAL + ` The name of user is ${this.user?.name}`,
   };
@@ -47,7 +47,7 @@ export class ChatBot {
   async postMessage(
     messages: ApiMessage[],
     tokens?: number,
-  ): Promise<string | undefined> {
+  ): Promise<string | undefined | null> {
     const body = {
       model: 'gpt-3.5-turbo',
       messages,
@@ -70,6 +70,7 @@ export class ChatBot {
     } catch (error) {
       const Error = error as AxiosError;
       console.log('error-bot', Error.response?.data);
+      return null;
     }
   }
 }
