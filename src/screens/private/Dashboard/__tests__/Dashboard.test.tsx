@@ -38,7 +38,7 @@ const mockedDataDashboard = {
 };
 
 const mockedUseDashboard = useDashboard as jest.Mock<any>;
-jest.mock('./useViewModel');
+jest.mock('../useViewModel');
 
 const navigation = {
   addListener: jest.fn(),

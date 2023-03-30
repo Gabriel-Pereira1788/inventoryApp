@@ -11,7 +11,12 @@ export default function Notifications({}: Props) {
 
   return (
     <SharedLayout currentPath="notifications">
-      <S.ScrollView flex={1} mt="20%" w="full" paddingX={5}>
+      <S.ScrollView
+        testID="notifications-scrollview"
+        flex={1}
+        mt="20%"
+        w="full"
+        paddingX={5}>
         {data &&
           data.length > 0 &&
           data.map(notification => (

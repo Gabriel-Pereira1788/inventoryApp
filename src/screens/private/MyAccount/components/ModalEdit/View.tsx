@@ -24,7 +24,7 @@ export function ModalEdit(props: ModalEditProps) {
     props.onClose();
   };
   return (
-    <Modal {...props}>
+    <Modal testID="modal-edit" {...props}>
       <S.ScrollView
         w="100%"
         showsVerticalScrollIndicator={false}
@@ -61,18 +61,23 @@ export function ModalEdit(props: ModalEditProps) {
           </S.Box>
 
           <Input
+            testID="input-name"
             title="Nome"
             w={'100%'}
             value={dataUser && dataUser.name}
-            onChangeText={handleChangeData('name')}
+            onChangeText={value => handleChangeData('name', value)}
           />
           <Input
+            testID="input-email"
             title="email"
             w="100%"
             value={dataUser && dataUser.email}
-            onChangeText={handleChangeData('email')}
+            onChangeText={value => handleChangeData('email', value)}
           />
-          <Button onPress={handleSubmit}> Confirmar </Button>
+          <Button testID="button-confirm" onPress={handleSubmit}>
+            {' '}
+            Confirmar{' '}
+          </Button>
         </S.VStack>
       </S.ScrollView>
     </Modal>

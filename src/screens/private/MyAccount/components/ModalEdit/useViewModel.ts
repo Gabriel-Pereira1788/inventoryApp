@@ -14,10 +14,8 @@ export function useEditUser() {
   const {getImageLibrary} = usePicker();
   const {saveImage} = useStorage();
 
-  function handleChangeData(name: keyof User) {
-    return (value: string) => {
-      setDataUser(prev => ({...prev, [name]: value}));
-    };
+  function handleChangeData(name: keyof User, value: string) {
+    setDataUser(prev => ({...prev, [name]: value}));
   }
 
   async function onSubmit() {

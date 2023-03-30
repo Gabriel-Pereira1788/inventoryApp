@@ -13,7 +13,7 @@ import {formatDate} from '../../../../../utils/formatDate';
 const mockedDataUser: User = {
   email: 'teste@gmail.com',
   name: 'teste',
-  photoUrl: '',
+  photoURL: '',
   uid: '12345',
   createdAt: new Date(),
 };

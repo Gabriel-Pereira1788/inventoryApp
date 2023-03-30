@@ -2,17 +2,17 @@ import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 import {Wrapper} from '../../../../../components/JestWrapper';
 import Manage from './View';
-import {Product} from '../../../../../models/Product';
+import {ProductDTO} from '../../../../../models/Product';
 import {useManage} from './useViewModel';
 import {useVisibleAnimation} from '../../../../../hooks/useVisibleAnimation';
 
-const product: Product = {
+const product: ProductDTO = {
   category: 'moda',
   id_product: '1',
   id_user: '12345',
   name_product: 'teste1',
-  price_purchased: 25.0,
-  price_saled: 100,
+  price_purchased: '25.0',
+  price_saled: '100',
   storage: 10,
 };
 

@@ -20,7 +20,7 @@ export default function ModalNotification({
   useModalNotification({read, isOpen: rest.isOpen, id_notification});
   return (
     <S.Modal {...rest}>
-      <S.Modal.Content w="90%">
+      <S.Modal.Content testID="modal-content" w="90%">
         <S.HStack
           w="100%"
           justifyContent="space-between"

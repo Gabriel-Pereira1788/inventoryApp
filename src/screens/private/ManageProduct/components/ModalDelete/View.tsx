@@ -20,7 +20,7 @@ export function ModalDelete({product, ...rest}: ModalDeleteProps) {
         justifyContent="center"
         p={5}>
         <S.Stack w="100%" space={5}>
-          <S.Text color="#595656" bold>
+          <S.Text testID="nameProduct" color="#595656" bold>
             Tem certeza que Deseja deletar {product?.name_product}?
           </S.Text>
           <Button onPress={handleDeleteProduct} loading={isLoading}>

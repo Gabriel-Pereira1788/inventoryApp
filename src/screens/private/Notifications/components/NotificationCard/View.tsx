@@ -27,9 +27,13 @@ export default function NotificationCard({
 
   const date = formatDate(new Date(createdAt));
 
+  console.log(text.slice(0, 57));
+
+  console.log(item_alert);
+
   return (
     <>
-      <TouchableOpacity onPress={handleToggleState}>
+      <TouchableOpacity testID="card-notification" onPress={handleToggleState}>
         <S.HStack
           position="relative"
           w="100%"
@@ -62,7 +66,11 @@ export default function NotificationCard({
               {text.slice(0, 57)}...
             </S.Text>
             <S.HStack w="100%" alignItems="center" justifyContent="flex-end">
-              <S.Text fontWeight={600} fontSize="sm" color="#b5b2b2">
+              <S.Text
+                testID="date"
+                fontWeight={600}
+                fontSize="sm"
+                color="#b5b2b2">
                 {date}
               </S.Text>
             </S.HStack>

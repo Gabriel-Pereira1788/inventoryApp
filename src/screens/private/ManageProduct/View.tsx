@@ -45,6 +45,7 @@ export default function ManageProduct({
               {product.name_product}
             </S.Text>
             <S.Pressable
+              testID="deleteButton"
               position="absolute"
               right={5}
               _pressed={{opacity: 0.8}}

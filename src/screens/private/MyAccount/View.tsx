@@ -27,7 +27,13 @@ export default function MyAccount({}: Props) {
         <DataView onPress={handleToggleState} key={String(isOpen)} />
 
         <S.Box mt={10} width="100%" alignItems="center" justifyContent="center">
-          <Ionicons name="exit" color="#000" size={30} onPress={signOut} />
+          <Ionicons
+            testID="exit-button"
+            name="exit"
+            color="#000"
+            size={30}
+            onPress={signOut}
+          />
         </S.Box>
       </SharedLayout>
       <ModalEdit isOpen={isOpen} onClose={handleToggleState} />

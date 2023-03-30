@@ -17,6 +17,7 @@ export default function DataView(props: DataViewProps) {
 
   return (
     <Card
+      testID="data-view"
       px={4}
       py={3}
       position="relative"
