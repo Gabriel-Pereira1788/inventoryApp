@@ -4,9 +4,15 @@ import React from 'react';
 interface SkeletonProps extends S.IStackProps {
   children: React.ReactNode;
   conditionRender?: boolean;
+  testLoadingId?: string;
 }
 
-export function Skeleton({children, conditionRender, ...rest}: SkeletonProps) {
+export function Skeleton({
+  children,
+  conditionRender,
+  testLoadingId,
+  ...rest
+}: SkeletonProps) {
   if (conditionRender) {
     return (
       <S.VStack
@@ -16,7 +22,7 @@ export function Skeleton({children, conditionRender, ...rest}: SkeletonProps) {
         justifyContent="center"
         p={2}
         position="relative"
-        testID="skeleton">
+        testID={testLoadingId}>
         <S.Skeleton
           size="8"
           rounded="full"

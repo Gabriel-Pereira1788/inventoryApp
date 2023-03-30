@@ -40,16 +40,19 @@ export type DataCardProps<T> = S.IStackProps & {
   textCard: T;
   data?: number;
   loadingData?: boolean;
+  testLoadingId?: string;
 };
 
 export function DataCard({
   textCard,
   loadingData,
   data,
+  testLoadingId,
   ...rest
 }: DataCardProps<keyof typeof Icons>) {
   return (
     <Skeleton
+      testLoadingId={testLoadingId}
       conditionRender={loadingData}
       minW="40"
       minH="40"

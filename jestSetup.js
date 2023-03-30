@@ -41,4 +41,6 @@ jest.mock('react-native-image-picker', () => {
   };
 });
 
+jest.mock('react-native-linear-gradient', () => 'LinearGradient');
+
 jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');

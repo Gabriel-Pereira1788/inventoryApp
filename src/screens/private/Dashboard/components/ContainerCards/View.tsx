@@ -4,7 +4,7 @@ import {StatisticsDTO} from '../../../../../models/Statistics';
 import {DataCard} from '../DataCard/View';
 
 type ContainerProps = {
-  statistics?: StatisticsDTO;
+  statistics?: StatisticsDTO | null;
   isLoading: boolean;
 };
 
@@ -19,6 +19,7 @@ export function ContainerCards({statistics, isLoading}: ContainerProps) {
         paddingVertical: 10,
       }}>
       <DataCard
+        testLoadingId="loading-card-0"
         mx={4}
         loadingData={isLoading}
         background="#fff"
@@ -26,6 +27,7 @@ export function ContainerCards({statistics, isLoading}: ContainerProps) {
         textCard="Produtos que entraram"
       />
       <DataCard
+        testLoadingId="loading-card-1"
         mx={4}
         loadingData={isLoading}
         background="#fff"
@@ -34,6 +36,7 @@ export function ContainerCards({statistics, isLoading}: ContainerProps) {
       />
 
       <DataCard
+        testLoadingId="loading-card-2"
         mx={4}
         loadingData={isLoading}
         background="#fff"
@@ -41,6 +44,7 @@ export function ContainerCards({statistics, isLoading}: ContainerProps) {
         textCard="Total em produtos"
       />
       <DataCard
+        testLoadingId="loading-card-3"
         mx={4}
         loadingData={isLoading}
         background="#fff"

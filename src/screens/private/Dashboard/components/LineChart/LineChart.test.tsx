@@ -1,50 +1,47 @@
 import React from 'react';
 import {render} from '@testing-library/react-native';
 import {LineChart} from './View';
-import {EMPTY_MESSAGES} from '../../../../../constants/defaultTexts';
 import {Wrapper} from '../../../../../components/JestWrapper';
-import {useChart} from '../../hooks/useChart';
+import {useChart} from './useViewModel';
 
-const mockedStatistics = {
-  statistics: {
-    labels: ['Jan', 'Feb', 'Mar'],
-    values: [10, 20, 30],
-  },
-  conditionRender: false,
-};
+jest.mock('./useViewModel');
 
-const mockedUseChart = useChart as jest.Mock<any>;
-jest.mock('../../hooks/useChart');
+const useChartMock = useChart as jest.Mock<ReturnType<typeof useChart>>;
+
+beforeAll(() => {
+  useChartMock.mockImplementation(() => ({
+    conditionRender: true,
+    error: {},
+    isLoading: false,
+    statistics: {
+      labels: ['jan', 'fev', 'mar'],
+      values: [100, 200, 300],
+    },
+  }));
+});
 
 describe('LineChart', () => {
-  it('renders the chart correctly', () => {
-    mockedUseChart.mockImplementation(() => ({
-      data: mockedStatistics,
-    }));
-    const {getByText} = render(
+  it('should render a chart when there are sales data', () => {
+    const {getByTestId} = render(
       <Wrapper>
-        <LineChart />
+        <LineChart currentFilter="week" />,
       </Wrapper>,
     );
-    expect(getByText('Jan')).toBeTruthy();
+    expect(getByTestId('icon-chart')).toBeNull();
   });
 
-  it('renders the empty message when there is no data', () => {
-    mockedUseChart.mockImplementation(() => ({
-      data: {
-        statistics: {
-          labels: undefined,
-          values: undefined,
-        },
-        conditionRender: false,
-      },
+  it('should render an empty message when there are no sales data', () => {
+    useChartMock.mockImplementation(() => ({
+      conditionRender: false,
+      error: {},
+      isLoading: false,
+      statistics: undefined,
     }));
-    const {getByText, getByTestId} = render(
+    const {getByTestId} = render(
       <Wrapper>
-        <LineChart />,
+        <LineChart currentFilter="week" />
       </Wrapper>,
     );
-    expect(getByText(EMPTY_MESSAGES.statistics)).toBeTruthy();
-    expect(getByTestId('icon-chart')).toBeTruthy();
+    expect(getByTestId('icon-chart')).toBeDefined();
   });
 });

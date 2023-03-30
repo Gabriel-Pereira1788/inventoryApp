@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, fireEvent} from '@testing-library/react-native';
+import {render} from '@testing-library/react-native';
 import {DataCard} from './View';
 import {Wrapper} from '../../../../../components/JestWrapper';
 
@@ -36,7 +36,12 @@ describe('DataCard', () => {
   it('displays a skeleton when loadingData is true', () => {
     const {getByTestId} = render(
       <Wrapper>
-        <DataCard textCard="Produtos que entraram" loadingData={true} />,
+        <DataCard
+          textCard="Produtos que entraram"
+          loadingData={true}
+          testLoadingId="skeleton"
+        />
+        ,
       </Wrapper>,
     );
     expect(getByTestId('skeleton')).toBeTruthy();

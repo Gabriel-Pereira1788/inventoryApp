@@ -3,10 +3,8 @@ import React, {createContext, useContext} from 'react';
 import * as S from 'native-base';
 //*components
 import {SharedLayout} from '../../../components/SharedLayout';
-import {BestSellingCard} from './components/BestSellingCard/View';
 import {LineChart} from './components/LineChart/View';
 import {FilterGraph} from './components/FilterGraph/View';
-import {CurrencyFormat} from '../../../components/CurrencyFormat/View';
 import {ContainerCards} from './components/ContainerCards/View';
 import {IsMounted} from '../../../components/IsMounted/View';
 import Header from './components/Header/View';

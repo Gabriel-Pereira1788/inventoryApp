@@ -44,7 +44,12 @@ export default function Header({salesAmount, currentFilter}: HeaderProps) {
           </S.Text>
         </S.Box>
         <S.HStack w="100%" justifyContent="space-between" alignItems="center">
-          <S.Text bold fontSize="4xl" color="#e8f8fa" shadow={4}>
+          <S.Text
+            testID="total-sale"
+            bold
+            fontSize="4xl"
+            color="#e8f8fa"
+            shadow={4}>
             ${salesAmount || 0}
           </S.Text>
           <RenderIF condition={percentage !== ''}>

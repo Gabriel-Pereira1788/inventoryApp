@@ -19,6 +19,8 @@ const mockBestSelling: {
     price_purchased: 100,
     price_saled: 200,
     storage: 20,
+    category: 'tecnologia',
+    path_image: 'www.example.com',
   },
   data_sale: {
     createdAt: new Date(),

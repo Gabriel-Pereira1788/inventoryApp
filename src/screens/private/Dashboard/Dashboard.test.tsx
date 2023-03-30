@@ -4,8 +4,6 @@ import {Dashboard} from './View';
 import {Wrapper} from '../../../components/JestWrapper';
 import {useDashboard} from './useViewModel';
 
-// const changeFilter = jest.fn();
-
 const mockedDataDashboard = {
   statistics: {
     parts_entered: 100,
@@ -40,7 +38,12 @@ const mockedDataDashboard = {
 };
 
 const mockedUseDashboard = useDashboard as jest.Mock<any>;
-jest.mock('./hooks/useDashboard');
+jest.mock('./useViewModel');
+
+const navigation = {
+  addListener: jest.fn(),
+} as any;
+const route = {} as any;
 
 describe('Dashboard', () => {
   const changeFilter = jest.fn();
@@ -55,7 +58,7 @@ describe('Dashboard', () => {
     it('renders correctly', () => {
       const {getByText, getByTestId} = render(
         <Wrapper>
-          <Dashboard />
+          <Dashboard navigation={navigation} route={route} />
         </Wrapper>,
       );
       expect(getByText('Produtos que entraram')).toBeTruthy();
@@ -69,17 +72,17 @@ describe('Dashboard', () => {
     it('filters correctly', async () => {
       const {getByText, rerender} = render(
         <Wrapper>
-          <Dashboard />
+          <Dashboard navigation={navigation} route={route} />
         </Wrapper>,
       );
-      fireEvent.press(getByText('1w')),
-        await waitFor(() =>
-          rerender(
-            <Wrapper>
-              <Dashboard />
-            </Wrapper>,
-          ),
-        );
+      fireEvent.press(getByText('1w'));
+      await waitFor(() =>
+        rerender(
+          <Wrapper>
+            <Dashboard navigation={navigation} route={route} />
+          </Wrapper>,
+        ),
+      );
 
       expect(getByText('1m').props.style.color).toEqual('#FFFFFF');
     });
@@ -87,7 +90,7 @@ describe('Dashboard', () => {
     it('calls changeFilter correctly', () => {
       const {getByText} = render(
         <Wrapper>
-          <Dashboard />
+          <Dashboard navigation={navigation} route={route} />
         </Wrapper>,
       );
       fireEvent.press(getByText('1w'));
