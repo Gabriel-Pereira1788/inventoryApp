@@ -27,7 +27,10 @@ describe('LineChart', () => {
         <LineChart currentFilter="week" />,
       </Wrapper>,
     );
-    expect(getByTestId('icon-chart')).toBeNull();
+
+    const chartWrapper = getByTestId('chart-wrapper');
+    console.log(chartWrapper.children);
+    expect(chartWrapper.children.length > 0).toBeTruthy();
   });
 
   it('should render an empty message when there are no sales data', () => {

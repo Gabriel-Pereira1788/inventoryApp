@@ -86,11 +86,6 @@ export function Dashboard(propsNavigation: NavigationProps) {
                 <LineChart currentFilter={currentFilter} />
               </S.Box>
             </S.VStack>
-
-            {/*     <BestSellingCard
-              bestSelling={statistics?.best_selling}
-              loadingData={isLoading}
-            /> */}
           </S.ScrollView>
         </SharedLayout>
       </IsMounted>

@@ -1,8 +1,8 @@
 import React from 'react';
-import {render, fireEvent, waitFor} from '@testing-library/react-native';
-import {Dashboard} from './View';
-import {Wrapper} from '../../../components/JestWrapper';
-import {useDashboard} from './useViewModel';
+import {render, fireEvent} from '@testing-library/react-native';
+import {Dashboard} from '../View';
+import {Wrapper} from '../../../../components/JestWrapper';
+import {useDashboard} from '../useViewModel';
 
 const mockedDataDashboard = {
   statistics: {
@@ -61,43 +61,34 @@ describe('Dashboard', () => {
           <Dashboard navigation={navigation} route={route} />
         </Wrapper>,
       );
-      expect(getByText('Produtos que entraram')).toBeTruthy();
-      expect(getByText('Produtos que sairam')).toBeTruthy();
-      expect(getByTestId('total-sale')).toBeTruthy();
-      expect(getByText('Product 1')).toBeTruthy();
+      expect(getByText('Produtos que entraram')).toBeDefined();
+      expect(getByText('Produtos que sairam')).toBeDefined();
+      expect(getByText('Total em produtos')).toBeDefined();
+      expect(getByText('Total em estoque')).toBeDefined();
+      expect(getByTestId('total-sale')).toBeDefined();
     });
   });
 
   describe('Filters', () => {
     it('filters correctly', async () => {
-      const {getByText, rerender} = render(
-        <Wrapper>
-          <Dashboard navigation={navigation} route={route} />
-        </Wrapper>,
-      );
-      fireEvent.press(getByText('1w'));
-      await waitFor(() =>
-        rerender(
-          <Wrapper>
-            <Dashboard navigation={navigation} route={route} />
-          </Wrapper>,
-        ),
-      );
-
-      expect(getByText('1m').props.style.color).toEqual('#FFFFFF');
-    });
-
-    it('calls changeFilter correctly', () => {
       const {getByText} = render(
         <Wrapper>
           <Dashboard navigation={navigation} route={route} />
         </Wrapper>,
       );
+      fireEvent.press(getByText('1d'));
+
+      expect(changeFilter).toHaveBeenCalledWith('day');
       fireEvent.press(getByText('1w'));
-      expect(getByText('1w').props.style.borderColor).toBeTruthy();
+      expect(changeFilter).toHaveBeenCalledWith('week');
       fireEvent.press(getByText('1m'));
-      expect(getByText('1m').props.style.borderColor).toBeTruthy();
-      expect(changeFilter).toHaveBeenCalled();
+      expect(changeFilter).toHaveBeenCalledWith('month');
+      fireEvent.press(getByText('3m'));
+      expect(changeFilter).toHaveBeenCalledWith('3 month');
+      fireEvent.press(getByText('6m'));
+      expect(changeFilter).toHaveBeenCalledWith('6 month');
+      fireEvent.press(getByText('1y'));
+      expect(changeFilter).toHaveBeenCalledWith('year');
     });
   });
 });

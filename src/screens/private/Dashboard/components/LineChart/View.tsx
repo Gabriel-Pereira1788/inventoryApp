@@ -26,7 +26,12 @@ export function LineChart(props: LineChartProps) {
   const {statistics, conditionRender} = useChart(props);
 
   return (
-    <S.Box alignItems="center" justifyContent="center" width="full" mt="10%">
+    <S.Box
+      testID="chart-wrapper"
+      alignItems="center"
+      justifyContent="center"
+      width="full"
+      mt="10%">
       <RenderIF
         condition={!!conditionRender}
         RenderComponent={() => (
