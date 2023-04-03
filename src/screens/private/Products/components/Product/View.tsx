@@ -20,7 +20,7 @@ export function Product(props: ProductProps) {
   const {isLowStorage, redirectSingleProduct} = useProduct(props);
   return (
     <Animated.View
-      entering={BounceIn.delay(100).duration(500)}
+      entering={BounceIn.delay(100)}
       style={[
         {
           padding: 10,
@@ -52,7 +52,9 @@ export function Product(props: ProductProps) {
           </S.Text>
         </S.HStack>
       </RenderIF>
-      <TouchableOpacity onPress={redirectSingleProduct}>
+      <TouchableOpacity
+        testID="productTouchable"
+        onPress={redirectSingleProduct}>
         <S.HStack position="relative" alignItems="center" my={2}>
           <S.Box>
             <RenderIF

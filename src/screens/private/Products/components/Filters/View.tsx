@@ -15,6 +15,7 @@ export function Filters({...rest}: FiltersProps) {
     dataFilter,
     totalStorage,
     totalValue,
+    currentCategory,
     handleDataFilter,
     handleCurrentCategory,
     setFilters,
@@ -39,23 +40,29 @@ export function Filters({...rest}: FiltersProps) {
           placeholder="Categorias"
           fontWeight="bold"
           color="#000"
+          selectedValue={currentCategory}
           onValueChange={handleCurrentCategory}
           items={categories}
         />
         <RangeSlider
+          testID="price-slider"
           title="Preço"
           maxValue={totalValue}
           prefix="R$"
           value={dataFilter.price}
-          onChange={handleDataFilter('price')}
+          onChange={value => handleDataFilter('price', value)}
         />
         <RangeSlider
+          testID="storage-slider"
           title="Estoque"
           maxValue={totalStorage}
           value={dataFilter.storage}
-          onChange={handleDataFilter('storage')}
+          onChange={value => handleDataFilter('storage', value)}
+          step={1}
         />
-        <Button onPress={setFilters}>Confirmar</Button>
+        <Button onPress={setFilters} testID="button-apply-filter">
+          Confirmar
+        </Button>
       </S.Modal.Content>
     </S.Modal>
   );

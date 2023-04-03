@@ -52,6 +52,7 @@ export function Controllers({}: ControllersProps) {
       />
       <S.Pressable onPress={handleToggleState}>
         <MaterialComunnityIcons
+          testID="filtersIcon"
           name="tune-vertical-variant"
           size={25}
           color={colorMode === 'dark' ? '#F0DC61' : '#ddd'}
@@ -59,7 +60,11 @@ export function Controllers({}: ControllersProps) {
       </S.Pressable>
 
       <RenderIF condition={isOpen}>
-        <Filters isOpen={isOpen} onClose={handleToggleState} />
+        <Filters
+          isOpen={isOpen}
+          onClose={handleToggleState}
+          testID="filtersModal"
+        />
       </RenderIF>
     </S.HStack>
   );

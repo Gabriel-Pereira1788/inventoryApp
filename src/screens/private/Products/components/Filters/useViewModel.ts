@@ -20,10 +20,8 @@ export function useFilter({onClose}: UserFilterProps) {
 
   const [currentCategory, setCurrentCategory] = useState<string>(category);
 
-  function handleDataFilter(name: keyof DataFilter) {
-    return (value: number) => {
-      setPrevRangeFilter(prev => ({...prev, [name]: value}));
-    };
+  function handleDataFilter(name: keyof DataFilter, value: number) {
+    setPrevRangeFilter(prev => ({...prev, [name]: value}));
   }
 
   function handleCurrentCategory(value: string) {

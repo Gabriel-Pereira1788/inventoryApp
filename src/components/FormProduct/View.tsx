@@ -120,7 +120,11 @@ export function FormProduct({
         onValueChange={handleChange('category')}
         items={categories}
       />
-      <Button my={10} onPress={handleSubmit} loading={loadingSubmit}>
+      <Button
+        testID="confirm-button"
+        my={10}
+        onPress={handleSubmit}
+        loading={loadingSubmit}>
         Confirmar
       </Button>
     </S.VStack>

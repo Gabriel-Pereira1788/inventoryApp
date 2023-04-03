@@ -14,6 +14,7 @@ MaterialIcon.loadFont();
 import {Paths} from '../../hooks/useBottomTabs';
 import {TouchableOpacity} from 'react-native';
 import {RenderIF} from '../RenderIF/View';
+import Pulse from '../Pulse/View';
 
 export interface BottomTabsProps {
   currentPath?: Paths;
@@ -50,14 +51,7 @@ export default function BottomTabs({currentPath}: BottomTabsProps) {
       />
       <S.Box position="relative">
         <RenderIF condition={unreadNotifications}>
-          <S.Circle
-            size={2}
-            shadow={3}
-            backgroundColor="red.500"
-            position="absolute"
-            right={0}
-            top={0}
-          />
+          <Pulse />
         </RenderIF>
         <MaterialIcon
           testID="iconNotifications"

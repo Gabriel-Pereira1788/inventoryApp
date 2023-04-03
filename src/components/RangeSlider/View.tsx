@@ -32,7 +32,8 @@ export function RangeSlider({title, prefix, ...rest}: RangeProps) {
         defaultValue={70}
         minValue={0}
         accessibilityLabel="hello world"
-        step={10}
+        step={0.1}
+        maxValue={rest.value}
         {...rest}>
         <S.Slider.Track bgColor="gray.200">
           <S.Slider.FilledTrack bgColor="primary.300" />

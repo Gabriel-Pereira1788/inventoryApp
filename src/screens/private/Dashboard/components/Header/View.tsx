@@ -50,7 +50,7 @@ export default function Header({salesAmount, currentFilter}: HeaderProps) {
             fontSize="4xl"
             color="#e8f8fa"
             shadow={4}>
-            ${salesAmount || 0}
+            ${salesAmount?.toFixed(1) || 0}
           </S.Text>
           <RenderIF condition={percentage !== ''}>
             <S.Box

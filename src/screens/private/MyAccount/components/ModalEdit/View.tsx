@@ -32,7 +32,7 @@ export function ModalEdit(props: ModalEditProps) {
           base: '700px',
           lg: 'auto',
         }}>
-        <S.VStack flex={1} p={4} space={3}>
+        <S.VStack flex={1} p={7} space={3}>
           <S.Box
             my={10}
             alignItems="center"
@@ -55,7 +55,7 @@ export function ModalEdit(props: ModalEditProps) {
                 />
               </RenderIF>
               <S.Box position="absolute" bottom={0}>
-                <MaterialIcons name="pencil" color="#F0DC61" size={30} />
+                <MaterialIcons name="pencil" color="#104b5b" size={30} />
               </S.Box>
             </TouchableOpacity>
           </S.Box>
@@ -74,9 +74,8 @@ export function ModalEdit(props: ModalEditProps) {
             value={dataUser && dataUser.email}
             onChangeText={value => handleChangeData('email', value)}
           />
-          <Button testID="button-confirm" onPress={handleSubmit}>
-            {' '}
-            Confirmar{' '}
+          <Button mt={5} testID="button-confirm" onPress={handleSubmit}>
+            Confirmar
           </Button>
         </S.VStack>
       </S.ScrollView>

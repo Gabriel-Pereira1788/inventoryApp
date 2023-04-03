@@ -23,12 +23,17 @@ export function AddProduct({}: AddProductProps) {
           onPress={handleToggleState}
           onPressOut={() => (pressed.value = false)}>
           <Animated.View style={uas}>
-            <MaterialIcons size={37} name="plus" color="#2989b0" />
+            <MaterialIcons
+              size={37}
+              name="plus"
+              color="#2989b0"
+              testID="plus-icon"
+            />
           </Animated.View>
         </TouchableOpacity>
       </S.HStack>
 
-      <Modal isOpen={isOpen} onClose={handleToggleState}>
+      <Modal isOpen={isOpen} onClose={handleToggleState} testID="modal">
         <S.ScrollView
           contentContainerStyle={{
             flexGrow: 1,
